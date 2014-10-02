@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>UI-Notify</title>
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/youshoopblue.css" rel="stylesheet" />
+    <link href="css/js-ui.css" rel="stylesheet" />
+    <link href="../highlight/railscasts.css" rel="stylesheet" />
+ </head>
+<body class="container-fluid">
+
+    <section class="row">
+        <div class="col-md-12">
+            <h1>
+                <i class="fa fa-bookmark-o">&nbsp;UI-Notify</i>
+            </h1>
+            <p>The UI-Notify is a simple message alert</p>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Example</h4>
+                    <div>
+                        <div class="col-md-12" id="notify"></div>
+                        <button type="button" class="btn btn-default" id="btnSuccess">Success</button>
+                        <button type="button" class="btn btn-default" id="btnInfo">Info</button>
+                        <button type="button" class="btn btn-default" id="btnWarning">Warning</button>
+                        <button type="button" class="btn btn-default" id="btnDanger">Danger</button>
+                        <button type="button" class="btn btn-default" id="btnWait">Wait...</button>                    
+                    </div>
+                    <pre class="js">
+                          <code class="javascript">
+                             var UINotify = new UI.Notify(document.getElementById('notify'));
+                          </code>
+                          
+                    </pre>                    
+                </div>                
+            </div>
+        </div>
+    </section>    
+    <script src="../highlight/highlight.pack.js"></script>
+    <script src="js/js-ui.js"></script>
+    <script>       
+        hljs.initHighlightingOnLoad();
+        var UINotify = new UI.Notify(document.getElementById('notify'));
+        document.getElementById('btnSuccess').onclick = function () {
+            UINotify.success('This is an example of success notification.');
+        }
+        document.getElementById('btnInfo').onclick = function () {
+            UINotify.info('This is an example of info notification.');
+        }
+        document.getElementById('btnWarning').onclick = function () {
+            UINotify.warning('This is an example of warning notification.');
+        }
+        document.getElementById('btnDanger').onclick = function () {
+            UINotify.danger('This is an example of danger notification.');
+        }
+        document.getElementById('btnWait').onclick = function () {
+            UINotify.wait('This is an example of wait notification.');
+        }
+        
+    </script>
+    
+</body>
+</html>
