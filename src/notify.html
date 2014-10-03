@@ -4,9 +4,8 @@
     <title>UI-Notify</title>
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/youshoopblue.css" rel="stylesheet" />
-    <link href="css/js-ui.css" rel="stylesheet" />
-    <link href="../highlight/railscasts.css" rel="stylesheet" />
- </head>
+    <link href="css/js-ui.css" rel="stylesheet" />    
+</head>
 <body class="container-fluid">
 
     <section class="row">
@@ -19,45 +18,61 @@
                 <div class="panel-body">
                     <h4>Example</h4>
                     <div>
+                        <!-- Element for show the notification -->
                         <div class="col-md-12" id="notify"></div>
+
                         <button type="button" class="btn btn-default" id="btnSuccess">Success</button>
                         <button type="button" class="btn btn-default" id="btnInfo">Info</button>
                         <button type="button" class="btn btn-default" id="btnWarning">Warning</button>
                         <button type="button" class="btn btn-default" id="btnDanger">Danger</button>
-                        <button type="button" class="btn btn-default" id="btnWait">Wait...</button>                    
+                        <button type="button" class="btn btn-default" id="btnWait">Wait...</button>
+                        <button type="button" class="btn btn-default" id="btnClose">Close</button>
                     </div>
                     <pre class="js">
-                          <code class="javascript">
+                    <code class="javascript">
                              var UINotify = new UI.Notify(document.getElementById('notify'));
                           </code>
                           
-                    </pre>                    
-                </div>                
+                    </pre>
+                </div>
             </div>
         </div>
-    </section>    
-    <script src="../highlight/highlight.pack.js"></script>
+    </section>
+    
     <script src="js/js-ui.js"></script>
-    <script>       
-        hljs.initHighlightingOnLoad();
-        var UINotify = new UI.Notify(document.getElementById('notify'));
+    <script>
+        
+        /*
+        * Create new instance for UINotify with parameter html element id
+        */
+        var UINotify = new UI.Notify('notify');
+
+        /*
+        * You can used the methods UINotify however you want
+        */
         document.getElementById('btnSuccess').onclick = function () {
-            UINotify.success('This is an example of success notification.');
+            UINotify.success('This is an example of success notification.'); //Notification Success
         }
         document.getElementById('btnInfo').onclick = function () {
-            UINotify.info('This is an example of info notification.');
+            UINotify.info('This is an example of info notification.');       //Notification Success
         }
         document.getElementById('btnWarning').onclick = function () {
-            UINotify.warning('This is an example of warning notification.');
+            UINotify.warning('This is an example of warning notification.'); //Notification Success
         }
         document.getElementById('btnDanger').onclick = function () {
-            UINotify.danger('This is an example of danger notification.');
+            UINotify.danger('This is an example of danger notification.');   //Notification Success
         }
         document.getElementById('btnWait').onclick = function () {
-            UINotify.wait('This is an example of wait notification.');
+            UINotify.wait('This is an example of wait notification.');       //Notification Success
         }
-        
+        document.getElementById('btnWait').onclick = function () {
+            UINotify.wait('This is an example of wait notification.');       //Notification Success
+        }
+        document.getElementById('btnClose').onclick = function () {
+            UINotify.close();                                                //Method for close
+        }
+
     </script>
-    
+
 </body>
 </html>

@@ -76,14 +76,17 @@ var UI = {};
 * ========================================================================
 */
 
-UI.Notify = function (element) {
+/*
+* @param htmlElementId
+*/
+UI.Notify = function (htmlElementId) {
         
     var button = null;
     var span = null;
     var p = null;
     var i = null;
     var notify = null;
-    var HtmlElement = element;
+    var HtmlElement = document.getElementById(htmlElementId);
 
     
 
@@ -149,48 +152,5 @@ UI.Notify = function (element) {
     this.init();
    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var author = 'Yonatan Alexis Quintero Rodriguez';
 var version = '0.1';
