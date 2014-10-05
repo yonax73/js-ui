@@ -131,9 +131,9 @@
 .nav-panel li.active{
   background-color: #eeeeee;/**/
 }   
-.nav-panel-body .nav li{
+.nav-panel-body .nav > li{
   display: none;
-  visibility: none;
+  visibility: hidden;
 }
 .nav-panel-body .nav  .active{
   display: block;

@@ -5,142 +5,84 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
     <link href="css/js-ui.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">  
+    <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">
     <style type="text/css">
-      body{
-        overflow: hidden;
-      }
-       .starter-template {
-            padding: 55px 0;            
-       }
-       .components{
-         width: 100%;
-         height: 100vh;
-         overflow: hidden;
-       }
+        body {
+            overflow: hidden;
+        }
 
+        .starter-template {
+            padding: 55px 0;
+        }
 
-
-
-
-    </style>   
+        .components {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
 </head>
-	<body class="container-fluid">
-  	<nav id="nav"></nav>
+<body class="container-fluid">
+    <nav id="nav"></nav>
+    <section class="row starter-template">
+    <nav id="theme">
+        <div id="theme-container">
+            <ul class="list-group">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+     </nav>
 
 
 
-
-
-     
-    <section class="row starter-template"> 
-     <!--nav panel -->
- <div class="nav-panel">    
-<nav id="nav" class="navbar navbar-default ">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button class="navbar-toggle collapsed">
-        <span class="sr-only">
-          Toggle navigation
-        </span>
-        <span class="icon-bar">
-        </span>
-        <span class="icon-bar">
-        </span>
-        <span class="icon-bar">
-        </span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active">
-          <a href="#a1" id="aa1">
-            Default Theme
-          </a>
-        </li>
-        <li>
-                     <a href="#a2" id="aa2">
-            Default Theme2
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<section class="nav-panel-body">
-     <ul class="nav">
-       <li id="a1" class="active" >
-          <h1>Hello word</h1>
-       </li>
-       <li id="a2" >
-          <h1>Hello word 2</h1>
-       </li>
-     </ul>
-</section>
-</div>
-<div id="navStyles">    
-    <span class="content1"><h1>HELLO CONTENT 1</h1></span>
-    <span class="content2"><h1>HELLO CONTENT 2</h1></span>   
-</div>
-
-               <label for="styleList" class="col-sm-2">Bootstrap Theme:</label>
-              <div class="col-sm-6">
-                 <span id="styleList" ></span> 
-              </div>                 
-             
     </section>
-     <object id="components" class="components" data="all-components.html"></object> 
-     <script src="js/js-ui.js"></script>
-      <script>
-          UI.NavBar(document.getElementById('nav'),{href:'js-ui.html',text:'JS-UI'},[
-             {href:'getting-started.html',text:'Getting started'},
-             {href:'#',text:'Features'},
-             {href:'components.html',text:'Components',active:true},
-             {href:'#',text:'API Reference'},
-             {href:'#',text:'Pricing'},
-             {href:'#',text:'Support'},
-             {href:'#',text:'Community'}
-            ],{type:'fixed'});
+    <object id="components" class="components" data="all-components.html"></object>
+    <script src="js/js-ui.js"></script>
+    <script>
+        var nav = new UI.NavBar(document.getElementById('nav'), { href: 'js-ui.html', text: 'JS-UI' }, [
+              { href: 'getting-started.html', text: 'Getting started' },
+              { href: '#', text: 'Features' },
+              { href: 'components.html', text: 'Components', active: true },
+              { href: '#', text: 'API Reference' },
+              { href: '#', text: 'Pricing' },
+              { href: '#', text: 'Support' },
+              { href: '#', text: 'Community' }
+        ], { type: 'fixed' });
 
-                      var items = [
-              {option:'css/theme/cerulean.css',value:'Cerulean'},
-              {option:'css/theme/cosmo.css',value:'Cosmo'},
-              {option:'css/theme/cupcofee.css',value:'cupcofee'},
-              {option:'css/theme/cyborg.css',value:'Cyborg'},
-              {option:'css/theme/darkly.css',value:'Darkly'},
-              {option:'css/theme/default.css',value:'Default'},
-              {option:'css/theme/simplex.css',value:'Simplex'},
-              {option:'css/theme/superhero.css',value:'Superhero'},
-              {option:'css/theme/united.css',value:'United'},
-              {option:'css/theme/yeti.css',value:'Yeti'},
-              {option:'css/theme/youshoopblue.css',value:'You Shoop Blue'}
-            ];
+        var items = [
+{ option: 'css/theme/cerulean.css', value: 'Cerulean' },
+{ option: 'css/theme/cosmo.css', value: 'Cosmo' },
+{ option: 'css/theme/cupcofee.css', value: 'cupcofee' },
+{ option: 'css/theme/cyborg.css', value: 'Cyborg' },
+{ option: 'css/theme/darkly.css', value: 'Darkly' },
+{ option: 'css/theme/default.css', value: 'Default' },
+{ option: 'css/theme/simplex.css', value: 'Simplex' },
+{ option: 'css/theme/superhero.css', value: 'Superhero' },
+{ option: 'css/theme/united.css', value: 'United' },
+{ option: 'css/theme/yeti.css', value: 'Yeti' },
+{ option: 'css/theme/youshoopblue.css', value: 'You Shoop Blue' }
+        ];
 
-            var styleList = new UI.Select(document.getElementById('styleList'),items);
-               styleList.init('css/theme/simplex.css'); 
-               styleList.onchange(function(){
+        //var styleList = new UI.Select(document.getElementById('styleList'), items);
+        //styleList.init('css/theme/simplex.css');
+        //styleList.onchange(function () {
 
-                     UI.ReloadCSS(document.getElementById('components').contentWindow.document.getElementById('style'),styleList.getOption(),true);
-               });  
+        //    UI.ReloadCSS(document.getElementById('components').contentWindow.document.getElementById('style'), styleList.getOption(), true);
+        //});
 
-               document.getElementById('aa1').onclick= function(e){
-                 e.preventDefault();console.log(this);
-                 document.getElementById('a1').classList.toggle('active');
-                // this.parent.classList.toggle('active');
-               }
 
-               document.getElementById('aa2').onclick= function(e){
-                 e.preventDefault();
-                 document.getElementById('a2').classList.toggle('active');
-                // this.parent.classList.toggle('active');
-               }
-          UI.NavBarPanel(document.getElementById('navStyles'),[
-               {id:'content1',text:'Content-1A'} ,
-               {id:'content2',text:'Content-2B'} 
-            ]);
 
-      </script>
+        UI.NavBarPanelSingle(document.getElementById('theme'),
+             { id: 'theme-container', text: 'Content-1AAAA' },
+             { align: 'right' }
+       );
 
-	</body>
+
+    </script>
+
+</body>
 </html>
