@@ -28,6 +28,8 @@ javaScript User Interfaz
  
 
 
- Version 0.1: 5-Oct-2014 Created on : 5-Oct-2014 Author : Yonatan Alexis Quintero Rodriguez
+ Version 0.1: 5-Oct-2014 
+ Created on : 5-Oct-2014 
+ Author : Yonatan Alexis Quintero Rodriguez
 
 
