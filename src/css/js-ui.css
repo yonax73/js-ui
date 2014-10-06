@@ -47,3 +47,67 @@
 
 
 
+/*************************************************************************
+*                                                                        *
+*                               HELPERS                                  * 
+*                                                                        * 
+***************************************************************************/
+
+.tab-content.reset{
+	padding: 0.3em 0.2em;
+}
+
+/*************************************************************************
+*                                                                        *
+*                               SELECT                                   * 
+*                                                                        * 
+***************************************************************************/
+
+.select span {
+    border: 1px solid;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.select input[type="text"] {   
+    border: medium none;  
+    cursor: default;
+    margin: 0;    
+    text-align: left;
+    width: 100%;    
+}
+
+.select i {
+   cursor: default;
+    font-size: 1.5em;
+    margin: 8px 0 0;
+    padding: 0 5px 0 0;
+}
+
+.select ul {
+	margin: 0;
+	overflow: auto;
+	width: auto;
+	height:auto;
+	max-height: 80px;
+	box-shadow: 0 1px 2px gray;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+}
+
+.select-list {
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+
+.select-list  li:before {
+    content: "\00a0  ";
+}
+.select-list  li {
+	cursor: default;
+}
+
+
