@@ -110,4 +110,32 @@
 	cursor: default;
 }
 
+/*************************************************************************
+*                                                                        *
+*                               NAV PANEL                                * 
+*                                                                        * 
+***************************************************************************/
+.nav-panel .navbar {
+  margin: 0;
+  padding: 0;
+}
 
+
+
+ .nav-panel-body{
+		 background-color: #eeeeee;/**/
+		    border-bottom: 1px solid #dddddd;/**/
+		    margin: 0 0 5px;
+		    padding: 1px;
+}
+.nav-panel li.active{
+  background-color: #eeeeee;/**/
+}   
+.nav-panel-body .nav li{
+  display: none;
+  visibility: none;
+}
+.nav-panel-body .nav  .active{
+  display: block;
+  visibility: visible;
+}

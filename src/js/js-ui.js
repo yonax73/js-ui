@@ -77,18 +77,15 @@ var UI = {};
 */
 
 /*
-* @param htmlElementId
+* @param HtmlElement
 */
-UI.Notify = function (htmlElementId) {
+UI.Notify = function (HtmlElement) {
         
     var button = null;
     var span = null;
     var p = null;
     var i = null;
-    var UINotify = null;
-    var HtmlElement = document.getElementById(htmlElementId);
-
-    
+    var UINotify = null;    
 
     this.init = function () {
         UINotify = this;
@@ -170,12 +167,11 @@ UI.Notify = function (htmlElementId) {
 * ========================================================================
 */
 /*
-* @param htmlElementId
+* @param HtmlElement
 * @param items
 */
-UI.Select = function(htmlElementId,items){        
-         
-         var items= items;   
+UI.Select = function(HtmlElement,items){
+            
          var span= null;    
          var input= null;
          var inputHidden= null;
@@ -185,7 +181,7 @@ UI.Select = function(htmlElementId,items){
          var currentItemLi= null;     
          var disabled= false;
          var UISelect = null;
-         var HtmlElement = document.getElementById(htmlElementId);
+        
 
         this.init = function(option){   
             UISelect = this;  
@@ -363,62 +359,182 @@ UI.Select = function(htmlElementId,items){
 * ========================================================================
 */
 /*
-* @param htmlElementId
+* @param HtmlElement
 * @param link
 * @param links
+* @param options
 */
-UI.NavBar = function(htmlElementId,link,links){
-         var items= items;   
-         var tittle = tittle;
-         var container= document.createElement('div');
-         var header = document.createElement('div');
-         var button = document.createElement('button');   
-         var a = document.createElement('a');
-         var collapse = document.createElement('div');
-         var ul = document.createElement('ul');         
-         var UINav = this;
-         var HtmlElement = document.getElementById(htmlElementId);
+UI.NavBar = function (HtmlElement, link, links, options) {
+    var container = document.createElement('div');
+    var header = document.createElement('div');
+    var button = document.createElement('button');
+    var a = document.createElement('a');
+    var collapse = document.createElement('div');
+    var ul = document.createElement('ul');      
 
-         button.classList.add('navbar-toggle');
-         button.classList.add('collapsed');
-         var span = document.createElement('span');
-         span.classList.add('sr-only');
-         span.textContent = 'Toggle navigation';
-         button.appendChild(span);
-         for (var i = 3 ; i > 0; i--) {
-             var span = document.createElement('span');
-             span.classList.add('icon-bar');
-             button.appendChild(span);
-         };
-         a.classList.add('navbar-brand');
-         a.href = link.href;
-         a.textContent = link.text;
-         header.classList.add('navbar-header');
-         header.appendChild(button);
-         header.appendChild(a);
-         ul.classList.add('nav');
-         ul.classList.add('navbar-nav');
-         var n = links.length;
-         for (var i = 0; i < 0; i++) {
-            var link = links[i];
-            var li = document.createElement('li');
-            var a = document.createElement('a');
-            a.href = link.href;
-            a.textContent = link.text;
-            if(link.active){
-               li.classList.add('active');
+    button.classList.add('navbar-toggle');
+    button.classList.add('collapsed');
+    var span = document.createElement('span');
+    span.classList.add('sr-only');
+    span.textContent = 'Toggle navigation';
+    button.appendChild(span);
+    for (var i = 3; i > 0; i--) {
+        var span = document.createElement('span');
+        span.classList.add('icon-bar');
+        button.appendChild(span);
+    };
+    button.onclick = function () {
+        this.classList.toggle('collapsed');
+        collapse.classList.toggle('in');
+    }
+    a.classList.add('navbar-brand');
+    a.href = link.href;
+    a.textContent = link.text;
+    header.classList.add('navbar-header');
+    header.appendChild(button);
+    header.appendChild(a);
+    ul.classList.add('nav');
+    ul.classList.add('navbar-nav');
+    var n = links.length;
+    for (var i = 0; i < n; i++) {
+        var link = links[i];
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = link.href;
+        a.textContent = link.text;
+        if (link.active) {
+            li.classList.add('active');
+        }
+        li.appendChild(a);
+        ul.appendChild(li);
+    };
+    collapse.classList.add('collapse');
+    collapse.classList.add('navbar-collapse');
+    collapse.appendChild(ul);
+    container.classList.add('container');
+    container.appendChild(header);
+    container.appendChild(collapse);
+    HtmlElement.classList.add('navbar');
+    HtmlElement.classList.add('navbar-default');
+    if (options !== undefined) {
+        if (options.inverse) {
+            HtmlElement.classList.add('navbar-inverse');
+        }
+        if (options.type === 'fixed') {
+            if (options.position === 'bottom') {
+                HtmlElement.classList.add('navbar-fixed-bottom');
+            } else {
+                HtmlElement.classList.add('navbar-fixed-top');
             }
-            li.appendChild(a);
-            ul.appendChild(li);
-         };
-         collapse.classList.add('collapse');
-         collapse.classList.add('navbar-collapse');
-         container.classList.add('container');
-         container.appendChild(header);
-         container.appendChild(collapse);
-         
+        } else if (options.type === 'static') {
+            HtmlElement.classList.add('navbar-static-top');
+        } 
+    }
+    HtmlElement.appendChild(container);
 }
 
+
+
+
+/*
+* ========================================================================
+* UI-NAVBARPANEL
+* Author  : Yonatan Alexis Quintero Rodriguez
+* Version : 0.1
+* Date    : 6 Oct 2014
+* ========================================================================
+*/
+/*
+* @param HtmlElement
+* @param contents
+* @param options
+*/
+UI.NavBarPanel = function (HtmlElement,contents, options) {
+    var nav = document.createElement('nav');
+    var container = document.createElement('div');
+    var header = document.createElement('div');
+    var button = document.createElement('button');   
+    var collapse = document.createElement('div');
+    var ulNav = document.createElement('ul');
+    var body = document.createElement('section');
+    var ulBody = document.createElement('ul');
+
+    button.classList.add('navbar-toggle');
+    button.classList.add('collapsed');
+    var span = document.createElement('span');
+    span.classList.add('sr-only');
+    span.textContent = 'Toggle navigation';
+    button.appendChild(span);
+    for (var i = 3; i > 0; i--) {
+        var span = document.createElement('span');
+        span.classList.add('icon-bar');
+        button.appendChild(span);
+    };
+    button.onclick = function () {
+        this.classList.toggle('collapsed');
+        collapse.classList.toggle('in');
+    }   
+    header.classList.add('navbar-header');
+    header.appendChild(button);
+    header.appendChild(a);
+    ulNav.classList.add('nav');
+    ulNav.classList.add('navbar-nav');
+    var n = contents.length;
+    for (var i = 0; i < n; i++) {
+        var content = contents[i];
+        var liNav = document.createElement('li');
+        var liBody = document.createElement('li');
+        var a = document.createElement('a');
+        var htmlContent = document.getElementsById(content.id);
+        while(htmlContent.childNodes.length > 0){
+          liBody.appendChild(htmlContent.childNodes[0]);
+        }        
+        a.href = '#'+content.id;
+        a.textContent = content.text;
+        if (content.active) {
+            liNav.classList.add('active');
+        }
+        a.onclick = function(e){
+           e.preventDefault();
+           liNav.classList.toggle('active');
+           liBody.classList.toggle('active');
+        }
+        liNav.appendChild(a);
+        ulNav.appendChild(liNav);
+        ulBody.appendChild(liBody);
+    };
+    collapse.classList.add('collapse');
+    collapse.classList.add('navbar-collapse');
+    collapse.appendChild(ulNav);
+    container.classList.add('container');
+    container.appendChild(header);
+    container.appendChild(collapse);
+    nav.classList.add('navbar');
+    nav.classList.add('navbar-default');
+    if (options !== undefined) {
+        if (options.inverse) {
+            nav.classList.add('navbar-inverse');
+        }
+        if (options.type === 'fixed') {
+            if (options.position === 'bottom') {
+                nav.classList.add('navbar-fixed-bottom');
+            } else {
+                nav.classList.add('navbar-fixed-top');
+            }
+        } else if (options.type === 'static') {
+            nav.classList.add('navbar-static-top');
+        } 
+    }
+    nav.appendChild(container);
+    ulBody.classList.add('nav');    
+
+
+    body.classList.add('nav-panel-body');
+
+    HtmlElement.classList.add('nav-panel');
+    HtmlElement.appendChild(nav);
+    HtmlElement.appendChild(body);
+}
 
 
 
@@ -435,10 +551,9 @@ UI.NavBar = function(htmlElementId,link,links){
 * Date    : 6 Oct 2014
 * ========================================================================
 */
-UI.ReloadCSS = function (htmlElementId,href) {
-     var queryString = '?reload=' + new Date().getTime();
-    var style = document.getElementById(htmlElementId);
-    style.href = href.replace(/\?.*|$/, queryString);
+UI.ReloadCSS = function (htmlElement,href,fromFrame) {
+     var queryString = '?reload=' + new Date().getTime();   
+     htmlElement.href = href.replace(/\?.*|$/, queryString);
 }
 
 

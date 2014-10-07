@@ -109,25 +109,7 @@ UINotify.close();
                 UINotify.close();
             }
 
-            var items = [
-              {option:'css/theme/cerulean.css',value:'Cerulean'},
-              {option:'css/theme/cosmo.css',value:'Cosmo'},
-              {option:'css/theme/cupcofee.css',value:'cupcofee'},
-              {option:'css/theme/cyborg.css',value:'Cyborg'},
-              {option:'css/theme/darkly.css',value:'Darkly'},
-              {option:'css/theme/default.css',value:'Default'},
-              {option:'css/theme/simplex.css',value:'Simplex'},
-              {option:'css/theme/superhero.css',value:'Superhero'},
-              {option:'css/theme/united.css',value:'United'},
-              {option:'css/theme/yeti.css',value:'Yeti'},
-              {option:'css/theme/youshoopblue.css',value:'You Shoop Blue'}
-            ];
-
-            var styleList = new UI.Select('styleList',items);
-               styleList.init('css/theme/simplex.css'); 
-               styleList.onchange(function(){
-                     UI.ReloadCSS('style',styleList.getOption());
-               });            
+          
 
     </script>
 
