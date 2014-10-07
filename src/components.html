@@ -1,50 +1,52 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8">
-        <title>Components JS-UI</title>
-        <link href="css/font-awesome.min.css" rel="stylesheet" />
-        <link href="css/js-ui.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">
-        <style type="text/css">
-.content-fixed{
-        position: fixed;
-    width: 100%;
-}
-            .starter-template {
+<head>
+    <meta charset="UTF-8">
+    <title>Components JS-UI</title>
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/js-ui.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">
+    <style type="text/css">
+        .content-fixed {
+            position: fixed;
+            width: 100%;
+        }
+
+        .starter-template {
             padding: 55px 0 0;
-            }
-            .components {
- 
-    height: 100vh;
-  /*  margin-top: 180px;*/
-    width: 100%;
-     
+        }
+
+        .components {
+            height: 75vh;
+            width: 100%;
+        }
+
+        .section-list-components {
+            background: none repeat scroll 0 0 #fff;
+            border-bottom: 1px solid #cecece;
+            box-shadow: 1px 1px 2px 0 #1b1b1b;
+            height: 100%;
+            margin-top: -5px;
+            padding: 4px;
+        }
+
+            .section-list-components ul {
+                list-style: none;
             }
 
-.section-list-components {
-    background: none repeat scroll 0 0 #fff;
-    border-bottom: 1px solid #cecece;
-    box-shadow: 1px 1px 2px 0 #1b1b1b;   
-    height: 100%;
-    margin-top: -5px;
-    padding: 4px;
-}
-
-.section-list-components ul{
-    list-style: none;
-}
-
-.section-list-components a{
-    color: #777777;
-}
-            #theme{
-            margin-top:-15px;
+            .section-list-components a {
+                color: #777777;
             }
-            #theme h4{
-            padding-left: 40px;
+
+        #theme {
+            margin-top: -15px;
+        }
+
+            #theme h4 {
+                padding-left: 40px;
             }
-            .stick{
+
+        .stick {
             color: #000;
             cursor: pointer;
             font-size: 14px;
@@ -52,284 +54,319 @@
             padding-bottom: 4px;
             padding-left: 10px;
             padding-top: 5px;
-            } 
-            .stick div{
-            border: 1px solid #d7d7d7;
-            display: inline;
-            line-height: 1.5;
-            margin: 2px;
-            padding: 1px 9px;
+        }
+
+            .stick div {
+                border: 1px solid #d7d7d7;
+                display: inline;
+                line-height: 1.5;
+                margin: 2px;
+                padding: 1px 9px;
             }
-            .stick div.cerulean-1{
-            background-color: #2fa4e7;
-            }
-            .stick div.cerulean-2{
-            background-color: #f5f5f5;
-            }
-            .stick div.cerulean-3{
-            background-color: #ffffff;
-            }
-            .stick div.cosmo-1{
-            background-color: #2780e3
-            }
-            .stick div.cosmo-2{
-            background-color: #222222;
-            }
-            .stick div.cosmo-3{
-            background-color: #ffffff;
-            }
-            .stick div.cupCofee-1{
-            background-color: #64abb9;
-            }
-            .stick div.cupCofee-2{
-            background-color: #664d3f;
-            }
-            .stick div.cupCofee-3{
-            background-color: #f5dacb;
-            }
-            .stick div.cyborg-1{
-            background-color: #2a9fd6;
-            }
-            .stick div.cyborg-2{
-            background-color: #424242;
-            }
-            .stick div.cyborg-3{
-            background-color: #060606;
-            }
-            .stick div.darkly-1{
-            background-color: #375a7f
-            }
-            .stick div.darkly-2{
-            background-color: #00bc8c;
-            }
-            .stick div.darkly-3{
-            background-color: #222222;
-            }
-            .stick div.default-1{
-            background-color: #428bca;
-            }
-            .stick div.default-2{
-            background-color: #d5d5d5;
-            }
-            .stick div.default-3{
-            background-color: #ffffff;
-            }
-            .stick div.simplex-1{
-            background-color: #d9230f; 
-            }
-            .stick div.simplex-2{
-            background-color: #474949;
-            }
-            .stick div.simplex-3{
-            background-color: #fcfcfc;
-            }
-            .stick div.superhero-1{
-            background-color: #df691a; 
-            }
-            .stick div.superhero-2{
-            background-color: transparent;
-            }
-            .stick div.superhero-3{
-            background-color: #2b3e50;
-            }
-            .stick div.united-1{
-            background-color: #dd4814; 
-            }
-            .stick div.united-2{
-            background-color: #aea79f;
-            }
-            .stick div.united-3{
-            background-color: #ffffff;
-            }
-            .stick div.yeti-1{
-            background-color: #008cba; 
-            }
-            .stick div.yeti-2{
-            background-color: #e7e7e7;
-            }
-            .stick div.yeti-3{
-            background-color: #ffffff;
-            }
-            .stick div.youshoopblue-1{
-            background-color: #4385f5; 
-            }
-            .stick div.youshoopblue-2{
-            background-color: #ffb225;
-            }
-            .stick div.youshoopblue-3{
-            background-color: #ffffff;
-            }
-        </style>
-    </head>
-    <body class="container-fluid">
-        <div class="content-fixed">
+
+                .stick div.cerulean-1 {
+                    background-color: #2fa4e7;
+                }
+
+                .stick div.cerulean-2 {
+                    background-color: #f5f5f5;
+                }
+
+                .stick div.cerulean-3 {
+                    background-color: #ffffff;
+                }
+
+                .stick div.cosmo-1 {
+                    background-color: #2780e3;
+                }
+
+                .stick div.cosmo-2 {
+                    background-color: #222222;
+                }
+
+                .stick div.cosmo-3 {
+                    background-color: #ffffff;
+                }
+
+                .stick div.cupCofee-1 {
+                    background-color: #64abb9;
+                }
+
+                .stick div.cupCofee-2 {
+                    background-color: #664d3f;
+                }
+
+                .stick div.cupCofee-3 {
+                    background-color: #f5dacb;
+                }
+
+                .stick div.cyborg-1 {
+                    background-color: #2a9fd6;
+                }
+
+                .stick div.cyborg-2 {
+                    background-color: #424242;
+                }
+
+                .stick div.cyborg-3 {
+                    background-color: #060606;
+                }
+
+                .stick div.darkly-1 {
+                    background-color: #375a7f;
+                }
+
+                .stick div.darkly-2 {
+                    background-color: #00bc8c;
+                }
+
+                .stick div.darkly-3 {
+                    background-color: #222222;
+                }
+
+                .stick div.default-1 {
+                    background-color: #428bca;
+                }
+
+                .stick div.default-2 {
+                    background-color: #d5d5d5;
+                }
+
+                .stick div.default-3 {
+                    background-color: #ffffff;
+                }
+
+                .stick div.simplex-1 {
+                    background-color: #d9230f;
+                }
+
+                .stick div.simplex-2 {
+                    background-color: #474949;
+                }
+
+                .stick div.simplex-3 {
+                    background-color: #fcfcfc;
+                }
+
+                .stick div.superhero-1 {
+                    background-color: #df691a;
+                }
+
+                .stick div.superhero-2 {
+                    background-color: transparent;
+                }
+
+                .stick div.superhero-3 {
+                    background-color: #2b3e50;
+                }
+
+                .stick div.united-1 {
+                    background-color: #dd4814;
+                }
+
+                .stick div.united-2 {
+                    background-color: #aea79f;
+                }
+
+                .stick div.united-3 {
+                    background-color: #ffffff;
+                }
+
+                .stick div.yeti-1 {
+                    background-color: #008cba;
+                }
+
+                .stick div.yeti-2 {
+                    background-color: #e7e7e7;
+                }
+
+                .stick div.yeti-3 {
+                    background-color: #ffffff;
+                }
+
+                .stick div.youshoopblue-1 {
+                    background-color: #4385f5;
+                }
+
+                .stick div.youshoopblue-2 {
+                    background-color: #ffb225;
+                }
+
+                .stick div.youshoopblue-3 {
+                    background-color: #ffffff;
+                }
+    </style>
+</head>
+<body class="container-fluid">
+    <div class="content-fixed">
         <nav id="nav"></nav>
-
         <section class="row starter-template">
-
             <nav id="theme">
                 <div id="theme-container">
                     <h4>Themes</h4>
                     <div class="col-md-3">
-                        <ul >
+                        <ul>
                             <li class="stick" onclick="changeTheme('css/theme/cerulean.css','Cerulean Theme')">
                                 <div class="cerulean-1"></div>
                                 <div class="cerulean-2"></div>
                                 <div class="cerulean-3"></div>
-                                Cerulean 
+                                Cerulean
                             </li>
                             <li class="stick" onclick="changeTheme('css/theme/cosmo.css','Cosmo Theme')">
                                 <div class="cosmo-1"></div>
                                 <div class="cosmo-2"></div>
                                 <div class="cosmo-3"></div>
-                                Cosmo 
+                                Cosmo
                             </li>
                             <li class="stick" onclick="changeTheme('css/theme/cupCofee.css','CupCofee Theme')">
                                 <div class="cupCofee-1"></div>
                                 <div class="cupCofee-2"></div>
                                 <div class="cupCofee-3"></div>
-                                CupCofee 
+                                CupCofee
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <ul >
+                        <ul>
                             <li class="stick" onclick="changeTheme('css/theme/cyborg.css','Cyborg Theme')">
                                 <div class="cyborg-1"></div>
                                 <div class="cyborg-2"></div>
                                 <div class="cyborg-3"></div>
-                                Cyborg 
+                                Cyborg
                             </li>
                             <li class="stick" onclick="changeTheme('css/theme/darkly.css','Darkly Theme')">
                                 <div class="darkly-1"></div>
                                 <div class="darkly-2"></div>
                                 <div class="darkly-3"></div>
-                                Darkly 
+                                Darkly
                             </li>
                             <li class="stick" onclick="changeTheme('css/theme/default.css','Default Theme')">
                                 <div class="default-1"></div>
                                 <div class="default-2"></div>
                                 <div class="default-3"></div>
-                                Default 
+                                Default
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <ul >
+                        <ul>
                             <li class="stick" onclick="changeTheme('css/theme/simplex.css','Simplex Theme')">
                                 <div class="simplex-1"></div>
                                 <div class="simplex-2"></div>
                                 <div class="simplex-3"></div>
-                                Simplex 
+                                Simplex
                             </li>
                             <li class="stick" onclick="changeTheme('css/theme/superhero.css','Superhero Theme')">
                                 <div class="superhero-1"></div>
                                 <div class="superhero-2"></div>
                                 <div class="superhero-3"></div>
-                                Superhero 
+                                Superhero
                             </li>
                             <li class="stick" onclick="changeTheme('css/theme/united.css','United Theme')">
                                 <div class="united-1"></div>
                                 <div class="united-2"></div>
                                 <div class="united-3"></div>
-                                United 
+                                United
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <ul >
+                        <ul>
                             <li class="stick" onclick="changeTheme('css/theme/yeti.css','Yeti Theme')">
                                 <div class="yeti-1"></div>
                                 <div class="yeti-2"></div>
                                 <div class="yeti-3"></div>
-                                Yeti 
+                                Yeti
                             </li>
                             <li class="stick" onclick="changeTheme('css/theme/youshoopblue.css','Youshoop Blue Theme')">
                                 <div class="youshoopblue-1"></div>
                                 <div class="youshoopblue-2"></div>
                                 <div class="youshoopblue-3"></div>
-                                Youshoop Blue 
+                                Youshoop Blue
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-
             <section class="section-list-components row">
                 <div class="col-md-2">
                     <ul>
-                         <li><a href="#ui-notify">Notify</a></li>
+                        <li><a href="#ui-notify" onclick="goTo('ui-notify');">UI-Notify</a></li>
                     </ul>
                 </div>
-                  <div class="col-md-2">
+                <div class="col-md-2">
                     <ul>
-                         <li><a href="#ui-notify">Notify</a></li>
+                        <li><a href="#ui-select" onclick="goTo('ui-select');">UI-Select</a></li>
                     </ul>
                 </div>
-                  <div class="col-md-2">
+                <div class="col-md-2">
                     <ul>
-                         <li><a href="#ui-notify">Notify</a></li>
+                        <li><a href="#ui-notify">Notify</a></li>
                     </ul>
                 </div>
-                  <div class="col-md-2">
+                <div class="col-md-2">
                     <ul>
-                         <li><a href="#ui-notify">Notify</a></li>
+                        <li><a href="#ui-notify">Notify</a></li>
                     </ul>
                 </div>
-                  <div class="col-md-2">
+                <div class="col-md-2">
                     <ul>
-                         <li><a href="#ui-notify">Notify</a></li>
+                        <li><a href="#ui-notify">Notify</a></li>
                     </ul>
                 </div>
-                  <div class="col-md-2">
+                <div class="col-md-2">
                     <ul>
-                         <li><a href="#ui-notify">Notify</a></li>
+                        <li><a href="#ui-notify">Notify</a></li>
                     </ul>
                 </div>
             </section>
         </section>
-        </div>
-        <div>
-            <object id="components" class="components" data="all-components.html"></object>
-        </div>
+    </div>
+    <div>
+        <object id="components" class="components" data="all-components.html"></object>
+    </div>
+    <script src="js/js-ui.js"></script>
+    <script>
+        UI.NavBar(document.getElementById('nav'), { href: 'js-ui.html', text: 'JS-UI' }, [
+               { href: 'getting-started.html', text: 'Getting started' },
+               { href: '#', text: 'Features' },
+               { href: 'components.html', text: 'Components', active: true },
+               { href: '#', text: 'API Reference' },
+               { href: '#', text: 'Pricing' },
+               { href: '#', text: 'Support' },
+               { href: '#', text: 'Community' }
+        ], { type: 'fixed', align: 'right' });
+
+        var ddp = new UI.DropDownPanel(document.getElementById('theme'),
+             { id: 'theme-container', text: 'Cosmo Theme' },
+             { align: 'right' }
+        );
+
+        function changeTheme(theme, name) {
+            ddp.setText(name);
+            UI.ReloadCSS(document.getElementById('components').contentWindow.document.getElementById('style'), theme);
+        }
+
+        function adjustHeight() {
+            var header = document.getElementsByClassName('content-fixed')[0];
+            document.getElementById('components').style.marginTop = header.clientHeight + 'px';
+        }
+
+        function goTo(strId) {
+            document.getElementById('components').contentWindow.document.getElementById(strId).focus();
+        }
+
+        ddp.onclick(function () {
+            adjustHeight();
+        });
+
+        document.getElementsByTagName('body')[0].onresize = function () {
+            adjustHeight();
+        }
+
+        adjustHeight();
         
-        <script src="js/js-ui.js"></script>
-        <script>
-           UI.NavBar(document.getElementById('nav'), { href: 'js-ui.html', text: 'JS-UI' }, [
-                  { href: 'getting-started.html', text: 'Getting started' },
-                  { href: '#', text: 'Features' },
-                  { href: 'components.html', text: 'Components', active: true },
-                  { href: '#', text: 'API Reference' },
-                  { href: '#', text: 'Pricing' },
-                  { href: '#', text: 'Support' },
-                  { href: '#', text: 'Community' }
-            ], { type: 'fixed',align:'right' });         
-            
-            var ddp = new UI.DropDownPanel(document.getElementById('theme'),
-                 { id: 'theme-container', text: 'Youshoop Blue Theme' },
-                 {align:'right'}
-            );
-            
-             ddp.onclick(function(){
-                adjustHeight();
-             });
 
-            function changeTheme(theme,name){
-                ddp.setText(name);                
-                UI.ReloadCSS(document.getElementById('components').contentWindow.document.getElementById('style'), theme);
-                
-            }   
-             
-
-document.getElementsByTagName('body')[0].onresize = function(){
-    adjustHeight();
-}
-            function adjustHeight(){
-                            var header = document.getElementsByClassName('content-fixed')[0];            
-            document.getElementById('components') .style.marginTop = header.clientHeight+'px';
-            }
-adjustHeight();
-            
-        </script>
-    </body>
+    </script>
+</body>
 </html>

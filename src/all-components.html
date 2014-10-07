@@ -1,115 +1,219 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-   <head>
-      <title>All Components JS-UI</title>
-      <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
-      <link href="css/font-awesome.min.css" rel="stylesheet" />
-      <link href="css/js-ui.css" rel="stylesheet" />
-      <link id="style" rel="stylesheet" type="text/css" href="css/theme/youshoopblue.css">
-   </head>
-   <body class="container-fluid">
-      <!-- UI-NOTIFY -->    
-      <section id="ui-notify" class="row">
-         <div class="col-md-12">
-         <h1>
-            <i class="fa fa-bookmark-o">&nbsp;UI-Notify</i>
-         </h1>
-         <p>The UI-Notify is a simple message alert</p>
-         <div class="panel panel-default">
-            <div class="panel-body">
-               <h4>Example</h4>
-               <div class="row">
-                  <div>
-                     <div class="col-md-12" id="notify"></div>
-                     <button type="button" class="btn btn-default" id="btnSuccess">Success</button>
-                     <button type="button" class="btn btn-default" id="btnInfo">Info</button>
-                     <button type="button" class="btn btn-default" id="btnWarning">Warning</button>
-                     <button type="button" class="btn btn-default" id="btnDanger">Danger</button>
-                     <button type="button" class="btn btn-default" id="btnWait">Wait...</button>
-                     <button type="button" class="btn btn-default" id="btnClose">Close</button>
-                  </div>
-                  <br />
+<head>
+    <title>All Components JS-UI</title>
+    <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/js-ui.css" rel="stylesheet" />
+    <link id="style" rel="stylesheet" type="text/css" href="css/theme/cosmo.css">
+    <style>
+    
+
+        .actions ul{
+             font-size: 14px;
+             text-align: right;
+             list-style:none;
+             padding-right:5px;
+
+        }
+        .actions ul li{
+            display:inline;
+            padding-right:5px;
+        }
+
+        .actions div,.actions h3 {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="container-fluid">
+
+    <!-- UI-NOTIFY -->
+    <section id="ui-notify" tabindex="1" class="row">
+        <div class="col-md-12">
+            <h1>
+                <i class="fa fa-bookmark-o">&nbsp;UI-Notify</i>
+            </h1>
+            <p>The UI-Notify is a simple message alert</p>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row actions">
+                        <div class="col-md-6">
+                            <h3>Example</h3>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Edit</a></li>
+                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Share</a></li>
+                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Copy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <!--Here to show the notification-->
+                            <div class="col-md-12" id="notify"></div>
+                            <!-- Call Success notificaction-->
+                            <button type="button" class="btn btn-default" onclick="UINotify.success('Success notification!');">Success</button>
+                            <!-- Call Info notificaction -->
+                            <button type="button" class="btn btn-default" onclick=" UINotify.info('Info notification!');">Info</button>
+                            <!-- Call Warning notificaction -->
+                            <button type="button" class="btn btn-default" onclick="UINotify.warning('Warning notification!');">Warning</button>
+                            <!-- Call Danger notificaction-->
+                            <button type="button" class="btn btn-default" onclick="UINotify.danger('Danger notification!');">Danger</button>
+                            <!-- Call Wait notificaction -->
+                            <button type="button" class="btn btn-default" onclick="UINotify.wait('Wait notification!');">Wait...</button>
+                            <!-- Call Close method -->
+                            <button type="button" class="btn btn-default" onclick="UINotify.close();">Close</button>
+                        </div>
+                        <br />
                         <section id="notify-content">
-                      <div id="tab-notify-1">
-                                                <pre>
-                            <code class="html">
-&lt;!-- Element for show the notification --&gt;
+                            <div id="tab-notify-1">
+                                <pre>
+                                <code class="html">
+&lt;!--Here to show the notification--&gt;
 &lt;div class=&quot;col-md-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;!-- Call Success notificaction--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.success('Success notification!');&quot;&gt;Success&lt;/button&gt;
+&lt;!-- Call Info notificaction --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot; UINotify.info('Info notification!');&quot;&gt;Info&lt;/button&gt;
+&lt;!-- Call Warning notificaction --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.warning('Warning notification!');&quot;&gt;Warning&lt;/button&gt;
+&lt;!-- Call Danger notificaction--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.danger('Danger notification!');&quot;&gt;Danger&lt;/button&gt;
+&lt;!-- Call Wait notificaction --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.wait('Wait notification!');&quot;&gt;Wait...&lt;/button&gt;
+&lt;!-- Call Close method --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.close();&quot;&gt;Close&lt;/button&gt;
                            </code>
                       </pre>
-                      </div>
-                      <div id="tab-notify-2">
-                        <pre>
-                        <code class="js">
+                            </div>
+                            <div id="tab-notify-2">
+                                <pre>
+                                <code class="js">
 /*
-* Create new instance for UINotify with parameter html element id
+* Create Object UI-Notification with element html parameter
 */
 var UINotify = new UI.Notify(document.getElementById('notify'));
-//Notification Success
-UINotify.success('This is an example of success notification.');
-//Method for close notification
-UINotify.close();
+
                        </code>
                    </pre>
-                      </div>
-                      <div id="tab-notify-3">
-                         <p>You can see the code of this example <a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">here</a></p>
-                      </div>
-                     
-                  </section>
-               </div>
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
             </div>
-         </div>
-      </section>
+        </div>
+    </section>
 
-      <script src="../highlight/js/highlight.pack.js"></script>
-      <script src="js/js-ui.js"></script>
-      <script>
-         hljs.initHighlightingOnLoad();
-         
-         /*
-          * ========================================================================
-          * UI-NOTIFY
-          * Author  : Yonatan Alexis Quintero Rodriguez    
-          * Date    : 9 Oct 2014
-          * ========================================================================
-          */
-           var UINotify = new UI.Notify(document.getElementById('notify'));
-           document.getElementById('btnSuccess').onclick =
-               function () {               
-                   UINotify.success('This is an example of success notification.');
-               }
-           document.getElementById('btnInfo').onclick =
-               function () {              
-                   UINotify.info('This is an example of info notification.');
-               }
-           document.getElementById('btnWarning').onclick =
-               function () {               
-                   UINotify.warning('This is an example of warning notification.');
-               }
-           document.getElementById('btnDanger').onclick =
-               function () {              
-                   UINotify.danger('This is an example of danger notification.');
-               }
-           document.getElementById('btnWait').onclick =
-               function () {               
-                   UINotify.wait('This is an example of wait notification.');
-               }
-           document.getElementById('btnWait').onclick =
-               function () {                
-                   UINotify.wait('This is an example of wait notification.');
-               }
-           document.getElementById('btnClose').onclick =
-               function () {               
-                   UINotify.close();
-               }
+    <!-- UI-SELECT -->
+    <section id="ui-select" tabindex="2" class="row">
+        <div class="col-md-12">
+            <h1>
+                <i class="fa fa-bookmark-o">&nbsp;UI-Select</i>
+            </h1>
+            <p>The UI-Notify is a simple message alert</p>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row actions">
+                        <div class="col-md-6">
+                            <h3>Example</h3>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Edit</a></li>
+                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Share</a></li>
+                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Copy</a></li>
+                            </ul>
+                        </div>
+                    </div>
 
-               UI.NavTab(document.getElementById('notify-content'),[
-                  { id: 'tab-notify-1', text: 'Html' ,active:true},
-                  { id: 'tab-notify-2', text: 'Javascript' },
-                  { id: 'tab-notify-3', text: 'More..' }
-                ]);
+                    <div class="row">
+                        <div>
+                            <!--Here to show the notification-->
+                            <div class="col-md-12" id="notify"></div>
+                            <!-- Call Success notificaction-->
+                            <button type="button" class="btn btn-default" onclick="UINotify.success('Success notification!');">Success</button>
+                            <!-- Call Info notificaction -->
+                            <button type="button" class="btn btn-default" onclick=" UINotify.info('Info notification!');">Info</button>
+                            <!-- Call Warning notificaction -->
+                            <button type="button" class="btn btn-default" onclick="UINotify.warning('Warning notification!');">Warning</button>
+                            <!-- Call Danger notificaction-->
+                            <button type="button" class="btn btn-default" onclick="UINotify.danger('Danger notification!');">Danger</button>
+                            <!-- Call Wait notificaction -->
+                            <button type="button" class="btn btn-default" onclick="UINotify.wait('Wait notification!');">Wait...</button>
+                            <!-- Call Close method -->
+                            <button type="button" class="btn btn-default" onclick="UINotify.close();">Close</button>
+                        </div>
+                        <br />
+                        <section id="notify-content">
+                            <div id="tab-notify-1">
+                                <pre>
+                                <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;!-- Call Success notificaction--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.success('Success notification!');&quot;&gt;Success&lt;/button&gt;
+&lt;!-- Call Info notificaction --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot; UINotify.info('Info notification!');&quot;&gt;Info&lt;/button&gt;
+&lt;!-- Call Warning notificaction --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.warning('Warning notification!');&quot;&gt;Warning&lt;/button&gt;
+&lt;!-- Call Danger notificaction--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.danger('Danger notification!');&quot;&gt;Danger&lt;/button&gt;
+&lt;!-- Call Wait notificaction --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.wait('Wait notification!');&quot;&gt;Wait...&lt;/button&gt;
+&lt;!-- Call Close method --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.close();&quot;&gt;Close&lt;/button&gt;
+                           </code>
+                      </pre>
+                            </div>
+                            <div id="tab-notify-2">
+                                <pre>
+                                <code class="js">
+/*
+* Create Object UI-Notification with element html parameter
+*/
+var UINotify = new UI.Notify(document.getElementById('notify'));
+                       </code>
+                   </pre>
+                            </div>
 
-      </script>
-   </body>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../highlight/js/highlight.pack.js"></script>
+    <script src="js/js-ui.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+        /*
+         * ========================================================================
+         * UI-NOTIFY
+         * Author  : Yonatan Alexis Quintero Rodriguez
+         * Date    : 9 Oct 2014
+         * ========================================================================
+         */
+
+        /*
+        * Create Object UI-Notification with element html parameter
+        */
+        var UINotify = new UI.Notify(document.getElementById('notify'));
+
+  
+
+        UI.NavTab(document.getElementById('notify-content'), [
+           { id: 'tab-notify-1', text: 'Html', active: true },
+           { id: 'tab-notify-2', text: 'Javascript' }
+        ]);
+
+    </script>
+</body>
 </html>
