@@ -1,88 +1,284 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Components JS-UI</title>
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
-    <link href="css/js-ui.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">
-    <style type="text/css">
-        body {
-            overflow: hidden;
-        }
+    <head>
+        <title>Components JS-UI</title>
+        <link href="css/font-awesome.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
+        <link href="css/js-ui.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">
+        <style type="text/css">
 
-        .starter-template {
+            .starter-template {
             padding: 55px 0;
-        }
-
-        .components {
+            }
+            .components {
             width: 100%;
             height: 100vh;
-            overflow: hidden;
-        }
-    </style>
-</head>
-<body class="container-fluid">
-    <nav id="nav"></nav>
-    <section class="row starter-template">
-    <nav id="theme">
-        <div id="theme-container">
-            <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-        </div>
-     </nav>
+     
+            }
 
+.section-list-components {
+   background: none repeat scroll 0 0 #eeeeee;
+    display: flex;
+    height: 100%;
+    margin-top: -4px;
+    padding: 4px;
+}
 
+.section-list-components ul{
+    list-style: none;
+}
+            #theme{
+            margin-top:-15px;
+            }
+            #theme h4{
+            padding-left: 40px;
+            }
+            .stick{
+            color: #000;
+            cursor: pointer;
+            font-size: 14px;
+            list-style: none outside none;
+            padding-bottom: 4px;
+            padding-left: 10px;
+            padding-top: 5px;
+            } 
+            .stick div{
+            border: 1px solid #d7d7d7;
+            display: inline;
+            line-height: 1.5;
+            margin: 2px;
+            padding: 1px 9px;
+            }
+            .stick div.cerulean-1{
+            background-color: #2fa4e7;
+            }
+            .stick div.cerulean-2{
+            background-color: #f5f5f5;
+            }
+            .stick div.cerulean-3{
+            background-color: #ffffff;
+            }
+            .stick div.cosmo-1{
+            background-color: #2780e3
+            }
+            .stick div.cosmo-2{
+            background-color: #222222;
+            }
+            .stick div.cosmo-3{
+            background-color: #ffffff;
+            }
+            .stick div.cupCofee-1{
+            background-color: #64abb9;
+            }
+            .stick div.cupCofee-2{
+            background-color: #664d3f;
+            }
+            .stick div.cupCofee-3{
+            background-color: #f5dacb;
+            }
+            .stick div.cyborg-1{
+            background-color: #2a9fd6;
+            }
+            .stick div.cyborg-2{
+            background-color: #424242;
+            }
+            .stick div.cyborg-3{
+            background-color: #060606;
+            }
+            .stick div.darkly-1{
+            background-color: #375a7f
+            }
+            .stick div.darkly-2{
+            background-color: #00bc8c;
+            }
+            .stick div.darkly-3{
+            background-color: #222222;
+            }
+            .stick div.default-1{
+            background-color: #428bca;
+            }
+            .stick div.default-2{
+            background-color: #d5d5d5;
+            }
+            .stick div.default-3{
+            background-color: #ffffff;
+            }
+            .stick div.simplex-1{
+            background-color: #d9230f; 
+            }
+            .stick div.simplex-2{
+            background-color: #474949;
+            }
+            .stick div.simplex-3{
+            background-color: #fcfcfc;
+            }
+            .stick div.superhero-1{
+            background-color: #df691a; 
+            }
+            .stick div.superhero-2{
+            background-color: transparent;
+            }
+            .stick div.superhero-3{
+            background-color: #2b3e50;
+            }
+            .stick div.united-1{
+            background-color: #dd4814; 
+            }
+            .stick div.united-2{
+            background-color: #aea79f;
+            }
+            .stick div.united-3{
+            background-color: #ffffff;
+            }
+            .stick div.yeti-1{
+            background-color: #008cba; 
+            }
+            .stick div.yeti-2{
+            background-color: #e7e7e7;
+            }
+            .stick div.yeti-3{
+            background-color: #ffffff;
+            }
+            .stick div.youshoopblue-1{
+            background-color: #4385f5; 
+            }
+            .stick div.youshoopblue-2{
+            background-color: #ffb225;
+            }
+            .stick div.youshoopblue-3{
+            background-color: #ffffff;
+            }
+        </style>
+    </head>
+    <body class="container-fluid">
+        <nav id="nav"></nav>
+        <section class="row starter-template">
 
-    </section>
-    <object id="components" class="components" data="all-components.html"></object>
-    <script src="js/js-ui.js"></script>
-    <script>
-        var nav = new UI.NavBar(document.getElementById('nav'), { href: 'js-ui.html', text: 'JS-UI' }, [
-              { href: 'getting-started.html', text: 'Getting started' },
-              { href: '#', text: 'Features' },
-              { href: 'components.html', text: 'Components', active: true },
-              { href: '#', text: 'API Reference' },
-              { href: '#', text: 'Pricing' },
-              { href: '#', text: 'Support' },
-              { href: '#', text: 'Community' }
-        ], { type: 'fixed' });
+            <nav id="theme">
+                <div id="theme-container">
+                    <h4>Themes</h4>
+                    <div class="col-md-3">
+                        <ul >
+                            <li class="stick" onclick="changeTheme('css/theme/cerulean.css','Cerulean Theme')">
+                                <div class="cerulean-1"></div>
+                                <div class="cerulean-2"></div>
+                                <div class="cerulean-3"></div>
+                                Cerulean 
+                            </li>
+                            <li class="stick" onclick="changeTheme('css/theme/cosmo.css','Cosmo Theme')">
+                                <div class="cosmo-1"></div>
+                                <div class="cosmo-2"></div>
+                                <div class="cosmo-3"></div>
+                                Cosmo 
+                            </li>
+                            <li class="stick" onclick="changeTheme('css/theme/cupCofee.css','CupCofee Theme')">
+                                <div class="cupCofee-1"></div>
+                                <div class="cupCofee-2"></div>
+                                <div class="cupCofee-3"></div>
+                                CupCofee 
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul >
+                            <li class="stick" onclick="changeTheme('css/theme/cyborg.css','Cyborg Theme')">
+                                <div class="cyborg-1"></div>
+                                <div class="cyborg-2"></div>
+                                <div class="cyborg-3"></div>
+                                Cyborg 
+                            </li>
+                            <li class="stick" onclick="changeTheme('css/theme/darkly.css','Darkly Theme')">
+                                <div class="darkly-1"></div>
+                                <div class="darkly-2"></div>
+                                <div class="darkly-3"></div>
+                                Darkly 
+                            </li>
+                            <li class="stick" onclick="changeTheme('css/theme/default.css','Default Theme')">
+                                <div class="default-1"></div>
+                                <div class="default-2"></div>
+                                <div class="default-3"></div>
+                                Default 
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul >
+                            <li class="stick" onclick="changeTheme('css/theme/simplex.css','Simplex Theme')">
+                                <div class="simplex-1"></div>
+                                <div class="simplex-2"></div>
+                                <div class="simplex-3"></div>
+                                Simplex 
+                            </li>
+                            <li class="stick" onclick="changeTheme('css/theme/superhero.css','Superhero Theme')">
+                                <div class="superhero-1"></div>
+                                <div class="superhero-2"></div>
+                                <div class="superhero-3"></div>
+                                Superhero 
+                            </li>
+                            <li class="stick" onclick="changeTheme('css/theme/united.css','United Theme')">
+                                <div class="united-1"></div>
+                                <div class="united-2"></div>
+                                <div class="united-3"></div>
+                                United 
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul >
+                            <li class="stick" onclick="changeTheme('css/theme/yeti.css','Yeti Theme')">
+                                <div class="yeti-1"></div>
+                                <div class="yeti-2"></div>
+                                <div class="yeti-3"></div>
+                                Yeti 
+                            </li>
+                            <li class="stick" onclick="changeTheme('css/theme/youshoopblue.css','Youshoop Blue Theme')">
+                                <div class="youshoopblue-1"></div>
+                                <div class="youshoopblue-2"></div>
+                                <div class="youshoopblue-3"></div>
+                                Youshoop Blue 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <section class="section-list-components">
+                <div class="col-md-2">
+                    <ul>
+                         <li><a href="#notify">Notify</a></li>
+                         <li><a href="#notify">Notify</a></li>
+                         <li><a href="#notify">Notify</a></li>
+                         <li><a href="#notify">Notify</a></li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+        <object id="components" class="components" data="all-components.html"></object>
+        <script src="js/js-ui.js"></script>
+        <script>
+           UI.NavBar(document.getElementById('nav'), { href: 'js-ui.html', text: 'JS-UI' }, [
+                  { href: 'getting-started.html', text: 'Getting started' },
+                  { href: '#', text: 'Features' },
+                  { href: 'components.html', text: 'Components', active: true },
+                  { href: '#', text: 'API Reference' },
+                  { href: '#', text: 'Pricing' },
+                  { href: '#', text: 'Support' },
+                  { href: '#', text: 'Community' }
+            ], { type: 'fixed' });         
+  
 
-        var items = [
-{ option: 'css/theme/cerulean.css', value: 'Cerulean' },
-{ option: 'css/theme/cosmo.css', value: 'Cosmo' },
-{ option: 'css/theme/cupcofee.css', value: 'cupcofee' },
-{ option: 'css/theme/cyborg.css', value: 'Cyborg' },
-{ option: 'css/theme/darkly.css', value: 'Darkly' },
-{ option: 'css/theme/default.css', value: 'Default' },
-{ option: 'css/theme/simplex.css', value: 'Simplex' },
-{ option: 'css/theme/superhero.css', value: 'Superhero' },
-{ option: 'css/theme/united.css', value: 'United' },
-{ option: 'css/theme/yeti.css', value: 'Yeti' },
-{ option: 'css/theme/youshoopblue.css', value: 'You Shoop Blue' }
-        ];
-
-        //var styleList = new UI.Select(document.getElementById('styleList'), items);
-        //styleList.init('css/theme/simplex.css');
-        //styleList.onchange(function () {
-
-        //    UI.ReloadCSS(document.getElementById('components').contentWindow.document.getElementById('style'), styleList.getOption(), true);
-        //});
-
-
-
-        UI.NavBarPanelSingle(document.getElementById('theme'),
-             { id: 'theme-container', text: 'Content-1AAAA' },
-             { align: 'right' }
-       );
-
-
-    </script>
-
-</body>
+            
+            var ddp = new UI.DropDownPanel(document.getElementById('theme'),
+                 { id: 'theme-container', text: 'Youshoop Blue Theme' },
+                 { align: 'right' }
+            );
+            
+            function changeTheme(theme,name){
+                ddp.setText(name);                
+                UI.ReloadCSS(document.getElementById('components').contentWindow.document.getElementById('style'), theme);
+            }
+            
+            
+        </script>
+    </body>
 </html>
