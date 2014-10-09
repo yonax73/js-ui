@@ -126,7 +126,7 @@
 		 background-color: #eeeeee;/**/
 		    border-bottom: 1px solid #dddddd;/**/
 		    margin: 0 0 5px;
-		    padding: 1px;
+		    padding: 0px;
 }
 .nav-panel li.active{
   background-color: #eeeeee;/**/

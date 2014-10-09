@@ -413,6 +413,7 @@ UI.NavBar = function(HtmlElement, link, links, options) {
             li.appendChild(a);
             nav.ul.appendChild(li);
         };
+
         HtmlElement.classList.add('navbar');
         HtmlElement.classList.add('navbar-default');
         NavBarFn.NavBarOptions(options, HtmlElement, nav.ul);
@@ -430,7 +431,7 @@ UI.NavBar = function(HtmlElement, link, links, options) {
             this.a.classList.add('navbar-brand');
             this.ul.classList.add('nav');
             this.ul.classList.add('navbar-nav');
-            this.ul.appendChild(this.a);
+            this.navBarHeader.htmlElement.appendChild(this.a);
             this.collapse.classList.add('collapse');
             this.collapse.classList.add('navbar-collapse');
             this.collapse.appendChild(this.ul);
@@ -449,7 +450,7 @@ UI.NavBar = function(HtmlElement, link, links, options) {
 
 /*
  * ========================================================================
- * UI-NAVBARPANEL
+ * UI-NAVPANEL
  * Author  : Yonatan Alexis Quintero Rodriguez
  * Version : 0.1
  * Date    : 7 Oct 2014
@@ -460,7 +461,7 @@ UI.NavBar = function(HtmlElement, link, links, options) {
  * @param contents
  * @param options
  */
-UI.NavBarPanel = function(HtmlElement, contents, options) {
+UI.NavPanel = function(HtmlElement, contents, options) {
     var head = new Head();
     var body = new Body();
     var n = contents.length;
@@ -468,7 +469,7 @@ UI.NavBarPanel = function(HtmlElement, contents, options) {
     this.init = function() {
         for (var i = 0; i < n; i++) {
             var content = contents[i];
-            var id = 'UI-NavBarPanel-' + content.id;
+            var id = 'UI-NavPanel-' + content.id;
             var headLi = document.createElement('li');
             var bodyLi = document.createElement('li');
             var a = document.createElement('a');
@@ -579,6 +580,15 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
         head.setText(text);
     }
 
+
+     this.onclick = function(callback){
+            head.a.onclick = function(){
+                
+                                this.parentNode.classList.toggle('active');
+                document.getElementById(this.dataset.id).classList.toggle('active');
+                callback();
+            }
+        }
     function Head() {
         this.htmlElement = document.createElement('nav');
         this.collapse = document.createElement('div');
@@ -615,6 +625,8 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
             this.a.textContent = text;
             this.a.appendChild(this.ico);
         }
+
+
         this.init();
     }
 
@@ -634,9 +646,90 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
 
         this.init();
     }
+
+
     this.init();
 }
+/*
+ * ========================================================================
+ * UI-NAV-TAB
+ * Author  : Yonatan Alexis Quintero Rodriguez
+ * Version : 0.1
+ * Date    : 9 Oct 2014
+ * ========================================================================
+ */
+/*
+ * @param HtmlElement
+ * @param contents
+ * @param options
+ */
+ UI.NavTab = function(HtmlElement,contents,options){
+    var head = new Head();
+    var body = new Body();
+    var n = contents.length;
 
+    this.init = function(){
+         
+        for (var i = 0; i < n; i++) {
+            var content = contents[i];
+            var id = 'UI-NavTab-' + content.id;
+            var headLi = document.createElement('li');
+            var bodyLi = document.createElement('li');
+            var a = document.createElement('a');
+            var htmlContent = document.getElementById(content.id);
+            bodyLi.appendChild(htmlContent);
+            bodyLi.id = id;
+            bodyLi.classList.add('tab-pane');
+            if (content.active) {
+                headLi.classList.add('active');
+                bodyLi.classList.add('active');
+            }
+            a.href = '#';
+            a.dataset.id = id;
+            a.textContent = content.text;
+            a.onclick = function(e) {
+                e.preventDefault();
+                var thisLi = this.parentNode;
+                var thisOldLi = thisLi.parentNode.getElementsByClassName('active');
+                if (thisOldLi.length > 0) {
+                    thisOldLi[0].classList.remove('active');
+                }
+                thisLi.classList.add('active');
+                var li = document.getElementById(this.dataset.id);
+                var oldLi = li.parentNode.getElementsByClassName('active');
+                if (oldLi.length > 0) {
+                    oldLi[0].classList.remove('active');
+                }
+                li.classList.add('active');
+            }
+            headLi.appendChild(a);
+            head.htmlElement.appendChild(headLi);
+            body.htmlElement.appendChild(bodyLi);
+        };
+         HtmlElement.appendChild(head.htmlElement);
+         HtmlElement.appendChild(body.htmlElement);
+    }
+
+    function Head(){
+      this.htmlElement = document.createElement('ul');
+      this.init = function(){
+          this.htmlElement.classList.add('nav');   
+          this.htmlElement.classList.add('nav-tabs');   
+      }
+      this.init();
+    }
+
+    function Body(){
+       this.htmlElement = document.createElement('ul');
+       this.init = function(){
+            this.htmlElement.classList.add('tab-content');
+            this.htmlElement.classList.add('reset');
+       }
+       this.init();
+    }
+
+    this.init();
+ }
 /*
  * ========================================================================
  * UI-Utils

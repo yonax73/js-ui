@@ -1,47 +1,111 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>All Components JS-UI</title>
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
-    <link href="css/js-ui.css" rel="stylesheet" />
-    <link id="style" rel="stylesheet" type="text/css" href="css/theme/youshoopblue.css">  
-    <style type="text/css">
-       .starter-template {
-            padding: 55px 0;            
-       }
-    </style>   
-</head>
-	<body class="container-fluid">
-  	<nav id="nav"></nav>
-    <section class="row starter-template">
-                  
-        <div class="jumbotron">
-  <h1>Hello, world!</h1>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    Action <span class="caret"></span>
-  </button>
-<ul class="nav nav-pills nav-stacked">
-  <li class="active">
-    <a href="#">
-      <span class="badge pull-right">42</span>
-      Home
-    </a>
-  </li>
-  ...
-</ul>
-</div>
-     
-    </section>
-     <script src="js/js-ui.js"></script>
+   <head>
+      <title>All Components JS-UI</title>
+      <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
+      <link href="css/font-awesome.min.css" rel="stylesheet" />
+      <link href="css/js-ui.css" rel="stylesheet" />
+      <link id="style" rel="stylesheet" type="text/css" href="css/theme/youshoopblue.css">
+   </head>
+   <body class="container-fluid">
+      <!-- UI-NOTIFY -->    
+      <section id="ui-notify" class="row">
+         <div class="col-md-12">
+         <h1>
+            <i class="fa fa-bookmark-o">&nbsp;UI-Notify</i>
+         </h1>
+         <p>The UI-Notify is a simple message alert</p>
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <h4>Example</h4>
+               <div class="row">
+                  <div>
+                     <div class="col-md-12" id="notify"></div>
+                     <button type="button" class="btn btn-default" id="btnSuccess">Success</button>
+                     <button type="button" class="btn btn-default" id="btnInfo">Info</button>
+                     <button type="button" class="btn btn-default" id="btnWarning">Warning</button>
+                     <button type="button" class="btn btn-default" id="btnDanger">Danger</button>
+                     <button type="button" class="btn btn-default" id="btnWait">Wait...</button>
+                     <button type="button" class="btn btn-default" id="btnClose">Close</button>
+                  </div>
+                  <br />
+                        <section id="notify-content">
+                      <div id="tab-notify-content-1">
+                                                <pre>
+                            <code class="html">
+&lt;!-- Element for show the notification --&gt;
+&lt;div class=&quot;col-md-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+                           </code>
+                      </pre>
+                      </div>
+                      <div id="tab-notify-content-2">
+                        <pre>
+                        <code class="js">
+/*
+* Create new instance for UINotify with parameter html element id
+*/
+var UINotify = new UI.Notify('notify');
+//Notification Success
+UINotify.success('This is an example of success notification.');
+//Method for close notification
+UINotify.close();
+                       </code>
+                   </pre>
+                      </div>
+                     
+                  </section>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <script src="../highlight/js/highlight.pack.js"></script>
+      <script src="js/js-ui.js"></script>
       <script>
- 
+         hljs.initHighlightingOnLoad();
+         
+         /*
+          * ========================================================================
+          * UI-NOTIFY
+          * Author  : Yonatan Alexis Quintero Rodriguez    
+          * Date    : 9 Oct 2014
+          * ========================================================================
+          */
+           var UINotify = new UI.Notify(document.getElementById('notify'));
+           document.getElementById('btnSuccess').onclick =
+               function () {               
+                   UINotify.success('This is an example of success notification.');
+               }
+           document.getElementById('btnInfo').onclick =
+               function () {              
+                   UINotify.info('This is an example of info notification.');
+               }
+           document.getElementById('btnWarning').onclick =
+               function () {               
+                   UINotify.warning('This is an example of warning notification.');
+               }
+           document.getElementById('btnDanger').onclick =
+               function () {              
+                   UINotify.danger('This is an example of danger notification.');
+               }
+           document.getElementById('btnWait').onclick =
+               function () {               
+                   UINotify.wait('This is an example of wait notification.');
+               }
+           document.getElementById('btnWait').onclick =
+               function () {                
+                   UINotify.wait('This is an example of wait notification.');
+               }
+           document.getElementById('btnClose').onclick =
+               function () {               
+                   UINotify.close();
+               }
 
-
+               UI.NavTab(document.getElementById('notify-content'),[
+                  { id: 'tab-notify-content-1', text: 'Html' ,active:true},
+                  { id: 'tab-notify-content-2', text: 'Javascript' }
+                ]);
 
       </script>
-
-	</body>
+   </body>
 </html>
