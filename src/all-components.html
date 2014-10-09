@@ -30,7 +30,7 @@
                   </div>
                   <br />
                         <section id="notify-content">
-                      <div id="tab-notify-content-1">
+                      <div id="tab-notify-1">
                                                 <pre>
                             <code class="html">
 &lt;!-- Element for show the notification --&gt;
@@ -38,19 +38,22 @@
                            </code>
                       </pre>
                       </div>
-                      <div id="tab-notify-content-2">
+                      <div id="tab-notify-2">
                         <pre>
                         <code class="js">
 /*
 * Create new instance for UINotify with parameter html element id
 */
-var UINotify = new UI.Notify('notify');
+var UINotify = new UI.Notify(document.getElementById('notify'));
 //Notification Success
 UINotify.success('This is an example of success notification.');
 //Method for close notification
 UINotify.close();
                        </code>
                    </pre>
+                      </div>
+                      <div id="tab-notify-3">
+                         <p>You can see the code of this example <a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">here</a></p>
                       </div>
                      
                   </section>
@@ -102,8 +105,9 @@ UINotify.close();
                }
 
                UI.NavTab(document.getElementById('notify-content'),[
-                  { id: 'tab-notify-content-1', text: 'Html' ,active:true},
-                  { id: 'tab-notify-content-2', text: 'Javascript' }
+                  { id: 'tab-notify-1', text: 'Html' ,active:true},
+                  { id: 'tab-notify-2', text: 'Javascript' },
+                  { id: 'tab-notify-3', text: 'More..' }
                 ]);
 
       </script>
