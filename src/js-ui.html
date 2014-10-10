@@ -1,93 +1,88 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>JS-UI</title>
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
-    <link href="css/js-ui.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">  
-    <style type="text/css">
-      .starter-template {
-            padding: 40px 0;
-            text-align: center;
-       }
-       .main{
-           background: none repeat scroll 0 0 #cb3334;
-           height: 90vh;
-           padding-top: 20px;
-       }
-.title {
-    display: block;
-    margin-left: 5%;
-    margin-top: 10%;
-}
-.title h1 {
-color: #fff;
-    font-size: 5em;
-    text-align: left;
-    width: 100%;
-}
-       .description {
- color: #d9d9d9;
-    padding: 0;
-    text-align: left;
-    width: 30%;
-       }
-       .description b {
-          font-size: 22px;
-       }
-       .description a{
-          color: #bbbbbb;
-       }
-       .description small{
-          font-size: 10px;
-       }
-
-       .download{
+   <head>
+      <title>JS-UI</title>
+      <link href="css/font-awesome.min.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
+      <link href="css/js-ui.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="css/theme/cupcofee.css">
+      <style type="text/css">
+         body{
+         background-color: #7f3545;
+         overflow-x: hidden;
+         }
+         .starter-template {
+         padding: 40px 0;
+         text-align: center;
+         }
+         .main{
+         background: none repeat scroll 0 0 #7f3545;
+         padding-top: 10px;
+         }
+         .title {
+         display: block;
+         margin-left: 5%;
+         margin-top: 10%;
+         }
+         .title h1 {
+         color: #fff;
+         font-size: 5em;
+         text-align: left;
+         width: 100%;
+         }
+         .description {
+         color: #d9d9d9;
+         padding: 0;
+         text-align: left;
+         width: 30%;
+         }
+         .description b {
+         font-size: 22px;
+         }
+         .description a{
+         color: #bbbbbb;
+         }
+         .description small{
+         font-size: 10px;
+         }
+         .download{
          font-size: 3em;
-       }
-
-    </style>   
-</head>
-	<body class="container-fluid">
-  	<nav id="nav"></nav>
-    <section class="row starter-template" >
-      
-        <div class="col-md-12 main">            
-         <div class="title">
-          <div>
-                <h1 >JS-UI</h1>
-          </div>
-                     
-                         <div>
-                                         <p class='description'>
-                  <b>Minimal and flexible framework javascript for web application modern using <span><a href="http://getbootstrap.com/" target="_blank">bootstrap</a></span>.</b>
-               <br/>
-               <a href="#" class="download">
-                  Download JS-UI
-               </a>
-                 <br/>
-                  <small>Currently v0.1</small>
-               </p>
-                         </div>
-
+         }
+      </style>
+   </head>
+   <body class="container-fluid">
+      <nav id="nav"></nav>
+      <section class="row starter-template" >
+         <div class="col-md-12 main">
+            <div class="title">
+               <div>
+                  <h1 >JS-UI</h1>
+               </div>
+               <div>
+                  <p class='description'>
+                     <b>Minimal and flexible framework javascript for web application modern using <span><a href="http://getbootstrap.com/" target="_blank">bootstrap</a></span>.</b>
+                     <br/>
+                     <a href="#" class="download">
+                     Download JS-UI
+                     </a>
+                     <br/>
+                     <small>Currently v0.1</small>
+                  </p>
+               </div>
+            </div>
          </div>
-
-      </div>
-
-    </section>
-     <script src="js/js-ui.js"></script>
+      </section>
+      <script src="js/js-ui.js"></script>
       <script>
-          UI.NavBar(document.getElementById('nav'),{href:'js-ui.html',text:'JS-UI'},[
-             {href:'getting-started.html',text:'Getting started'},
-             {href:'#',text:'Features'},
-             {href:'components.html',text:'Components'},
-             {href:'#',text:'API Reference'},
-             {href:'#',text:'Pricing'},
-             {href:'#',text:'Support'},
-             {href:'#',text:'Community'}
-            ],{type:'fixed',align:'right'});
+         UI.NavBar(document.getElementById('nav'),{href:'js-ui.html',text:'JS-UI'},[
+            {href:'getting-started.html',text:'Getting started'},
+            {href:'#',text:'Features'},
+            {href:'components.html',text:'Components'},
+            {href:'#',text:'API Reference'},
+            {href:'#',text:'Pricing'},
+            {href:'#',text:'Support'},
+            {href:'#',text:'Community'}
+           ],{type:'fixed',align:'right'});
       </script>
-
-	</body>
+   </body>
 </html>

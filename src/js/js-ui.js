@@ -131,7 +131,7 @@ UI.Notify = function(HtmlElement) {
 
 /*
  * ========================================================================
- * UI-SELECT
+ * UI-DropDownList
  * Author  : Yonatan Alexis Quintero Rodriguez
  * Version : 0.1
  * Date    : 6 Oct 2014
@@ -141,7 +141,7 @@ UI.Notify = function(HtmlElement) {
  * @param HtmlElement
  * @param items
  */
-UI.Select = function(HtmlElement, items) {
+UI.DropDownList = function(HtmlElement, items) {
 
     var span = null;
     var input = null;
@@ -151,12 +151,12 @@ UI.Select = function(HtmlElement, items) {
     var oldItemLi = null;
     var currentItemLi = null;
     var disabled = false;
-    var UISelect = null;
+    var UIDropDownList = null;
 
 
     this.init = function(option) {
-        UISelect = this;
-        HtmlElement.classList.add('select');
+        UIDropDownList = this;
+        HtmlElement.classList.add('dropdownlist');
         HtmlElement.classList.add('background');
         this.create();
         this.fill();
@@ -182,18 +182,18 @@ UI.Select = function(HtmlElement, items) {
         span.appendChild(i);
 
         span.onclick = function() {
-            UISelect.toggle();
+            UIDropDownList.toggle();
             currentItemLi.focus();
         }
         span.onkeydown = function checkKey(e) {
             e = e || window.event;
             if (e.keyCode === 9) {
                 e.preventDefault();
-                UISelect.toggle();
+                UIDropDownList.toggle();
                 currentItemLi.focus();
             }
         }
-        ul.classList.add('select-list');;
+        ul.classList.add('dropdownlist-list');;
         ul.classList.add('hidden');
         inputHidden = document.createElement('input');
         HtmlElement.appendChild(inputHidden);
@@ -215,13 +215,13 @@ UI.Select = function(HtmlElement, items) {
             li.tabIndex = i;
             li.dataset.option = item.option;
             li.onclick = function() {
-                UISelect.changeValue(this);
+                UIDropDownList.changeValue(this);
             }
             li.onkeydown = function checkKey(e) {
                 e = e || window.event;
                 if (e.keyCode === 13) {
                     e.preventDefault();
-                    UISelect.changeValue(this);
+                    UIDropDownList.changeValue(this);
                 }
             }
             ul.appendChild(li);
@@ -273,13 +273,13 @@ UI.Select = function(HtmlElement, items) {
         li.tabIndex = items.length + 1;
         li.dataset.option = option;
         li.onclick = function() {
-            UISelect.changeValue(this);
+            UIDropDownList.changeValue(this);
         }
         li.onkeydown = function checkKey(e) {
             e = e || window.event;
             if (e.keyCode === 13) {
                 e.preventDefault();
-                UISelect.changeValue(this);
+                UIDropDownList.changeValue(this);
             }
         }
         ul.appendChild(li);
@@ -743,6 +743,11 @@ UI.ReloadCSS = function(htmlElement, href) {
     htmlElement.href = href.replace(/\?.*|$/, queryString);
 }
 
+UI.Sleep = function(milliseconds){
+        var startTime = new Date().getTime();
+        while (new Date().getTime() < startTime + milliseconds);
+}
+
 Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
 }
@@ -760,6 +765,10 @@ Element.prototype.moveChildrenTo = function(target) {
         target.appendChild(this.childNodes[0]);
     }
     this.remove();
+}
+
+Element.prototype.getContentFromFrame = function(){
+    return  this.contentDocument || this.contentWindow.document;
 }
 
 

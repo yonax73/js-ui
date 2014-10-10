@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>All Components JS-UI</title>
-    <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/js-ui.css" rel="stylesheet" />
-    <link id="style" rel="stylesheet" type="text/css" href="css/theme/cosmo.css">
-    <style>
-    
-
-        .actions ul{
-             font-size: 14px;
-             text-align: right;
-             list-style:none;
-             padding-right:5px;
-
-        }
-        .actions ul li{
-            display:inline;
-            padding-right:5px;
-        }
-
-        .actions div,.actions h3 {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-
-<body class="container-fluid">
-
-    <!-- UI-NOTIFY -->
-    <section id="ui-notify" tabindex="1" class="row">
-        <div class="col-md-12">
+   <head>
+      <title>All Components JS-UI</title>
+      <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
+      <link href="css/font-awesome.min.css" rel="stylesheet" />
+      <link href="css/js-ui.css" rel="stylesheet" />
+      <link id="style" rel="stylesheet" type="text/css" href="css/theme/cosmo.css">
+      <style>
+         .actions ul{
+         font-size: 14px;
+         text-align: right;
+         list-style:none;
+         padding-right:5px;
+         }
+         .actions div:last-child {
+         position: relative;
+         top: -35px;
+         }
+         .actions ul li{
+         display:inline;
+         padding-right:5px;
+         }
+         .actions div,.actions h3 {
+         margin: 0;
+         padding: 0;
+         }
+      </style>
+   </head>
+   <body class="container-fluid">
+      <!-- UI-NOTIFY -->
+      <section id="ui-notify" onclick="goTo(this)" class="row">
+         <div class="col-md-12">
             <h1>
-                <i class="fa fa-bookmark-o">&nbsp;UI-Notify</i>
+               <i class="fa fa-bookmark-o">&nbsp;UI-Notify</i>
             </h1>
             <p>The UI-Notify is a simple message alert</p>
             <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="row actions">
-                        <div class="col-md-6">
-                            <h3>Example</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <ul>
-                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Edit</a></li>
-                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Share</a></li>
-                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Copy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div>
-                            <!--Here to show the notification-->
-                            <div class="col-md-12" id="notify"></div>
-                            <!-- Call Success notificaction-->
-                            <button type="button" class="btn btn-default" onclick="UINotify.success('Success notification!');">Success</button>
-                            <!-- Call Info notificaction -->
-                            <button type="button" class="btn btn-default" onclick=" UINotify.info('Info notification!');">Info</button>
-                            <!-- Call Warning notificaction -->
-                            <button type="button" class="btn btn-default" onclick="UINotify.warning('Warning notification!');">Warning</button>
-                            <!-- Call Danger notificaction-->
-                            <button type="button" class="btn btn-default" onclick="UINotify.danger('Danger notification!');">Danger</button>
-                            <!-- Call Wait notificaction -->
-                            <button type="button" class="btn btn-default" onclick="UINotify.wait('Wait notification!');">Wait...</button>
-                            <!-- Call Close method -->
-                            <button type="button" class="btn btn-default" onclick="UINotify.close();">Close</button>
-                        </div>
-                        <br />
-                        <section id="notify-content">
-                            <div id="tab-notify-1">
-                                <pre>
+               <div class="panel-body">
+                  <div class="row actions">
+                     <div class="col-md-6">
+                        <h3>Example</h3>
+                     </div>
+                     <br/>
+                     <div class="col-md-6">
+                        <ul>
+                           <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Edit</a></li>
+                           <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Share</a></li>
+                           <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Copy</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                     <div class="row">
+                        <!--Here to show the notification-->
+                        <div class="col-md-12" id="notify"></div>
+                        <!-- Call Success notificaction-->
+                        <button type="button" class="btn btn-default" onclick="UINotify.success('Success notification!');">Success</button>
+                        <!-- Call Info notificaction -->
+                        <button type="button" class="btn btn-default" onclick=" UINotify.info('Info notification!');">Info</button>
+                        <!-- Call Warning notificaction -->
+                        <button type="button" class="btn btn-default" onclick="UINotify.warning('Warning notification!');">Warning</button>
+                        <!-- Call Danger notificaction-->
+                        <button type="button" class="btn btn-default" onclick="UINotify.danger('Danger notification!');">Danger</button>
+                        <!-- Call Wait notificaction -->
+                        <button type="button" class="btn btn-default" onclick="UINotify.wait('Wait notification!');">Wait...</button>
+                        <!-- Call Close method -->
+                        <button type="button" class="btn btn-default" onclick="UINotify.close();">Close</button>
+                     </div>
+                     <br />
+                     <section id="notify-content" class="row">
+                        <div id="tab-notify-1">
+                           <pre>
                                 <code class="html">
 &lt;!--Here to show the notification--&gt;
 &lt;div class=&quot;col-md-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
@@ -90,69 +89,58 @@
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.close();&quot;&gt;Close&lt;/button&gt;
                            </code>
                       </pre>
-                            </div>
-                            <div id="tab-notify-2">
-                                <pre>
+                        </div>
+                        <div id="tab-notify-2">
+                           <pre>
                                 <code class="js">
 /*
-* Create Object UI-Notification with element html parameter
+* Create Object UI-Notify with element html parameter
 */
 var UINotify = new UI.Notify(document.getElementById('notify'));
 
                        </code>
                    </pre>
-                            </div>
-
-                        </section>
-                    </div>
-                </div>
+                        </div>
+                     </section>
+                      </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </section>
-
-    <!-- UI-SELECT -->
-    <section id="ui-select" tabindex="2" class="row">
-        <div class="col-md-12">
+         </div>
+      </section>
+      <!-- UI-DROPDOWNLIST -->
+      <section id="ui-dropdownlist" tabindex="2" onclick="goTo(this)" class="row">
+         <div class="col-md-12">
             <h1>
-                <i class="fa fa-bookmark-o">&nbsp;UI-Select</i>
+               <i class="fa fa-bookmark-o">&nbsp;UI-DropDownList</i>
             </h1>
-            <p>The UI-Notify is a simple message alert</p>
+            <p>The UI-DropDownList is a simple list drop down</p>
             <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="row actions">
-                        <div class="col-md-6">
-                            <h3>Example</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <ul>
-                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Edit</a></li>
-                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Share</a></li>
-                                <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Copy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div>
-                            <!--Here to show the notification-->
-                            <div class="col-md-12" id="notify"></div>
-                            <!-- Call Success notificaction-->
-                            <button type="button" class="btn btn-default" onclick="UINotify.success('Success notification!');">Success</button>
-                            <!-- Call Info notificaction -->
-                            <button type="button" class="btn btn-default" onclick=" UINotify.info('Info notification!');">Info</button>
-                            <!-- Call Warning notificaction -->
-                            <button type="button" class="btn btn-default" onclick="UINotify.warning('Warning notification!');">Warning</button>
-                            <!-- Call Danger notificaction-->
-                            <button type="button" class="btn btn-default" onclick="UINotify.danger('Danger notification!');">Danger</button>
-                            <!-- Call Wait notificaction -->
-                            <button type="button" class="btn btn-default" onclick="UINotify.wait('Wait notification!');">Wait...</button>
-                            <!-- Call Close method -->
-                            <button type="button" class="btn btn-default" onclick="UINotify.close();">Close</button>
-                        </div>
-                        <br />
-                        <section id="notify-content">
-                            <div id="tab-notify-1">
-                                <pre>
+               <div class="panel-body">
+                  <div class="row actions">
+                     <div class="col-md-6">
+                        <h3>Example</h3>
+                     </div>
+                     <br/>
+                     <div class="col-md-6">
+                        <ul>
+                           <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Edit</a></li>
+                           <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Share</a></li>
+                           <li><a href="http://jsfiddle.net/yonatanalexis22/61L982ef/" target="_blank">Copy</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                     <div class="row">
+                       <div class="col-md-1"><h4>Products:</h4></div>
+                         <!--Here to show the dropdownlist-->
+                        <div class="col-md-2" id="dropdownlist"></div>
+                     </div>
+                     <br />
+                     <section id="dropdownlist-content" class="row">
+                        <div id="tab-dropdownlist-1">
+                           <pre>
                                 <code class="html">
 &lt;!--Here to show the notification--&gt;
 &lt;div class=&quot;col-md-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
@@ -170,50 +158,120 @@ var UINotify = new UI.Notify(document.getElementById('notify'));
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.close();&quot;&gt;Close&lt;/button&gt;
                            </code>
                       </pre>
-                            </div>
-                            <div id="tab-notify-2">
-                                <pre>
+                        </div>
+                        <div id="tab-dropdownlist-2">
+                           <pre>
                                 <code class="js">
 /*
-* Create Object UI-Notification with element html parameter
+* Create Object UI-Notify with element html parameter
 */
 var UINotify = new UI.Notify(document.getElementById('notify'));
                        </code>
                    </pre>
-                            </div>
-
-                        </section>
-                    </div>
-                </div>
+                        </div>
+                     </section>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </section>
-
-    <script src="../highlight/js/highlight.pack.js"></script>
-    <script src="js/js-ui.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad();
-
-        /*
-         * ========================================================================
-         * UI-NOTIFY
-         * Author  : Yonatan Alexis Quintero Rodriguez
-         * Date    : 9 Oct 2014
-         * ========================================================================
+         </div>
+      </section>
+      <script src="../highlight/js/highlight.pack.js"></script>
+      <script src="js/js-ui.js"></script>
+      <script>
+         hljs.initHighlightingOnLoad();
+         
+         /*
+          * ========================================================================
+          * UI-NOTIFY
+          * Author  : Yonatan Alexis Quintero Rodriguez
+          * Date    : 9 Oct 2014
+          * ========================================================================
+          */
+         
+         /*
+         * Create Object UI-Notify
+         * @param HtmlElement
          */
+         var UINotify = new UI.Notify(document.getElementById('notify'));         
+         
+         UI.NavTab(document.getElementById('notify-content'), [
+            { id: 'tab-notify-1', text: 'Html', active: true },
+            { id: 'tab-notify-2', text: 'Javascript' }
+         ]);
+         
 
-        /*
-        * Create Object UI-Notification with element html parameter
-        */
-        var UINotify = new UI.Notify(document.getElementById('notify'));
+         /*
+          * ========================================================================
+          * UI-DROPDOWNLIST
+          * Author  : Yonatan Alexis Quintero Rodriguez
+          * Date    : 10 Oct 2014
+          * ========================================================================
+          */
+         
+         /*
+         * Create Object UI-DropDownList
+         * @param HtmlElement
+         * @param Items []
+         */
+         var UIDropDownList = new UI.DropDownList(document.getElementById('dropdownlist'),[
+            {option:1,value:'Product A'},
+            {option:1,value:'Product B'},
+            {option:1,value:'Product C'}
+          ]);
+         /**
+         * Initialize the UI-DropDownList
+         * @param option
+         */
+          UIDropDownList.init(1);
+         
+         
+         /*Function document*/
+         var notifyPos = null;
+         var selectPos = null; 
+         var body =         document.getElementsByTagName('body')[0];
+         var bodyParent = window.parent || window.top;
+         var currentLink = bodyParent.document.getElementById('link-notify');
+         setPositions();
+         body.onresize = function () {
+             setPositions();
+         }
+         
+         function setPositions(){
+          notifyPos = document.getElementById('ui-notify').offsetTop; 
+          selectPos = document.getElementById('ui-dropdownlist').offsetTop; 
+         }
+         function goTo(self){        
+              window.scrollTo(0,self.offsetTop);
+          }
+         
+          window.onscroll = function(){
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;         
+                setPositions();
 
-  
+                 if(scrollTop >=notifyPos && scrollTop <= selectPos){
+                     currentLink.classList.remove('link');
+                     currentLink = bodyParent.document.getElementById('link-notify');
+                      currentLink.classList.add('link');
+                 }
+         
+                 if(scrollTop >=selectPos){
+                     currentLink.classList.remove('link');
+                     currentLink = bodyParent.document.getElementById('link-dropdownlist');
+                      currentLink.classList.add('link');
+                 }
+         
+         
+          }
 
-        UI.NavTab(document.getElementById('notify-content'), [
-           { id: 'tab-notify-1', text: 'Html', active: true },
-           { id: 'tab-notify-2', text: 'Javascript' }
-        ]);
+                   var url = bodyParent.document.URL;
+         var indexOf = url.indexOf("#")+1;
+        if(indexOf >0){
+             
 
-    </script>
-</body>
+          document.getElementById(url.substring(indexOf)).click();
+        }
+         
+      </script>
+   </body>
 </html>
