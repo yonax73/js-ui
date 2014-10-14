@@ -17,6 +17,8 @@
 
 .section-components {
     background-color: transparent;
+    position: relative;
+    top:85px;
 }
 
 
@@ -57,15 +59,20 @@
     padding-top:80px;
 }
 
+
 .component-header p {
     color: #777;
 }
 
-.component-header h2,.component-body h3 {
-    padding-bottom: 10px;        
+.component-header h2,.component-api h3 {
+    padding-bottom: 5px;        
 }
 
-.component-body small{
+.component-api {
+    padding-left: 10px;
+}
+
+.component-api small{
     font-size:10px;
 }
 .component-example {
@@ -81,21 +88,15 @@
     width:100%;
 }
 
-.api{
-    height: 135px;
-    overflow: auto;
-}
 
-.vertical-center {
-    align-content: center;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    justify-content: center;
-}
 
-.api >div:nth-child(2n) {
+.api  {
     background-color: #f8f8f8;
+    border-bottom: 1px solid #cbcbcb;
+    padding: 10px;
+}
+.api > div {
+    padding-left: 10px;
 }
 .api pre,.api code{
     background-color:transparent;
@@ -109,6 +110,15 @@
 }
 .api code{
     width:100%;
+}
+
+.api a{
+    color: #777;
+    font-weight: bold;
+}
+
+.api a.method{
+    color: #3d3d3d;
 }
 /*Style palette*/
 .palette {

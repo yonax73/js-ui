@@ -109,113 +109,408 @@
                     <div class="col-md-12">
                         <section class="row component-header">
                             <div class="col-md-12">
-                                <h2>UI-Notify</h2>
+                                <h2>Notify Object</h2>
                                 <p>
-                                    Simple message alert
+                                   The Notify Object is used for show messages
                                 </p>
                             </div>
                         </section>
-                        <section class="row component-body">
-                            <div class="col-md-12">
-                                <h3>Example</h3>
-                                <div class="component-example">
-                                    <object name="notify"  data="components/notify.html" style="height:95px"></object>
+                        <!--  Notify Success -->
+                        <div class="component-api">
+                            <section id="ui-notify-success" class="row">
+                                <div class="col-md-12">
+                                    <h3>success(message:String)</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-notify-success" >View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp; 
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
                                 </div>
-                                <small><a href="#" class="pull-right">View more.</a></small>
-                            </div>
-                        </section>
-                        <section class="row component-footer">
-                            <div class="col-md-12">
-                                <div id="notify-content">
-                                    <div id="tab-notify-1">
-                                        <pre>
-                                        <code class="html">
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-notify-success">
+                                        <div id="tab-notify-success-1">
+                                            <pre>
+                                            <code class="html">
 &lt;!--Here to show the notification--&gt;
 &lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-success&quot; id=&quot;btnSuccess&quot; &gt;Show Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-notify-success-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+document.getElementById('btnSuccess').onclick = function () {          
+    notify.success('Success Notify');
+}    
                                      </code>
-                                    </pre>
-                                    </div>
-                                    <div id="tab-notify-2">
-                                        <pre>
-                                        <code class="js">
-/*
-* Create Object UI-Notify
-* @param HtmlElement
-*/
-var UINotify = new UI.Notify(document.getElementById('notify'));
-/*
-* Show notification type Success
-* @param String
-*/
-UINotify.success('Success Notify');
-                                 </code>
-                               </pre>
-                                    </div>
-                                    <div id="tab-notify-3">
-                                        <div class="row">
-                                            <div class="col-md-10 api">
-                                                <div class="row">
-                                                    <section class="col-md-3 vertical-center">
-                                                        <button class="btn btn-default" id="api-notify-show-success">Show Success Notify</button>
-                                                    </section>
-                                                    <section class="col-md-7">
-                                                        <pre>
-                                                         <code class="js">
-/*
-* Show notification type Success
-* @param String
-*/                                 
-UINotify.success('Success Notify');
-                                                         </code>
-                                                       </pre>
-                                                    </section>
-                                                </div>
-                                                <div class="row">
-                                                    <section class="col-md-3 vertical-center" >
-                                                        <button class="btn btn-default" id="api-notify-show-success">Show Success Notify</button>
-                                                    </section>
-                                                    <section class="col-md-7">
-                                                        <pre>
-                                                        <code class="js">
-/*
-* Show notification type Success
-* @param String
-*/
-UINotify.success('Success Notify');
-                                                         </code>
-                                                       </pre>
-                                                    </section>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-notify-success-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object   data="components/notify-success.html" ></object>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
-                                                <h4>Console</h4>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        </div>
+
                         <script>
-                            UI.NavTab(document.getElementById('notify-content'), [
-                               { id: 'tab-notify-1', text: 'Html', active: true },
-                               { id: 'tab-notify-2', text: 'Javascript' },
-                               { id: 'tab-notify-3', text: 'Api' }
+                            UI.NavTab(document.getElementById('content-notify-success'), [
+                               { id: 'tab-notify-success-1', text: 'Html'},
+                               { id: 'tab-notify-success-2', text: 'Javascript' },
+                               { id: 'tab-notify-success-3', text: 'Result', active: true  }
                             ]);
-
-                            window.onload = function () {
-                                var frame = window.frames['notify'];
-                                var doc = frame.contentDocument.defaultView || frame.contentWindow;                                
-                                document.getElementById('api-notify-show-success').onclick = function (e) {
-                                    e.preventDefault();
-                                    doc.showNotify();
-                                }
-                            }
-
                         </script>
+
+                        <!--  Notify Info -->
+                        <div class="component-api">
+                            <section id="ui-notify-info" class="row">
+                                <div class="col-md-12">
+                                    <h3>info(message:String)</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-notify-info" >View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp; 
+                                        <a href="http://jsfiddle.net/yonaxtics/x3dvbfe9/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-notify-info">
+                                        <div id="tab-notify-info-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-info&quot; id=&quot;btnInfo&quot; &gt;Show Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-notify-info-2">
+                                            <pre>
+                                              <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+document.getElementById('btnInfo').onclick = function () {          
+    notify.info('Info Notify');
+}    
+                                             </code>
+                                          </pre>
+                                        </div>
+                                        <div id="tab-notify-info-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object   data="components/notify-info.html" ></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <script>
+                            UI.NavTab(document.getElementById('content-notify-info'), [
+                               { id: 'tab-notify-info-1', text: 'Html'},
+                               { id: 'tab-notify-info-2', text: 'Javascript' },
+                               { id: 'tab-notify-info-3', text: 'Result', active: true  }
+                            ]);
+                        </script>
+
+                        <!--  Notify Warning -->
+                        <div class="component-api">
+                            <section id="ui-notify-warning" class="row">
+                                <div class="col-md-12">
+                                    <h3>warning(message:String)</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-notify-warning" >View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp; 
+                                        <a href="http://jsfiddle.net/yonaxtics/xdycq6mk/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-notify-warning">
+                                        <div id="tab-notify-warning-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-warning&quot; id=&quot;btnWarning&quot; &gt;Show Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-notify-warning-2">
+                                            <pre>
+                                              <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+document.getElementById('btnWarning').onclick = function () {          
+    notify.warning('Warning Notify');
+}    
+                                             </code>
+                                          </pre>
+                                        </div>
+                                        <div id="tab-notify-warning-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object   data="components/notify-warning.html" ></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <script>
+                            UI.NavTab(document.getElementById('content-notify-warning'), [
+                               { id: 'tab-notify-warning-1', text: 'Html'},
+                               { id: 'tab-notify-warning-2', text: 'Javascript' },
+                               { id: 'tab-notify-warning-3', text: 'Result', active: true  }
+                            ]);
+                        </script>
+                        <!--  Notify Danger -->
+                        <div class="component-api">
+                            <section id="ui-notify-danger" class="row">
+                                <div class="col-md-12">
+                                    <h3>danger(message:String)</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-notify-danger" >View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp; 
+                                        <a href="http://jsfiddle.net/yonaxtics/f8821vns/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-notify-danger">
+                                        <div id="tab-notify-danger-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-danger&quot; id=&quot;btnDanger&quot; &gt;Show Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-notify-danger-2">
+                                            <pre>
+                                              <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+document.getElementById('btnDanger').onclick = function () {          
+    notify.danger('Danger Notify');
+}    
+                                             </code>
+                                          </pre>
+                                        </div>
+                                        <div id="tab-notify-danger-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object   data="components/notify-danger.html" ></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <script>
+                            UI.NavTab(document.getElementById('content-notify-danger'), [
+                               { id: 'tab-notify-danger-1', text: 'Html'},
+                               { id: 'tab-notify-danger-2', text: 'Javascript' },
+                               { id: 'tab-notify-danger-3', text: 'Result', active: true  }
+                            ]);
+                        </script>
+                        <!--  Notify wait -->
+                        <div class="component-api">
+                            <section id="ui-notify-wait" class="row">
+                                <div class="col-md-12">
+                                    <h3>wait(message:String)</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-notify-wait" >View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp; 
+                                        <a href="http://jsfiddle.net/yonaxtics/31erqfvn/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-notify-wait">
+                                        <div id="tab-notify-wait-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-info&quot; id=&quot;btnWait&quot; &gt;Show Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-notify-wait-2">
+                                            <pre>
+                                              <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+document.getElementById('btnWait').onclick = function () {          
+    notify.wait('Wait Notify');
+}    
+                                             </code>
+                                          </pre>
+                                        </div>
+                                        <div id="tab-notify-wait-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object   data="components/notify-wait.html" ></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <script>
+                            UI.NavTab(document.getElementById('content-notify-wait'), [
+                               { id: 'tab-notify-wait-1', text: 'Html'},
+                               { id: 'tab-notify-wait-2', text: 'Javascript' },
+                               { id: 'tab-notify-wait-3', text: 'Result', active: true  }
+                            ]);
+                        </script>
+
+                        <!--  Notify close -->
+                        <div class="component-api">
+                            <section id="ui-notify-close" class="row">
+                                <div class="col-md-12">
+                                    <h3>close()</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-notify-close" >View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp; 
+                                        <a href="http://jsfiddle.net/yonaxtics/5v46yd1d/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-notify-close">
+                                        <div id="tab-notify-close-1">
+                                            <pre>
+                                            <code class="html">
+&lt;div class=&quot;col-md-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-success&quot; id=&quot;btnSuccess&quot; &gt;Show Notification&lt;/button&gt;
+&lt;button  class=&quot;btn btn-default&quot; id=&quot;btnClose&quot; &gt;Close Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-notify-close-2">
+                                            <pre>
+                                              <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+notify.success('Success Notify');
+document.getElementById('btnSuccess').onclick = function () {          
+    notify.success('Success Notify');
+}   
+document.getElementById('btnClose').onclick = function () {          
+    notify.close();
+}       
+                                             </code>
+                                          </pre>
+                                        </div>
+                                        <div id="tab-notify-close-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object   data="components/notify-close.html" ></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <script>
+                            UI.NavTab(document.getElementById('content-notify-close'), [
+                               { id: 'tab-notify-close-1', text: 'Html'},
+                               { id: 'tab-notify-close-2', text: 'Javascript' },
+                               { id: 'tab-notify-close-3', text: 'Result', active: true  }
+                            ]);
+                        </script>
+
 
                     </div>
                 </section>
+                <!--UI-DROPDOWNLIST-->
+                <section id="ui-dropdownlist" class="row component">
+                    <div class="col-md-12">
+                        <section class="row component-header">
+                            <div class="col-md-12">
+                                <h2>DropdownList Object</h2>
+                                <p>
+                                   The dropdownList Object is used for show option list
+                                </p>
+                            </div>
+                        </section>
+                        <!--  DropdownList getOption -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist" class="row">
+                                <div class="col-md-12">
+                                    <h3>getOption()</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist" >View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp; 
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-getOption">
+                                        <div id="tab-dropdownlist-getOption-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-success&quot; id=&quot;btnSuccess&quot; &gt;Show Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-getOption-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+document.getElementById('btnSuccess').onclick = function () {          
+    notify.success('Success Notify');
+}    
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-getOption-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object   data="components/dropdownlist-getOption.html" ></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                             
+
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-getOption'), [
+                               { id: 'tab-dropdownlist-getOption-1', text: 'Html'},
+                               { id: 'tab-dropdownlist-getOption-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-getOption-3', text: 'Result', active: true  }
+                            ]);
+                        </script>
+
+                </div>
+            </section>  
+
+
+
+
+
+
                 <!--UI-DROPDOWNLIST-->
                 <section id="ui-dropdownlist" class="row component">
                     <div class="col-md-12">
@@ -243,31 +538,33 @@ UINotify.success('Success Notify');
                                         <pre>
                                         <code class="html">
 &lt;!--Here to show the dropdownlist--&gt;
-&lt;div class=&quot;col-md-3&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;button id=&quot;btn&quot; class=&quot;btn btn-default&quot;&gt;Get Option&lt;/button&gt;    
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;h5 &gt;Output:  &lt;b  id=&quot;output&quot;&gt;&lt;/b&gt; &lt;/h5&gt;
+&lt;/div&gt;
                                      </code>
                                     </pre>
                                     </div>
                                     <div id="tab-dropdownlist-2">
                                         <pre>
                                         <code class="js">
-/*
-* Create Object UI-DropDownList
-* @param HtmlElement
-* @param Items []
-*/
-var UIDropDownList = new UI.DropDownList(document.getElementById('dropdownlist'), [
+ var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
     { option: 1, value: 'Product A' },
     { option: 2, value: 'Product B' },
-    { option: 3, value: 'Product C' },
-    { option: 4, value: 'Product D' },
-    { option: 5, value: 'Product E' },
-    { option: 6, value: 'Product F' }
-]);
-/**
-* Initialize the UI-DropDownList
-* @param option
-*/
-UIDropDownList.init(5);
+    { option: 3, value: 'Product C' }
+ ]);
+ 
+ products.init(2);
+ 
+ document.getElementById('btn').onclick = function(){
+     var option = products.getOption();           
+     document.getElementById('output').textContent = option;
+     console.log(option);
+ };
+         
                                  </code>
                                </pre>
                                     </div>
@@ -289,8 +586,8 @@ UIDropDownList.init(5);
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><a id="link-notify" href="#ui-notify" class="link" onclick="goTo(this);">UI-Notify</a></li>
-                            <li><a id="link-dropdownlist" href="#ui-dropdownlist" onclick="goTo(this);">UI-DropDownList</a></li>
+                            <li><a id="link-notify" href="#ui-notify" class="link" onclick="goTo(this);">Notify</a></li>
+                            <li><a id="link-dropdownlist" href="#ui-dropdownlist" onclick="goTo(this);">DropDownList</a></li>
                         </ul>
                     </div>
 
@@ -321,16 +618,7 @@ UIDropDownList.init(5);
         var notifyPos = null;
         var selectPos = null;
 
-        function readUrl() {
-            var url = document.URL;
-            var indexOf = url.indexOf("#") + 1;
-            if (indexOf > 0) {
-                var id = url.substring(indexOf);
-                if (!id.isEmpty()) {
-                    document.getElementById(id).click();
-                }
-            }
-        }
+
 
         function setPositions() {
             notifyPos = document.getElementById('ui-notify').offsetTop;
@@ -355,17 +643,7 @@ UIDropDownList.init(5);
             }
         }
 
-        function adjustHeight() {
-            var containerFixed = document.getElementsByClassName('container-fixed')[0];
-            var height = containerFixed.clientHeight;
-            document.getElementById('section-components').style.marginTop = height + 'px';
-        }
 
-        readUrl();
-        adjustHeight();
-        document.getElementsByTagName('body')[0].onresize = function () {
-            adjustHeight();
-        }
         window.onscroll = function () {
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             setPositions();

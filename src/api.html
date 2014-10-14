@@ -1,335 +1,207 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Components JS-UI</title>
-    <link href="css/theme/simplex.css" rel="stylesheet" />
-    <link href="css/js-ui.css" rel="stylesheet" />
-    <link href="css/page.css" rel="stylesheet" />
-    <link href="../highlight/css/github.css" rel="stylesheet" />
-    <script src="../highlight/js/highlight.pack.js"></script>
-    <script src="js/js-ui.js"></script>
-</head>
-<body>
-    <header class="container-fixed">
-        <nav id="nav-main"></nav>
-        <nav id="nav-theme">
-            <div id="container-theme">
-                <h4>Themes</h4>
-                <div class="col-md-3">
-                    <ul class="palette">
-                        <li onclick="changeTheme('../css/theme/cerulean.css','Cerulean Theme',this)">
-                            <div class="cerulean-1"></div>
-                            <div class="cerulean-2"></div>
-                            <div class="cerulean-3"></div>
-                            Cerulean
-                        </li>
-                        <li onclick="changeTheme('../css/theme/cosmo.css','Cosmo Theme',this)">
-                            <div class="cosmo-1"></div>
-                            <div class="cosmo-2"></div>
-                            <div class="cosmo-3"></div>
-                            Cosmo
-                        </li>
-                        <li onclick="changeTheme('../css/theme/cupCofee.css','CupCofee Theme',this)">
-                            <div class="cupCofee-1"></div>
-                            <div class="cupCofee-2"></div>
-                            <div class="cupCofee-3"></div>
-                            CupCofee
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="palette">
-                        <li onclick="changeTheme('../css/theme/cyborg.css','Cyborg Theme',this)">
-                            <div class="cyborg-1"></div>
-                            <div class="cyborg-2"></div>
-                            <div class="cyborg-3"></div>
-                            Cyborg
-                        </li>
-                        <li onclick="changeTheme('../css/theme/darkly.css','Darkly Theme',this)">
-                            <div class="darkly-1"></div>
-                            <div class="darkly-2"></div>
-                            <div class="darkly-3"></div>
-                            Darkly
-                        </li>
-                        <li id="defaultTheme" class="active" onclick="changeTheme('../css/theme/default.css','Default Theme',this)">
-                            <div class="default-1"></div>
-                            <div class="default-2"></div>
-                            <div class="default-3"></div>
-                            Default
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="palette">
-                        <li onclick="changeTheme('../css/theme/simplex.css','Simplex Theme',this)">
-                            <div class="simplex-1"></div>
-                            <div class="simplex-2"></div>
-                            <div class="simplex-3"></div>
-                            Simplex
-                        </li>
-                        <li onclick="changeTheme('../css/theme/superhero.css','Superhero Theme',this)">
-                            <div class="superhero-1"></div>
-                            <div class="superhero-2"></div>
-                            <div class="superhero-3"></div>
-                            Superhero
-                        </li>
-                        <li onclick="changeTheme('../css/theme/united.css','United Theme',this)">
-                            <div class="united-1"></div>
-                            <div class="united-2"></div>
-                            <div class="united-3"></div>
-                            United
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="palette">
-                        <li onclick="changeTheme('../css/theme/yeti.css','Yeti Theme',this)">
-                            <div class="yeti-1"></div>
-                            <div class="yeti-2"></div>
-                            <div class="yeti-3"></div>
-                            Yeti
-                        </li>
-                        <li onclick="changeTheme('../css/theme/youshoopblue.css','Youshoop Blue Theme',this)">
-                            <div class="youshoopblue-1"></div>
-                            <div class="youshoopblue-2"></div>
-                            <div class="youshoopblue-3"></div>
-                            Youshoop Blue
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <section class="container">
-        <section id="section-components" class="row section-components">
+   <head>
+      <meta charset="UTF-8">
+      <title>API JS-UI</title>
+      <link href="css/theme/simplex.css" rel="stylesheet" />
+      <link href="css/js-ui.css" rel="stylesheet" />
+      <link href="css/page.css" rel="stylesheet" />
+      <link href="../highlight/css/github.css" rel="stylesheet" />
+      <script src="../highlight/js/highlight.pack.js"></script>
+      <script src="js/js-ui.js"></script>
+   </head>
+   <body>
+      <header class="container-fixed">
+         <nav id="nav-main"></nav>
+      </header>
+      <section class="container">
+         <section id="section-components" class="row section-components">
             <div class="col-md-10">
-                <!--UI-NOTIFY-->
-                <section id="ui-notify" class="row component">
-                    <div class="col-md-12">
-                        <section class="row component-header">
-                            <div class="col-md-12">
-                                <h2>UI-Notify</h2>
-                                <p>
-                                    Simple message alert
-                                </p>
-                            </div>
-                        </section>
-                        <section class="row component-body">
-                            <div class="col-md-12">
-                                <h3>Example</h3>
-                                <div class="component-example">
-                                    <object data="components/notify.html" style="height:95px"></object>
-                                </div>
-                                <small><a href="#" class="pull-right">View more.</a></small>
-                            </div>
-                        </section>
-                        <section class="row component-footer">
-                            <div class="col-md-12">
-                                <div id="notify-content">
-                                    <div id="tab-notify-1">
-                                        <pre>
-                                        <code class="html">
-&lt;!--Here to show the notification--&gt;
-&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
-                                     </code>
+               <!--UI-NOTIFY-->
+               <section id="ui-notify" class="row component">
+                  <div class="col-md-12">
+                     <section class="row component-header">
+                        <div class="col-md-12">
+                           <h2>Notify Object</h2>
+                           <p>
+                              The Notify Object is used for show messages
+                           </p>
+                        </div>
+                     </section>
+                     <section class="row component-body">
+                        <div class="col-md-12">
+                           <section class="row">
+                              <div class="col-md-12 ">
+                                 <h3>Constructor</h3>
+                                 <div class="api">
+                                    <pre>
+                                               
+                                                  <code class="js">
+var notify = new UI.Notify(HtmlElement);
+                                                  </code>
                                     </pre>
+                                    <h5>Parameters:</h5>
+                                    <p>
+                                       <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for display the notification.
+                                    </p>
+                                    <h5>Returns:</h5>
+                                    <p>
+                                       The function that created the Notify object's.
+                                    </p>
+                                 </div>
+                              </div>
+                           </section>
+                           <section class="row">
+                              <div class="col-md-12 ">
+                                 <h3>Methods</h3>
+                                 <div id="ui-notify-success" class="api">
+                                    <a class="method"href="components.html#ui-notify-success">success(message:String)</a>
+                                    <div>
+                                       <pre>
+                                                  <code class="js">
+notify.success('Success Notify');
+                                                  </code>
+                                        </pre>
+                                       <p>Display the notification the type Success.</p>
+                                       <h5>Parameters:</h5>
+                                       <p>
+                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                       </p>
                                     </div>
-                                    <div id="tab-notify-2">
-                                        <pre>
-                                        <code class="js">
-/*
-* Create Object UI-Notify
-* @param HtmlElement
-*/
-var UINotify = new UI.Notify(document.getElementById('notify'));
-/*
-* Show notification type Success
-* @param String
-*/
-UINotify.success('Success Notify');
-                                 </code>
-                               </pre>
+                                 </div>
+                                 <div id="ui-notify-info" class="api">
+                                    <a class="method"href="components.html#ui-notify-info">info(message:String)</a>
+                                    <div>
+                                       <pre>
+                                                  <code class="js">
+notify.info('Info Notify');
+                                                  </code>
+                                        </pre>
+                                       <p>Display the notification the type Info.</p>
+                                       <h5>Parameters:</h5>
+                                       <p>
+                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                       </p>
                                     </div>
-                                </div>
-                            </div>
-                        </section>
-                        <script>
-                            UI.NavTab(document.getElementById('notify-content'), [
-                               { id: 'tab-notify-1', text: 'Html', active: true },
-                               { id: 'tab-notify-2', text: 'Javascript' }
-                            ]);
-
-                        </script>
-
-                    </div>
-                </section>
-                <!--UI-DROPDOWNLIST-->
-                <section id="ui-dropdownlist" class="row component">
-                    <div class="col-md-12">
-                        <section class="row component-header">
-                            <div class="col-md-12">
-                                <h2>UI-Dropdownlist</h2>
-                                <p>
-                                    Simple drop down list
-                                </p>
-                            </div>
-                        </section>
-                        <section class="row component-body">
-                            <div class="col-md-12">
-                                <h3>Example</h3>
-                                <div class="component-example">
-                                    <object data="components/dropdownlist.html" style="height:130px"></object>
-                                </div>
-                                <small><a href="#" class="pull-right">View more.</a></small>
-                            </div>
-                        </section>
-                        <section class="row component-footer">
-                            <div class="col-md-12">
-                                <div id="dropdownlist-content">
-                                    <div id="tab-dropdownlist-1">
-                                        <pre>
-                                        <code class="html">
-&lt;!--Here to show the dropdownlist--&gt;
-&lt;div class=&quot;col-md-3&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
-                                     </code>
-                                    </pre>
+                                 </div>
+                                 <div id="ui-notify-warning" class="api">
+                                    <a class="method"href="components.html#ui-notify-warning">warning(message:String)</a>
+                                    <div>
+                                       <pre>
+                                                  <code class="js">
+notify.warning('Warning Notify');
+                                                  </code>
+                                        </pre>
+                                       <p>Display the notification the type Warning.</p>
+                                       <h5>Parameters:</h5>
+                                       <p>
+                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                       </p>
                                     </div>
-                                    <div id="tab-dropdownlist-2">
-                                        <pre>
-                                        <code class="js">
-/*
-* Create Object UI-DropDownList
-* @param HtmlElement
-* @param Items []
-*/
-var UIDropDownList = new UI.DropDownList(document.getElementById('dropdownlist'), [
-    { option: 1, value: 'Product A' },
-    { option: 2, value: 'Product B' },
-    { option: 3, value: 'Product C' },
-    { option: 4, value: 'Product D' },
-    { option: 5, value: 'Product E' },
-    { option: 6, value: 'Product F' }
-]);
-/**
-* Initialize the UI-DropDownList
-* @param option
-*/
-UIDropDownList.init(5);
-                                 </code>
-                               </pre>
+                                 </div>
+                                 <div id="ui-notify-danger" class="api">
+                                    <a class="method"href="components.html#ui-notify-danger">danger(message:String)</a>
+                                    <div>
+                                       <pre>
+                                                  <code class="js">
+notify.danger('Danger Notify');
+                                                  </code>
+                                        </pre>
+                                       <p>Display the notification the type Danger.</p>
+                                       <h5>Parameters:</h5>
+                                       <p>
+                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                       </p>
                                     </div>
-                                </div>
-                            </div>
-                        </section>
-                        <script>
-                            UI.NavTab(document.getElementById('dropdownlist-content'), [
-                               { id: 'tab-dropdownlist-1', text: 'Html', active: true },
-                               { id: 'tab-dropdownlist-2', text: 'Javascript' }
-                            ]);
-
-                        </script>
-
-                    </div>
-                </section>
+                                 </div>
+                                 <div id="ui-notify-wait" class="api">
+                                    <a class="method"href="components.html#ui-notify-wait">wait(message:String)</a>
+                                    <div >
+                                       <pre>
+                                                  <code class="js">
+notify.wait('Wait Notify');
+                                                  </code>
+                                        </pre>
+                                       <p>Display the notification the type Wait.</p>
+                                       <h5>Parameters:</h5>
+                                       <p>
+                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div id="ui-notify-close" class="api">
+                                    <a class="method"href="components.html#ui-notify-close">close()</a>
+                                    <div >
+                                       <pre>
+                                                  <code class="js">
+notify.close();
+                                                  </code>
+                                        </pre>
+                                       <p>Close the notification.</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </section>
+                        </div>
+                     </section>
+                  </div>
+               </section>
             </div>
             <nav class="col-md-2">
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul>
-                            <li><a id="link-notify" href="#ui-notify" class="link" onclick="goTo(this);">UI-Notify</a></li>
-                            <li><a id="link-dropdownlist" href="#ui-dropdownlist" onclick="goTo(this);">UI-DropDownList</a></li>
-                        </ul>
-                    </div>
-
-                </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <ul>
+                        <li><a id="link-notify" href="#ui-notify" class="link" onclick="goTo(this);">Notify</a></li>
+                        <li><a id="link-dropdownlist" href="#ui-dropdownlist" onclick="goTo(this);">DropDownList</a></li>
+                     </ul>
+                  </div>
+               </div>
             </nav>
-        </section>
-    </section>
+         </section>
+      </section>
+      <script src="js/js-ui.js"></script>
+      <script>
+         hljs.initHighlightingOnLoad();
+         UI.NavBar(document.getElementById('nav-main'), { href: 'js-ui.html', text: 'JS-UI' }, [
+                { href: 'getting-started', text: 'Getting started' },
+                { href: 'components.html', text: 'Components'},
+                { href: 'api.html', text: 'Api', active: true },
+                { href: 'aplicactions.html', text: 'Aplications' },
+                { href: 'about.html', text: 'About' }
+         ], { type: 'fixed', align: 'right' });         
+      
+         var activeComponent = document.getElementById('link-notify'); //Current link active for component navigation.
+         var notifyPos = null;
+         var selectPos = null;         
 
-    <script src="js/js-ui.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad();
-        UI.NavBar(document.getElementById('nav-main'), { href: 'js-ui.html', text: 'JS-UI' }, [
-               { href: 'getting-started', text: 'Getting started' },
-               { href: 'components.html', text: 'Components'},
-               { href: 'api.html', text: 'Api', active: true },
-               { href: 'aplicactions.html', text: 'Aplications' },
-               { href: 'about.html', text: 'About' }
-        ], { type: 'fixed', align: 'right' });
+         
+         function setPositions() {
+             notifyPos = document.getElementById('ui-notify').offsetTop;
+             /*selectPos = document.getElementById('ui-dropdownlist').offsetTop;*/
+         }
+         
+         function goTo(a) {
+             activeComponent.classList.remove('link');
+             a.classList.add('link');
+             activeComponent = a;
+         }     
+         
 
-        var ddp = new UI.DropDownPanel(document.getElementById('nav-theme'),
-             { id: 'container-theme', text: 'Default Theme' },
-             { align: 'right' }
-        );
-
-
-        var activeThemeLi = document.getElementById('defaultTheme');  //Current li active of theme list.
-        var activeComponent = document.getElementById('link-notify'); //Current link active for component navigation.
-        var notifyPos = null;
-        var selectPos = null;
-
-        function readUrl() {
-            var url = document.URL;
-            var indexOf = url.indexOf("#") + 1;
-            if (indexOf > 0) {
-                var id = url.substring(indexOf);
-                if (!id.isEmpty()) {
-                    document.getElementById(id).click();
-                }
-            }
-        }
-
-        function setPositions() {
-            notifyPos = document.getElementById('ui-notify').offsetTop;
-            selectPos = document.getElementById('ui-dropdownlist').offsetTop;
-        }
-
-        function goTo(a) {
-            activeComponent.classList.remove('link');
-            a.classList.add('link');
-            activeComponent = a;
-        }
-
-        function changeTheme(theme, name, li) {
-            ddp.setText(name);
-            activeThemeLi.classList.remove('active');
-            li.classList.add('active');
-            activeThemeLi = li;
-            var frames = document.getElementsByTagName('object');
-            var n = frames.length;
-            for (var i = 0; i < n; i++) {
-                UI.ReloadCSS(frames[i].getContentFromFrame().getElementById('style'), theme);
-            }
-        }
-
-        function adjustHeight() {
-            var containerFixed = document.getElementsByClassName('container-fixed')[0];
-            var height = containerFixed.clientHeight;
-            document.getElementById('section-components').style.marginTop = height + 'px';
-        }
-
-        readUrl();
-        adjustHeight();
-        document.getElementsByTagName('body')[0].onresize = function () {
-            adjustHeight();
-        }
-        window.onscroll = function () {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            setPositions();
-            if (scrollTop >= notifyPos && scrollTop <= selectPos) {
-                activeComponent.classList.remove('link');
-                activeComponent = document.getElementById('link-notify');
-                activeComponent.classList.add('link');
-            }
-            if (scrollTop >= selectPos) {
-                activeComponent.classList.remove('link');
-                activeComponent = document.getElementById('link-dropdownlist');
-                activeComponent.classList.add('link');
-            }
-        }
-
-    </script>
-</body>
-
+         window.onscroll = function () {
+             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+             setPositions();
+             if (scrollTop >= notifyPos && scrollTop <= selectPos) {
+                 activeComponent.classList.remove('link');
+                 activeComponent = document.getElementById('link-notify');
+                 activeComponent.classList.add('link');
+             }
+             if (scrollTop >= selectPos) {
+                 activeComponent.classList.remove('link');
+                 activeComponent = document.getElementById('link-dropdownlist');
+                 activeComponent.classList.add('link');
+             }
+         }
+         
+      </script>
+   </body>
 </html>

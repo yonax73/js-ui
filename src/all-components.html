@@ -251,9 +251,9 @@ var UINotify = new UI.Notify(document.getElementById('notify'));
 
                                        <div class="console">
                                            <pre>                                  
-                                           <a href="#" id="dropdownlistLogClear">Clear</a>
-                                           <code id="dropdownlistLog" class="js"></code>
-                             </pre>
+                                             <a href="#" id="dropdownlistLogClear">Clear</a>
+                                             <code id="dropdownlistLog" class="js"></code>
+                                         </pre>
                                        </div>
 
                                    </div>
@@ -443,6 +443,7 @@ function dropdownListLog(message,type){
   console.log(message);
   
 }
+
 document.getElementById('dropdownlistLogClear').onclick = function (e) {
     e.preventDefault();
     this.focus();

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Notify Danger JS-UI</title>
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/js-ui.css" rel="stylesheet" />
+    <link id="style" href="../css/theme/default.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <section class="container">
+        <div class="row">
+             <br/>            
+            <!--Here to show the notification-->
+            <div class="col-md-12" id="notify"></div>
+            <button  class="btn btn-danger" id="btnDanger" >Show Notification</button>
+        </div>
+    </section>
+    <script src="../js/js-ui.js"></script>
+    <script>
+        var notify = new UI.Notify(document.getElementById('notify'));
+        document.getElementById('btnDanger').onclick = function () {          
+            notify.danger('Danger Notify');
+        }        
+    </script>
+</body>
+</html>
