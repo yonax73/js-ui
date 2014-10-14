@@ -1,5 +1,5 @@
 
-    /*!
+ /*!
  * bootswatch v3.2.0
  * Homepage:  http://bootswatch.com
  * Copyright 2012-2014 Thomas Park
@@ -635,7 +635,7 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-    font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 15px;
     line-height: 1.42857143;
     color: #333333;
@@ -715,7 +715,7 @@ hr {
     clip: auto;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     line-height: 1.1;
     color: inherit;
@@ -4903,33 +4903,33 @@ table .success a, .table .success a, table .warning a, .table .warning a, table 
 
 /*************************************************************************
 *                                                                        *
-*                               UI-SELECT                                * 
+*                               UI-DROPDOWNLIST                          * 
 *                                                                        * 
 ***************************************************************************/
 /***
 /**
 * Use for edit border color
 */
-.select span, .select ul   {    
+.dropdownlist span, .dropdownlist ul   {    
 	border-color: #cccccc;      
 }
 
 /**
 * Use for edit color and background style.
 */
-.select.background span, .select.background input[type="text"][readonly], .select-list li  {	
+.dropdownlist.background span, .dropdownlist.background input[type="text"][readonly], .dropdownlist-list li  {	
 	background-color:  #fff;    
     color:  #333333;    
 }
 /**
 * Use for edit color and background style when is disabled.
 */
-.select.disabled span, .select.disabled input[type="text"]  {	
+.dropdownlist.disabled span, .dropdownlist.disabled input[type="text"]  {	
 	background-color:  #dadada;    
 	color:  #767676;    
     cursor:  not-allowed
 }
-.select-list  li:hover, .select-list .selected  {    
+.dropdownlist-list  li:hover, .dropdownlist-list .selected  {    
 	background-color:  #333333;    
 	color:  #fff;    
 }

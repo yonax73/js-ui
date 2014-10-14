@@ -1,14 +1,25 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>All Components JS-UI</title>
-      
+      <meta charset="UTF-8">
+      <title>Components JS-UI</title>
       <link href="css/font-awesome.min.css" rel="stylesheet" />
       <link href="css/js-ui.css" rel="stylesheet" />
-      <link id="style" rel="stylesheet" type="text/css" href="css/theme/simplex.css">
-      <style>
+       <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
+      <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">
+      <style type="text/css">
 
-         .section-nav {
+         .starter-template {
+         padding: 55px 0 0;
+         }
+         .components {
+             border: medium none;
+             height: 100vh;
+             padding: 0;
+
+             width: 100vw;
+         }
+              .section-nav {
                 background: none repeat scroll 0 0 transparent;
                 height: 100vh;
                 padding: 4px 25px;
@@ -66,9 +77,114 @@
              margin:0;
              max-height:90px;
          }
+
+         #theme {
+         margin-top: -15px;
+         }
+         #theme h4 {
+         padding-left: 40px;
+         background-color: #fff;
+         }
+         
       </style>
    </head>
    <body class="container-fluid">
+      <div class="content-fixed">
+         <nav id="nav"></nav>
+         <section class="row starter-template">
+            <nav id="theme">
+               <div id="theme-container">
+                  <h4>Themes</h4>
+                  <div class="col-md-3">
+                     <ul class="stick">
+                        <li onclick="changeTheme('css/theme/cerulean.css','Cerulean Theme')">
+                           <div class="cerulean-1"></div>
+                           <div class="cerulean-2"></div>
+                           <div class="cerulean-3"></div>
+                           Cerulean
+                        </li>
+                        <li onclick="changeTheme('css/theme/cosmo.css','Cosmo Theme')">
+                           <div class="cosmo-1"></div>
+                           <div class="cosmo-2"></div>
+                           <div class="cosmo-3"></div>
+                           Cosmo
+                        </li>
+                        <li onclick="changeTheme('css/theme/cupCofee.css','CupCofee Theme')">
+                           <div class="cupCofee-1"></div>
+                           <div class="cupCofee-2"></div>
+                           <div class="cupCofee-3"></div>
+                           CupCofee
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col-md-3">
+                     <ul class="stick">
+                        <li onclick="changeTheme('css/theme/cyborg.css','Cyborg Theme')">
+                           <div class="cyborg-1"></div>
+                           <div class="cyborg-2"></div>
+                           <div class="cyborg-3"></div>
+                           Cyborg
+                        </li>
+                        <li onclick="changeTheme('css/theme/darkly.css','Darkly Theme')">
+                           <div class="darkly-1"></div>
+                           <div class="darkly-2"></div>
+                           <div class="darkly-3"></div>
+                           Darkly
+                        </li>
+                        <li onclick="changeTheme('css/theme/default.css','Default Theme')">
+                           <div class="default-1"></div>
+                           <div class="default-2"></div>
+                           <div class="default-3"></div>
+                           Default
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col-md-3">
+                     <ul class="stick">
+                        <li onclick="changeTheme('css/theme/simplex.css','Simplex Theme')">
+                           <div class="simplex-1"></div>
+                           <div class="simplex-2"></div>
+                           <div class="simplex-3"></div>
+                           Simplex
+                        </li>
+                        <li onclick="changeTheme('css/theme/superhero.css','Superhero Theme')">
+                           <div class="superhero-1"></div>
+                           <div class="superhero-2"></div>
+                           <div class="superhero-3"></div>
+                           Superhero
+                        </li>
+                        <li onclick="changeTheme('css/theme/united.css','United Theme')">
+                           <div class="united-1"></div>
+                           <div class="united-2"></div>
+                           <div class="united-3"></div>
+                           United
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col-md-3">
+                     <ul class="stick">
+                        <li onclick="changeTheme('css/theme/yeti.css','Yeti Theme')">
+                           <div class="yeti-1"></div>
+                           <div class="yeti-2"></div>
+                           <div class="yeti-3"></div>
+                           Yeti
+                        </li>
+                        <li onclick="changeTheme('css/theme/youshoopblue.css','Youshoop Blue Theme')">
+                           <div class="youshoopblue-1"></div>
+                           <div class="youshoopblue-2"></div>
+                           <div class="youshoopblue-3"></div>
+                           Youshoop Blue
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+
+         </section>
+      </div>
+      <!--<div>
+         <object id="components" class="components" data="all-components.html"></object>
+      </div>-->
        <section class="section-nav row">
            <div class="col-md-12">
                <ul>
@@ -101,38 +217,38 @@
                </ul>
            </div>
        </section>
-           <section class="content-components">
+       <section class="content-components">
            <!-- UI-NOTIFY -->
-           <section id="ui-notify" onclick="goTo(this)" class="row">
+            <section id="ui-notify" onclick="goTo(this)" class="row">
                <div class="col-md-12">
                    <h1>
                        UI-Notify
                    </h1>
                    <p>The UI-Notify is a simple message alert</p>
 
+                   <div class="row">
+                       <div class="col-md-12">
                            <div class="row">
-                               <div class="col-md-12">
-                                   <div class="row">
-                                       <!--Here to show the notification-->
-                                       <div class="col-md-12" id="notify"></div>
-                                       <!-- Call Success notificaction-->
-                                       <button type="button" class="btn btn-default" onclick="UINotify.success('Success notification!');">Success</button>
-                                       <!-- Call Info notificaction -->
-                                       <button type="button" class="btn btn-default" onclick=" UINotify.info('Info notification!');">Info</button>
-                                       <!-- Call Warning notificaction -->
-                                       <button type="button" class="btn btn-default" onclick="UINotify.warning('Warning notification!');">Warning</button>
-                                       <!-- Call Danger notificaction-->
-                                       <button type="button" class="btn btn-default" onclick="UINotify.danger('Danger notification!');">Danger</button>
-                                       <!-- Call Wait notificaction -->
-                                       <button type="button" class="btn btn-default" onclick="UINotify.wait('Wait notification!');">Wait...</button>
-                                       <!-- Call Close method -->
-                                       <button type="button" class="btn btn-default" onclick="UINotify.close();">Close</button>
-                                   </div>
-                                   <br />
-                                   <section id="notify-content" class="row">
-                                       <div id="tab-notify-1">
-                                           <pre>
-                                           <code class="html">
+                               <!--Here to show the notification-->
+                               <div class="col-md-12" id="notify"></div>
+                               <!-- Call Success notificaction-->
+                               <button type="button" class="btn btn-default" onclick="UINotify.success('Success notification!');">Success</button>
+                               <!-- Call Info notificaction -->
+                               <button type="button" class="btn btn-default" onclick=" UINotify.info('Info notification!');">Info</button>
+                               <!-- Call Warning notificaction -->
+                               <button type="button" class="btn btn-default" onclick="UINotify.warning('Warning notification!');">Warning</button>
+                               <!-- Call Danger notificaction-->
+                               <button type="button" class="btn btn-default" onclick="UINotify.danger('Danger notification!');">Danger</button>
+                               <!-- Call Wait notificaction -->
+                               <button type="button" class="btn btn-default" onclick="UINotify.wait('Wait notification!');">Wait...</button>
+                               <!-- Call Close method -->
+                               <button type="button" class="btn btn-default" onclick="UINotify.close();">Close</button>
+                           </div>
+                           <br />
+                           <section id="notify-content" class="row">
+                               <div id="tab-notify-1">
+                                   <pre>
+                                   <code class="html">
 &lt;!--Here to show the notification--&gt;
 &lt;div class=&quot;col-md-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
 &lt;!-- Call Success notificaction--&gt;
@@ -149,23 +265,24 @@
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; onclick=&quot;UINotify.close();&quot;&gt;Close&lt;/button&gt;
                            </code>
                       </pre>
-                                       </div>
-                                       <div id="tab-notify-2">
-                                           <pre>
-                                           <code class="js">
+                               </div>
+                               <div id="tab-notify-2">
+                                   <pre>
+                                   <code class="js">
 /*
 * Create Object UI-Notify with element html parameter
 */
 var UINotify = new UI.Notify(document.getElementById('notify'));
                        </code>
                    </pre>
-                                       </div>
-                                   </section>
                                </div>
+                           </section>
+                       </div>
 
                    </div>
                </div>
            </section>
+
            <!-- UI-DROPDOWNLIST -->
            <section id="ui-dropdownlist" tabindex="2" onclick="goTo(this)" class="row">
                <div class="col-md-12">
@@ -281,34 +398,60 @@ var UINotify = new UI.Notify(document.getElementById('notify'));
                </div>
            </section>
 
-       </section> 
-         
-
-      <script src="../highlight/js/highlight.pack.js"></script>
+       </section>
+       <script src="../highlight/js/highlight.pack.js"></script>
       <script src="js/js-ui.js"></script>
       <script>
+         UI.NavBar(document.getElementById('nav'), { href: 'js-ui.html', text: 'JS-UI' }, [
+                { href: 'getting-started.html', text: 'Getting started' },
+                { href: '#', text: 'Features' },
+                { href: 'components.html', text: 'Components', active: true },
+                { href: '#', text: 'API Reference' },
+                { href: '#', text: 'Pricing' },
+                { href: '#', text: 'Support' },
+                { href: '#', text: 'Community' }
+         ], { type: 'fixed', align: 'right' });
+         
+         var ddp = new UI.DropDownPanel(document.getElementById('theme'),
+              { id: 'theme-container', text: 'Cosmo Theme' },
+              { align: 'right' }
+         );
+         
+         function changeTheme(theme, name) {
+             ddp.setText(name);
+             UI.ReloadCSS(document.getElementById('components').getContentFromFrame().getElementById('style'), theme);
+         }
+         
+         function adjustHeight() {
+             var nav = document.getElementById('nav');
+             var theme = document.getElementById('theme');
+             var height = nav.clientHeight + theme.clientHeight;
+             document.getElementById('components').style.marginTop = height + 'px';
+         }
+         
+
+         
+         ddp.onclick(function () {
+             adjustHeight();
+         });
+         
+         document.getElementsByTagName('body')[0].onresize = function () {
+             adjustHeight();
+         }
+         
+         adjustHeight();
+
+
          hljs.initHighlightingOnLoad();
-         
-         /*
-          * ========================================================================
-          * UI-NOTIFY
-          * Author  : Yonatan Alexis Quintero Rodriguez
-          * Date    : 9 Oct 2014
-          * ========================================================================
-          */
-         
-         /*
-         * Create Object UI-Notify
-         * @param HtmlElement
-         */
-         var UINotify = new UI.Notify(document.getElementById('notify'));         
-         
+
+
+
          UI.NavTab(document.getElementById('notify-content'), [
             { id: 'tab-notify-1', text: 'Html', active: true },
             { id: 'tab-notify-2', text: 'Javascript' }
          ]);
-         
-         
+
+
          /*
           * ========================================================================
           * UI-DROPDOWNLIST
@@ -316,26 +459,26 @@ var UINotify = new UI.Notify(document.getElementById('notify'));
           * Date    : 10 Oct 2014
           * ========================================================================
           */
-         
+
          /*
          * Create Object UI-DropDownList
          * @param HtmlElement
          * @param Items []
          */
-         var UIDropDownList = new UI.DropDownList(document.getElementById('dropdownlist'),[
-            {option:1,value:'Product A'},
-            {option:2,value:'Product B'},
-            {option: 3, value: 'Product C' },
-            {option: 4, value: 'Product D' },
-            {option:5,value:'Product E'},
-            {option:6,value:'Product F'}
-          ]);
+         var UIDropDownList = new UI.DropDownList(document.getElementById('dropdownlist'), [
+            { option: 1, value: 'Product A' },
+            { option: 2, value: 'Product B' },
+            { option: 3, value: 'Product C' },
+            { option: 4, value: 'Product D' },
+            { option: 5, value: 'Product E' },
+            { option: 6, value: 'Product F' }
+         ]);
          /**
          * Initialize the UI-DropDownList
          * @param option
          */
          UIDropDownList.init(5);
-         
+
          function dropdownlistAddItem() {
              var option = document.getElementById('dropdownlistOption').value;
              var value = document.getElementById('dropdownlistValue').value;
@@ -344,7 +487,7 @@ var UINotify = new UI.Notify(document.getElementById('notify'));
              } else {
                  UIDropDownList.addItem(option, value);
                  dropdownListLog('The item has been added successfully');
-             }             
+             }
          }
 
          function dropdownlistSelectItem() {
@@ -355,13 +498,13 @@ var UINotify = new UI.Notify(document.getElementById('notify'));
                  console.log(UIDropDownList.selectItem(option));
              }
          }
-         
+
          function dropdownlistSelectItemByOption() {
              var option = document.getElementById('dropdownlistItemByOption').value;
              if (option.isEmpty()) {
                  dropdownListLog('The option can not empty');
              } else {
-                 dropdownListLog(UIDropDownList.getItemByOption(option),'json');
+                 dropdownListLog(UIDropDownList.getItemByOption(option), 'json');
              }
          }
 
@@ -377,78 +520,78 @@ var UINotify = new UI.Notify(document.getElementById('notify'));
          UIDropDownList.onchange(function () {
              dropdownListLog('event: onchange');
          });
-         
+
          /*Function document*/
          var notifyPos = null;
-         var selectPos = null; 
-         var body =         document.getElementsByTagName('body')[0];
+         var selectPos = null;
+         var body = document.getElementsByTagName('body')[0];
          var bodyParent = window.parent || window.top;
          var currentLink = bodyParent.document.getElementById('link-notify');
          setPositions();
          body.onresize = function () {
              setPositions();
          }
-         
-         function setPositions(){
-          notifyPos = document.getElementById('ui-notify').offsetTop; 
-          selectPos = document.getElementById('ui-dropdownlist').offsetTop; 
+
+         function setPositions() {
+             notifyPos = document.getElementById('ui-notify').offsetTop;
+             selectPos = document.getElementById('ui-dropdownlist').offsetTop;
          }
 
 
          function goTo(strId) {
 
-            // document.getElementById('components').getContentFromFrame().getElementById(strId).click();
+             // document.getElementById('components').getContentFromFrame().getElementById(strId).click();
          }
 
-         function goTo(self){        
-            //  window.scrollTo(0,self.offsetTop);
-          }
-         
-          window.onscroll = function(){
-                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                setPositions();         
+         function goTo(self) {
+             //  window.scrollTo(0,self.offsetTop);
+         }
 
-                 if(scrollTop >=notifyPos && scrollTop <= selectPos){
-                      currentLink.classList.remove('link');
-                      currentLink = bodyParent.document.getElementById('link-notify');
-                      currentLink.classList.add('link');
-                 }         
+         window.onscroll = function () {
+             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+             setPositions();
 
-                 if(scrollTop >=selectPos){
-                      currentLink.classList.remove('link');
-                      currentLink = bodyParent.document.getElementById('link-dropdownlist');
-                      currentLink.classList.add('link');
-                 }         
-         
-          }         
+             if (scrollTop >= notifyPos && scrollTop <= selectPos) {
+                 currentLink.classList.remove('link');
+                 currentLink = bodyParent.document.getElementById('link-notify');
+                 currentLink.classList.add('link');
+             }
+
+             if (scrollTop >= selectPos) {
+                 currentLink.classList.remove('link');
+                 currentLink = bodyParent.document.getElementById('link-dropdownlist');
+                 currentLink.classList.add('link');
+             }
+
+         }
          var url = bodyParent.document.URL;
-         var indexOf = url.indexOf("#")+1;
-         if(indexOf >1){         
-          document.getElementById(url.substring(indexOf)).click();
+         var indexOf = url.indexOf("#") + 1;
+         if (indexOf > 0) {
+             document.getElementById(url.substring(indexOf)).click();
          }
 
 
-function dropdownListLog(message,type){
-  var msg = null;
-  if(type === 'json'){     
-        msg = JSON.stringify(message);     
-  } else {
-      msg = message;
-  }
+         function dropdownListLog(message, type) {
+             var msg = null;
+             if (type === 'json') {
+                 msg = JSON.stringify(message);
+             } else {
+                 msg = message;
+             }
 
-  var code = document.getElementById('dropdownlistLog');
-  code.textContent += '>'+ msg + '\n';
-  code.scrollTop = code.scrollHeight;
-  code.focus();
-  console.log(message);
-  
-}
-document.getElementById('dropdownlistLogClear').onclick = function (e) {
-    e.preventDefault();
-    this.focus();
-    document.getElementById('dropdownlistLog').textContent = "";
-    
-}
+             var code = document.getElementById('dropdownlistLog');
+             code.textContent += '>' + msg + '\n';
+             code.scrollTop = code.scrollHeight;
+             code.focus();
+             console.log(message);
+
+         }
+         document.getElementById('dropdownlistLogClear').onclick = function (e) {
+             e.preventDefault();
+             this.focus();
+             document.getElementById('dropdownlistLog').textContent = "";
+
+         }
 
 
          

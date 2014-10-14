@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Notify JS-UI</title>
+    <title>Dropdownlist JS-UI</title>
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <link href="../css/js-ui.css" rel="stylesheet" />
     <link id="style" href="../css/theme/default.css" rel="stylesheet" />
@@ -11,9 +11,8 @@
 <body>
     <section class="container component">
         <div class="row">
-            <!--Here to show the notification-->
-            <div class="col-md-12" id="notify"></div>
-            <a class="component-link" id="btnSuccess" href="#">Show Notification</a>
+            <!--Here to show the dropdownlist-->
+            <div class="col-md-3" id="dropdownlist"></div>            
         </div>
 
     </section>
@@ -23,25 +22,30 @@
     <script>
         /*
          * ========================================================================
-         * UI-NOTIFY
+         * UI-DROPDOWNLIST
          * Author  : Yonatan Alexis Quintero Rodriguez
-         * Date    : 9 Oct 2014
+         * Date    : 10 Oct 2014
          * ========================================================================
          */
 
         /*
-        * Create Object UI-Notify
+        * Create Object UI-DropDownList
         * @param HtmlElement
+        * @param Items []
         */
-        var UINotify = new UI.Notify(document.getElementById('notify'));
-        document.getElementById('btnSuccess').onclick = function (e) {
-            e.preventDefault();
-            UINotify.success('Success Notify');
-        }
-
-        function showNotify() {
-            UINotify.success('Success Notify');
-        }
+        var UIDropDownList = new UI.DropDownList(document.getElementById('dropdownlist'), [
+           { option: 1, value: 'Product A' },
+           { option: 2, value: 'Product B' },
+           { option: 3, value: 'Product C' },
+           { option: 4, value: 'Product D' },
+           { option: 5, value: 'Product E' },
+           { option: 6, value: 'Product F' }
+        ]);
+        /**
+        * Initialize the UI-DropDownList
+        * @param option
+        */
+        UIDropDownList.init(5);
         
     </script>
 </body>

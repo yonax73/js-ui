@@ -162,8 +162,7 @@ UI.DropDownList = function(HtmlElement, items) {
         this.fill();
         if (option !== undefined) {
             this.selectItem(option);
-        }
-        this.prueba = option;
+        }        
     }
 
     this.create = function() {
@@ -183,14 +182,13 @@ UI.DropDownList = function(HtmlElement, items) {
 
         span.onclick = function() {
             UIDropDownList.toggle();
-            currentItemLi.focus();
+            
         }
         span.onkeydown = function checkKey(e) {
             e = e || window.event;
             if (e.keyCode === 9) {
                 e.preventDefault();
-                UIDropDownList.toggle();
-                currentItemLi.focus();
+                UIDropDownList.toggle();               
             }
         }
         ul.classList.add('dropdownlist-list');;
@@ -237,6 +235,7 @@ UI.DropDownList = function(HtmlElement, items) {
             do {
                 var item = itemsLi[i++];
                 if (item.dataset.option == option) {
+                    oldItemLi = currentItemLi
                     currentItemLi = item;
                     flag = false;
                 }
@@ -246,12 +245,17 @@ UI.DropDownList = function(HtmlElement, items) {
         input.dataset.option = currentItemLi.dataset.option;
         inputHidden.value = currentItemLi.dataset.option;
         currentItemLi.focus();
-        currentItemLi.classList.add('selected');
+        if (oldItemLi != null) {
+            oldItemLi.classList.remove('selected');
+        }
+        currentItemLi.classList.add('selected');        
     }
 
     this.toggle = function() {
         if (!disabled) {
+            ul.style.width = span.clientWidth + 'px';
             ul.classList.toggle('hidden');
+             currentItemLi.focus();            
         }
     }
 
@@ -302,6 +306,29 @@ UI.DropDownList = function(HtmlElement, items) {
         return input.dataset.option;
     }
 
+    this.getItemByOption = function (option) {
+        var li = getLiByOption(option);
+        if (li != null) {
+            return {
+                value: li.textContent,
+                option: li.dataset.option
+            };
+        }
+        return null;
+    }
+
+    this.getItemByValue = function (value) {
+        var li = getLiByValue(value);
+        if (li != null) {
+            return {
+                value: li.textContent,
+                option: li.dataset.option
+            };
+        }
+        return null;
+
+    }
+
     this.setDisabled = function(_disabled) {
         disabled = _disabled;
         if (disabled) {
@@ -316,6 +343,44 @@ UI.DropDownList = function(HtmlElement, items) {
     this.onchange = function(callback) {
         input.onchange = callback;
     };
+
+    function getLiByOption(option) {
+        var itemsLi = ul.getElementsByTagName('li');
+        var n = itemsLi.length;
+        var li = null;
+        if (n > 0) {
+            var flag = true;
+            var i = 0;
+            do {
+                var item = itemsLi[i++];
+                if (item.dataset.option == option) {                    
+                    li = item;
+                    flag = false;
+                }
+            } while (flag && i < n);
+        }
+        return li;
+    }
+
+    function getLiByValue(value) {
+        var itemsLi = ul.getElementsByTagName('li');
+        var n = itemsLi.length;
+        var li = null;
+        if (n > 0) {
+            var flag = true;
+            var i = 0;
+            do {
+                var item = itemsLi[i++];
+                if (item.textContent === value) {
+                    li = item;
+                    flag = false;
+                }
+            } while (flag && i < n);
+        }
+        return li;
+    }
+
+
 
 }
 
@@ -769,6 +834,10 @@ Element.prototype.moveChildrenTo = function(target) {
 
 Element.prototype.getContentFromFrame = function(){
     return  this.contentDocument || this.contentWindow.document;
+}
+
+String.prototype.isEmpty = function () {
+    return this === null || this === '' || this.length <= 0;
 }
 
 

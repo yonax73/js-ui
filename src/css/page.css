@@ -1,0 +1,266 @@
+﻿.container-fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+#nav-theme {
+    margin-top: 40px;
+    padding: 0;
+}
+
+#nav-theme h4 {
+    background-color: #ffffff;
+}
+
+
+
+.section-components {
+    background-color: transparent;
+}
+
+
+
+.section-components > div {
+    padding-top:15px;
+    
+}
+
+.section-components nav {
+    height: 100vh;
+    padding: 4px 25px;
+    position: fixed;
+    right: 0;
+}
+
+.section-components nav ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+.section-components nav li {
+    text-align: right;
+}
+
+.section-components nav li a {
+    color: #777;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.section-components nav li a.link {
+    color: #d9230f;                    
+}
+
+.component{
+    padding-top:80px;
+}
+
+.component-header p {
+    color: #777;
+}
+
+.component-header h2,.component-body h3 {
+    padding-bottom: 10px;        
+}
+
+.component-body small{
+    font-size:10px;
+}
+.component-example {
+    background: none repeat scroll 0 0 #fff;
+    padding:10px;
+    margin-bottom:5px;
+}
+
+.component-example object{
+    display:flex;    
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+.api{
+    height: 135px;
+    overflow: auto;
+}
+
+.vertical-center {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+}
+
+.api >div:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+.api pre,.api code{
+    background-color:transparent;
+    margin:0px;
+    padding:0px;    
+    
+}
+.api pre{
+    display:flex;
+    border:none;
+}
+.api code{
+    width:100%;
+}
+/*Style palette*/
+.palette {
+    padding-bottom: 10px;
+}
+
+.palette li {
+    color: #000;
+    cursor: pointer;
+    font-size: 14px;
+    list-style: none outside none;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.palette div {
+    border: 1px solid #ccc;
+    display: inline;
+    line-height: 1.5;
+    margin: 2px;
+    padding: 1px 9px;
+}
+
+.palette div.cerulean-1 {
+    background-color: #2fa4e7;
+}
+
+.palette div.cerulean-2 {
+    background-color: #f5f5f5;
+}
+
+.palette div.cerulean-3 {
+    background-color: #ffffff;
+}
+
+.palette div.cosmo-1 {
+    background-color: #2780e3;
+}
+
+.palette div.cosmo-2 {
+    background-color: #222222;
+}
+
+.palette div.cosmo-3 {
+    background-color: #ffffff;
+}
+
+.palette div.cupCofee-1 {
+    background-color: #64abb9;
+}
+
+.palette div.cupCofee-2 {
+    background-color: #664d3f;
+}
+
+.palette div.cupCofee-3 {
+    background-color: #f5dacb;
+}
+
+.palette div.cyborg-1 {
+    background-color: #2a9fd6;
+}
+
+.palette div.cyborg-2 {
+    background-color: #424242;
+}
+
+.palette div.cyborg-3 {
+    background-color: #060606;
+}
+
+.palette div.darkly-1 {
+    background-color: #375a7f;
+}
+
+.palette div.darkly-2 {
+    background-color: #00bc8c;
+}
+
+.palette div.darkly-3 {
+    background-color: #222222;
+}
+
+.palette div.default-1 {
+    background-color: #428bca;
+}
+
+.palette div.default-2 {
+    background-color: #d5d5d5;
+}
+
+.palette div.default-3 {
+    background-color: #ffffff;
+}
+
+.palette div.simplex-1 {
+    background-color: #d9230f;
+}
+
+.palette div.simplex-2 {
+    background-color: #474949;
+}
+
+.palette div.simplex-3 {
+    background-color: #fcfcfc;
+}
+
+.palette div.superhero-1 {
+    background-color: #df691a;
+}
+
+.palette div.superhero-2 {
+    background-color: transparent;
+}
+
+.palette div.superhero-3 {
+    background-color: #2b3e50;
+}
+
+.palette div.united-1 {
+    background-color: #dd4814;
+}
+
+.palette div.united-2 {
+    background-color: #aea79f;
+}
+
+.palette div.united-3 {
+    background-color: #ffffff;
+}
+
+.palette div.yeti-1 {
+    background-color: #008cba;
+}
+
+.palette div.yeti-2 {
+    background-color: #e7e7e7;
+}
+
+.palette div.yeti-3 {
+    background-color: #ffffff;
+}
+
+.palette div.youshoopblue-1 {
+    background-color: #4385f5;
+}
+
+.palette div.youshoopblue-2 {
+    background-color: #ffb225;
+}
+
+.palette div.youshoopblue-3 {
+    background-color: #ffffff;
+}

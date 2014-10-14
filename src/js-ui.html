@@ -5,18 +5,16 @@
       <link href="css/font-awesome.min.css" rel="stylesheet" />
       <link rel="stylesheet" type="text/css" href="../highlight/css/github.css">
       <link href="css/js-ui.css" rel="stylesheet" />
-      <link rel="stylesheet" type="text/css" href="css/theme/cupcofee.css">
+      <link rel="stylesheet" type="text/css" href="css/theme/simplex.css">
       <style type="text/css">
          body{
-         background-color: #7f3545;
          overflow-x: hidden;
          }
          .starter-template {
          padding: 40px 0;
          text-align: center;
          }
-         .main{
-         background: none repeat scroll 0 0 #7f3545;
+         .main{         
          padding-top: 10px;
          }
          .title {
@@ -24,8 +22,7 @@
          margin-left: 5%;
          margin-top: 10%;
          }
-         .title h1 {
-         color: #fff;
+         .title h1 {         
          font-size: 5em;
          text-align: left;
          width: 100%;
@@ -51,7 +48,7 @@
       </style>
    </head>
    <body class="container-fluid">
-      <nav id="nav"></nav>
+      <nav id="nav-main"></nav>
       <section class="row starter-template" >
          <div class="col-md-12 main">
             <div class="title">
@@ -74,15 +71,13 @@
       </section>
       <script src="js/js-ui.js"></script>
       <script>
-         UI.NavBar(document.getElementById('nav'),{href:'js-ui.html',text:'JS-UI'},[
-            {href:'getting-started.html',text:'Getting started'},
-            {href:'#',text:'Features'},
-            {href:'components.html',text:'Components'},
-            {href:'#',text:'API Reference'},
-            {href:'#',text:'Pricing'},
-            {href:'#',text:'Support'},
-            {href:'#',text:'Community'}
-           ],{type:'fixed',align:'right'});
+          UI.NavBar(document.getElementById('nav-main'), { href: 'js-ui.html', text: 'JS-UI' }, [
+                 { href: 'getting-started', text: 'Getting started' },
+                 { href: 'components.html', text: 'Components' },
+                 { href: 'api.html', text: 'Api' },
+                 { href: 'aplicactions.html', text: 'Aplications' },
+                 { href: 'about.html', text: 'About' }
+          ], { type: 'fixed', align: 'right' });
       </script>
    </body>
 </html>

@@ -119,7 +119,7 @@
                             <div class="col-md-12">
                                 <h3>Example</h3>
                                 <div class="component-example">
-                                    <object name="notify"  data="components/notify.html" style="height:95px"></object>
+                                    <object data="components/notify.html" style="height:95px"></object>
                                 </div>
                                 <small><a href="#" class="pull-right">View more.</a></small>
                             </div>
@@ -151,66 +151,14 @@ UINotify.success('Success Notify');
                                  </code>
                                </pre>
                                     </div>
-                                    <div id="tab-notify-3">
-                                        <div class="row">
-                                            <div class="col-md-10 api">
-                                                <div class="row">
-                                                    <section class="col-md-3 vertical-center">
-                                                        <button class="btn btn-default" id="api-notify-show-success">Show Success Notify</button>
-                                                    </section>
-                                                    <section class="col-md-7">
-                                                        <pre>
-                                                         <code class="js">
-/*
-* Show notification type Success
-* @param String
-*/                                 
-UINotify.success('Success Notify');
-                                                         </code>
-                                                       </pre>
-                                                    </section>
-                                                </div>
-                                                <div class="row">
-                                                    <section class="col-md-3 vertical-center" >
-                                                        <button class="btn btn-default" id="api-notify-show-success">Show Success Notify</button>
-                                                    </section>
-                                                    <section class="col-md-7">
-                                                        <pre>
-                                                        <code class="js">
-/*
-* Show notification type Success
-* @param String
-*/
-UINotify.success('Success Notify');
-                                                         </code>
-                                                       </pre>
-                                                    </section>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <h4>Console</h4>
-                                            </div>
-
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </section>
                         <script>
                             UI.NavTab(document.getElementById('notify-content'), [
                                { id: 'tab-notify-1', text: 'Html', active: true },
-                               { id: 'tab-notify-2', text: 'Javascript' },
-                               { id: 'tab-notify-3', text: 'Api' }
+                               { id: 'tab-notify-2', text: 'Javascript' }
                             ]);
-
-                            window.onload = function () {
-                                var frame = window.frames['notify'];
-                                var doc = frame.contentDocument.defaultView || frame.contentWindow;                                
-                                document.getElementById('api-notify-show-success').onclick = function (e) {
-                                    e.preventDefault();
-                                    doc.showNotify();
-                                }
-                            }
 
                         </script>
 
@@ -304,8 +252,8 @@ UIDropDownList.init(5);
         hljs.initHighlightingOnLoad();
         UI.NavBar(document.getElementById('nav-main'), { href: 'js-ui.html', text: 'JS-UI' }, [
                { href: 'getting-started', text: 'Getting started' },
-               { href: 'components.html', text: 'Components', active: true },
-               { href: 'api.html', text: 'Api' },
+               { href: 'components.html', text: 'Components'},
+               { href: 'api.html', text: 'Api', active: true },
                { href: 'aplicactions.html', text: 'Aplications' },
                { href: 'about.html', text: 'About' }
         ], { type: 'fixed', align: 'right' });
@@ -380,8 +328,6 @@ UIDropDownList.init(5);
                 activeComponent.classList.add('link');
             }
         }
-
-
 
     </script>
 </body>

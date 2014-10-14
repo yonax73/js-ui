@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Section Components JS-UI</title>
+    <link href="../highlight/css/github.css" rel="stylesheet" />    
+    <link href="css/theme/simplex.css" rel="stylesheet" />
+    <link href="css/js-ui.css" rel="stylesheet" />
+    <link href="css/page.css" rel="stylesheet" />    
+    <script src="js/js-ui.js"></script>
+    <script src="../highlight/js/highlight.pack.js"></script>
+    
+</head>
+<body class="container section-components">
+    <section class="row">
+        <div class="col-md-10">
+            <!--UI-NOTIFY-->
+            <section id="ui-notify" class="row">
+                <div class="col-md-12">
+                    <section class="row component-header">
+                        <div class="col-md-12">
+                            <h2>UI-Notify</h2>
+                            <p>
+                                Simple message alert
+                            </p>
+                        </div>
+                    </section>
+                    <section class="row component-body">
+                        <div class="col-md-12">
+                            <h3>Example</h3>
+                            <div class="component-example">
+                                <object data="components/notify.html" style="height:95px"></object>
+                            </div>
+                            <small><a href="#" class="pull-right">View more.</a></small>
+                        </div>
+                    </section>
+                    <section class="row component-footer">
+                        <div class="col-md-12">
+                            <div id="notify-content">
+                                <div id="tab-notify-1">
+                                    <pre>
+                                    <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+                                     </code>
+                                    </pre>
+                                </div>
+                                <div id="tab-notify-2">
+                                    <pre>
+                                    <code class="js">
+/*
+* Create Object UI-Notify
+* @param HtmlElement
+*/
+var UINotify = new UI.Notify(document.getElementById('notify'));
+/*
+* Show notification type Success
+* @param String
+*/
+UINotify.success('Success Notify');
+                                 </code>
+                               </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <script>
+                        UI.NavTab(document.getElementById('notify-content'), [
+                           { id: 'tab-notify-1', text: 'Html', active: true },
+                           { id: 'tab-notify-2', text: 'Javascript' }
+                        ]);
+
+                    </script>
+
+                </div>
+            </section>
+            <!--UI-DROPDOWNLIST-->
+            <section id="ui-dropdownlist" class="row">
+                <div class="col-md-12">
+                    <section class="row component-header">
+                        <div class="col-md-12">
+                            <h2>UI-Dropdownlist</h2>
+                            <p>
+                                Simple drop down list
+                            </p>
+                        </div>
+                    </section>
+                    <section class="row component-body">
+                        <div class="col-md-12">
+                            <h3>Example</h3>
+                            <div class="component-example">
+                                <object data="components/dropdownlist.html" style="height:130px"></object>
+                            </div>
+                            <small><a href="#" class="pull-right">View more.</a></small>
+                        </div>
+                    </section>
+                    <section class="row component-footer">
+                        <div class="col-md-12">
+                            <div id="dropdownlist-content" >
+                                <div id="tab-dropdownlist-1">
+                                    <pre>
+                                    <code class="html">
+&lt;!--Here to show the dropdownlist--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+                                     </code>
+                                    </pre>
+                                </div>
+                                <div id="tab-dropdownlist-2">
+                                    <pre>
+                                    <code class="js">
+/*
+* Create Object UI-DropDownList
+* @param HtmlElement
+* @param Items []
+*/
+var UIDropDownList = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B' },
+    { option: 3, value: 'Product C' },
+    { option: 4, value: 'Product D' },
+    { option: 5, value: 'Product E' },
+    { option: 6, value: 'Product F' }
+]);
+/**
+* Initialize the UI-DropDownList
+* @param option
+*/
+UIDropDownList.init(5);
+                                 </code>
+                               </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <script>
+                        UI.NavTab(document.getElementById('dropdownlist-content'), [
+                           { id: 'tab-dropdownlist-1', text: 'Html', active: true },
+                           { id: 'tab-dropdownlist-2', text: 'Javascript' }
+                        ]);
+
+                    </script>
+
+                </div>
+            </section>
+        </div>
+        <nav class="col-md-2">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li><a id="link-notify" href="#ui-notify" class="link" onclick="goTo(this);">UI-Notify</a></li>
+                        <li><a id="link-dropdownlist" href="#ui-dropdownlist" onclick="goTo(this);">UI-DropDownList</a></li>               
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </section>
+    
+
+    <script>
+        hljs.initHighlightingOnLoad();
+
+        var activeComponent = document.getElementById('link-notify');
+        function goTo(a) {
+            activeComponent.classList.remove('link');
+            a.classList.add('link');
+            activeComponent = a;
+        }
+
+    </script>
+</body>
+</html>
