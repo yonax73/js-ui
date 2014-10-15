@@ -172,17 +172,17 @@ var dropdownlist = new UI.DropDownList(HtmlElement, Items[]);
                                             <h5>Parameters:</h5>
                                             <p>
                                                 <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for display the dropdown list. <br />
-                                                <a href="http://www.w3schools.com/js/js_json.asp" target="_blank">Items</a> is Json array as this:
+                                                <a href="http://www.w3schools.com/js/js_json.asp" target="_blank">Items[]</a> is Json array as this:
                                                 <div>
                                                     <pre>
                                                        <code class="js">
 var items = [
-              {option:1,value:'Value a'},
-              {option:2,value:'Value b'},
-              {option:'n',value:'Value n'}
+    {option:1,value:'Value a'},
+    {option:2,value:'Value b',selected:true},
+    {option:'n',value:'Value n'}
 ];
                                                        </code>
-</pre>
+                                                      </pre>
                                                 </div>
                                             </p>
                                             <h5>Returns:</h5>
@@ -195,18 +195,18 @@ var items = [
                                 <section class="row">
                                     <div class="col-md-12 ">
                                         <h3>Methods</h3>
-                                        <div id="ui-dropdownlist-init" class="api">
-                                            <a class="method" href="components.html#ui-dropdownlist-init">init(option:Any)</a>
+                                        <div id="ui-dropdownlist-select-item" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-select-item">selectItem(option:Any)</a>
                                             <div>
                                                 <pre>
                                                   <code class="js">
-dropdownlist.init(option);
+dropdownlist.selectItem(option);
                                                   </code>
                                                 </pre>
-                                                <p>Initialize the object with the option selected.</p>
+                                                <p>Set the list with the option selected.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <span class="link">Option</span> of the item selected.
+                                                    <span class="link">Option</span> of the item to select.
                                                 </p>
                                             </div>
                                         </div>
@@ -225,63 +225,120 @@ dropdownlist.getOption();
                                                 </p>
                                             </div>
                                         </div>
-                                        <div id="ui-notify-warning" class="api">
-                                            <a class="method" href="components.html#ui-notify-warning">warning(message:String)</a>
+                                        <div id="ui-dropdownlist-get-value" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-get-value">getValue():Any</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-notify.warning('Warning Notify');
+dropdownlist.getValue();
                                                   </code>
                                         </pre>
-                                                <p>Display the notification the type Warning.</p>
-                                                <h5>Parameters:</h5>
+                                                <p>Get the value selected.</p>
+                                                <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                    <span class="link">Value</span> of the item selected.
                                                 </p>
                                             </div>
                                         </div>
-                                        <div id="ui-notify-danger" class="api">
-                                            <a class="method" href="components.html#ui-notify-danger">danger(message:String)</a>
+                                        <div id="ui-dropdownlist-get-item" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-get-item">getItem():Item{}</a>
                                             <div>
                                                 <pre>
-                                                <code class="js">
-notify.danger('Danger Notify');
+                                                 <code class="js">
+dropdownlist.getItem();
                                                   </code>
-                                        </pre>
-                                                <p>Display the notification the type Danger.</p>
-                                                <h5>Parameters:</h5>
+                                                </pre>
+                                                <p>Get the json item selected.</p>
+                                                <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                    <span class="link">Item</span> selected.
                                                 </p>
                                             </div>
                                         </div>
-                                        <div id="ui-notify-wait" class="api">
-                                            <a class="method" href="components.html#ui-notify-wait">wait(message:String)</a>
+                                        <div id="ui-dropdownlist-get-item-by-option" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-get-item-by-option">getItemByOption(option:any):Item{}</a>
                                             <div>
                                                 <pre>
-                                                <code class="js">
-notify.wait('Wait Notify');
+                                                 <code class="js">
+dropdownlist.getItemByOption(option);
                                                   </code>
-                                        </pre>
-                                                <p>Display the notification the type Wait.</p>
+                                                </pre>
+                                                <p>Get the json item by option.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                    <span class="link">Option</span> of the item to select.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <span class="link">Item</span> selected by the option.
                                                 </p>
                                             </div>
                                         </div>
-                                        <div id="ui-notify-close" class="api">
-                                            <a class="method" href="components.html#ui-notify-close">close()</a>
+                                        <div id="ui-dropdownlist-get-item-by-value" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-get-item-by-value">getItemByValue(value:any):Item{}</a>
                                             <div>
                                                 <pre>
-                                                <code class="js">
-notify.close();
+                                                 <code class="js">
+dropdownlist.getItemByValue(value);
                                                   </code>
-                                        </pre>
-                                                <p>Close the notification.</p>
+                                                </pre>
+                                                <p>Get the json item by value.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <span class="link">Value</span> of the item to select.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <span class="link">Item</span> selected by the value.
+                                                </p>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div id="ui-dropdownlist-add-item" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-add-item">addItem(option:Any,value:Any)</a>
+                                            <div>
+                                                <pre>
+                                                 <code class="js">
+dropdownlist.addItem(option,value);
+                                                  </code>
+                                                </pre>
+                                                <p>Add the new item at the list.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <span class="link">Option</span> of the new item. <br>
+                                                    <span class="link">Value</span> of the new item.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="ui-dropdownlist-disabled" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-disabled">setDisabled(disabled:boolean)</a>
+                                            <div>
+                                                <pre>
+                                                 <code class="js">
+dropdownlist.setDisabled(true);
+                                                  </code>
+                                                </pre>
+                                                <p>Disabled the dropdownlist.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> for disabled<br>                                                    
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="ui-dropdownlist-onchange" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-onchange">onchange(function(){})</a>
+                                            <div>
+                                                <pre>
+                                                 <code class="js">
+dropdownlist.onchange(function(){});
+                                                  </code>
+                                                </pre>
+                                                <p>When a user selects a dropdown value</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_functions.asp" target="_blank">function(){}</a> execute when a user selects a dropdown value<br>                                                    
+                                                </p>
+                                            </div>
+                                        </div>
                                 </section>
                             </div>
                         </section>

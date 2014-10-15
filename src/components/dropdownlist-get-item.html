@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="UTF-8">
+      <title>Dropdownlist::getItem() JS-UI</title>
+      <link href="../css/font-awesome.min.css" rel="stylesheet" />
+      <link href="../css/js-ui.css" rel="stylesheet" />
+      <link id="style" href="../css/theme/default.css" rel="stylesheet" />
+   </head>
+   <body>
+      <section class="container">
+         <div class="row">
+             <br/>
+            <!--Here to show the dropdownlist-->
+            <div class="col-sm-4" id="dropdownlist"></div>
+            <div class="col-sm-2">
+               <button id="btn" class="btn btn-default">Get Item</button>    
+            </div>
+            <div class="col-sm-4">
+               <h5 >Option:  <b  id="option"></b> </h5>
+               <h5 >Value:   <b  id="value"></b> </h5>
+            </div>
+         </div>
+      </section>
+      <script src="../js/js-ui.js"></script>
+      <script>
+         var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+            { option: 1, value: 'Product A' },
+            { option: 2, value: 'Product B',selected:true },
+            { option: 3, value: 'Product C' }
+         ]);      
+         
+         document.getElementById('btn').onclick = function(){
+             var item = products.getItem();           
+             document.getElementById('option').textContent = item.option;
+             document.getElementById('value').textContent = item.value;
+             console.log(item);
+         };
+         
+      </script>
+   </body>
+</html>

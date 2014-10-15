@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="UTF-8">
+      <title>Dropdownlist::selectItem(option:Any) JS-UI</title>
+      <link href="../css/font-awesome.min.css" rel="stylesheet" />
+      <link href="../css/js-ui.css" rel="stylesheet" />
+      <link id="style" href="../css/theme/default.css" rel="stylesheet" />
+   </head>
+   <body>
+      <section class="container">
+         <div class="row">
+             <br/>
+            <!--Here to show the dropdownlist-->
+            <div class="col-sm-4" id="dropdownlist"></div>
+         </div>
+      </section>
+      <script src="../js/js-ui.js"></script>
+      <script>
+         var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+            { option: 1, value: 'Product A' },
+            { option: 2, value: 'Product B' },
+            { option: 3, value: 'Product C' }
+         ]);  
+         products.selectItem(2);       
+      </script>
+   </body>
+</html>

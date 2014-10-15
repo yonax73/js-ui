@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
       <meta charset="UTF-8">
-      <title>Dropdownlist::getOption() JS-UI</title>
+      <title>Dropdownlist::addItem(option,value) JS-UI</title>
       <link href="../css/font-awesome.min.css" rel="stylesheet" />
       <link href="../css/js-ui.css" rel="stylesheet" />
       <link id="style" href="../css/theme/default.css" rel="stylesheet" />
@@ -14,27 +14,31 @@
             <!--Here to show the dropdownlist-->
             <div class="col-sm-4" id="dropdownlist"></div>
             <div class="col-sm-2">
-               <button id="btn" class="btn btn-default">Get Option</button>    
+               <input id="input-option" class="form-control" placeholder="option"/>                            
             </div>
             <div class="col-sm-2">
-               <h5 >Output:  <b  id="output"></b> </h5>
+              <input id="input-value" class="form-control" placeholder="value"/>   
             </div>
+            <div class="col-sm-2">
+               <button id="btn" class="btn btn-default">Add Item</button>    
+            </div>            
          </div>
       </section>
       <script src="../js/js-ui.js"></script>
       <script>
          var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
             { option: 1, value: 'Product A' },
-            { option: 2, value: 'Product B' },
+            { option: 2, value: 'Product B',selected:true },
             { option: 3, value: 'Product C' }
-         ]);
-         
-         products.init(2);
+         ]);      
          
          document.getElementById('btn').onclick = function(){
-             var option = products.getOption();           
-             document.getElementById('output').textContent = option;
-             console.log(option);
+             var option = document.getElementById('input-option').value;
+             var value = document.getElementById('input-value').value;
+             if(!option.isEmpty() && !value.isEmpty()){
+                 products.addItem(option,value);                
+                          
+             }
          };
          
       </script>

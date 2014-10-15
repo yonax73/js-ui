@@ -438,21 +438,73 @@ document.getElementById('btnClose').onclick = function () {
                                 </p>
                             </div>
                         </section>
-                        <!--  DropdownList getOption -->
+                        <!--  DropdownList select-item -->
                         <div class="component-api">
-                            <section id="ui-dropdownlist" class="row">
+                            <section id="ui-dropdownlist-select-item" class="row">
                                 <div class="col-md-12">
-                                    <h3>getOption()</h3>
+                                    <h3>selectItem(option:Any)</h3>
                                     <small class="pull-right">
-                                        <a href="api.html#ui-dropdownlist">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="api.html#ui-dropdownlist-select-item">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/59m6LyLb/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-select-item">
+                                        <div id="tab-dropdownlist-select-item-1">
+                                            <pre>
+                                            <code class="html">
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-select-item-2">
+                                            <pre>
+                                            <code class="js">
+ var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B' },
+    { option: 3, value: 'Product C' }
+ ]);  
+ products.selectItem(2);          
+
+                                         </code>
+                                      </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-select-item-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-select-item.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-select-item'), [
+                               { id: 'tab-dropdownlist-select-item-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-select-item-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-select-item-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList get-option -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-get-option" class="row">
+                                <div class="col-md-12">
+                                    <h3>getOption():Any</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist-get-option">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/f4p093bd/" target="_blank">Try it yourself.</a>
                                     </small>
                                 </div>
                             </section>
                             <section class="row">
                                 <div class="col-md-12">
-                                    <div id="content-dropdownlist-getOption">
-                                        <div id="tab-dropdownlist-getOption-1">
+                                    <div id="content-dropdownlist-get-option">
+                                        <div id="tab-dropdownlist-get-option-1">
                                             <pre>
                                             <code class="html">
 &lt;!--Here to show the dropdownlist--&gt;
@@ -466,27 +518,27 @@ document.getElementById('btnClose').onclick = function () {
                                          </code>
                                         </pre>
                                         </div>
-                                        <div id="tab-dropdownlist-getOption-2">
+                                        <div id="tab-dropdownlist-get-option-2">
                                             <pre>
                                             <code class="js">
  var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
     { option: 1, value: 'Product A' },
-    { option: 2, value: 'Product B' },
+    { option: 2, value: 'Product B',selected:true },
     { option: 3, value: 'Product C' }
- ]); 
- products.init(2); 
+ ]);      
+ 
  document.getElementById('btn').onclick = function(){
      var option = products.getOption();           
      document.getElementById('output').textContent = option;
      console.log(option);
- };    
-                                         </code>
+ };
+                                 </code>
                                       </pre>
                                         </div>
-                                        <div id="tab-dropdownlist-getOption-3">
+                                        <div id="tab-dropdownlist-get-option-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-getOption.html"></object>
+                                                    <object data="components/dropdownlist-get-option.html"></object>
                                                 </div>
                                             </div>
                                         </div>
@@ -495,10 +547,568 @@ document.getElementById('btnClose').onclick = function () {
                             </section>
                         </div>
                         <script>
-                            UI.NavTab(document.getElementById('content-dropdownlist-getOption'), [
-                               { id: 'tab-dropdownlist-getOption-1', text: 'Html' },
-                               { id: 'tab-dropdownlist-getOption-2', text: 'Javascript' },
-                               { id: 'tab-dropdownlist-getOption-3', text: 'Result', active: true }
+                            UI.NavTab(document.getElementById('content-dropdownlist-get-option'), [
+                               { id: 'tab-dropdownlist-get-option-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-option-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-get-option-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList get-value -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-get-value" class="row">
+                                <div class="col-md-12">
+                                    <h3>getvalue():Any</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist-get-value">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/f4p093bd/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-get-value">
+                                        <div id="tab-dropdownlist-get-value-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the dropdownlist--&gt;
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;button id=&quot;btn&quot; class=&quot;btn btn-default&quot;&gt;Get Value&lt;/button&gt;    
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+   &lt;h5 &gt;Output:  &lt;b  id=&quot;output&quot;&gt;&lt;/b&gt; &lt;/h5&gt;
+&lt;/div&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-get-value-2">
+                                            <pre>
+                                            <code class="js">
+ var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B',selected:true },
+    { option: 3, value: 'Product C' }
+ ]);      
+ 
+ document.getElementById('btn').onclick = function(){
+     var value = products.getValue();           
+     document.getElementById('output').textContent = value;
+     console.log(value);
+ };
+                                 </code>
+                                      </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-get-value-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-get-value.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-get-value'), [
+                               { id: 'tab-dropdownlist-get-value-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-value-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-get-value-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList get-item -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-get-item" class="row">
+                                <div class="col-md-12">
+                                    <h3>getItem():Item{}</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist-get-item">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/f6yu7tjL/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-get-item">
+                                        <div id="tab-dropdownlist-get-item-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the dropdownlist--&gt;
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;button id=&quot;btn&quot; class=&quot;btn btn-default&quot;&gt;Get item&lt;/button&gt;    
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+   &lt;h5 &gt;Output:  &lt;b  id=&quot;output&quot;&gt;&lt;/b&gt; &lt;/h5&gt;
+&lt;/div&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-get-item-2">
+                                            <pre>
+                                            <code class="js">
+ var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, item: 'Product A' },
+    { option: 2, item: 'Product B',selected:true },
+    { option: 3, item: 'Product C' }
+ ]);      
+ 
+ document.getElementById('btn').onclick = function(){
+     var item = products.getitem();           
+     document.getElementById('output').textContent = item;
+     console.log(item);
+ };
+                                 </code>
+                                      </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-get-item-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-get-item.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-get-item'), [
+                               { id: 'tab-dropdownlist-get-item-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-item-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-get-item-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList get-item-by-option -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-get-item-by-option" class="row">
+                                <div class="col-md-12">
+                                    <h3>getItemByOption(option:Any):Item{}</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist-get-item-by-option">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/zmqguw79/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-get-item-by-option">
+                                        <div id="tab-dropdownlist-get-item-by-option-1">
+                                            <pre>
+                                              <code class="html">
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;input id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;option&quot;/&gt;               
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;button id=&quot;btn&quot; class=&quot;btn btn-default&quot;&gt;Get Item&lt;/button&gt;    
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+   &lt;h5 &gt;Option:  &lt;b  id=&quot;option&quot;&gt;&lt;/b&gt; &lt;/h5&gt;
+   &lt;h5 &gt;Value:   &lt;b  id=&quot;value&quot;&gt;&lt;/b&gt; &lt;/h5&gt;
+&lt;/div&gt;
+                                          </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-get-item-by-option-2">
+                                            <pre>
+                                             <code class="js">
+ var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B',selected:true },
+    { option: 3, value: 'Product C' }
+ ]);      
+ 
+ document.getElementById('btn').onclick = function(){
+     var option = document.getElementById('input').value;
+     if(!option.isEmpty()){
+       var item = products.getItemByOption(option);
+       document.getElementById('option').textContent = item.option;
+       document.getElementById('value').textContent = item.value;
+       console.log(item);              
+     }
+ };
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-get-item-by-option-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-get-item-by-option.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-get-item-by-option'), [
+                               { id: 'tab-dropdownlist-get-item-by-option-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-item-by-option-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-get-item-by-option-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList get-item-by-value -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-get-item-by-value" class="row">
+                                <div class="col-md-12">
+                                    <h3>getItemByValue(value:Any):Item{}</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist-get-item-by-value">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/37n8jz2k/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-get-item-by-value">
+                                        <div id="tab-dropdownlist-get-item-by-value-1">
+                                            <pre>
+                                              <code class="html">
+&lt;!--Here to show the dropdownlist--&gt;
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;input id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;value&quot;/&gt;               
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;button id=&quot;btn&quot; class=&quot;btn btn-default&quot;&gt;Get Item&lt;/button&gt;    
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+   &lt;h5 &gt;Option:  &lt;b  id=&quot;option&quot;&gt;&lt;/b&gt; &lt;/h5&gt;
+   &lt;h5 &gt;Value:   &lt;b  id=&quot;value&quot;&gt;&lt;/b&gt; &lt;/h5&gt;
+&lt;/div&gt;
+                                          </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-get-item-by-value-2">
+                                            <pre>
+                                             <code class="js">
+var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B',selected:true },
+    { option: 3, value: 'Product C' }
+]);      
+
+document.getElementById('btn').onclick = function(){
+ var value = document.getElementById('input').value;
+ if(!value.isEmpty()){
+   var item = products.getItemByValue(value);
+   document.getElementById('option').textContent = item.option;
+   document.getElementById('value').textContent = item.value;
+   console.log(item);              
+ }
+};
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-get-item-by-value-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-get-item-by-value.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-get-item-by-value'), [
+                               { id: 'tab-dropdownlist-get-item-by-value-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-item-by-value-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-get-item-by-value-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList add-item -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-add-item" class="row">
+                                <div class="col-md-12">
+                                    <h3>addItem(option:Any,value:Any)</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist-add-item">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/x11t2zf7/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-add-item">
+                                        <div id="tab-dropdownlist-add-item-1">
+                                            <pre>
+                                              <code class="html">
+&lt;!--Here to show the dropdownlist--&gt;
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;input id=&quot;input-option&quot; class=&quot;form-control&quot; placeholder=&quot;option&quot;/&gt;                            
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+  &lt;input id=&quot;input-value&quot; class=&quot;form-control&quot; placeholder=&quot;value&quot;/&gt;   
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;button id=&quot;btn&quot; class=&quot;btn btn-default&quot;&gt;Add Item&lt;/button&gt;    
+&lt;/div&gt; 
+                                          </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-add-item-2">
+                                            <pre>
+                                              <code class="js">
+ var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B',selected:true },
+    { option: 3, value: 'Product C' }
+ ]);      
+ 
+ document.getElementById('btn').onclick = function(){
+     var option = document.getElementById('input-option').value;
+     var value = document.getElementById('input-value').value;
+     if(!option.isEmpty() && !value.isEmpty()){
+         products.addItem(option,value);                
+                  
+     }
+ };
+                                  </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-add-item-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-add-item.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-add-item'), [
+                               { id: 'tab-dropdownlist-add-item-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-add-item-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-add-item-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList disabled -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-disabled" class="row">
+                                <div class="col-md-12">
+                                    <h3>setDisabled(disabled:boolean)</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist-disabled">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/pdb24ano/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-disabled">
+                                        <div id="tab-dropdownlist-disabled-1">
+                                            <pre>
+                                              <code class="html">
+&lt;!--Here to show the dropdownlist--&gt;
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;button id=&quot;btn-disabled&quot; class=&quot;btn btn-default&quot;&gt;Disabled&lt;/button&gt;    
+&lt;/div&gt;            
+&lt;div class=&quot;col-sm-2&quot;&gt;
+   &lt;button id=&quot;btn-enabled&quot; class=&quot;btn btn-primary&quot;&gt;Enabled&lt;/button&gt;    
+&lt;/div&gt;    
+&lt;/div&gt;
+                                          </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-disabled-2">
+                                            <pre>
+                                              <code class="js">
+ var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B',selected:true },
+    { option: 3, value: 'Product C' }
+ ]);      
+ 
+ document.getElementById('btn-disabled').onclick = function(){
+     products.setDisabled(true);
+ };
+
+ document.getElementById('btn-enabled').onclick = function(){
+     products.setDisabled(false);
+ };
+                                  </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-disabled-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-disabled.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-disabled'), [
+                               { id: 'tab-dropdownlist-disabled-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-disabled-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-disabled-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList onchange -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-onchange" class="row">
+                                <div class="col-md-12">
+                                    <h3>onchange(function(){})</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-dropdownlist-onchange">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/qmrLxj3h/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-onchange">
+                                        <div id="tab-dropdownlist-onchange-1">
+                                            <pre>
+                                              <code class="html">
+&lt;!--Here to show the dropdownlist--&gt;
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;col-sm-8&quot; &gt;
+   &lt;h4&gt;Output: &lt;b id=&quot;output&quot;&gt;&lt;/b&gt;&lt;/h4&gt;
+&lt;/div&gt;
+                                          </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-onchange-2">
+                                            <pre>
+                                              <code class="js">
+ var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B',selected:true },
+    { option: 3, value: 'Product C' }
+ ]);      
+ 
+ products.onchange(function(){
+   document.getElementById('output').textContent = "Event onchange [ "+products.getValue() +" ]";
+ });
+                                  </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-onchange-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-onchange.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-onchange'), [
+                               { id: 'tab-dropdownlist-onchange-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-onchange-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-onchange-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  DropdownList custom -->
+                        <div class="component-api">
+                            <section id="ui-dropdownlist-custom" class="row">
+                                <div class="col-md-12">
+                                    <h3>Dropdownlist Custom css</h3>
+                                    <small class="pull-right">                                        
+                                        <a href="http://jsfiddle.net/yonaxtics/1frd6xx7/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-custom">
+                                        <div id="tab-dropdownlist-custom-1">
+                                            <pre>
+                                              <code class="html">
+&lt;!--Here to show the dropdownlist--&gt;
+&lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;              
+&lt;div class=&quot;col-sm-2&quot;&gt;
+  &lt;button id=&quot;btn-disabled&quot; class=&quot;btn btn-default&quot;&gt;Disabled&lt;/button&gt;    
+&lt;/div&gt;          
+&lt;div class=&quot;col-sm-2&quot;&gt;
+  &lt;button id=&quot;btn-enabled&quot; class=&quot;btn btn-primary&quot;&gt;Enabled&lt;/button&gt;    
+&lt;/div&gt; 
+                                          </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-custom-2">
+                                            <pre>
+                                              <code class="css">
+        /**
+        * Use for edit border color
+        */
+        .dropdownlist span, .dropdownlist ul   {    
+           border-color:#ff0000;  
+           border-radius: 2px;    
+        }
+
+        /**
+        * Use for edit color and background style.
+        */
+        .dropdownlist.background span, .dropdownlist.background input[type="text"][readonly], .dropdownlist-list li  {  
+          background-color:  #444444;    
+          color:  #000000;    
+        }
+        /**
+        * Use for edit color and background style when is disabled.
+        */
+        .dropdownlist.disabled span, .dropdownlist.disabled input[type="text"]  { 
+          background-color:  #767676;    
+          color:  #cccccc;    
+          cursor:  not-allowed
+        }
+        .dropdownlist-list  li:hover, .dropdownlist-list .selected  {    
+          background-color:  #ffffff;    
+          color:  #ff0000    
+        }   
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-custom-3">
+                                            <pre>
+                                              <code class="js">
+var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
+  { option: 1, value: 'Product A' },
+  { option: 2, value: 'Product B',selected:true },
+  { option: 3, value: 'Product C' }
+]);      
+
+document.getElementById('btn-disabled').onclick = function(){
+  products.setDisabled(true);
+};
+
+document.getElementById('btn-enabled').onclick = function(){
+  products.setDisabled(false);
+};    
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-custom-4">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist-custom.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-custom'), [
+                               { id: 'tab-dropdownlist-custom-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-custom-2', text: 'CSS' },
+                               { id: 'tab-dropdownlist-custom-3', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-custom-4', text: 'Result', active: true }
                             ]);
                         </script>
                     </div>
@@ -508,8 +1118,18 @@ document.getElementById('btnClose').onclick = function () {
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><a id="link-notify" href="#ui-notify" class="link" onclick="goTo(this);">Notify</a></li>
-                            <li><a id="link-dropdownlist" href="#ui-dropdownlist" onclick="goTo(this);">DropDownList</a></li>
+                            <li>
+                                <a id="link-notify" href="#ui-notify" class="title"  onclick="goTo(this);">Notify</a>
+                                <ul >
+                                    <li>
+                                         <a href="#ui-notify-success" class="link">Success</a>
+                                    </li>
+                                    <li>
+                                         <a href="#ui-notify-info" >Info</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a id="link-dropdownlist" href="#ui-dropdownlist" class="title" onclick="goTo(this);">DropDownList</a></li>
                         </ul>
                     </div>
                 </div>

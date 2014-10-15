@@ -47,13 +47,19 @@
 
 .section-components nav li a {
     color: #777;
-    font-size: 14px;
-    font-weight: normal;
+    font-size: 14px;    
 }
 
-.section-components nav li a.link {
-    color: #d9230f;                    
+.section-components nav li a.title{
+    color: #000;
+    font-weight: bold;
 }
+
+.section-components nav li a.link {    
+    color: #d9230f;
+    font-weight: normal;                  
+}
+
 
 .component{
     padding-top:80px;
@@ -68,15 +74,20 @@
     padding-bottom: 5px;        
 }
 
+.component-api h3{
+    font-family: monospace;
+}
+
 .component-api {
-    padding-left: 10px;
+    background: none repeat scroll 0 0 #eeeeee;
+    margin-bottom: 5px;
+    padding: 10px;
 }
 
 .component-api small{
     font-size:10px;
 }
-.component-example {
-    background: none repeat scroll 0 0 #fff;
+.component-example {    
     padding:10px;
     margin-bottom:5px;
 }
@@ -115,6 +126,7 @@
 
 .api a,.api .link{
     color: #777;
+    font-family: monospace;
     font-weight: bold;
 }
 

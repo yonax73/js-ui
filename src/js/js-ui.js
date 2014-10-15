@@ -154,15 +154,12 @@ UI.DropDownList = function(HtmlElement, items) {
     var UIDropDownList = null;
 
 
-    this.init = function(option) {
+    this.init = function() {
         UIDropDownList = this;
         HtmlElement.classList.add('dropdownlist');
         HtmlElement.classList.add('background');
         this.create();
-        this.fill();
-        if (option !== undefined) {
-            this.selectItem(option);
-        }        
+        this.fill();        
     }
 
     this.create = function() {
@@ -223,6 +220,9 @@ UI.DropDownList = function(HtmlElement, items) {
                 }
             }
             ul.appendChild(li);
+            if(item.selected){
+                this.selectItem(item.option);
+            }
         }
     }
 
@@ -235,7 +235,7 @@ UI.DropDownList = function(HtmlElement, items) {
             do {
                 var item = itemsLi[i++];
                 if (item.dataset.option == option) {
-                    oldItemLi = currentItemLi
+                    oldItemLi = currentItemLi;
                     currentItemLi = item;
                     flag = false;
                 }
@@ -285,7 +285,7 @@ UI.DropDownList = function(HtmlElement, items) {
                 e.preventDefault();
                 UIDropDownList.changeValue(this);
             }
-        }
+        }       
         ul.appendChild(li);
     }
 
@@ -380,7 +380,7 @@ UI.DropDownList = function(HtmlElement, items) {
         return li;
     }
 
-
+    this.init();
 
 }
 
