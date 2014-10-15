@@ -146,6 +146,147 @@ notify.close();
                      </section>
                   </div>
                </section>
+                <!--UI-DROPDOWNLIST-->
+                <section id="ui-dropdownlist" class="row component">
+                    <div class="col-md-12">
+                        <section class="row component-header">
+                            <div class="col-md-12">
+                                <h2>DropdownList Object</h2>
+                                <p>
+                                    The dropdownList Object is used for show option list
+                                </p>
+                            </div>
+                        </section>
+                        <section class="row component-body">
+                            <div class="col-md-12">
+                                <section class="row">
+                                    <div class="col-md-12 ">
+                                        <h3>Constructor</h3>
+                                        <div class="api">
+                                            <pre>
+                                               
+                                             <code class="js">
+var dropdownlist = new UI.DropDownList(HtmlElement, Items[]);
+                                             </code>
+                                            </pre>
+                                            <h5>Parameters:</h5>
+                                            <p>
+                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for display the dropdown list. <br />
+                                                <a href="http://www.w3schools.com/js/js_json.asp" target="_blank">Items</a> is Json array as this:
+                                                <div>
+                                                    <pre>
+                                                       <code class="js">
+var items = [
+              {option:1,value:'Value a'},
+              {option:2,value:'Value b'},
+              {option:'n',value:'Value n'}
+];
+                                                       </code>
+</pre>
+                                                </div>
+                                            </p>
+                                            <h5>Returns:</h5>
+                                            <p>
+                                                The function that created the Dropdownlist object's.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="row">
+                                    <div class="col-md-12 ">
+                                        <h3>Methods</h3>
+                                        <div id="ui-dropdownlist-init" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-init">init(option:Any)</a>
+                                            <div>
+                                                <pre>
+                                                  <code class="js">
+dropdownlist.init(option);
+                                                  </code>
+                                                </pre>
+                                                <p>Initialize the object with the option selected.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <span class="link">Option</span> of the item selected.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="ui-dropdownlist-get-option" class="api">
+                                            <a class="method" href="components.html#ui-dropdownlist-get-option">getOption():Any</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+dropdownlist.getOption();
+                                                   </code>
+                                                </pre>
+                                                <p>Get the option selected.</p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <span class="link">Option</span> of the item selected.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="ui-notify-warning" class="api">
+                                            <a class="method" href="components.html#ui-notify-warning">warning(message:String)</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.warning('Warning Notify');
+                                                  </code>
+                                        </pre>
+                                                <p>Display the notification the type Warning.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="ui-notify-danger" class="api">
+                                            <a class="method" href="components.html#ui-notify-danger">danger(message:String)</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.danger('Danger Notify');
+                                                  </code>
+                                        </pre>
+                                                <p>Display the notification the type Danger.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="ui-notify-wait" class="api">
+                                            <a class="method" href="components.html#ui-notify-wait">wait(message:String)</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.wait('Wait Notify');
+                                                  </code>
+                                        </pre>
+                                                <p>Display the notification the type Wait.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="ui-notify-close" class="api">
+                                            <a class="method" href="components.html#ui-notify-close">close()</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.close();
+                                                  </code>
+                                        </pre>
+                                                <p>Close the notification.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+                    </div>
+                </section>
             </div>
             <nav class="col-md-2">
                <div class="row">

@@ -4918,14 +4918,14 @@ th.visible-print, td.visible-print {
 }
 /*************************************************************************
 *                                                                        *
-*                               UI-SELECT                                * 
+*                               UI-DROPDOWNLIST                          * 
 *                                                                        * 
 ***************************************************************************/
 /***
 /**
 * Use for edit border color
 */
-.select span,.select ul  {
+.dropdownlist span,.dropdownlist ul  {
 	border-color:#cccccc;
 	border-radius: 4px;
 }
@@ -4933,7 +4933,7 @@ th.visible-print, td.visible-print {
 /**
 * Use for edit color and background style.
 */
-.select.background span,.select.background input[type="text"][readonly],.select-list li {
+.dropdownlist.background span,.dropdownlist.background input[type="text"][readonly],.dropdownlist-list li {
 	
 	background-color: #fff;
     color: #555555;
@@ -4941,14 +4941,14 @@ th.visible-print, td.visible-print {
 /**
 * Use for edit color and background style when is disabled.
 */
-.select.disabled span,.select.disabled input[type="text"] {
+.dropdownlist.disabled span,.dropdownlist.disabled input[type="text"] {
 	
 	background-color: #dadada;
 	color: #767676;
     cursor: not-allowed
 }
 
-.select-list  li:hover,.select-list .selected {
+.dropdownlist-list  li:hover,.dropdownlist-list .selected {
 	background-color: #555555;
 	color: #fff;
 }
