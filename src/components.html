@@ -1117,20 +1117,8 @@ document.getElementById('btn-enabled').onclick = function(){
             <nav class="col-md-2">
                 <div class="row">
                     <div class="col-md-12">
-                        <ul>
-                            <li>
-                                <a id="link-notify" href="#ui-notify" class="title"  onclick="goTo(this);">Notify</a>
-                                <ul >
-                                    <li>
-                                         <a href="#ui-notify-success" class="link">Success</a>
-                                    </li>
-                                    <li>
-                                         <a href="#ui-notify-info" >Info</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a id="link-dropdownlist" href="#ui-dropdownlist" class="title" onclick="goTo(this);">DropDownList</a></li>
-                        </ul>
+                        <nav id="nav-components">
+                        </nav>
                     </div>
                 </div>
             </nav>
@@ -1152,24 +1140,7 @@ document.getElementById('btn-enabled').onclick = function(){
              { align: 'right' }
         );
 
-
-        var activeThemeLi = document.getElementById('defaultTheme');  //Current li active of theme list.
-        var activeComponent = document.getElementById('link-notify'); //Current link active for component navigation.
-        var notifyPos = null;
-        var selectPos = null;
-
-
-
-        function setPositions() {
-            notifyPos = document.getElementById('ui-notify').offsetTop;
-            selectPos = document.getElementById('ui-dropdownlist').offsetTop;
-        }
-
-        function goTo(a) {
-            activeComponent.classList.remove('link');
-            a.classList.add('link');
-            activeComponent = a;
-        }
+        var activeThemeLi = document.getElementById('defaultTheme');  //Current li active of theme list.    
 
         function changeTheme(theme, name, li) {
             ddp.setText(name);
@@ -1184,20 +1155,22 @@ document.getElementById('btn-enabled').onclick = function(){
         }
 
 
-        window.onscroll = function () {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            setPositions();
-            if (scrollTop >= notifyPos && scrollTop <= selectPos) {
-                activeComponent.classList.remove('link');
-                activeComponent = document.getElementById('link-notify');
-                activeComponent.classList.add('link');
-            }
-            if (scrollTop >= selectPos) {
-                activeComponent.classList.remove('link');
-                activeComponent = document.getElementById('link-dropdownlist');
-                activeComponent.classList.add('link');
-            }
-        }
+
+
+    UI.NavScrollV(document.getElementById('nav-components'),[
+          {href:'#ui-notify',text:'Notify',target:'ui-notify',children:[
+                                            {href:'#ui-notify-success',text:'success()',target:'ui-notify-success'},
+                                            {href:'#ui-notify-info',text:'info()',target:'ui-notify-info'},
+                                            {href:'#ui-notify-warning',text:'warning()',target:'ui-notify-warning'},
+                                            {href:'#ui-notify-danger',text:'danger()',target:'ui-notify-danger'}
+            ]},
+           {href:'#ui-dropdownlist',text:'Dropdownlist',target:'ui-dropdownlist',children:[
+                                            {href:'#ui-dropdownlist-select-item',text:'select-item()',target:'ui-dropdownlist-select-item'},
+                                            {href:'#ui-dropdownlist-get-option',text:'get-option()',target:'ui-dropdownlist-get-option'},
+                                            {href:'#ui-dropdownlist-get-value',text:'get-value()',target:'ui-dropdownlist-get-value'},
+                                            {href:'#ui-dropdownlist-get-item',text:'get-item()',target:'ui-dropdownlist-get-item'}
+            ]}
+        ]);
 
 
 

@@ -124,8 +124,6 @@
   padding: 0;
 }
 
-
-
  .nav-panel-body{
 		 background-color: #ffffff;/**/
 		    border-bottom: 1px solid #eeeeee;/**/
@@ -143,3 +141,33 @@
   display: block;
   visibility: visible;
 }
+/*************************************************************************
+*                                                                        *
+*                               NAV SCROLL V                             * 
+*                                                                        * 
+***************************************************************************/
+.nav-scroll-v{
+  margin: 0;
+  padding: 40px 20px 0;
+  list-style: none;
+}
+.nav-scroll-v ul{
+  list-style: none;
+}
+
+.nav-scroll-v li{
+    padding: 2px 0;
+    text-align: right;
+}
+.nav-scroll-v >.parent > a{
+  color: #000;/***/
+  font-weight: bold;/***/  
+}
+.nav-scroll-v > .parent ul.children a {
+    color: #777;/***/
+    font-weight: normal;
+}
+.nav-scroll-v >.parent ul.children  a.active{
+   color: #d9230f;
+    font-weight: normal;
+}  

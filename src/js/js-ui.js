@@ -795,6 +795,163 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
 
     this.init();
  }
+ /*
+ * ========================================================================
+ * UI-NAV-SCROLL-V
+ * Author  : Yonatan Alexis Quintero Rodriguez
+ * Version : 0.1
+ * Date    : 16 Oct 2014
+ * ========================================================================
+ */
+/*
+ * @param HtmlElement
+ * @param parents 
+ */
+ UI.NavScrollV = function(HtmlElement,parents){
+    var ul = null;
+    var parentSelected = null;
+    var childSelected = null;
+
+    function init(){
+         ul = document.createElement('ul');
+         ul.classList.add('nav-scroll-v');
+         create();
+         HtmlElement.appendChild(ul);
+         onscroll();
+    }
+
+    function create(){
+        var n= parents.length
+         for (var i = 0; i < n; i++) {
+             var parent = parents[i];
+             var parent_li = document.createElement('li');
+             parent_li.classList.add('parent');
+             var parent_a = document.createElement('a');
+             parent_a.href = parent.href;
+             parent_a.textContent = parent.text;
+             parent_a.dataset.target = parent.target;
+             parent_li.appendChild(parent_a);
+             var children = parent.children;
+             if(children){
+                 var children_n = children.length;
+                 if(children_n >0){
+                    var children_ul = document.createElement('ul');
+                    children_ul.classList.add('children');
+                    children_ul.classList.add('hidden');
+                   for (var j = 0; j < children_n; j++) {
+                         var child = children[j];
+                         var child_li = document.createElement('li');
+                         var child_a = document.createElement('a');
+                         child_a.href = child.href;
+                         child_a.textContent = child.text;
+                         child_a.dataset.target = child.target;
+                         child_a.onclick = function(){
+                            if(childSelected){
+                                childSelected.classList.remove('active');
+                            }
+                            this.classList.add('active');
+                            childSelected = this;
+                         }
+                         child_li.appendChild(child_a);
+                         children_ul.appendChild(child_li);
+                   };
+                   parent_li.appendChild(children_ul);                     
+                 }               
+             }
+             ul.appendChild(parent_li);
+         };
+    }
+
+    function onscroll(){
+
+     window.onscroll = function(){
+             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;          
+             var tmpParents = ul.querySelectorAll('.parent');
+             var n= tmpParents.length;
+             var i = 0;
+             var flag = true;
+             while (flag && i < n) {
+                 var tmpParent = tmpParents[i];                 
+                 var parent_a =  tmpParent.getElementsByTagName('a')[0];
+                 var target_height = document.getElementById(parent_a.dataset.target).offsetTop;
+                if(i === (n-1)){                   
+                   if(scrollTop >= target_height){
+                        showChildren(tmpParent);
+                        readCHildren(tmpParent,scrollTop);
+                        flag = false;
+                   }
+                }else{
+                   var tmpNextParent = tmpParents[i+1];
+                   var nextParent_a = tmpNextParent.getElementsByTagName('a')[0];
+                    var nextTarget_height =  document.getElementById(nextParent_a.dataset.target).offsetTop;
+                    if(scrollTop >= target_height && scrollTop <= nextTarget_height){
+                        showChildren(tmpParent);
+                        readCHildren(tmpParent,scrollTop);
+                        flag = false;
+                    }
+                }
+                i++;
+            }
+
+     };
+}
+
+    function showChildren(parent){
+         if(parentSelected){
+            parentSelected.classList.add('hidden');
+         }
+         var ul = parent.getElementsByTagName('ul')[0];
+         ul.classList.remove('hidden');
+         parentSelected = ul;
+    }
+
+    function readCHildren(parent,scrollTop){
+         var tmpChildren = parent.querySelectorAll('.children')[0].getElementsByTagName('li');        
+         var n= tmpChildren.length;
+         var i = 0;
+         var flag = true;
+         while (flag && i < n) {
+             var tmpChild = tmpChildren[i];               
+             var child_a =  tmpChild.getElementsByTagName('a')[0];
+             var target_height = document.getElementById(child_a.dataset.target).offsetTop;
+            if(i === (n-1)){                 
+               if(scrollTop >= target_height){  
+                    selectedChild(child_a);console.log("????????")
+                    flag = false;
+               }
+            }else{
+               var tmpNextChild = tmpChildren[i+1];
+               var nextChild_a = tmpNextChild.getElementsByTagName('a')[0];
+                var nextTarget_height =  document.getElementById(nextChild_a.dataset.target).offsetTop;
+              console.log('***');
+              console.log(scrollTop);
+              console.log(target_height)
+              console.log(nextTarget_height);
+              console.log(nextChild_a);
+              console.log(child_a);
+              console.log('-----');
+              console.log(document.getElementById(nextChild_a.dataset.target));
+                if(scrollTop >= target_height && scrollTop <= nextTarget_height){
+                    selectedChild(child_a);  
+                    flag = false;
+                }
+            }
+            i++;
+        }
+    }
+
+    function selectedChild(child_a){
+        if(childSelected){
+            childSelected.classList.remove('active');
+        }
+        child_a.classList.add('active');
+        childSelected = child_a;
+
+    }
+
+    init();
+ }
+
 /*
  * ========================================================================
  * UI-Utils

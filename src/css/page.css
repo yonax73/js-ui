@@ -13,15 +13,11 @@
     background-color: #ffffff;
 }
 
-
-
 .section-components {
     background-color: transparent;
     position: relative;
     top:85px;
 }
-
-
 
 .section-components > div {
     padding-top:15px;
@@ -35,36 +31,9 @@
     right: 0;
 }
 
-.section-components nav ul {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-
-.section-components nav li {
-    text-align: right;
-}
-
-.section-components nav li a {
-    color: #777;
-    font-size: 14px;    
-}
-
-.section-components nav li a.title{
-    color: #000;
-    font-weight: bold;
-}
-
-.section-components nav li a.link {    
-    color: #d9230f;
-    font-weight: normal;                  
-}
-
-
 .component{
     padding-top:80px;
 }
-
 
 .component-header p {
     color: #777;
@@ -79,7 +48,7 @@
 }
 
 .component-api {
-    background: none repeat scroll 0 0 #eeeeee;
+    background: none repeat scroll 0 0 #f3f3f3;
     margin-bottom: 5px;
     padding: 10px;
 }
@@ -87,6 +56,7 @@
 .component-api small{
     font-size:10px;
 }
+
 .component-example {    
     padding:10px;
     margin-bottom:5px;
@@ -99,33 +69,33 @@
     width:100%;
 }
 
-
-
 .api  {
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #cbcbcb;
+    background-color: #f3f3f3;
+    margin-bottom: 10px;
     padding: 10px;
 }
 
 .api > div {
     padding-left: 10px;
 }
+
 .api pre,.api code{
     background-color:transparent;
     margin:0px;
-    padding:0px;    
-    
+    padding:0px;  
 }
+
 .api pre{
     display:flex;
     border:none;
 }
+
 .api code{
     width:100%;
 }
 
 .api a,.api .link{
-    color: #777;
+    color: #686869;
     font-family: monospace;
     font-weight: bold;
 }
@@ -133,6 +103,7 @@
 .api a.method{
     color: #3d3d3d;
 }
+
 /*Style palette*/
 .palette {
     padding-bottom: 10px;
