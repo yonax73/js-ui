@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="UTF-8">
+      <title>FormOk::isValid():Boolean JS-UI</title>
+      <link href="../css/font-awesome.min.css" rel="stylesheet" />
+      <link href="../css/js-ui.css" rel="stylesheet" />
+      <link id="style" href="../css/theme/default.css" rel="stylesheet" />
+   </head>
+   <body>
+      <section class="container">
+        <div class="row">
+          <div class="col-sm-12" id="notify"></div>
+         <div>
+         <div class="row">
+            <div class="col-sm-12">
+               <br />
+               <form id="frmLogin" class="form-horizontal" method="post" action="/signIn">
+                  <fieldset>
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="text" name="user" class="form-control" data-required="true" data-minlength="3" placeholder="User"   >                    
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="text" name="email" class="form-control" data-required="true" placeholder="E-mail"   >                    
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="password"  name="password" class="form-control" data-required="true" data-rangeLength="5-8" placeholder="password"   >                    
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="password" name="confirmPassword" class="form-control" data-match="password" placeholder="Confirm Password"   >
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="text" name="url" class="form-control" data-url="true" placeholder="Web Site">
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="text" name="birthday" class="form-control" data-date="true" placeholder="Birthday">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="text" name="fullName" class="form-control" data-fullname="true" placeholder="Full Name"   >                    
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="text" name="age" class="form-control" data-number="true" data-max="45" placeholder="Age"   >                    
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="text" name="price" class="form-control" data-money="true" data-min="100" placeholder="Price USD"   >
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12">
+                                 <input type="text" name="creditCard" class="form-control" data-creditcard="true"  placeholder="Credit Card"   >
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-sm-12" id="salesRep"></div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-md-12">
+                                 <label>
+                                  <input name="terms" type="checkbox" data-required="true" > I agree with the <a href="#">Terms and Conditions</a>
+                                </label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <button class="btn btn-success col-sm-3 pull-right">Submit</button>
+                     </div>
+                  </fieldset>
+               </form>
+            </div>
+         </div>
+      </section>
+      <script src="../js/js-ui.js"></script>
+      <script>
+            var notify = new UI.Notify(document.getElementById('notify'));
+             UI.DropDownList(document.getElementById('salesRep'), [
+                      { option: 1, value: 'Manu Donnell',selected:true },
+                      { option: 2, value: 'Oliver Amell', },
+                      { option: 3, value: 'Roy Haynes' },
+                      { option: 4, value: 'Willa Holland' },
+                      { option: 5, value: 'Felicity Bett' }
+                  ]);  
+
+      </script>
+   </body>
+</html>

@@ -1043,33 +1043,36 @@ document.getElementById('btn').onclick = function(){
                                         <div id="tab-dropdownlist-custom-2">
                                             <pre>
                                               <code class="css">
-        /**
-        * Use for edit border color
-        */
-        .dropdownlist span, .dropdownlist ul   {    
-           border-color:#ff0000;  
-           border-radius: 2px;    
-        }
+/**
+* Use for edit border color
+*/
+.dropdownlist span, .dropdownlist ul   {    
+   border-color:#ff0000;  
+   border-radius: 2px;    
+}
 
-        /**
-        * Use for edit color and background style.
-        */
-        .dropdownlist.background span, .dropdownlist.background input[type="text"][readonly], .dropdownlist-list li  {  
-          background-color:  #444444;    
-          color:  #000000;    
-        }
-        /**
-        * Use for edit color and background style when is disabled.
-        */
-        .dropdownlist.disabled span, .dropdownlist.disabled input[type="text"]  { 
-          background-color:  #767676;    
-          color:  #cccccc;    
-          cursor:  not-allowed
-        }
-        .dropdownlist-list  li:hover, .dropdownlist-list .selected  {    
-          background-color:  #ffffff;    
-          color:  #ff0000    
-        }   
+/**
+* Use for edit color and background style.
+*/
+.dropdownlist.background span, .dropdownlist.background input[type="text"][readonly], .dropdownlist-list li  {  
+  background-color:  #444444;    
+  color:  #000000;    
+}
+/**
+* Use for edit color and background style when is disabled.
+*/
+.dropdownlist.disabled span, .dropdownlist.disabled input[type="text"]  { 
+  background-color:  #767676;    
+  color:  #cccccc;    
+  cursor:  not-allowed
+}
+/**
+* Use for edit color and background style when is hover and selected.
+*/
+.dropdownlist-list  li:hover, .dropdownlist-list .selected  {    
+  background-color:  #ffffff;    
+  color:  #ff0000    
+}   
                                             </code>
                                         </pre>
                                         </div>
@@ -1113,6 +1116,72 @@ document.getElementById('btn-enabled').onclick = function(){
                         </script>
                     </div>
                 </section>
+                <!--UI-FORM-OK-->
+                <section id="ui-formok" class="row component">
+                    <div class="col-md-12">
+                        <section class="row component-header">
+                            <div class="col-md-12">
+                                <h2>FormOk Object</h2>
+                                <p>
+                                    The FormOk is a simple form validation.
+                                </p>
+                            </div>
+                        </section>
+                        <!--  Formok is-valid -->
+                        <div class="component-api">
+                            <section id="ui-formok-is-valid" class="row">
+                                <div class="col-md-12">
+                                    <h3>isValid():Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-formok-is-valid">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-formok-is-valid">
+                                        <div id="tab-formok-is-valid-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-success&quot; id=&quot;btnSuccess&quot; &gt;Show Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-formok-is-valid-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+document.getElementById('btnSuccess').onclick = function () {          
+    notify.success('Success Notify');
+}    
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-formok-is-valid-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/formok-is-valid.html" style="height:450px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-formok-is-valid'), [
+                               { id: 'tab-formok-is-valid-1', text: 'Html' },
+                               { id: 'tab-formok-is-valid-2', text: 'Javascript' },
+                               { id: 'tab-formok-is-valid-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+
+                    </div>
+                </section>
+
             </div>
             <nav class="col-md-2">
                 <div class="row">
@@ -1130,7 +1199,7 @@ document.getElementById('btn-enabled').onclick = function(){
         UI.NavBar(document.getElementById('nav-main'), { href: 'js-ui.html', text: 'JS-UI' }, [
                { href: 'getting-started', text: 'Getting started' },
                { href: 'components.html', text: 'Components', active: true },
-               { href: 'api.html', text: 'Api' },
+               { href: 'api.html', text: 'API' },
                { href: 'aplicactions.html', text: 'Aplications' },
                { href: 'about.html', text: 'About' }
         ], { type: 'fixed', align: 'right' });
@@ -1154,23 +1223,30 @@ document.getElementById('btn-enabled').onclick = function(){
             }
         }
 
+    var items = [
+       {href:'#ui-notify',text:'Notify',target:'ui-notify',children:[
+            {href:'#ui-notify-success',text:'success()',target:'ui-notify-success'},
+            {href:'#ui-notify-info',text:'info()',target:'ui-notify-info'},
+            {href:'#ui-notify-warning',text:'warning()',target:'ui-notify-warning'},
+            {href:'#ui-notify-danger',text:'danger()',target:'ui-notify-danger'},
+            {href:'#ui-notify-wait',text:'wait()',target:'ui-notify-wait'},
+            {href:'#ui-notify-close',text:'close()',target:'ui-notify-close'}
+        ]},
+       {href:'#ui-dropdownlist',text:'Dropdownlist',target:'ui-dropdownlist',children:[
+            {href:'#ui-dropdownlist-select-item',text:'selectItem()',target:'ui-dropdownlist-select-item'},
+            {href:'#ui-dropdownlist-get-option',text:'getOption()',target:'ui-dropdownlist-get-option'},
+            {href:'#ui-dropdownlist-get-value',text:'getValue()',target:'ui-dropdownlist-get-value'},
+            {href:'#ui-dropdownlist-get-item',text:'getItem()',target:'ui-dropdownlist-get-item'},
+            {href:'#ui-dropdownlist-get-item-by-option',text:'getItemByOption()',target:'ui-dropdownlist-get-item-by-option'},
+            {href:'#ui-dropdownlist-get-item-by-value',text:'getItemByValue()',target:'ui-dropdownlist-get-item-by-value'},
+            {href:'#ui-dropdownlist-add-item',text:'addItem()',target:'ui-dropdownlist-add-item'},
+            {href:'#ui-dropdownlist-disabled',text:'setDisabled()',target:'ui-dropdownlist-disabled'},
+            {href:'#ui-dropdownlist-onchange',text:'onchange()',target:'ui-dropdownlist-onchange'},
+            {href:'#ui-dropdownlist-custom',text:'Custom css',target:'ui-dropdownlist-custom'}
+        ]}
+    ];
 
-
-
-    UI.NavScrollV(document.getElementById('nav-components'),[
-          {href:'#ui-notify',text:'Notify',target:'ui-notify',children:[
-                                            {href:'#ui-notify-success',text:'success()',target:'ui-notify-success'},
-                                            {href:'#ui-notify-info',text:'info()',target:'ui-notify-info'},
-                                            {href:'#ui-notify-warning',text:'warning()',target:'ui-notify-warning'},
-                                            {href:'#ui-notify-danger',text:'danger()',target:'ui-notify-danger'}
-            ]},
-           {href:'#ui-dropdownlist',text:'Dropdownlist',target:'ui-dropdownlist',children:[
-                                            {href:'#ui-dropdownlist-select-item',text:'select-item()',target:'ui-dropdownlist-select-item'},
-                                            {href:'#ui-dropdownlist-get-option',text:'get-option()',target:'ui-dropdownlist-get-option'},
-                                            {href:'#ui-dropdownlist-get-value',text:'get-value()',target:'ui-dropdownlist-get-value'},
-                                            {href:'#ui-dropdownlist-get-item',text:'get-item()',target:'ui-dropdownlist-get-item'}
-            ]}
-        ]);
+    UI.NavScrollV(document.getElementById('nav-components'),items,{top:110});
 
 
 

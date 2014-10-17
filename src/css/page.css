@@ -14,7 +14,7 @@
 }
 
 .section-components {
-    background-color: transparent;
+    padding-bottom: 55%;
     position: relative;
     top:85px;
 }
@@ -25,10 +25,12 @@
 }
 
 .section-components nav {
+    font-family: monospace;
     height: 100vh;
     padding: 4px 25px;
     position: fixed;
     right: 0;
+    top: 85px;
 }
 
 .component{
@@ -87,6 +89,7 @@
 
 .api pre{
     display:flex;
+    display: -ms-inline-grid;
     border:none;
 }
 

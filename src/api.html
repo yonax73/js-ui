@@ -346,14 +346,11 @@ dropdownlist.onchange(function(){});
                 </section>
             </div>
             <nav class="col-md-2">
-               <div class="row">
-                  <div class="col-md-12">
-                     <ul>
-                        <li><a id="link-notify" href="#ui-notify" class="link" onclick="goTo(this);">Notify</a></li>
-                        <li><a id="link-dropdownlist" href="#ui-dropdownlist" onclick="goTo(this);">DropDownList</a></li>
-                     </ul>
-                  </div>
-               </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav id="nav-components"></nav>
+                    </div>
+                </div>
             </nav>
          </section>
       </section>
@@ -363,42 +360,34 @@ dropdownlist.onchange(function(){});
          UI.NavBar(document.getElementById('nav-main'), { href: 'js-ui.html', text: 'JS-UI' }, [
                 { href: 'getting-started', text: 'Getting started' },
                 { href: 'components.html', text: 'Components'},
-                { href: 'api.html', text: 'Api', active: true },
+                { href: 'api.html', text: 'API', active: true },
                 { href: 'aplicactions.html', text: 'Aplications' },
                 { href: 'about.html', text: 'About' }
          ], { type: 'fixed', align: 'right' });         
       
-         var activeComponent = document.getElementById('link-notify'); //Current link active for component navigation.
-         var notifyPos = null;
-         var selectPos = null;         
+    var items = [
+       {href:'#ui-notify',text:'Notify',target:'ui-notify',children:[
+            {href:'#ui-notify-success',text:'success()',target:'ui-notify-success'},
+            {href:'#ui-notify-info',text:'info()',target:'ui-notify-info'},
+            {href:'#ui-notify-warning',text:'warning()',target:'ui-notify-warning'},
+            {href:'#ui-notify-danger',text:'danger()',target:'ui-notify-danger'},
+            {href:'#ui-notify-wait',text:'wait()',target:'ui-notify-wait'},
+            {href:'#ui-notify-close',text:'close()',target:'ui-notify-close'}
+        ]},
+       {href:'#ui-dropdownlist',text:'Dropdownlist',target:'ui-dropdownlist',children:[
+            {href:'#ui-dropdownlist-select-item',text:'selectItem()',target:'ui-dropdownlist-select-item'},
+            {href:'#ui-dropdownlist-get-option',text:'getOption()',target:'ui-dropdownlist-get-option'},
+            {href:'#ui-dropdownlist-get-value',text:'getValue()',target:'ui-dropdownlist-get-value'},
+            {href:'#ui-dropdownlist-get-item',text:'getItem()',target:'ui-dropdownlist-get-item'},
+            {href:'#ui-dropdownlist-get-item-by-option',text:'getItemByOption()',target:'ui-dropdownlist-get-item-by-option'},
+            {href:'#ui-dropdownlist-get-item-by-value',text:'getItemByValue()',target:'ui-dropdownlist-get-item-by-value'},
+            {href:'#ui-dropdownlist-add-item',text:'addItem()',target:'ui-dropdownlist-add-item'},
+            {href:'#ui-dropdownlist-disabled',text:'setDisabled()',target:'ui-dropdownlist-disabled'},
+            {href:'#ui-dropdownlist-onchange',text:'onchange()',target:'ui-dropdownlist-onchange'}           
+        ]}
+    ];
 
-         
-         function setPositions() {
-             notifyPos = document.getElementById('ui-notify').offsetTop;
-             /*selectPos = document.getElementById('ui-dropdownlist').offsetTop;*/
-         }
-         
-         function goTo(a) {
-             activeComponent.classList.remove('link');
-             a.classList.add('link');
-             activeComponent = a;
-         }     
-         
-
-         window.onscroll = function () {
-             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-             setPositions();
-             if (scrollTop >= notifyPos && scrollTop <= selectPos) {
-                 activeComponent.classList.remove('link');
-                 activeComponent = document.getElementById('link-notify');
-                 activeComponent.classList.add('link');
-             }
-             if (scrollTop >= selectPos) {
-                 activeComponent.classList.remove('link');
-                 activeComponent = document.getElementById('link-dropdownlist');
-                 activeComponent.classList.add('link');
-             }
-         }
+    UI.NavScrollV(document.getElementById('nav-components'),items,{top:110});
          
       </script>
    </body>

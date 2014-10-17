@@ -805,25 +805,27 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
  */
 /*
  * @param HtmlElement
- * @param parents 
+ * @param items[] 
+ * @param options{} 
  */
- UI.NavScrollV = function(HtmlElement,parents){
+ UI.NavScrollV = function(HtmlElement,items,options){
     var ul = null;
-    var parentSelected = null;
+    var itemSelected = null;
     var childSelected = null;
+    var bodyRectTop = null;
 
     function init(){
          ul = document.createElement('ul');
-         ul.classList.add('nav-scroll-v');
+         ul.classList.add('nav-scroll-v');          
          create();
          HtmlElement.appendChild(ul);
          onscroll();
     }
 
     function create(){
-        var n= parents.length
+        var n= items.length
          for (var i = 0; i < n; i++) {
-             var parent = parents[i];
+             var parent = items[i];
              var parent_li = document.createElement('li');
              parent_li.classList.add('parent');
              var parent_a = document.createElement('a');
@@ -862,6 +864,15 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
          };
     }
 
+    function calculateBodyTop(){
+        bodyRectTop =   document.body.getBoundingClientRect().top || document.documentElement.getBoundingClientRect().top;
+        if(options){            
+            if(options.top){
+               bodyRectTop = bodyRectTop + options.top;               
+            }             
+        }
+    }
+
     function onscroll(){
 
      window.onscroll = function(){
@@ -870,10 +881,11 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
              var n= tmpParents.length;
              var i = 0;
              var flag = true;
+             calculateBodyTop();
              while (flag && i < n) {
-                 var tmpParent = tmpParents[i];                 
-                 var parent_a =  tmpParent.getElementsByTagName('a')[0];
-                 var target_height = document.getElementById(parent_a.dataset.target).offsetTop;
+                var tmpParent = tmpParents[i];                 
+                var parent_a =  tmpParent.getElementsByTagName('a')[0];
+                var target_height = document.getElementById(parent_a.dataset.target).getBoundingClientRect().top -bodyRectTop;    
                 if(i === (n-1)){                   
                    if(scrollTop >= target_height){
                         showChildren(tmpParent);
@@ -883,8 +895,8 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
                 }else{
                    var tmpNextParent = tmpParents[i+1];
                    var nextParent_a = tmpNextParent.getElementsByTagName('a')[0];
-                    var nextTarget_height =  document.getElementById(nextParent_a.dataset.target).offsetTop;
-                    if(scrollTop >= target_height && scrollTop <= nextTarget_height){
+                   var nextTarget_height =  document.getElementById(nextParent_a.dataset.target).getBoundingClientRect().top -bodyRectTop;  
+                   if(scrollTop >= target_height && scrollTop <= nextTarget_height){
                         showChildren(tmpParent);
                         readCHildren(tmpParent,scrollTop);
                         flag = false;
@@ -897,41 +909,34 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
 }
 
     function showChildren(parent){
-         if(parentSelected){
-            parentSelected.classList.add('hidden');
+         if(itemSelected){
+            itemSelected.classList.add('hidden');
          }
          var ul = parent.getElementsByTagName('ul')[0];
          ul.classList.remove('hidden');
-         parentSelected = ul;
+         itemSelected = ul;
     }
 
     function readCHildren(parent,scrollTop){
          var tmpChildren = parent.querySelectorAll('.children')[0].getElementsByTagName('li');        
          var n= tmpChildren.length;
          var i = 0;
-         var flag = true;
+         var flag = true;        
          while (flag && i < n) {
              var tmpChild = tmpChildren[i];               
              var child_a =  tmpChild.getElementsByTagName('a')[0];
-             var target_height = document.getElementById(child_a.dataset.target).offsetTop;
-            if(i === (n-1)){                 
+             var target_height = document.getElementById(child_a.dataset.target).getBoundingClientRect().top -bodyRectTop;                
+             if(i === (n-1)){                 
                if(scrollTop >= target_height){  
-                    selectedChild(child_a);console.log("????????")
+                    selectedChild(child_a);
                     flag = false;
                }
             }else{
                var tmpNextChild = tmpChildren[i+1];
                var nextChild_a = tmpNextChild.getElementsByTagName('a')[0];
-                var nextTarget_height =  document.getElementById(nextChild_a.dataset.target).offsetTop;
-              console.log('***');
-              console.log(scrollTop);
-              console.log(target_height)
-              console.log(nextTarget_height);
-              console.log(nextChild_a);
-              console.log(child_a);
-              console.log('-----');
-              console.log(document.getElementById(nextChild_a.dataset.target));
-                if(scrollTop >= target_height && scrollTop <= nextTarget_height){
+               var target_height = document.getElementById(child_a.dataset.target).getBoundingClientRect().top -bodyRectTop;
+               var nextTarget_height =  document.getElementById(nextChild_a.dataset.target).getBoundingClientRect().top -bodyRectTop;              
+               if(scrollTop >= target_height && scrollTop <= nextTarget_height){
                     selectedChild(child_a);  
                     flag = false;
                 }
@@ -948,8 +953,325 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
         childSelected = child_a;
 
     }
-
     init();
+ }
+  /*
+ * ========================================================================
+ * UI-FORM-OK
+ * Author  : Yonatan Alexis Quintero Rodriguez
+ * Version : 0.1
+ * Date    : 17 Oct 2014
+ * ========================================================================
+ */
+/*
+ * @param HtmlElement
+ */
+
+ UI.FormOk = function(HtmlElement){
+       
+        var inputs = null;
+        var result = false;
+        var changed = false;
+        var FormOk = null;
+        this.msgRequired = 'This field is required and can\'t be empty!';
+        this.msgFullName = 'This field is not a valid name!';
+        this.msgEmail = 'This field is not a valid email address!';
+        this.msgEquals = 'This field and the field to confirm are not the same!';
+        this.msgCheck = 'Plase check!;'
+        this.msgAccept = 'Please accept!'
+        this.msgMoney = 'This money format is incorrect,please check!';
+        this.msgMaxLength = 'Please enter no more than {#} characters!';
+        this.msgMinLength = 'Please enter at least {#} characters!';
+        this.msgRangeLength = 'Please enter a value between {#min} and {#max} characters long!';
+        this.msgMax = 'Please enter a value less than or equal to {#}!';
+        this.msgMin = 'Please enter a value greater than or equal to {#}!';
+        this.hasSuccess = 'has-success';
+        this.hasError = 'has-error';
+
+        function init(){
+            FormOk = this;
+            inputs = HtmlElement.getElementsByTagName('input');
+            var n =inputs.length;
+            for (var i = 0; i < n; i++) {           
+                var input = inputs[i];       
+                var small = document.createElement('small');
+                small.className='hidden';           
+                input.parentNode.appendChild(small);   
+                if(input.dataset.blur ==='true'){               
+                    input.onblur = function(){                  
+                      return validate(this);
+                    }
+                }           
+                if(input.dataset.keyup ==='true'){              
+                    input.onkeyup = function(){         
+                        return validate(this);
+                    }
+                }
+            }
+        }
+
+        this.isValid = function(){
+            var n =inputs.length;
+            var i = 0;
+            var multiples = new Array();
+            var totalMultiple = 1;
+            while(i < n ){
+                validate(inputs[i++]);
+                multiples.push(result ? 1 : 0);
+            }
+            i = 0;
+            while(i < n ){          
+                totalMultiple *=multiples[i++];
+            }
+            return totalMultiple > 0;
+        }
+
+        this.hasChanged = function(){
+            var n = inputs.length;
+            var i = 0;              
+            while(i < n && !changed){
+                inputs[i++].onchange=function(){
+                    changed = true;
+                }           
+            }       
+            var changedAux = changed;
+            changed = false;
+            return changedAux;
+        }
+
+        this.serialize = function(){
+            var elements = HtmlElement.elements;
+            var serialized = [];
+            var i = 0;
+            var n = elements.length;
+            for (i = 0; i < n; i ++) {
+                var element = elements[i];
+                var type = element.type;            
+                var value = element.value;
+                var name = element.name;            
+                if(!name.isEmpty()){
+                    switch (type) {
+                    case 'text':
+                    case 'radio':
+                    case 'checkbox':                                
+                    case 'search':
+                    case 'email':
+                    case 'url':
+                    case 'tel':
+                    case 'number':
+                    case 'range':
+                    case 'date':
+                    case 'month':
+                    case 'week':
+                    case 'time':
+                    case 'datetime':
+                    case 'datetime-local':
+                    case 'color':
+                    case 'textarea':
+                    case 'password':
+                    case 'select':   
+                    case 'hidden':  
+                        serialized.push(name+'='+value);
+                        break;
+                    default:
+                        break;
+                    }
+                }
+            }
+            return serialized.join('&');
+        }
+
+        this.toJSON = function(){
+            var elements = HtmlElement.elements;  
+            var json = {};
+            var i=0;        
+            var n = elements.length;             
+            for (i = 0; i < n; i ++) {
+                var element = elements[i];
+                var type = element.type;            
+                var value = element.value;
+                var name = element.name;            
+                if(!name.isEmpty()){
+                    switch (type) {
+                    case 'text':
+                    case 'radio':
+                    case 'checkbox':                                
+                    case 'search':
+                    case 'email':
+                    case 'url':
+                    case 'tel':
+                    case 'number':
+                    case 'range':
+                    case 'date':
+                    case 'month':
+                    case 'week':
+                    case 'time':
+                    case 'datetime':
+                    case 'datetime-local':
+                    case 'color':
+                    case 'textarea':
+                    case 'password':
+                    case 'select':   
+                    case 'hidden':                  
+                        json[name] = value;
+                        break;              
+                    }
+                }
+            }
+            return json;
+        }
+
+        function validate(input){
+              switch (input.type) {      
+                  case 'text':
+                  case 'search':
+                  case 'email':
+                  case 'url':
+                  case 'tel':
+                  case 'number':
+                  case 'range':
+                  case 'date':
+                  case 'month':
+                  case 'week':
+                  case 'time':
+                  case 'datetime':
+                  case 'datetime-local':
+                  case 'color':
+                  case 'textarea':
+                  case 'password':                    
+                      if(input.dataset.required==='true'){
+                          result = this.isNotEmpty(input);
+                          if(result){
+                              generalValidations(input);
+                          }
+                      }else{
+                          generalValidations(input);
+                      }                 
+                  break;        
+                 case 'radio':
+                     break;
+                 case 'checkbox':   
+                     if(input.dataset.required==='true') result =  this.isChecked(input);
+                break;
+                default:
+                    break;
+            }       
+        }
+        
+        function showMessage(input,message){
+            var small = input.parentNode.getElementsByTagName('small')[0];
+            small.textContent = message;       
+            small.className = 'show text-danger';
+        } 
+        
+        function hiddeMessage(input){
+            input.parentNode.getElementsByTagName('small')[0].className='hidden'; 
+        }
+
+        function success(input){
+            if(!input.parentNode.parentNode.classList.contains(this.hasSuccess)){
+                input.parentNode.parentNode.classList.add(this.hasSuccess);               
+            }
+            if(input.parentNode.parentNode.classList.contains(this.hasError)){
+                input.parentNode.parentNode.classList.remove(this.hasError);              
+            }
+            hiddeMessage(input);
+            return true;
+        }
+
+        function error(input,message){
+            if(input.parentNode.parentNode.classList.contains(this.hasSuccess)){
+                input.parentNode.parentNode.classList.remove(this.hasSuccess);                
+            }
+            if(!input.parentNode.parentNode.classList.contains(this.hasError)){
+                input.parentNode.parentNode.classList.add(this.hasError);             
+            }
+            showMessage(input,message);
+            return false;
+        }
+
+
+
+    function generalValidations(){
+          if(input.dataset.fullname==='true') result =  this.isFullName(input);
+          if(input.dataset.email==='true') result =  this.isEmail(input); 
+          if(input.dataset.match!== undefined) result = this.isEquals(document.getElementsByName(input.dataset.match)[0],input);
+          if(input.dataset.money==='true') result =  this.isMoney(input); 
+          if(input.dataset.maxlength!== undefined) result = this.maxLength(input,input.dataset.maxlength);
+          if(input.dataset.minlength!== undefined) result = this.minLength(input,input.dataset.minlength);
+    }
+
+    this.isFullName = function(input){        
+        if (input.value.match(/^[a-zA-Z][a-zA-Z ]+$/)) return success(input);
+        return error(input,this.msgFullName);           
+    }
+    
+    this.isEmail = function(input){
+        if (input.value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))return FormOk.success(input);
+        return error(input, this.msgEmail);            
+    }
+    
+    this.isNotEmpty = function(input){
+        if (input.value.match(/^\S+$|[^\s]+$/))return success(input);        
+        return error(input, this.msgRequired);
+    }    
+    
+    this.isEquals = function(input,input1){
+        if(input.value === input1.value)return success(input) & success(input1);
+        return error(input, this.msgEquals) & error(input1, this.msgCheck); 
+    }
+
+    this.isMoney = function(input){
+        if (input.value.match(/^\d+(,\d{3})*(\.\d*)?$/))return success(input);       
+        return error(input, this.msgMoney);
+    }
+
+    this.maxLength = function(input,length){
+        if(!isNaN(length) && input.value.length <= length) return success(input);
+        var msg = this.msgMaxLength.replace('{#}',length);
+        return error(input,msg);
+    }
+
+    this.minLength = function(input,length){
+       if(!isNaN(length) && input.value.length >= length) return success(input);
+        var msg = this.msgMinLength.replace('{#}',length);
+        return error(input,msg);
+    }
+
+    this.rangeLength = function(input,min,max){
+       if((!isNaN(min) && input.value.length >= min) && (!isNaN(max) && input.value.length <= max)) return success(input);
+        var msg = this.msgRangeLength.replace('{#min}',min).replace('{#max}',max);
+        return error(input,msg);
+    }    
+
+    this.max = function(input,max){
+        if(!isNaN(max) && input.value <= max) return success(input);
+        var msg = this.msgMax.replace('{#}',max);
+        return error(input,msg);
+    }
+
+    this.min = function(input){}
+     
+    this.range = function(input) {}
+
+    this.isUrl = function(input) {}
+
+    this.isDate = function(input) {}
+
+    this.isNumber = function(input) {}  
+
+    this.isCreditCard = function(input) {}
+     
+    this.isChecked = function(input){
+        if(input.checked) {
+            hiddeMessage(input);
+            return true
+        }
+        return error(input, this.msgAccept); 
+    }
+    
+
+        init();
  }
 
 /*
@@ -994,7 +1316,7 @@ Element.prototype.getContentFromFrame = function(){
 }
 
 String.prototype.isEmpty = function () {
-    return this === null || this === '' || this.length <= 0;
+    return this == undefined || this === null || this === '' || this.length <= 0;
 }
 
 
