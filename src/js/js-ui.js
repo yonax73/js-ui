@@ -53,7 +53,7 @@ var UI = {};
 /*
  * @param HtmlElement
  */
-UI.Notify = function(HtmlElement) {
+UI.Notify = function (HtmlElement) {
 
     var button = null;
     var span = null;
@@ -61,13 +61,13 @@ UI.Notify = function(HtmlElement) {
     var i = null;
     var UINotify = null;
 
-    this.init = function() {
+    this.init = function () {
         UINotify = this;
         this.close();
         button = document.createElement('button');
         button.className = 'close';
         button.type = 'button';
-        button.onclick = function() {
+        button.onclick = function () {
             UINotify.close();
         }
         span = document.createElement('span');
@@ -83,40 +83,40 @@ UI.Notify = function(HtmlElement) {
         HtmlElement.appendChild(p);
     }
 
-    this.close = function() {
+    this.close = function () {
         HtmlElement.className = 'hidden';
     }
 
 
-    this.success = function(message) {
+    this.success = function (message) {
         i.className = 'fa fa-smile-o fa-lg pull-left';
         HtmlElement.className = 'alert alert-success alert-dismissible';
         strong.textContent = message;
     }
 
 
-    this.info = function(message) {
+    this.info = function (message) {
         i.className = 'fa fa-info fa-lg pull-left';
         HtmlElement.className = 'alert alert-info alert-dismissible';
         strong.textContent = message;
     }
 
 
-    this.warning = function(message) {
+    this.warning = function (message) {
         i.className = 'fa fa-exclamation-triangle fa-lg pull-left';
         HtmlElement.className = 'alert alert-warning alert-dismissible';
         strong.textContent = message;
     }
 
 
-    this.danger = function(message) {
+    this.danger = function (message) {
         i.className = 'fa fa-frown-o fa-lg pull-left';
         HtmlElement.className = 'alert alert-danger alert-dismissible';
         strong.textContent = message;
     }
 
 
-    this.wait = function(message) {
+    this.wait = function (message) {
         i.className = 'fa fa-circle-o-notch fa-spin fa-lg pull-left';
         HtmlElement.className = 'alert alert-info alert-dismissible';
         strong.textContent = message;
@@ -141,7 +141,7 @@ UI.Notify = function(HtmlElement) {
  * @param HtmlElement
  * @param items
  */
-UI.DropDownList = function(HtmlElement, items) {
+UI.DropDownList = function (HtmlElement, items) {
 
     var span = null;
     var input = null;
@@ -154,15 +154,15 @@ UI.DropDownList = function(HtmlElement, items) {
     var UIDropDownList = null;
 
 
-    this.init = function() {
+    this.init = function () {
         UIDropDownList = this;
         HtmlElement.classList.add('dropdownlist');
         HtmlElement.classList.add('background');
         this.create();
-        this.fill();        
+        this.fill();
     }
 
-    this.create = function() {
+    this.create = function () {
         span = document.createElement('span');
         input = document.createElement('input');
         ul = document.createElement('ul');
@@ -171,21 +171,21 @@ UI.DropDownList = function(HtmlElement, items) {
         input.readOnly = true;
         input.className = 'form-control'
         i.className = 'fa fa-chevron-circle-down';
-        input.onchange = function() {
+        input.onchange = function () {
             return true;
         }
         span.appendChild(input);
         span.appendChild(i);
 
-        span.onclick = function() {
+        span.onclick = function () {
             UIDropDownList.toggle();
-            
+
         }
         span.onkeydown = function checkKey(e) {
             e = e || window.event;
             if (e.keyCode === 9) {
                 e.preventDefault();
-                UIDropDownList.toggle();               
+                UIDropDownList.toggle();
             }
         }
         ul.classList.add('dropdownlist-list');;
@@ -201,7 +201,7 @@ UI.DropDownList = function(HtmlElement, items) {
 
     }
 
-    this.fill = function() {
+    this.fill = function () {
         var n = items.length;
         for (var i = 0; i < n; i++) {
             var item = items[i];
@@ -209,7 +209,7 @@ UI.DropDownList = function(HtmlElement, items) {
             li.textContent = item.value;
             li.tabIndex = i;
             li.dataset.option = item.option;
-            li.onclick = function() {
+            li.onclick = function () {
                 UIDropDownList.changeValue(this);
             }
             li.onkeydown = function checkKey(e) {
@@ -220,13 +220,13 @@ UI.DropDownList = function(HtmlElement, items) {
                 }
             }
             ul.appendChild(li);
-            if(item.selected){
+            if (item.selected) {
                 this.selectItem(item.option);
             }
         }
     }
 
-    this.selectItem = function(option) {
+    this.selectItem = function (option) {
         var itemsLi = ul.getElementsByTagName('li');
         var n = itemsLi.length;
         if (n > 0) {
@@ -248,18 +248,18 @@ UI.DropDownList = function(HtmlElement, items) {
         if (oldItemLi != null) {
             oldItemLi.classList.remove('selected');
         }
-        currentItemLi.classList.add('selected');        
+        currentItemLi.classList.add('selected');
     }
 
-    this.toggle = function() {
+    this.toggle = function () {
         if (!disabled) {
             ul.style.width = span.clientWidth + 'px';
             ul.classList.toggle('hidden');
-             currentItemLi.focus();            
+            currentItemLi.focus();
         }
     }
 
-    this.changeValue = function(li) {
+    this.changeValue = function (li) {
         oldItemLi = currentItemLi;
         currentItemLi = li;
         input.value = li.textContent;
@@ -271,12 +271,12 @@ UI.DropDownList = function(HtmlElement, items) {
         oldItemLi.classList.remove('selected');
     }
 
-    this.addItem = function(option, value) {
+    this.addItem = function (option, value) {
         var li = document.createElement('li');
         li.textContent = value;
         li.tabIndex = items.length + 1;
         li.dataset.option = option;
-        li.onclick = function() {
+        li.onclick = function () {
             UIDropDownList.changeValue(this);
         }
         li.onkeydown = function checkKey(e) {
@@ -285,11 +285,11 @@ UI.DropDownList = function(HtmlElement, items) {
                 e.preventDefault();
                 UIDropDownList.changeValue(this);
             }
-        }       
+        }
         ul.appendChild(li);
     }
 
-    this.getItem = function() {
+    this.getItem = function () {
         return {
             value: input.value,
             option: input.dataset.option
@@ -297,12 +297,12 @@ UI.DropDownList = function(HtmlElement, items) {
     }
 
 
-    this.getValue = function() {
+    this.getValue = function () {
         return input.value;
     }
 
 
-    this.getOption = function() {
+    this.getOption = function () {
         return input.dataset.option;
     }
 
@@ -329,7 +329,7 @@ UI.DropDownList = function(HtmlElement, items) {
 
     }
 
-    this.setDisabled = function(_disabled) {
+    this.setDisabled = function (_disabled) {
         disabled = _disabled;
         if (disabled) {
             HtmlElement.classList.remove('background');
@@ -340,7 +340,7 @@ UI.DropDownList = function(HtmlElement, items) {
         }
     }
 
-    this.onchange = function(callback) {
+    this.onchange = function (callback) {
         input.onchange = callback;
     };
 
@@ -353,7 +353,7 @@ UI.DropDownList = function(HtmlElement, items) {
             var i = 0;
             do {
                 var item = itemsLi[i++];
-                if (item.dataset.option == option) {                    
+                if (item.dataset.option == option) {
                     li = item;
                     flag = false;
                 }
@@ -394,7 +394,7 @@ var NavBarFn = {};
  * create the navbarheader to the navs when is collapse
  * @param collapse object html
  */
-NavBarFn.NavBarHeader = function(collapse) {
+NavBarFn.NavBarHeader = function (collapse) {
     this.htmlElement = document.createElement('div');
     this.button = document.createElement('button');
     this.span = document.createElement('span');
@@ -408,7 +408,7 @@ NavBarFn.NavBarHeader = function(collapse) {
         span.classList.add('icon-bar');
         this.button.appendChild(span);
     };
-    this.button.onclick = function() {
+    this.button.onclick = function () {
         this.classList.toggle('collapsed');
         collapse.classList.toggle('in');
     }
@@ -422,7 +422,7 @@ NavBarFn.NavBarHeader = function(collapse) {
  * @param nav
  * @param ul
  */
-NavBarFn.NavBarOptions = function(options, nav, ul) {
+NavBarFn.NavBarOptions = function (options, nav, ul) {
     if (options !== undefined) {
         if (options.align === 'right') {
             ul.classList.add('navbar-right');
@@ -459,11 +459,11 @@ NavBarFn.NavBarOptions = function(options, nav, ul) {
  * @param links
  * @param options
  */
-UI.NavBar = function(HtmlElement, link, links, options) {
+UI.NavBar = function (HtmlElement, link, links, options) {
     var nav = new Head();
     var n = links.length;
 
-    this.init = function() {
+    this.init = function () {
         nav.a.href = link.href;
         nav.a.textContent = link.text;
         for (var i = 0; i < n; i++) {
@@ -492,7 +492,7 @@ UI.NavBar = function(HtmlElement, link, links, options) {
         this.navBarHeader = new NavBarFn.NavBarHeader(this.collapse);
         this.a = document.createElement('a');
 
-        this.init = function() {
+        this.init = function () {
             this.a.classList.add('navbar-brand');
             this.ul.classList.add('nav');
             this.ul.classList.add('navbar-nav');
@@ -526,12 +526,12 @@ UI.NavBar = function(HtmlElement, link, links, options) {
  * @param contents
  * @param options
  */
-UI.NavPanel = function(HtmlElement, contents, options) {
+UI.NavPanel = function (HtmlElement, contents, options) {
     var head = new Head();
     var body = new Body();
     var n = contents.length;
 
-    this.init = function() {
+    this.init = function () {
         for (var i = 0; i < n; i++) {
             var content = contents[i];
             var id = 'UI-NavPanel-' + content.id;
@@ -548,7 +548,7 @@ UI.NavPanel = function(HtmlElement, contents, options) {
             a.href = '#';
             a.dataset.id = id;
             a.textContent = content.text;
-            a.onclick = function(e) {
+            a.onclick = function (e) {
                 e.preventDefault();
                 var thisLi = this.parentNode;
                 var thisOldLi = thisLi.parentNode.getElementsByClassName('active');
@@ -579,7 +579,7 @@ UI.NavPanel = function(HtmlElement, contents, options) {
         this.container = document.createElement('div');
         this.ul = document.createElement('ul');
         this.navBarHeader = new NavBarFn.NavBarHeader(this.collapse);
-        this.init = function() {
+        this.init = function () {
             this.ul.classList.add('nav');
             this.ul.classList.add('navbar-nav');
             this.htmlElement.classList.add('navbar');
@@ -599,7 +599,7 @@ UI.NavPanel = function(HtmlElement, contents, options) {
     function Body() {
         this.htmlElement = document.createElement('section');
         this.ul = document.createElement('ul');
-        this.init = function() {
+        this.init = function () {
             this.ul.classList.add('nav');
             this.htmlElement.classList.add('nav-panel-body');
             this.htmlElement.appendChild(this.ul);
@@ -622,12 +622,12 @@ UI.NavPanel = function(HtmlElement, contents, options) {
  * @param contents
  * @param options
  */
-UI.DropDownPanel = function(HtmlElement, content, options) {
+UI.DropDownPanel = function (HtmlElement, content, options) {
     var id = 'UI-DropDownPanel-' + content.id;
     var head = new Head();
     var body = new Body(content.id);
 
-    this.init = function() {
+    this.init = function () {
         head.a.dataset.id = id;
         head.setText(content.text);
         if (content.active) {
@@ -641,19 +641,19 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
         HtmlElement.appendChild(body.htmlElement);
     }
 
-    this.setText = function(text) {
+    this.setText = function (text) {
         head.setText(text);
     }
 
 
-     this.onclick = function(callback){
-            head.a.onclick = function(){
-                
-                                this.parentNode.classList.toggle('active');
-                document.getElementById(this.dataset.id).classList.toggle('active');
-                callback();
-            }
+    this.onclick = function (callback) {
+        head.a.onclick = function () {
+
+            this.parentNode.classList.toggle('active');
+            document.getElementById(this.dataset.id).classList.toggle('active');
+            callback();
         }
+    }
     function Head() {
         this.htmlElement = document.createElement('nav');
         this.collapse = document.createElement('div');
@@ -664,12 +664,12 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
         this.li = document.createElement('li');
         this.a = document.createElement('a');
 
-        this.init = function() {
+        this.init = function () {
             this.ico.classList.add('caret');
             this.ul.classList.add('nav');
             this.ul.classList.add('navbar-nav');
             this.a.href = '#';
-            this.a.onclick = function(e) {
+            this.a.onclick = function (e) {
                 e.preventDefault();
                 this.parentNode.classList.toggle('active');
                 document.getElementById(this.dataset.id).classList.toggle('active');
@@ -686,7 +686,7 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
             this.container.appendChild(this.navBarHeader.htmlElement);
             this.container.appendChild(this.collapse);
         }
-        this.setText = function(text) {
+        this.setText = function (text) {
             this.a.textContent = text;
             this.a.appendChild(this.ico);
         }
@@ -701,7 +701,7 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
         this.li = document.createElement('li');
         this.htmlContent = document.getElementById(id);
 
-        this.init = function() {
+        this.init = function () {
             this.li.appendChild(this.htmlContent);
             this.ul.appendChild(this.li);
             this.ul.classList.add('nav');
@@ -728,13 +728,13 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
  * @param contents
  * @param options
  */
- UI.NavTab = function(HtmlElement,contents,options){
+UI.NavTab = function (HtmlElement, contents, options) {
     var head = new Head();
     var body = new Body();
     var n = contents.length;
 
-    this.init = function(){
-         
+    this.init = function () {
+
         for (var i = 0; i < n; i++) {
             var content = contents[i];
             var id = 'UI-NavTab-' + content.id;
@@ -752,7 +752,7 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
             a.href = '#';
             a.dataset.id = id;
             a.textContent = content.text;
-            a.onclick = function(e) {
+            a.onclick = function (e) {
                 e.preventDefault();
                 var thisLi = this.parentNode;
                 var thisOldLi = thisLi.parentNode.getElementsByClassName('active');
@@ -771,173 +771,173 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
             head.htmlElement.appendChild(headLi);
             body.htmlElement.appendChild(bodyLi);
         };
-         HtmlElement.appendChild(head.htmlElement);
-         HtmlElement.appendChild(body.htmlElement);
+        HtmlElement.appendChild(head.htmlElement);
+        HtmlElement.appendChild(body.htmlElement);
     }
 
-    function Head(){
-      this.htmlElement = document.createElement('ul');
-      this.init = function(){
-          this.htmlElement.classList.add('nav');   
-          this.htmlElement.classList.add('nav-tabs');   
-      }
-      this.init();
+    function Head() {
+        this.htmlElement = document.createElement('ul');
+        this.init = function () {
+            this.htmlElement.classList.add('nav');
+            this.htmlElement.classList.add('nav-tabs');
+        }
+        this.init();
     }
 
-    function Body(){
-       this.htmlElement = document.createElement('ul');
-       this.init = function(){
+    function Body() {
+        this.htmlElement = document.createElement('ul');
+        this.init = function () {
             this.htmlElement.classList.add('tab-content');
             this.htmlElement.classList.add('reset');
-       }
-       this.init();
+        }
+        this.init();
     }
 
     this.init();
- }
- /*
- * ========================================================================
- * UI-NAV-SCROLL-V
- * Author  : Yonatan Alexis Quintero Rodriguez
- * Version : 0.1
- * Date    : 16 Oct 2014
- * ========================================================================
- */
+}
+/*
+* ========================================================================
+* UI-NAV-SCROLL-V
+* Author  : Yonatan Alexis Quintero Rodriguez
+* Version : 0.1
+* Date    : 16 Oct 2014
+* ========================================================================
+*/
 /*
  * @param HtmlElement
  * @param items[] 
  * @param options{} 
  */
- UI.NavScrollV = function(HtmlElement,items,options){
+UI.NavScrollV = function (HtmlElement, items, options) {
     var ul = null;
     var itemSelected = null;
     var childSelected = null;
     var bodyRectTop = null;
 
-    function init(){
-         ul = document.createElement('ul');
-         ul.classList.add('nav-scroll-v');          
-         create();
-         HtmlElement.appendChild(ul);
-         onscroll();
+    function init() {
+        ul = document.createElement('ul');
+        ul.classList.add('nav-scroll-v');
+        create();
+        HtmlElement.appendChild(ul);
+        onscroll();
     }
 
-    function create(){
-        var n= items.length
-         for (var i = 0; i < n; i++) {
-             var parent = items[i];
-             var parent_li = document.createElement('li');
-             parent_li.classList.add('parent');
-             var parent_a = document.createElement('a');
-             parent_a.href = parent.href;
-             parent_a.textContent = parent.text;
-             parent_a.dataset.target = parent.target;
-             parent_li.appendChild(parent_a);
-             var children = parent.children;
-             if(children){
-                 var children_n = children.length;
-                 if(children_n >0){
+    function create() {
+        var n = items.length
+        for (var i = 0; i < n; i++) {
+            var parent = items[i];
+            var parent_li = document.createElement('li');
+            parent_li.classList.add('parent');
+            var parent_a = document.createElement('a');
+            parent_a.href = parent.href;
+            parent_a.textContent = parent.text;
+            parent_a.dataset.target = parent.target;
+            parent_li.appendChild(parent_a);
+            var children = parent.children;
+            if (children) {
+                var children_n = children.length;
+                if (children_n > 0) {
                     var children_ul = document.createElement('ul');
                     children_ul.classList.add('children');
                     children_ul.classList.add('hidden');
-                   for (var j = 0; j < children_n; j++) {
-                         var child = children[j];
-                         var child_li = document.createElement('li');
-                         var child_a = document.createElement('a');
-                         child_a.href = child.href;
-                         child_a.textContent = child.text;
-                         child_a.dataset.target = child.target;
-                         child_a.onclick = function(){
-                            if(childSelected){
+                    for (var j = 0; j < children_n; j++) {
+                        var child = children[j];
+                        var child_li = document.createElement('li');
+                        var child_a = document.createElement('a');
+                        child_a.href = child.href;
+                        child_a.textContent = child.text;
+                        child_a.dataset.target = child.target;
+                        child_a.onclick = function () {
+                            if (childSelected) {
                                 childSelected.classList.remove('active');
                             }
                             this.classList.add('active');
                             childSelected = this;
-                         }
-                         child_li.appendChild(child_a);
-                         children_ul.appendChild(child_li);
-                   };
-                   parent_li.appendChild(children_ul);                     
-                 }               
-             }
-             ul.appendChild(parent_li);
-         };
+                        }
+                        child_li.appendChild(child_a);
+                        children_ul.appendChild(child_li);
+                    };
+                    parent_li.appendChild(children_ul);
+                }
+            }
+            ul.appendChild(parent_li);
+        };
     }
 
-    function calculateBodyTop(){
-        bodyRectTop =   document.body.getBoundingClientRect().top || document.documentElement.getBoundingClientRect().top;
-        if(options){            
-            if(options.top){
-               bodyRectTop = bodyRectTop + options.top;               
-            }             
+    function calculateBodyTop() {
+        bodyRectTop = document.body.getBoundingClientRect().top || document.documentElement.getBoundingClientRect().top;
+        if (options) {
+            if (options.top) {
+                bodyRectTop = bodyRectTop + options.top;
+            }
         }
     }
 
-    function onscroll(){
+    function onscroll() {
 
-     window.onscroll = function(){
-             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;          
-             var tmpParents = ul.querySelectorAll('.parent');
-             var n= tmpParents.length;
-             var i = 0;
-             var flag = true;
-             calculateBodyTop();
-             while (flag && i < n) {
-                var tmpParent = tmpParents[i];                 
-                var parent_a =  tmpParent.getElementsByTagName('a')[0];
-                var target_height = document.getElementById(parent_a.dataset.target).getBoundingClientRect().top -bodyRectTop;    
-                if(i === (n-1)){                   
-                   if(scrollTop >= target_height){
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var tmpParents = ul.querySelectorAll('.parent');
+            var n = tmpParents.length;
+            var i = 0;
+            var flag = true;
+            calculateBodyTop();
+            while (flag && i < n) {
+                var tmpParent = tmpParents[i];
+                var parent_a = tmpParent.getElementsByTagName('a')[0];
+                var target_height = document.getElementById(parent_a.dataset.target).getBoundingClientRect().top - bodyRectTop;
+                if (i === (n - 1)) {
+                    if (scrollTop >= target_height) {
                         showChildren(tmpParent);
-                        readCHildren(tmpParent,scrollTop);
+                        readCHildren(tmpParent, scrollTop);
                         flag = false;
-                   }
-                }else{
-                   var tmpNextParent = tmpParents[i+1];
-                   var nextParent_a = tmpNextParent.getElementsByTagName('a')[0];
-                   var nextTarget_height =  document.getElementById(nextParent_a.dataset.target).getBoundingClientRect().top -bodyRectTop;  
-                   if(scrollTop >= target_height && scrollTop <= nextTarget_height){
+                    }
+                } else {
+                    var tmpNextParent = tmpParents[i + 1];
+                    var nextParent_a = tmpNextParent.getElementsByTagName('a')[0];
+                    var nextTarget_height = document.getElementById(nextParent_a.dataset.target).getBoundingClientRect().top - bodyRectTop;
+                    if (scrollTop >= target_height && scrollTop <= nextTarget_height) {
                         showChildren(tmpParent);
-                        readCHildren(tmpParent,scrollTop);
+                        readCHildren(tmpParent, scrollTop);
                         flag = false;
                     }
                 }
                 i++;
             }
 
-     };
-}
-
-    function showChildren(parent){
-         if(itemSelected){
-            itemSelected.classList.add('hidden');
-         }
-         var ul = parent.getElementsByTagName('ul')[0];
-         ul.classList.remove('hidden');
-         itemSelected = ul;
+        };
     }
 
-    function readCHildren(parent,scrollTop){
-         var tmpChildren = parent.querySelectorAll('.children')[0].getElementsByTagName('li');        
-         var n= tmpChildren.length;
-         var i = 0;
-         var flag = true;        
-         while (flag && i < n) {
-             var tmpChild = tmpChildren[i];               
-             var child_a =  tmpChild.getElementsByTagName('a')[0];
-             var target_height = document.getElementById(child_a.dataset.target).getBoundingClientRect().top -bodyRectTop;                
-             if(i === (n-1)){                 
-               if(scrollTop >= target_height){  
+    function showChildren(parent) {
+        if (itemSelected) {
+            itemSelected.classList.add('hidden');
+        }
+        var ul = parent.getElementsByTagName('ul')[0];
+        ul.classList.remove('hidden');
+        itemSelected = ul;
+    }
+
+    function readCHildren(parent, scrollTop) {
+        var tmpChildren = parent.querySelectorAll('.children')[0].getElementsByTagName('li');
+        var n = tmpChildren.length;
+        var i = 0;
+        var flag = true;
+        while (flag && i < n) {
+            var tmpChild = tmpChildren[i];
+            var child_a = tmpChild.getElementsByTagName('a')[0];
+            var target_height = document.getElementById(child_a.dataset.target).getBoundingClientRect().top - bodyRectTop;
+            if (i === (n - 1)) {
+                if (scrollTop >= target_height) {
                     selectedChild(child_a);
                     flag = false;
-               }
-            }else{
-               var tmpNextChild = tmpChildren[i+1];
-               var nextChild_a = tmpNextChild.getElementsByTagName('a')[0];
-               var target_height = document.getElementById(child_a.dataset.target).getBoundingClientRect().top -bodyRectTop;
-               var nextTarget_height =  document.getElementById(nextChild_a.dataset.target).getBoundingClientRect().top -bodyRectTop;              
-               if(scrollTop >= target_height && scrollTop <= nextTarget_height){
-                    selectedChild(child_a);  
+                }
+            } else {
+                var tmpNextChild = tmpChildren[i + 1];
+                var nextChild_a = tmpNextChild.getElementsByTagName('a')[0];
+                var target_height = document.getElementById(child_a.dataset.target).getBoundingClientRect().top - bodyRectTop;
+                var nextTarget_height = document.getElementById(nextChild_a.dataset.target).getBoundingClientRect().top - bodyRectTop;
+                if (scrollTop >= target_height && scrollTop <= nextTarget_height) {
+                    selectedChild(child_a);
                     flag = false;
                 }
             }
@@ -945,8 +945,8 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
         }
     }
 
-    function selectedChild(child_a){
-        if(childSelected){
+    function selectedChild(child_a) {
+        if (childSelected) {
             childSelected.classList.remove('active');
         }
         child_a.classList.add('active');
@@ -954,106 +954,124 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
 
     }
     init();
- }
-  /*
- * ========================================================================
- * UI-FORM-OK
- * Author  : Yonatan Alexis Quintero Rodriguez
- * Version : 0.1
- * Date    : 17 Oct 2014
- * ========================================================================
- */
+}
+/*
+* ========================================================================
+* UI-FORM-OK
+* Author  : Yonatan Alexis Quintero Rodriguez
+* Version : 0.1
+* Date    : 17 Oct 2014
+* ========================================================================
+*/
 /*
  * @param HtmlElement
  */
 
- UI.FormOk = function(HtmlElement){
-       
-        var inputs = null;
-        var result = false;
-        var changed = false;
-        var FormOk = null;
-        this.msgRequired = 'This field is required and can\'t be empty!';
-        this.msgFullName = 'This field is not a valid name!';
-        this.msgEmail = 'This field is not a valid email address!';
-        this.msgEquals = 'This field and the field to confirm are not the same!';
-        this.msgCheck = 'Plase check!;'
-        this.msgAccept = 'Please accept!'
-        this.msgMoney = 'This money format is incorrect,please check!';
-        this.msgMaxLength = 'Please enter no more than {#} characters!';
-        this.msgMinLength = 'Please enter at least {#} characters!';
-        this.msgRangeLength = 'Please enter a value between {#min} and {#max} characters long!';
-        this.msgMax = 'Please enter a value less than or equal to {#}!';
-        this.msgMin = 'Please enter a value greater than or equal to {#}!';
-        this.hasSuccess = 'has-success';
-        this.hasError = 'has-error';
+UI.FormOk = function (HtmlElement) {
 
-        function init(){
-            FormOk = this;
-            inputs = HtmlElement.getElementsByTagName('input');
-            var n =inputs.length;
-            for (var i = 0; i < n; i++) {           
-                var input = inputs[i];       
+    var inputs = null;
+    var result = false;
+    var changed = false;
+    var FormOk = this;
+    var hasSuccess = 'has-success';
+    var hasError = 'has-error';
+    this.msgRequired = 'This field is required and can\'t be empty!';
+    this.msgFullName = 'This field is not a valid name!';
+    this.msgEmail = 'This field is not a valid email address!';
+    this.msgEquals = 'This field and the field to confirm are not the same!';
+    this.msgCheck = 'Plase check!;'
+    this.msgAccept = 'Please accept!'
+    this.msgMoney = 'This money format is incorrect,please check!';
+    this.msgMaxLength = 'Please enter no more than {#} characters!';
+    this.msgMinLength = 'Please enter at least {#} characters!';
+    this.msgRangeLength = 'Please enter a value between {#min} and {#max} characters long!';
+    this.msgMax = 'Please enter a value less than or equal to {#}!';
+    this.msgMin = 'Please enter a value greater than or equal to {#}!';
+    this.msgRange = 'Please enter a value between {#min} and {#max}!';
+    this.msgURL = 'Please enter a valid URL!';
+    this.msgDate = 'Please enter a valid date!';
+    this.msgNumber = 'Please enter a valid number!';
+    this.msgCreditCard = 'Please enter a valid credit card number!';
+    this.msgValidOption = 'Please enter a valid option !';
+
+
+    function init() {
+        inputs = HtmlElement.getElementsByTagName('input');
+        var n = inputs.length;
+        for (var i = 0; i < n; i++) {
+            var input = inputs[i];
+            if (!input.dataset.option) {
                 var small = document.createElement('small');
-                small.className='hidden';           
-                input.parentNode.appendChild(small);   
-                if(input.dataset.blur ==='true'){               
-                    input.onblur = function(){                  
-                      return validate(this);
-                    }
-                }           
-                if(input.dataset.keyup ==='true'){              
-                    input.onkeyup = function(){         
-                        return validate(this);
-                    }
+                var type = input.type;
+                small.className = 'hidden';
+                input.parentNode.appendChild(small);
+                if (type !== 'checkbox' && type !== 'radio') {
+                    var span = document.createElement('span');
+                    input.parentNode.parentNode.classList.add('has-feedback');
+                    span.className = 'hidden';
+                    input.parentNode.appendChild(span);
+                }
+                if (input.dataset.money) {
+                    input.style.textAlign = 'right';
+                }
+            }
+            if (input.dataset.blur === 'true') {
+                input.onblur = function () {
+                    return validate(this);
+                }
+            }
+            if (input.dataset.keyup === 'true') {
+                input.onkeyup = function () {
+                    return validate(this);
                 }
             }
         }
+    }
 
-        this.isValid = function(){
-            var n =inputs.length;
-            var i = 0;
-            var multiples = new Array();
-            var totalMultiple = 1;
-            while(i < n ){
-                validate(inputs[i++]);
-                multiples.push(result ? 1 : 0);
-            }
-            i = 0;
-            while(i < n ){          
-                totalMultiple *=multiples[i++];
-            }
-            return totalMultiple > 0;
+    this.isValid = function () {
+        var n = inputs.length;
+        var i = 0;
+        var multiples = new Array();
+        var totalMultiple = 1;
+        while (i < n) {
+            validate(inputs[i++]);
+            multiples.push(result ? 1 : 0);
         }
-
-        this.hasChanged = function(){
-            var n = inputs.length;
-            var i = 0;              
-            while(i < n && !changed){
-                inputs[i++].onchange=function(){
-                    changed = true;
-                }           
-            }       
-            var changedAux = changed;
-            changed = false;
-            return changedAux;
+        i = 0;
+        while (i < n) {
+            totalMultiple *= multiples[i++];
         }
+        return totalMultiple > 0;
+    }
 
-        this.serialize = function(){
-            var elements = HtmlElement.elements;
-            var serialized = [];
-            var i = 0;
-            var n = elements.length;
-            for (i = 0; i < n; i ++) {
-                var element = elements[i];
-                var type = element.type;            
-                var value = element.value;
-                var name = element.name;            
-                if(!name.isEmpty()){
-                    switch (type) {
+    this.hasChanged = function () {
+        var n = inputs.length;
+        var i = 0;
+        while (i < n && !changed) {
+            inputs[i++].onchange = function () {
+                changed = true;
+            }
+        }
+        var changedAux = changed;
+        changed = false;
+        return changedAux;
+    }
+
+    this.serialize = function () {
+        var elements = HtmlElement.elements;
+        var serialized = [];
+        var i = 0;
+        var n = elements.length;
+        for (i = 0; i < n; i++) {
+            var element = elements[i];
+            var type = element.type;
+            var value = element.value;
+            var name = element.name;
+            if (!name.isEmpty()) {
+                switch (type) {
                     case 'text':
                     case 'radio':
-                    case 'checkbox':                                
+                    case 'checkbox':
                     case 'search':
                     case 'email':
                     case 'url':
@@ -1069,33 +1087,33 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
                     case 'color':
                     case 'textarea':
                     case 'password':
-                    case 'select':   
-                    case 'hidden':  
-                        serialized.push(name+'='+value);
+                    case 'select':
+                    case 'hidden':
+                        serialized.push(name + '=' + value);
                         break;
                     default:
                         break;
-                    }
                 }
             }
-            return serialized.join('&');
         }
+        return serialized.join('&');
+    }
 
-        this.toJSON = function(){
-            var elements = HtmlElement.elements;  
-            var json = {};
-            var i=0;        
-            var n = elements.length;             
-            for (i = 0; i < n; i ++) {
-                var element = elements[i];
-                var type = element.type;            
-                var value = element.value;
-                var name = element.name;            
-                if(!name.isEmpty()){
-                    switch (type) {
+    this.toJSON = function () {
+        var elements = HtmlElement.elements;
+        var json = {};
+        var i = 0;
+        var n = elements.length;
+        for (i = 0; i < n; i++) {
+            var element = elements[i];
+            var type = element.type;
+            var value = element.value;
+            var name = element.name;
+            if (!name.isEmpty()) {
+                switch (type) {
                     case 'text':
                     case 'radio':
-                    case 'checkbox':                                
+                    case 'checkbox':
                     case 'search':
                     case 'email':
                     case 'url':
@@ -1111,168 +1129,288 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
                     case 'color':
                     case 'textarea':
                     case 'password':
-                    case 'select':   
-                    case 'hidden':                  
+                    case 'select':
+                    case 'hidden':
                         json[name] = value;
-                        break;              
-                    }
+                        break;
                 }
             }
-            return json;
         }
+        return json;
+    }
 
-        function validate(input){
-              switch (input.type) {      
-                  case 'text':
-                  case 'search':
-                  case 'email':
-                  case 'url':
-                  case 'tel':
-                  case 'number':
-                  case 'range':
-                  case 'date':
-                  case 'month':
-                  case 'week':
-                  case 'time':
-                  case 'datetime':
-                  case 'datetime-local':
-                  case 'color':
-                  case 'textarea':
-                  case 'password':                    
-                      if(input.dataset.required==='true'){
-                          result = this.isNotEmpty(input);
-                          if(result){
-                              generalValidations(input);
-                          }
-                      }else{
-                          generalValidations(input);
-                      }                 
-                  break;        
-                 case 'radio':
-                     break;
-                 case 'checkbox':   
-                     if(input.dataset.required==='true') result =  this.isChecked(input);
+    function validate(input) {
+        switch (input.type) {
+            case 'text':
+            case 'search':
+            case 'email':
+            case 'url':
+            case 'tel':
+            case 'number':
+            case 'range':
+            case 'date':
+            case 'month':
+            case 'week':
+            case 'time':
+            case 'datetime':
+            case 'datetime-local':
+            case 'color':
+            case 'textarea':
+            case 'password':
+                if (input.dataset.required === 'true') {
+                    result = FormOk.isNotEmpty(input);
+                    if (result) {
+                        generalValidations(input);
+                    }
+                } else {
+                    generalValidations(input);
+                }
                 break;
-                default:
-                    break;
-            }       
+            case 'radio':
+                break;
+            case 'checkbox':
+                if (input.dataset.required === 'true') result = FormOk.isChecked(input);
+                break;
+            default:
+                break;
         }
-        
-        function showMessage(input,message){
-            var small = input.parentNode.getElementsByTagName('small')[0];
-            small.textContent = message;       
-            small.className = 'show text-danger';
-        } 
-        
-        function hiddeMessage(input){
-            input.parentNode.getElementsByTagName('small')[0].className='hidden'; 
-        }
-
-        function success(input){
-            if(!input.parentNode.parentNode.classList.contains(this.hasSuccess)){
-                input.parentNode.parentNode.classList.add(this.hasSuccess);               
-            }
-            if(input.parentNode.parentNode.classList.contains(this.hasError)){
-                input.parentNode.parentNode.classList.remove(this.hasError);              
-            }
-            hiddeMessage(input);
-            return true;
-        }
-
-        function error(input,message){
-            if(input.parentNode.parentNode.classList.contains(this.hasSuccess)){
-                input.parentNode.parentNode.classList.remove(this.hasSuccess);                
-            }
-            if(!input.parentNode.parentNode.classList.contains(this.hasError)){
-                input.parentNode.parentNode.classList.add(this.hasError);             
-            }
-            showMessage(input,message);
-            return false;
-        }
-
-
-
-    function generalValidations(){
-          if(input.dataset.fullname==='true') result =  this.isFullName(input);
-          if(input.dataset.email==='true') result =  this.isEmail(input); 
-          if(input.dataset.match!== undefined) result = this.isEquals(document.getElementsByName(input.dataset.match)[0],input);
-          if(input.dataset.money==='true') result =  this.isMoney(input); 
-          if(input.dataset.maxlength!== undefined) result = this.maxLength(input,input.dataset.maxlength);
-          if(input.dataset.minlength!== undefined) result = this.minLength(input,input.dataset.minlength);
     }
 
-    this.isFullName = function(input){        
+    function showMessage(input, message) {
+        var small = null;
+        var type = input.type;
+        if (type !== 'checkbox' && type !== 'radio' && !input.dataset.option) {
+            input.parentNode.getElementsByTagName('span')[0].className = 'fa fa-times form-control-feedback';
+        }
+        if (input.dataset.option) {
+            small = input.parentNode.parentNode.getElementsByTagName('small')[0];
+        } else {
+            small = input.parentNode.getElementsByTagName('small')[0];
+        }
+        small.textContent = message;
+        small.className = 'text-danger';
+    }
+
+    function hiddeMessage(input) {
+        var type = input.type;
+        if (type !== 'checkbox' && type !== 'radio' && !input.dataset.option) {
+            input.parentNode.getElementsByTagName('span')[0].className = 'fa fa-check form-control-feedback';
+        }
+        if (input.dataset.option) {
+            input.parentNode.parentNode.getElementsByTagName('small')[0].className = 'hidden';
+        } else {
+            input.parentNode.getElementsByTagName('small')[0].className = 'hidden';
+        }
+
+    }
+
+    function success(input) {
+        if (!input.parentNode.parentNode.classList.contains(hasSuccess)) {
+            input.parentNode.parentNode.classList.add(hasSuccess);
+        }
+        if (input.parentNode.parentNode.classList.contains(hasError)) {
+            input.parentNode.parentNode.classList.remove(hasError);
+        }
+        hiddeMessage(input);
+        return true;
+    }
+
+    function error(input, message) {
+        if (input.parentNode.parentNode.classList.contains(hasSuccess)) {
+            input.parentNode.parentNode.classList.remove(hasSuccess);
+        }
+        if (!input.parentNode.parentNode.classList.contains(hasError)) {
+            input.parentNode.parentNode.classList.add(hasError);
+        }
+        showMessage(input, message);
+        return false;
+    }
+
+
+
+    function generalValidations(input) {
+        if (input.dataset.fullname === 'true') result = FormOk.isFullName(input);
+        if (input.dataset.email === 'true') result = FormOk.isEmail(input);
+        if (input.dataset.match) result = FormOk.isEquals(document.getElementsByName(input.dataset.match)[0], input);
+        if (input.dataset.money === 'true') result = FormOk.isMoney(input);
+        if (input.dataset.maxlength) result = FormOk.maxLength(input, input.dataset.maxlength);
+        if (input.dataset.minlength) result = FormOk.minLength(input, input.dataset.minlength);
+        if (input.dataset.rangelength) {
+            var data = input.dataset.rangelength.split("-");
+            result = FormOk.rangeLength(input, data[0], data[1]);
+        }
+        if (input.dataset.max) result = FormOk.max(input, input.dataset.max);
+        if (input.dataset.min) result = FormOk.min(input, input.dataset.min);
+        if (input.dataset.range) {
+            var data = input.dataset.range.split("-");
+            result = FormOk.range(input, data[0], data[1]);
+        }
+        if (input.dataset.url === 'true') result = FormOk.isURL(input);
+        if (input.dataset.date === 'true') result = FormOk.isDate(input);
+        if (input.dataset.number === 'true') result = FormOk.isNumber(input);
+        if (input.dataset.creditcard === 'true') result = FormOk.isCreditCard(input);
+        if (input.dataset.option) result = FormOk.isValidOption(input, input.dataset.option);
+
+    }
+
+    this.isFullName = function (input) {
         if (input.value.match(/^[a-zA-Z][a-zA-Z ]+$/)) return success(input);
-        return error(input,this.msgFullName);           
-    }
-    
-    this.isEmail = function(input){
-        if (input.value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))return FormOk.success(input);
-        return error(input, this.msgEmail);            
-    }
-    
-    this.isNotEmpty = function(input){
-        if (input.value.match(/^\S+$|[^\s]+$/))return success(input);        
-        return error(input, this.msgRequired);
-    }    
-    
-    this.isEquals = function(input,input1){
-        if(input.value === input1.value)return success(input) & success(input1);
-        return error(input, this.msgEquals) & error(input1, this.msgCheck); 
+        return error(input, this.msgFullName);
     }
 
-    this.isMoney = function(input){
-        if (input.value.match(/^\d+(,\d{3})*(\.\d*)?$/))return success(input);       
+    this.isEmail = function (input) {
+        if (input.value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) return success(input);
+        return error(input, this.msgEmail);
+    }
+
+    this.isNotEmpty = function (input) {
+        if (input.value.match(/^\S+$|[^\s]+$/)) return success(input);
+        return error(input, this.msgRequired);
+    }
+
+    this.isEquals = function (input, input1) {
+        if (input.value === input1.value) return success(input) & success(input1);
+        return error(input, this.msgEquals) & error(input1, this.msgCheck);
+    }
+
+    this.isMoney = function (input) {
+        if (input.value.match(/^\d+(,\d{3})*(\.\d*)?$/)) return success(input);
         return error(input, this.msgMoney);
     }
 
-    this.maxLength = function(input,length){
-        if(!isNaN(length) && input.value.length <= length) return success(input);
-        var msg = this.msgMaxLength.replace('{#}',length);
-        return error(input,msg);
+    this.maxLength = function (input, length) {
+        if (!isNaN(length) && input.value.length <= length) return success(input);
+        var msg = this.msgMaxLength.replace('{#}', length);
+        return error(input, msg);
     }
 
-    this.minLength = function(input,length){
-       if(!isNaN(length) && input.value.length >= length) return success(input);
-        var msg = this.msgMinLength.replace('{#}',length);
-        return error(input,msg);
+    this.minLength = function (input, length) {
+        if (!isNaN(length) && input.value.length >= length) return success(input);
+        var msg = this.msgMinLength.replace('{#}', length);
+        return error(input, msg);
     }
 
-    this.rangeLength = function(input,min,max){
-       if((!isNaN(min) && input.value.length >= min) && (!isNaN(max) && input.value.length <= max)) return success(input);
-        var msg = this.msgRangeLength.replace('{#min}',min).replace('{#max}',max);
-        return error(input,msg);
-    }    
-
-    this.max = function(input,max){
-        if(!isNaN(max) && input.value <= max) return success(input);
-        var msg = this.msgMax.replace('{#}',max);
-        return error(input,msg);
+    this.rangeLength = function (input, min, max) {
+        if ((!isNaN(min) && input.value.length >= min) && (!isNaN(max) && input.value.length <= max)) return success(input);
+        var msg = this.msgRangeLength.replace('{#min}', min).replace('{#max}', max);
+        return error(input, msg);
     }
 
-    this.min = function(input){}
-     
-    this.range = function(input) {}
+    this.max = function (input, max) {
+        if (!isNaN(max) && input.value <= max) return success(input);
+        var msg = this.msgMax.replace('{#}', max);
+        return error(input, msg);
+    }
 
-    this.isUrl = function(input) {}
+    this.min = function (input, min) {
+        if (!isNaN(min) && input.value >= min) return success(input);
+        var msg = this.msgMin.replace('{#}', min);
+        return error(input, msg);
+    }
 
-    this.isDate = function(input) {}
+    this.range = function (input, min, max) {
+        if ((!isNaN(min) && input.value >= min) && (!isNaN(max) && input.value <= max)) return success(input);
+        var msg = this.msgRange.replace('{#min}', min).replace('{#max}', max);
+        return error(input, msg);
+    }
 
-    this.isNumber = function(input) {}  
+    this.isURL = function (input) {
+        if (input.value.match(/https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/)) return success(input);
+        return error(input, this.msgURL);
+    }
 
-    this.isCreditCard = function(input) {}
-     
-    this.isChecked = function(input){
-        if(input.checked) {
+    this.isDate = function (input) {
+        var parms = input.value.split(/[\.\-\/]/);
+        var yyyy = parseInt(parms[2], 10);
+        var mm = parseInt(parms[1], 10);
+        var dd = parseInt(parms[0], 10);
+        var date = new Date(yyyy, mm - 1, dd, 12, 0, 0, 0);
+        if (mm === (date.getMonth() + 1) && dd === date.getDate() && yyyy === date.getFullYear()) return success(input);
+        return error(input, this.msgDate);
+    }
+
+    this.isNumber = function (input) {
+        if (!isNaN(input.value)) return success(input);
+        return error(input, this.msgNumber);
+    }
+
+    this.isCreditCard = function (input) {
+        if (input.value.match(/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/)) return success(input);
+        return error(input, this.msgCreditCard);
+    }
+
+    this.isChecked = function (input) {
+        if (input.checked) {
             hiddeMessage(input);
             return true
         }
-        return error(input, this.msgAccept); 
+        return error(input, this.msgAccept);
     }
-    
 
-        init();
- }
+    this.isValidOption = function (input, option) {
+        if (!isNaN(option) && option > 0) return success(input);
+        return error(input, this.msgValidOption);
+    }
+
+    this.onsubmit = function (callback) {
+        HtmlElement.onsubmit = function (e) {
+            e.preventDefault();
+            callback();
+        }
+    }
+
+    init();
+}
+/*
+ * ========================================================================
+ * UI-Calendar
+ * Author  : Yonatan Alexis Quintero Rodriguez
+ * Version : 0.1
+ * Date    : 19 Oct 2014
+ * ========================================================================
+ */
+UI.Calendar = function () {
+
+    var days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    function init() {
+        console.log(days[(dayOfWeek(20,7,1810))]);
+    }
+
+    function isLeapYear(year) {
+        return (year % 4 === 0 || (year % 100 !== 0 && year % 400 === 0));
+    }
+
+    /*
+    *Zeller's congruence is an algorithm devised 
+    *by Christian Zeller to calculate the day of the week 
+    *for any Gregorian calendar date.     
+    */
+    function dayOfWeek(day, month, year) {
+        /**
+        * According to the algorithm Jan is 13 & Feb 14
+        */
+        if (month < 3) {
+            month += 12;
+            year -= 1;
+        } 
+        var j = year / 100;               //The century.  
+        var k = year % 100;              //Year of the century.                
+        var h = (day + ((13 *(month + 1)) / 5) + k + (k / 4) + (j / 4) - (2 * j)) % 7;
+        //console.log(h);
+        //console.log('floor '+Math.floor(h));
+        var d = ((h + 5) % 7) + 1;
+        //console.log('ISO DAY ' + Math.floor(d));
+        var date = new Date(2014, 09, 19);
+        //date.setFullYear();
+        console.log(date.getDay());
+        return date.getDay();
+    }
+
+    init();
+
+}
 
 /*
  * ========================================================================
@@ -1282,21 +1420,21 @@ UI.DropDownPanel = function(HtmlElement, content, options) {
  * Date    : 6 Oct 2014
  * ========================================================================
  */
-UI.ReloadCSS = function(htmlElement, href) {
+UI.ReloadCSS = function (htmlElement, href) {
     var queryString = '?reload=' + new Date().getTime();
     htmlElement.href = href.replace(/\?.*|$/, queryString);
 }
 
-UI.Sleep = function(milliseconds){
-        var startTime = new Date().getTime();
-        while (new Date().getTime() < startTime + milliseconds);
+UI.Sleep = function (milliseconds) {
+    var startTime = new Date().getTime();
+    while (new Date().getTime() < startTime + milliseconds);
 }
 
-Element.prototype.remove = function() {
+Element.prototype.remove = function () {
     this.parentElement.removeChild(this);
 }
 
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
     for (var i = 0, len = this.length; i < len; i++) {
         if (this[i] && this[i].parentElement) {
             this[i].parentElement.removeChild(this[i]);
@@ -1304,15 +1442,15 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     }
 }
 
-Element.prototype.moveChildrenTo = function(target) {
+Element.prototype.moveChildrenTo = function (target) {
     while (this.childNodes.length > 0) {
         target.appendChild(this.childNodes[0]);
     }
     this.remove();
 }
 
-Element.prototype.getContentFromFrame = function(){
-    return  this.contentDocument || this.contentWindow.document;
+Element.prototype.getContentFromFrame = function () {
+    return this.contentDocument || this.contentWindow.document;
 }
 
 String.prototype.isEmpty = function () {

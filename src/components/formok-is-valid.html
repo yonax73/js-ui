@@ -11,11 +11,11 @@
       <section class="container">
         <div class="row">
           <div class="col-sm-12" id="notify"></div>
-         <div>
+         </div>
          <div class="row">
             <div class="col-sm-12">
                <br />
-               <form id="frmLogin" class="form-horizontal" method="post" action="/signIn">
+               <form id="form" class="form-horizontal" >
                   <fieldset>
                      <div class="row">
                         <div class="col-sm-6">
@@ -26,17 +26,17 @@
                            </div>
                            <div class="form-group">
                               <div class="col-sm-12">
-                                 <input type="text" name="email" class="form-control" data-required="true" placeholder="E-mail"   >                    
+                                 <input type="text" name="email" class="form-control" data-required="true" data-email="true" placeholder="E-mail"   >                    
                               </div>
                            </div>
                            <div class="form-group">
                               <div class="col-sm-12">
-                                 <input type="password"  name="password" class="form-control" data-required="true" data-rangeLength="5-8" placeholder="password"   >                    
+                                 <input type="password"  name="password" class="form-control" data-required="true" data-rangelength="5-8" placeholder="password"   >                    
                               </div>
                            </div>
                            <div class="form-group">
                               <div class="col-sm-12">
-                                 <input type="password" name="confirmPassword" class="form-control" data-match="password" placeholder="Confirm Password"   >
+                                 <input type="password" name="confirmPassword" class="form-control" data-required="true" data-match="password" placeholder="Confirm Password"   >
                               </div>
                            </div>
                            <div class="form-group">
@@ -46,7 +46,7 @@
                            </div>
                            <div class="form-group">
                               <div class="col-sm-12">
-                                 <input type="text" name="birthday" class="form-control" data-date="true" placeholder="Birthday">
+                                 <input type="date" name="birthday" class="form-control" data-date="true" placeholder="Birthday">
                               </div>
                            </div>
                         </div>
@@ -58,12 +58,12 @@
                            </div>
                            <div class="form-group">
                               <div class="col-sm-12">
-                                 <input type="text" name="age" class="form-control" data-number="true" data-max="45" placeholder="Age"   >                    
+                                  <input type="text" name="age" class="form-control" data-required="true" data-max="45" placeholder="Age">                    
                               </div>
                            </div>
                            <div class="form-group">
                               <div class="col-sm-12">
-                                 <input type="text" name="price" class="form-control" data-money="true" data-min="100" placeholder="Price USD"   >
+                                 <input type="text" name="price" class="form-control" data-required="true" data-money="true" placeholder="Price USD"   >
                               </div>
                            </div>
                            <div class="form-group">
@@ -72,7 +72,7 @@
                               </div>
                            </div>
                            <div class="form-group">
-                              <div class="col-sm-12" id="salesRep"></div>
+                              <div class="col-sm-12" id="salesRep" data-name="sales-rep"></div>
                            </div>
                            <div class="form-group">
                               <div class="col-md-12">
@@ -94,13 +94,27 @@
       <script src="../js/js-ui.js"></script>
       <script>
             var notify = new UI.Notify(document.getElementById('notify'));
-             UI.DropDownList(document.getElementById('salesRep'), [
-                      { option: 1, value: 'Manu Donnell',selected:true },
+            UI.DropDownList(document.getElementById('salesRep'), [
+                      { option: -1, value: '- SELECT SALES REP -', selected: true },
+                      { option: 1, value: 'Manu Donnell'},
                       { option: 2, value: 'Oliver Amell', },
                       { option: 3, value: 'Roy Haynes' },
                       { option: 4, value: 'Willa Holland' },
                       { option: 5, value: 'Felicity Bett' }
-                  ]);  
+            ]);
+            var form = new UI.FormOk(document.getElementById('form'));
+
+            
+            form.onsubmit(function () {                
+                if (form.isValid()) {
+                    notify.success("submit data");
+                }
+            });
+
+
+          
+
+
 
       </script>
    </body>

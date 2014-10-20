@@ -4934,7 +4934,22 @@ label {
 	color:  #767676;    
     cursor:  not-allowed
 }
+/**
+* Use for edit color and background style when is hover or selected.
+*/
 .dropdownlist-list  li:hover, .dropdownlist-list .selected  {    
 	background-color:  #777777;    
 	color:  #fff;    
+}
+/**
+* Use for edit boder color when has error.
+*/
+.dropdownlist.has-error >span{
+     border-color: #d9230f;
+}
+/**
+* Use for edit boder color when has success.
+*/
+.dropdownlist.has-success >span{
+    border-color: #469408;
 }

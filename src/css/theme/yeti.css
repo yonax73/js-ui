@@ -5114,7 +5114,22 @@ label, .control-label, .help-block, .checkbox, .radio {
 	color:  #767676;    
     cursor:  not-allowed
 }
+/**
+* Use for edit color and background style when is hover or selected.
+*/
 .dropdownlist-list  li:hover, .dropdownlist-list .selected  {    
 	background-color:  #6f6f6f;    
 	color:  #fff;    
+}
+/**
+* Use for edit boder color when has error.
+*/
+.dropdownlist.has-error >span{
+     border-color: #f04124;
+}
+/**
+* Use for edit boder color when has success.
+*/
+.dropdownlist.has-success >span{
+    border-color: #43ac6a;
 }
