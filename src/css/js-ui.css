@@ -171,3 +171,25 @@
    color: #d9230f;
     font-weight: normal;
 }  
+/*************************************************************************
+*                                                                        *
+*                               CALENDAR                                 * 
+*                                                                        * 
+***************************************************************************/
+
+.ui-calendar{
+padding-top: 5px;
+}
+.ui-calendar table tbody td {
+    border: medium none;
+    cursor: default;
+}
+.ui-calendar table tbody td:hover {
+    opacity: 0.6;
+}
+.ui-calendar table thead th,.ui-calendar table tbody td {
+text-align: center;
+}
+.ui-calendar table tbody td.bg-primary {
+font-weight: bold;
+}
