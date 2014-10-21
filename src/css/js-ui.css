@@ -180,7 +180,7 @@
 .ui-calendar{
 padding-top: 5px;
 }
-.ui-calendar table tbody td {
+.ui-calendar table tbody tr td {
     border: medium none;
     cursor: default;
 }

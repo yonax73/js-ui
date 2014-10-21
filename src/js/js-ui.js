@@ -1375,50 +1375,68 @@ UI.FormOk = function (HtmlElement) {
 */
 UI.Calendar = function (HtmlElement) {
 
-    var days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var yearGregorian = 1582;
-    var logic;
-    var design;
-    var currentCalendar;
-    var previousCalendar;
-    var nextCalendar;
-    var today;
-    var year;
-    var month;
-    var day;
-    var dayweek;
+    var days = ['Su',
+                'Mo', 
+                'Tu', 
+                'We', 
+                'Th', 
+                'Fr', 
+                'Sa'];
+    var months = ['January', 
+                  'February', 
+                  'March', 
+                  'April', 
+                  'May', 
+                  'June', 
+                  'July', 
+                  'August', 
+                  'September', 
+                  'October', 
+                  'November',
+                  'December'];
+    var abbmMonths = ['Jan',                                                  //abbreviated months
+                      'Feb', 
+                      'Mar', 
+                      'Apr', 
+                      'May', 
+                      'Jun', 
+                      'Jul', 
+                      'Aug', 
+                      'Sep', 
+                      'Oct', 
+                      'Nov',
+                      'Dec'];                  
+    var yearGregorian = 1582;                                                 //The first year to calendar Gregorian.
+    var today = new Date();                                                   //The real date of today.
+    var displayDate;                                                          //The date being viewed now.
+    var data = {};                                                            //Here will be  all  data to construct the calendars.
 
     function init() {
-
-        logic = new Logic();
-        design = new Design(logic.getDataMonth(new Date(year, month, 01), day));
-        today = new Date();
-        year = today.getFullYear();
-        month = today.getMonth();
-        day = today.getDate();
-        dayweek = today.getDay();
-    }
-
-
-
-
-    function Logic() {
-
-        this.getDataMonth = function (date, currentDay) {
-            var dayweek = date.getDay();
-            var month = date.getMonth();
-            var year = date.getFullYear();
-            var totalDays = this.getTotalDaysOfMonth(month, year);
-            var data = {};
-            var previousTotalDays = 0;
-            var initDay = 0; //The day first to display on the calendar.
+         currentMonth();
+         createCalendarByDays();
+    }  
+     /*
+     * Fill data object for working with the calendar by days
+     */
+     function fillDataByDays () {
+            var dayweek = displayDate.getDay();
+            var month = displayDate.getMonth();
+            var year = displayDate.getFullYear();
+            var totalDays = totalDaysOf(month, year);
+            data.month = {
+                value:month,
+                text:months[month]
+            };
+            data.year=year;
+            data.currentDay = month === today.getMonth() ? today.getDate() : 1;
+            data.items= new Array();
+         
+            var previousTotalDays = 0;                                       
+            var day = 0;                                                  //The day to display on the calendar.
             var isPreviousDay = false;
             var isCurrentDay = true;
             var isNextDay = false;
-            data.items = new Array();
-            data.month = month;
-            data.year = year;
+
             /*
              * If the day week is greater than zero,
              * necessary known how many days has the previous month.
@@ -1435,67 +1453,171 @@ UI.Calendar = function (HtmlElement) {
                     previousMonth = 11;
                     previousYear -= 1;
                 }
-                previousTotalDays = this.getTotalDaysOfMonth(previousMonth, previousYear);
+                previousTotalDays = totalDaysOf(previousMonth, previousYear);
                 /*
                  * calculate the first day for display on the calendar
-                 */
-                initDay = previousTotalDays - (6 - dayweek);
+                 */                 
+                day = previousTotalDays - dayweek;
+                if(day > 30) day--;
                 isPreviousDay = true;
                 isCurrentDay = false;
             }
             /*
-             * Fill data
+             * Fill data.items
              */
             for (var i = 0; i < 42; i++) {
                 var item = {};
-                initDay++;
-                item.day = initDay;
+                day++;
+                item.day = day;
                 if (isPreviousDay) {
                     item.previousDay = true;
-                    if (initDay >= previousTotalDays) {
+                    /*
+                    *If the day is equals at  total days the
+                    *previous month, is becasuse wiLL start
+                    *the current month
+                    */
+                    if (day === previousTotalDays) {
                         isPreviousDay = false;
                         isCurrentDay = true;
-                        initDay = 0;
+                        day = 0;
                     }
-                } else if (isCurrentDay) {
-                    if (currentDay && currentDay === initDay) {
-                        item.current = true;
-                    }
-                    if (initDay >= totalDays) {
+                } else if (isCurrentDay) {                 
+                    item.currentDay = true;
+                    /*
+                    *If the day is equals at  total days the
+                    *current month, is becasuse wiLL start
+                    *the next month.
+                    */
+                    if(day === totalDays){
                         isNextDay = true;
                         isCurrentDay = false;
-                        initDay = 0;
-                    }
-
+                        day = 0;                        
+                    }                        
                 } else {
                     item.nextDay = true;
                 }
                 data.items.push(item);
-            } 
-            return data;
+            }           
+     }     
+     /*
+     * Fill data object with the next month.
+     */           
+     function nextMonth(){
+            var month = displayDate.getMonth()+1;
+            var year = displayDate.getFullYear();
+            if(month > 11){
+               month = 0;
+               year++;
+            }
+            displayDate = new Date(year,month,01);
+            fillDataByDays();          
+      }
+     /*
+     * Fill data object with the current month.
+     */  
+      function currentMonth(){
+         displayDate = new Date(today.getFullYear(),today.getMonth(),01); 
+         fillDataByDays();
+      }
+     /*
+     * Fill data object with the previous month.
+     */  
+     function previousMonth(){
+            var month = displayDate.getMonth()-1;
+            var year = displayDate.getFullYear();
+            if(month < 0 && year > yearGregorian){
+               month = 11;
+               year--;               
+            }
+            displayDate = new Date(year,month,01);
+            fillDataByDays();       
+     }
+     /*
+     * Fill data object for working with the calendar by months
+     */
+     function fillDataByMonths(){ 
+            var year = displayDate.getFullYear();                                    
+            data.year=year;
+            data.currentMonth = year === today.getFullYear() ? today.getMonth() : 0;
+     }
+     /*
+     * Fill data with the next year
+     */
+     function nextYear(){
+         var year = displayDate.getFullYear()+1;
+         displayDate = new Date(year,0,01);
+         fillDataByMonths();
+     }
+     /*
+     * Fill data with the current display year
+     */
+     function currentDisplayYear(){         
+         displayDate = new Date(displayDate.getFullYear(),displayDate.getMonth(),01); 
+         fillDataByMonths();  
+     }
+     /*
+     * Fill data with the real current year
+     */
+     function currentYear(){         
+         displayDate = new Date(today.getFullYear(),today.getMonth(),01); 
+         fillDataByMonths();  
+     }
+     /*
+     * Fill data with the previous year
+     */
+     function previousYear(){
+         var year = displayDate.getFullYear()-1;
+         if(year > yearGregorian){
+           displayDate = new Date(year,0,01);
+         }         
+         fillDataByMonths();
+     }
+     /*
+     *Fill data object for working with the calendar by years
+     */
+     function fillDataByYears(){        
+        var year = displayDate.getFullYear(); 
+        var limitYear = year +11;
+        data.year = year;
+        data.currentYear = year <= today.getFullYear() && limitYear >= today.getFullYear() ? today.getFullYear() : year;
+        data.range = year +' - '+ limitYear;
+     }
+     /*
+     *Fill data with the next year range
+     */
+     function nextRangeYear(){
+        var year = displayDate.getFullYear()+12;
+        displayDate = new Date(year,0,01);
+        fillDataByYears();
+     }
+     /*
+     *Fill data with the current year range
+     */
+     function currentRangeYear(){        
+        displayDate = new Date(today.getFullYear(),today.getMonth(),01);
+        fillDataByYears();
+     }
+
+     function previousRangeYear(){
+        var year = displayDate.getFullYear()-12;
+        if(year <= yearGregorian){
+           year = yearGregorian ;
         }
+        displayDate = new Date(year,0,01);
+        fillDataByYears();
+     }
 
-        this.nextMonth = function (day, month, year) {
-
-        }
-
-        this.previousMonth = function (day, month, year) {
-
-        }
-
-        this.getAllMonth = function () {
-
-        }
-
-        this.getYears = function (from) {
-
-        }
-
-        this.getTotalDaysOfMonth = function (month, year) {
+    /*
+     * get Total days of any month
+     * @param month
+     * @param year
+     * returns total days of month
+     */
+    function totalDaysOf (month,year) {
             var totalDays = 31;
             switch (month) {
                 case 1:
-                    totalDays = this.isLeapYear(year) ? 29 : 28;
+                    totalDays = isLeapYear(year) ? 29 : 28;
                     break;
                 case 3:
                 case 5:
@@ -1505,87 +1627,112 @@ UI.Calendar = function (HtmlElement) {
                     break;
             }
             return totalDays;
-        }
-
-
-        this.isLeapYear = function (year) {
-            return (year % 4 === 0 || (year % 100 !== 0 && year % 400 === 0));
-        }
     }
+    /*
+     * calculate if a year is leap.
+     * @param year.
+     * returns true if is leap.
+     */
+    function isLeapYear  (year) {
+            return (year % 4 === 0 || (year % 100 !== 0 && year % 400 === 0));
+    }
+    /*
+    * Create calendar HTML for show by days.    
+    */
+    function createCalendarByDays() {
 
-    function Design(data) {
+        var row = document.createElement('div');
+        var col = document.createElement('div');
+        var panelDefault = document.createElement('div');
+        var panelBody = document.createElement('div');
 
-        var row;
-        var col;
-        var panelDefault;
-        var panelBody;
-
-        function init() {
-            row = document.createElement('div');
-            col = document.createElement('div');
-
+        row.className = 'row';
+        col.className = 'col-sm-12 col-md-4';        
+        panelDefault.className = 'panel panel-default';        
+        panelBody.className = 'panel-body';
+        
+        panelBody.appendChild(createCalendarHeader());            
+        panelBody.appendChild(createCalendarBoby());
+        panelDefault.appendChild(panelBody);
+        col.appendChild(panelDefault);
+        row.appendChild(col);
+        /*
+        * add calendar to parent
+        */
+        HtmlElement.appendChild(row);          
+        /*
+        * Create calendar header HTML for show by days.        
+        * @returns HTMLElement
+        */
+        function createCalendarHeader() {
+            var row = document.createElement('div');
             row.className = 'row';
-            col.className = 'col-sm-12 col-md-4';
-
-            panelDefault = document.createElement('div');
-            panelDefault.className = 'panel panel-default';
-
-            panelBody = document.createElement('div');
-            panelBody.className = 'panel-body';
-
-            var header = new Header();
-            panelBody.appendChild(header.row);
-            var calendar = new Calendar();
-            panelBody.appendChild(calendar.row);
-
-            panelDefault.appendChild(panelBody);
-
-            row.appendChild(col);
-            HtmlElement.appendChild(row);
-        }
-
-        function Header() {
-
-            this.row = document.createElement('div');
-            this.row.className = 'row';
 
             var colTitle = document.createElement('div');
             colTitle.className = 'col-sm-6';
-
+            /*
+            * add the title (month,year)
+            */
             var title = document.createElement('a');
             title.href = '#';
-            title.text = data.month + ',' + data.year;
-            title.onclick = function () {
-                //view all months
+            title.text = data.month.text + ',' + data.year;
+            /*
+            * add event to change view type by months.
+            */
+            title.onclick = function (e) {
+                e.preventDefault();
+                currentDisplayYear();
+                HtmlElement.removeChildren();
+                createCalendarByMonths();
             }
             colTitle.appendChild(title);
 
             var colButtons = document.createElement('div');
             colButtons.className = 'col-sm-6';
             var btnGroupJustified = document.createElement('div');
-            for (var i = 0; i < 3; i++) {
+            btnGroupJustified.className ='btn-group btn-group-justified';
+            /*
+            * Create buttons the previous month, current month and next month
+            */
+            for (var j = 0; j < 3; j++) {
                 var btnGroup = document.createElement('div');
+                btnGroup.className = 'btn-group';
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.className = 'btn btn-default';
                 var i = document.createElement('i');
-                switch (i) {
+                /*
+                * Add className and events for buttons
+                */
+                switch (j) {
                     case 0:
                         i.className = 'fa fa-chevron-circle-left';
-                        button.onclick = function () {
-                            //previous month
+                        button.onclick = function () {                 
+                              previousMonth(); 
+                              HtmlElement.removeChildren();
+                              createCalendarByDays();
                         };
                         break;
-                    case 1:
+                    case 1:                                             
                         i.className = 'fa fa-circle';
                         button.onclick = function () {
-                            //get current date
+                            /*
+                            * If not is the current month,
+                            * go to current month.
+                            */
+                            if(displayDate.getMonth() !== today.getMonth()){
+                              currentMonth();
+                              HtmlElement.removeChildren();
+                              createCalendarByDays();
+                            }
                         };
                         break;
-                    case 2:
+                    case 2:                                             
                         i.className = 'fa fa-chevron-circle-right';
-                        button.onclick = function () {
-                            //next month
+                        button.onclick = function () {                            
+                              nextMonth(); 
+                              HtmlElement.removeChildren();
+                              createCalendarByDays();
                         };
                         break;
                 }
@@ -1596,11 +1743,15 @@ UI.Calendar = function (HtmlElement) {
             colButtons.appendChild(btnGroupJustified);
             row.appendChild(colTitle);
             row.appendChild(colButtons);
+            return row;
         }
-
-        function Calendar() {
-            this.row = document.createElement('div');
-            this.row.className = 'row ui-calendar';
+        /*
+        *Create calendar body HTML for show by days. 
+        *@returns HTMLElement
+        */
+        function createCalendarBoby() {
+            var row = document.createElement('div');
+            row.className = 'row ui-calendar';
             var col = document.createElement('div');
             col.className = 'col-sm-12';
             
@@ -1609,34 +1760,58 @@ UI.Calendar = function (HtmlElement) {
 
             var panelBody = document.createElement('div');
             panelBody.className = 'panel-body';
-
+            /*
+            * Create the table
+            */
             var table = document.createElement('table');
             table.className = 'table table-condensed';
             var thead = document.createElement('thead');
             var tr = document.createElement('tr');
+            /*
+            * Create the legend of the days of week
+            */
             for (var i = 0; i < 7; i++) {
-                var th = document.createElement('th');
+                var th = document.createElement('th');                
                 th.textContent = days[i];
                 tr.appendChild(th);
             }
-            var tbody = document.createElement('tbody');
-            var n = data.items.length;
-            var tr_tbody = document.createElement('tr');
-            for (var j = 0; j > n; j++) {
+            var tbody = document.createElement('tbody');           
+            var mod = 1;
+            var axuTr = document.createElement('tr');
+            /*
+            * Create the days of previous month, current month and next month,
+            * with a total of 42 days
+            */
+            var currentDay = data.currentDay;
+            for (var j = 0; j < 42; j++) {
                 var item = data.items[j];
+                var day = item.day; 
                 var td = document.createElement('td');
+                /*
+                * If the day not for the current month,
+                * make the text clearer
+                */
                 if (item.previousDay || item.nextDay) {
                     td.className = 'text-muted';
                 }
-                if (item.current) {
+                /*
+                * If the day is the current day,
+                * make the background darker
+                */
+                if (item.currentDay && day === currentDay) {
                     td.className = 'bg-primary';
                 }
-                td.textContent = item.day;
-                tr_tbody.appendChild(td);
-                if (j % 6 === 0) {
-                    tbody.appendChild(tr_tbody);
-                    tr_tbody = document.createElement('tr');
+                td.textContent = day;
+                axuTr.appendChild(td);
+                /*
+                * If mod is greater than zero and is module of 7,
+                * is because will start other week on the calendar
+                */
+                if (mod>1 && mod % 7 === 0 ) {
+                    tbody.appendChild(axuTr);
+                    axuTr = document.createElement('tr');
                 }
+                mod++;
             }
             thead.appendChild(tr);
             table.appendChild(thead);
@@ -1645,14 +1820,354 @@ UI.Calendar = function (HtmlElement) {
             panelDefault.appendChild(panelBody);
             col.appendChild(panelDefault);
             row.appendChild(col);
-        }
-
-        init();
+            return row;
+        }    
     }
+    /*
+    *Create calendat HTML for show by months
+    */
+    function createCalendarByMonths(){
 
+        var row = document.createElement('div');
+        var col = document.createElement('div');
+        var panelDefault = document.createElement('div');
+        var panelBody = document.createElement('div');
 
+        row.className = 'row';
+        col.className = 'col-sm-12 col-md-4';        
+        panelDefault.className = 'panel panel-default';        
+        panelBody.className = 'panel-body';
+        
+        panelBody.appendChild(createCalendarHeader());            
+        panelBody.appendChild(createCalendarBoby());
+        panelDefault.appendChild(panelBody);
+        col.appendChild(panelDefault);
+        row.appendChild(col);
+        /*
+        * add calendar to parent
+        */
+        HtmlElement.appendChild(row);          
+        /*
+        * Create calendar header HTML for show by months.        
+        *@returns HTMLElement
+        */
+        function createCalendarHeader() {
+            var row = document.createElement('div');
+            row.className = 'row';
 
+            var colTitle = document.createElement('div');
+            colTitle.className = 'col-sm-6';
+            /*
+            * add the title (year)
+            */
+            var title = document.createElement('a');
+            title.href = '#';
+            title.text = data.year;
+            /*
+            * add event to change view type by range years.
+            */
+            title.onclick = function (e) {
+               e.preventDefault();
+               fillDataByYears();
+               HtmlElement.removeChildren();
+               createCalendarByYears();
+            }
+            colTitle.appendChild(title);
 
+            var colButtons = document.createElement('div');
+            colButtons.className = 'col-sm-6';
+            var btnGroupJustified = document.createElement('div');
+            btnGroupJustified.className ='btn-group btn-group-justified';
+            /*
+            * Create buttons the previous year, current year and next year
+            */
+            for (var j = 0; j < 3; j++) {
+                var btnGroup = document.createElement('div');
+                btnGroup.className = 'btn-group';
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'btn btn-default';
+                var i = document.createElement('i');
+                /*
+                * Add className and events for buttons
+                */
+                switch (j) {
+                    case 0:
+                        i.className = 'fa fa-chevron-circle-left';
+                        button.onclick = function () {                 
+                              previousYear(); 
+                              HtmlElement.removeChildren();
+                              createCalendarByMonths();
+                        };
+                        break;
+                    case 1:                                             
+                        i.className = 'fa fa-circle';
+                        button.onclick = function () {
+                            /*
+                            * If not is the current year,
+                            * go to current year.
+                            */
+                            if(displayDate.getFullYear() !== today.getFullYear()){
+                              currentYear();
+                              HtmlElement.removeChildren();
+                              createCalendarByMonths();
+                            }
+                        };
+                        break;
+                    case 2:                                             
+                        i.className = 'fa fa-chevron-circle-right';
+                        button.onclick = function () {                            
+                              nextYear(); 
+                              HtmlElement.removeChildren();
+                              createCalendarByMonths();
+                        };
+                        break;
+                }
+                button.appendChild(i);
+                btnGroup.appendChild(button);
+                btnGroupJustified.appendChild(btnGroup);
+            }
+            colButtons.appendChild(btnGroupJustified);
+            row.appendChild(colTitle);
+            row.appendChild(colButtons);
+            return row;
+        }
+        /*
+        *Create calendar body HTML for show by months. 
+        *@returns HTMLElement
+        */
+        function createCalendarBoby() {
+            var row = document.createElement('div');
+            row.className = 'row ui-calendar';
+            var col = document.createElement('div');
+            col.className = 'col-sm-12';
+            
+            var panelDefault = document.createElement('div');
+            panelDefault.className = 'panel panel-default';
+
+            var panelBody = document.createElement('div');
+            panelBody.className = 'panel-body';
+            /*
+            * Create the table
+            */
+            var table = document.createElement('table');
+            table.className = 'table table-condensed';
+            var tbody = document.createElement('tbody');         
+            var tr = document.createElement('tr');
+            var mod = 1;
+            /*
+            * Create all months of a year.            
+            */
+            var currentMonth = data.currentMonth;
+            for (var j = 0; j < 12; j++) { 
+                var td = document.createElement('td');    
+                /*
+                * If the j is the current day,
+                * make the background darker.
+                */
+                if (j === currentMonth ) {
+                    td.className = 'bg-primary';
+                }
+                td.textContent = abbmMonths[j];
+                tr.appendChild(td);
+                /*
+                * add event to go to month selected.
+                */
+                td.onclick = function(){
+                    var year = displayDate.getFullYear();
+                    displayDate = new Date(year,abbmMonths.indexOf(this.textContent),01);
+                    fillDataByDays();
+                    HtmlElement.removeChildren();
+                    createCalendarByDays();
+                }
+                /*
+                * If mod is greater than zero and is module of 3,
+                * add new row.
+                */
+                if (mod>1 && mod % 3 === 0 ) {
+                    tbody.appendChild(tr);
+                    tr = document.createElement('tr');
+                }
+                mod++;
+            }
+            table.appendChild(tbody);
+            panelBody.appendChild(table);
+            panelDefault.appendChild(panelBody);
+            col.appendChild(panelDefault);
+            row.appendChild(col);
+            return row;
+        }    
+    }
+    /*
+    *Create calendat HTML for show by years
+    */
+    function createCalendarByYears(){
+
+        var row = document.createElement('div');
+        var col = document.createElement('div');
+        var panelDefault = document.createElement('div');
+        var panelBody = document.createElement('div');
+
+        row.className = 'row';
+        col.className = 'col-sm-12 col-md-4';        
+        panelDefault.className = 'panel panel-default';        
+        panelBody.className = 'panel-body';
+        
+        panelBody.appendChild(createCalendarHeader());            
+        panelBody.appendChild(createCalendarBoby());
+        panelDefault.appendChild(panelBody);
+        col.appendChild(panelDefault);
+        row.appendChild(col);
+        /*
+        * add calendar to parent
+        */
+        HtmlElement.appendChild(row);          
+        /*
+        * Create calendar header HTML for show by years.        
+        * @returns HTMLElement
+        */
+        function createCalendarHeader() {
+            var row = document.createElement('div');
+            row.className = 'row';
+
+            var colTitle = document.createElement('div');
+            colTitle.className = 'col-sm-6';
+            /*
+            * add the title (year - year limit)
+            */
+            var title = document.createElement('a');
+            title.href = '#';
+            title.text = data.range;
+            title.onclick = function(e){
+              e.preventDefault();
+            }
+            colTitle.appendChild(title);            
+
+            var colButtons = document.createElement('div');
+            colButtons.className = 'col-sm-6';
+            var btnGroupJustified = document.createElement('div');
+            btnGroupJustified.className ='btn-group btn-group-justified';
+            /*
+            * Create buttons the previous range year, current range year and next range year
+            */
+            for (var j = 0; j < 3; j++) {
+                var btnGroup = document.createElement('div');
+                btnGroup.className = 'btn-group';
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'btn btn-default';
+                var i = document.createElement('i');
+                /*
+                * Add className and events for buttons
+                */
+                switch (j) {
+                    case 0:
+                        i.className = 'fa fa-chevron-circle-left';
+                        button.onclick = function () {                 
+                              previousRangeYear(); 
+                              HtmlElement.removeChildren();
+                              createCalendarByYears();
+                        };
+                        break;
+                    case 1:                                             
+                        i.className = 'fa fa-circle';
+                        button.onclick = function () {
+                            /*
+                            * If not is the current year,
+                            * go to current range year.
+                            */
+                            if(displayDate.getFullYear() !== today.getFullYear()){
+                              currentRangeYear();
+                              HtmlElement.removeChildren();
+                              createCalendarByYears();
+                            }
+                        };
+                        break;
+                    case 2:                                             
+                        i.className = 'fa fa-chevron-circle-right';
+                        button.onclick = function () {                            
+                              nextRangeYear(); 
+                              HtmlElement.removeChildren();
+                              createCalendarByYears();
+                        };
+                        break;
+                }
+                button.appendChild(i);
+                btnGroup.appendChild(button);
+                btnGroupJustified.appendChild(btnGroup);
+            }
+            colButtons.appendChild(btnGroupJustified);
+            row.appendChild(colTitle);
+            row.appendChild(colButtons);
+            return row;
+        }
+        /*
+        *Create calendar body HTML for show by year range. 
+        *@returns HTMLElement
+        */
+        function createCalendarBoby() {
+            var row = document.createElement('div');
+            row.className = 'row ui-calendar';
+            var col = document.createElement('div');
+            col.className = 'col-sm-12';
+            
+            var panelDefault = document.createElement('div');
+            panelDefault.className = 'panel panel-default';
+
+            var panelBody = document.createElement('div');
+            panelBody.className = 'panel-body';
+            /*
+            * Create the table
+            */
+            var table = document.createElement('table');
+            table.className = 'table table-condensed';
+            var tbody = document.createElement('tbody');         
+            var tr = document.createElement('tr');
+            var mod = 1;
+            /*
+            * Create range year.            
+            */
+            var year = data.year;  
+            var currentYear = data.currentYear;         
+            for (var j = 0; j < 12; j++) { 
+                var td = document.createElement('td');    
+                /*
+                * If the j is the current day,
+                * make the background darker.
+                */
+                if (year === currentYear) {
+                    td.className = 'bg-primary';
+                }
+                td.textContent = year++;
+                tr.appendChild(td);
+                /*
+                * add event to go to year selected.
+                */
+                td.onclick = function(){
+                    var year = this.textContent;
+                    displayDate = new Date(year,01,01);
+                    fillDataByMonths();
+                    HtmlElement.removeChildren();
+                    createCalendarByMonths();
+                }
+                /*
+                * If mod is greater than zero and is module of 3,
+                * add new row.
+                */
+                if (mod>1 && mod % 3 === 0 ) {
+                    tbody.appendChild(tr);
+                    tr = document.createElement('tr');
+                }
+                mod++;
+            }
+            table.appendChild(tbody);
+            panelBody.appendChild(table);
+            panelDefault.appendChild(panelBody);
+            col.appendChild(panelDefault);
+            row.appendChild(col);
+            return row;
+        }    
+    }
     init();
 
 }
@@ -1684,6 +2199,12 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
         if (this[i] && this[i].parentElement) {
             this[i].parentElement.removeChild(this[i]);
         }
+    }
+}
+
+Element.prototype.removeChildren = function(){
+    while (this.childNodes.length > 0) {
+        this.removeChild(this.childNodes[0]);
     }
 }
 

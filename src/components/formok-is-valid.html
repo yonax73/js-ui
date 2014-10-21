@@ -3,9 +3,10 @@
    <head>
       <meta charset="UTF-8">
       <title>FormOk::isValid():Boolean JS-UI</title>
-      <link href="../css/font-awesome.min.css" rel="stylesheet" />
-      <link href="../css/js-ui.css" rel="stylesheet" />
+      <link href="../css/font-awesome.min.css" rel="stylesheet" />     
+        <link href="../css/js-ui.css" rel="stylesheet" /> 
       <link id="style" href="../css/theme/default.css" rel="stylesheet" />
+    
    </head>
    <body>
       <section class="container">
@@ -88,6 +89,8 @@
                      </div>
                   </fieldset>
                </form>
+                                    <br>
+                                    <div id="calendar"></div>
             </div>
          </div>
       </section>
@@ -113,7 +116,7 @@
             });
 
 
-          
+              var calendar = new UI.Calendar(document.getElementById('calendar'));
 
 
 
