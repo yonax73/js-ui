@@ -199,4 +199,9 @@ text-align: center;
 .ui-calendar table tbody td.bg-primary {
 font-weight: bold;
 }
+.ui-calendar-input{
+  position: absolute;
+  margin-right: 15px;
+  z-index: 9;
+}
 
