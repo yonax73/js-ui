@@ -468,7 +468,6 @@ document.getElementById('btnClose').onclick = function () {
     { option: 3, value: 'Product C' }
  ]);  
  products.selectItem(2);          
-
                                          </code>
                                       </pre>
                                         </div>
@@ -695,7 +694,7 @@ document.getElementById('btnClose').onclick = function () {
                                     <div id="content-dropdownlist-get-item-by-option">
                                         <div id="tab-dropdownlist-get-item-by-option-1">
                                             <pre>
-                                              <code class="html">
+                                            <code class="html">
 &lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;col-sm-2&quot;&gt;
    &lt;input id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;option&quot;/&gt;               
@@ -712,7 +711,7 @@ document.getElementById('btnClose').onclick = function () {
                                         </div>
                                         <div id="tab-dropdownlist-get-item-by-option-2">
                                             <pre>
-                                             <code class="js">
+                                            <code class="js">
  var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
     { option: 1, value: 'Product A' },
     { option: 2, value: 'Product B',selected:true },
@@ -765,7 +764,7 @@ document.getElementById('btnClose').onclick = function () {
                                     <div id="content-dropdownlist-get-item-by-value">
                                         <div id="tab-dropdownlist-get-item-by-value-1">
                                             <pre>
-                                              <code class="html">
+                                            <code class="html">
 &lt;!--Here to show the dropdownlist--&gt;
 &lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;col-sm-2&quot;&gt;
@@ -783,13 +782,12 @@ document.getElementById('btnClose').onclick = function () {
                                         </div>
                                         <div id="tab-dropdownlist-get-item-by-value-2">
                                             <pre>
-                                             <code class="js">
+                                            <code class="js">
 var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
     { option: 1, value: 'Product A' },
     { option: 2, value: 'Product B',selected:true },
     { option: 3, value: 'Product C' }
 ]);      
-
 document.getElementById('btn').onclick = function(){
  var value = document.getElementById('input').value;
  if(!value.isEmpty()){
@@ -836,7 +834,7 @@ document.getElementById('btn').onclick = function(){
                                     <div id="content-dropdownlist-add-item">
                                         <div id="tab-dropdownlist-add-item-1">
                                             <pre>
-                                              <code class="html">
+                                            <code class="html">
 &lt;!--Here to show the dropdownlist--&gt;
 &lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;col-sm-2&quot;&gt;
@@ -853,7 +851,7 @@ document.getElementById('btn').onclick = function(){
                                         </div>
                                         <div id="tab-dropdownlist-add-item-2">
                                             <pre>
-                                              <code class="js">
+                                            <code class="js">
  var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
     { option: 1, value: 'Product A' },
     { option: 2, value: 'Product B',selected:true },
@@ -905,7 +903,7 @@ document.getElementById('btn').onclick = function(){
                                     <div id="content-dropdownlist-disabled">
                                         <div id="tab-dropdownlist-disabled-1">
                                             <pre>
-                                              <code class="html">
+                                            <code class="html">
 &lt;!--Here to show the dropdownlist--&gt;
 &lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;col-sm-2&quot;&gt;
@@ -920,7 +918,7 @@ document.getElementById('btn').onclick = function(){
                                         </div>
                                         <div id="tab-dropdownlist-disabled-2">
                                             <pre>
-                                              <code class="js">
+                                            <code class="js">
  var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
     { option: 1, value: 'Product A' },
     { option: 2, value: 'Product B',selected:true },
@@ -930,7 +928,6 @@ document.getElementById('btn').onclick = function(){
  document.getElementById('btn-disabled').onclick = function(){
      products.setDisabled(true);
  };
-
  document.getElementById('btn-enabled').onclick = function(){
      products.setDisabled(false);
  };
@@ -971,7 +968,7 @@ document.getElementById('btn').onclick = function(){
                                     <div id="content-dropdownlist-onchange">
                                         <div id="tab-dropdownlist-onchange-1">
                                             <pre>
-                                              <code class="html">
+                                            <code class="html">
 &lt;!--Here to show the dropdownlist--&gt;
 &lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;col-sm-8&quot; &gt;
@@ -982,7 +979,7 @@ document.getElementById('btn').onclick = function(){
                                         </div>
                                         <div id="tab-dropdownlist-onchange-2">
                                             <pre>
-                                              <code class="js">
+                                            <code class="js">
  var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
     { option: 1, value: 'Product A' },
     { option: 2, value: 'Product B',selected:true },
@@ -1018,7 +1015,7 @@ document.getElementById('btn').onclick = function(){
                             <section id="ui-dropdownlist-custom" class="row">
                                 <div class="col-md-12">
                                     <h3>Dropdownlist Custom css</h3>
-                                    <small class="pull-right">                                        
+                                    <small class="pull-right">
                                         <a href="http://jsfiddle.net/yonaxtics/1frd6xx7/" target="_blank">Try it yourself.</a>
                                     </small>
                                 </div>
@@ -1028,7 +1025,7 @@ document.getElementById('btn').onclick = function(){
                                     <div id="content-dropdownlist-custom">
                                         <div id="tab-dropdownlist-custom-1">
                                             <pre>
-                                              <code class="html">
+                                            <code class="html">
 &lt;!--Here to show the dropdownlist--&gt;
 &lt;div class=&quot;col-sm-4&quot; id=&quot;dropdownlist&quot;&gt;&lt;/div&gt;              
 &lt;div class=&quot;col-sm-2&quot;&gt;
@@ -1042,7 +1039,7 @@ document.getElementById('btn').onclick = function(){
                                         </div>
                                         <div id="tab-dropdownlist-custom-2">
                                             <pre>
-                                              <code class="css">
+                                            <code class="css">
 /**
 * Use for edit border color
 */
@@ -1050,7 +1047,6 @@ document.getElementById('btn').onclick = function(){
    border-color:#ff0000;  
    border-radius: 2px;    
 }
-
 /**
 * Use for edit color and background style.
 */
@@ -1078,17 +1074,15 @@ document.getElementById('btn').onclick = function(){
                                         </div>
                                         <div id="tab-dropdownlist-custom-3">
                                             <pre>
-                                              <code class="js">
+                                            <code class="js">
 var products = new UI.DropDownList(document.getElementById('dropdownlist'), [
   { option: 1, value: 'Product A' },
   { option: 2, value: 'Product B',selected:true },
   { option: 3, value: 'Product C' }
 ]);      
-
 document.getElementById('btn-disabled').onclick = function(){
   products.setDisabled(true);
 };
-
 document.getElementById('btn-enabled').onclick = function(){
   products.setDisabled(false);
 };    
@@ -1164,8 +1158,6 @@ document.getElementById('btnSuccess').onclick = function () {
                                             <div class="row component-example">
                                                 <div class="col-md-12">
                                                     <object data="components/formok-is-valid.html" style="height:450px"></object>
-                                                    <!--<object data="components/calendar.html" style="height:450px"></object>-->
-                               
                                                 </div>
                                             </div>
                                         </div>
@@ -1178,6 +1170,71 @@ document.getElementById('btnSuccess').onclick = function () {
                                { id: 'tab-formok-is-valid-1', text: 'Html' },
                                { id: 'tab-formok-is-valid-2', text: 'Javascript' },
                                { id: 'tab-formok-is-valid-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+
+                    </div>
+                </section>
+                <!--UI-CALENDAR-->
+                <section id="ui-calendar" class="row component">
+                    <div class="col-md-12">
+                        <section class="row component-header">
+                            <div class="col-md-12">
+                                <h2>Calendar Object</h2>
+                                <p>
+                                    The FormOk is a simple form validation.
+                                </p>
+                            </div>
+                        </section>
+                        <!--  Formok is-valid -->
+                        <div class="component-api">
+                            <section id="ui-calendar-is-valid" class="row">
+                                <div class="col-md-12">
+                                    <h3>isValid():Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-formok-is-valid">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-calendar-is-valid">
+                                        <div id="tab-calendar-is-valid-1">
+                                            <pre>
+                                            <code class="html">
+&lt;!--Here to show the notification--&gt;
+&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;button  class=&quot;btn btn-success&quot; id=&quot;btnSuccess&quot; &gt;Show Notification&lt;/button&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-calendar-is-valid-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+document.getElementById('btnSuccess').onclick = function () {          
+    notify.success('Success Notify');
+}    
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-calendar-is-valid-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">                                                    
+                                                    <object data="components/calendar.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <script>
+                            UI.NavTab(document.getElementById('content-calendar-is-valid'), [
+                               { id: 'tab-calendar-is-valid-1', text: 'Html' },
+                               { id: 'tab-calendar-is-valid-2', text: 'Javascript' },
+                               { id: 'tab-calendar-is-valid-3', text: 'Result', active: true }
                             ]);
                         </script>
 
@@ -1211,7 +1268,7 @@ document.getElementById('btnSuccess').onclick = function () {
              { align: 'right' }
         );
 
-        var activeThemeLi = document.getElementById('defaultTheme');  //Current li active of theme list.    
+        var activeThemeLi = document.getElementById('defaultTheme');  //Current li active of theme list.
 
         function changeTheme(theme, name, li) {
             ddp.setText(name);
@@ -1225,33 +1282,37 @@ document.getElementById('btnSuccess').onclick = function () {
             }
         }
 
-    var items = [
-       {href:'#ui-notify',text:'Notify',target:'ui-notify',children:[
-            {href:'#ui-notify-success',text:'success()',target:'ui-notify-success'},
-            {href:'#ui-notify-info',text:'info()',target:'ui-notify-info'},
-            {href:'#ui-notify-warning',text:'warning()',target:'ui-notify-warning'},
-            {href:'#ui-notify-danger',text:'danger()',target:'ui-notify-danger'},
-            {href:'#ui-notify-wait',text:'wait()',target:'ui-notify-wait'},
-            {href:'#ui-notify-close',text:'close()',target:'ui-notify-close'}
-        ]},
-       {href:'#ui-dropdownlist',text:'Dropdownlist',target:'ui-dropdownlist',children:[
-            {href:'#ui-dropdownlist-select-item',text:'selectItem()',target:'ui-dropdownlist-select-item'},
-            {href:'#ui-dropdownlist-get-option',text:'getOption()',target:'ui-dropdownlist-get-option'},
-            {href:'#ui-dropdownlist-get-value',text:'getValue()',target:'ui-dropdownlist-get-value'},
-            {href:'#ui-dropdownlist-get-item',text:'getItem()',target:'ui-dropdownlist-get-item'},
-            {href:'#ui-dropdownlist-get-item-by-option',text:'getItemByOption()',target:'ui-dropdownlist-get-item-by-option'},
-            {href:'#ui-dropdownlist-get-item-by-value',text:'getItemByValue()',target:'ui-dropdownlist-get-item-by-value'},
-            {href:'#ui-dropdownlist-add-item',text:'addItem()',target:'ui-dropdownlist-add-item'},
-            {href:'#ui-dropdownlist-disabled',text:'setDisabled()',target:'ui-dropdownlist-disabled'},
-            {href:'#ui-dropdownlist-onchange',text:'onchange()',target:'ui-dropdownlist-onchange'},
-            {href:'#ui-dropdownlist-custom',text:'Custom css',target:'ui-dropdownlist-custom'}
-        ]}
-    ];
+        var items = [
+           {
+               href: '#ui-notify', text: 'Notify', target: 'ui-notify', children: [
+                   { href: '#ui-notify-success', text: 'success()', target: 'ui-notify-success' },
+                   { href: '#ui-notify-info', text: 'info()', target: 'ui-notify-info' },
+                   { href: '#ui-notify-warning', text: 'warning()', target: 'ui-notify-warning' },
+                   { href: '#ui-notify-danger', text: 'danger()', target: 'ui-notify-danger' },
+                   { href: '#ui-notify-wait', text: 'wait()', target: 'ui-notify-wait' },
+                   { href: '#ui-notify-close', text: 'close()', target: 'ui-notify-close' }
+               ]
+           },
+           {
+               href: '#ui-dropdownlist', text: 'Dropdownlist', target: 'ui-dropdownlist', children: [
+                   { href: '#ui-dropdownlist-select-item', text: 'selectItem()', target: 'ui-dropdownlist-select-item' },
+                   { href: '#ui-dropdownlist-get-option', text: 'getOption()', target: 'ui-dropdownlist-get-option' },
+                   { href: '#ui-dropdownlist-get-value', text: 'getValue()', target: 'ui-dropdownlist-get-value' },
+                   { href: '#ui-dropdownlist-get-item', text: 'getItem()', target: 'ui-dropdownlist-get-item' },
+                   { href: '#ui-dropdownlist-get-item-by-option', text: 'getItemByOption()', target: 'ui-dropdownlist-get-item-by-option' },
+                   { href: '#ui-dropdownlist-get-item-by-value', text: 'getItemByValue()', target: 'ui-dropdownlist-get-item-by-value' },
+                   { href: '#ui-dropdownlist-add-item', text: 'addItem()', target: 'ui-dropdownlist-add-item' },
+                   { href: '#ui-dropdownlist-disabled', text: 'setDisabled()', target: 'ui-dropdownlist-disabled' },
+                   { href: '#ui-dropdownlist-onchange', text: 'onchange()', target: 'ui-dropdownlist-onchange' },
+                   { href: '#ui-dropdownlist-custom', text: 'Custom css', target: 'ui-dropdownlist-custom' }
+               ]
+           }
+        ];
 
-    UI.NavScrollV(document.getElementById('nav-components'),items,{top:110});
+        UI.NavScrollV(document.getElementById('nav-components'), items, { top: 110 });
 
 
-    
+
     </script>
 </body>
 </html>

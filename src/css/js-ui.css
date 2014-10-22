@@ -177,8 +177,14 @@
 *                                                                        * 
 ***************************************************************************/
 
-.ui-calendar{
-padding-top: 5px;
+.ui-calendar>.btn-group.btn-group-justified{
+padding-bottom: 5px;
+}
+.ui-calendar.panel >.panel-body{
+    padding:5px;
+}
+.ui-calendar table{
+    margin:0px;
 }
 .ui-calendar table tbody tr td {
     border: medium none;
@@ -193,3 +199,4 @@ text-align: center;
 .ui-calendar table tbody td.bg-primary {
 font-weight: bold;
 }
+
