@@ -1449,7 +1449,7 @@ UI.Calendar = function (HtmlElement,options) {
         };
         data.year = year;
         data.currentDay = month === today.getMonth() && year === today.getFullYear() ? today.getDate() : 1;
-        data.items = new Array();
+        data.items = new Array(); 
         var previousTotalDays = 0;
         var day = 0;                                                  //The day to display on the calendar.
         var isPreviousDay = false;
@@ -1472,11 +1472,11 @@ UI.Calendar = function (HtmlElement,options) {
                 previousMonth = 11;
                 previousYear -= 1;
             }
-            previousTotalDays = totalDaysOf(previousMonth, previousYear);
+            previousTotalDays = totalDaysOf(previousMonth, previousYear); 
             /*
              * calculate the first day for display on the calendar
-             */
-            day = previousTotalDays - dayweek;
+             */console.log('day ' + day); console.log('dayweek ' + dayweek);
+            day = previousTotalDays - dayweek; 
             if (day > 30) day--;
             isPreviousDay = true;
             isCurrentDay = false;
@@ -1484,7 +1484,7 @@ UI.Calendar = function (HtmlElement,options) {
         /*
          * Fill data.items
          */
-        for (var i = 0; i < 42; i++) {
+        for (var i = 0; i < 42; i++) {           
             var item = {};
             day++;
             item.day = day;
@@ -1515,8 +1515,9 @@ UI.Calendar = function (HtmlElement,options) {
             } else {
                 item.nextDay = true;
             }
-            data.items.push(item);
+            data.items.push(item); 
         }
+        
     }
     /*
     * Fill data object with the next month.
@@ -1810,7 +1811,7 @@ UI.Calendar = function (HtmlElement,options) {
             * Create the days of previous month, current month and next month,
             * with a total of 42 days
             */
-            var currentDay = data.currentDay;
+            var currentDay = data.currentDay; console.log(data);
             for (var j = 0; j < 42; j++) {
                 var item = data.items[j];
                 var day = item.day;
@@ -1990,7 +1991,7 @@ UI.Calendar = function (HtmlElement,options) {
             /*
             * Create the table
             */
-        var table = document.createElement('table');
+            table = document.createElement('table');
             table.className = 'table table-condensed';
             var tbody = document.createElement('tbody');
             var tr = document.createElement('tr');
@@ -2217,18 +2218,15 @@ UI.Calendar = function (HtmlElement,options) {
             var input = options.input;
             var value = input.value;
             if(!value.isEmpty()){
-                displayDate = new Date().parse(value,input.dataset.date);
-                /*
-                * if not is the same date
-                * create calendar
-                */
-/*                if(today.getMonth() != displayDate.getMonth() && today.getFullYear() !== displayDate.getFullYear()){
-                    HtmlElement.removeChildren();
-                    fillDataByDays();
-                    createCalendarByDays();
-                }*/
-                var col  = displayDate.getDay();
-                var row = displayDate.getWeekOfMonth();         
+                displayDate = new Date().parse(value, input.dataset.date);
+                var col = displayDate.getDay();
+                var row = displayDate.getWeekOfMonth();
+                displayDate.setDate(01);
+                fillDataByDays();
+                HtmlElement.removeChildren();
+                createCalendarByDays();                
+
+
                 var cell = table.rows[row].cells[col];
                 selectedCell.classList.remove('bg-primary');
                 cell.classList.add('bg-primary');
@@ -2248,7 +2246,7 @@ UI.Calendar = function (HtmlElement,options) {
           }
         }
     } 
-
+    
     /*
     * Event open
     *@param function callback
@@ -2312,7 +2310,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
 }
 
 Element.prototype.removeChildren = function () {
-    while (this.childNodes.length > 0) {
+    while (this.childNodes.length > 0) {        
         this.removeChild(this.childNodes[0]);
     }
 }
