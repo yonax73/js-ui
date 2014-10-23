@@ -180,6 +180,7 @@
 .ui-calendar>.btn-group.btn-group-justified{
 padding-bottom: 5px;
 }
+
 .ui-calendar.panel >.panel-body{
     padding:5px;
 }
@@ -203,5 +204,8 @@ font-weight: bold;
   position: absolute;
   margin-right: 15px;
   z-index: 9;
+}
+.ui-calendar-input .panel-main {
+    box-shadow: 1px 2px 3px gray;
 }
 

@@ -1052,8 +1052,9 @@ UI.FormOk = function (HtmlElement) {
         var multiples = new Array();
         var totalMultiple = 1;
         while (i < n) {
-            validate(inputs[i++]);
+            validate(inputs[i]);
             multiples.push(result ? 1 : 0);
+            i++;        
         }
         i = 0;
         while (i < n) {
@@ -1243,17 +1244,58 @@ UI.FormOk = function (HtmlElement) {
         showMessage(input, message);
         return false;
     }
-
+    
     function generalValidations(input) {
-        if (input.dataset.fullname === 'true') result = FormOk.isFullName(input);
-        if (input.dataset.email === 'true') result = FormOk.isEmail(input);
-        if (input.dataset.match) result = FormOk.isEquals(document.getElementsByName(input.dataset.match)[0], input);
-        if (input.dataset.money === 'true') result = FormOk.isMoney(input);
-        if (input.dataset.maxlength) result = FormOk.maxLength(input, input.dataset.maxlength);
-        if (input.dataset.minlength) result = FormOk.minLength(input, input.dataset.minlength);
+        /*
+        * Check full name
+        */
+        if(input.dataset.fullname){                             
+             result = FormOk.isFullName(input) ? success(input) : error(input, this.msgFullName);
+        }
+        /*
+        * Check email
+        */ 
+        if(input.dataset.email){                             
+             result = FormOk.isEmail(input) ? success(input) : error(input, this.msgEmail);
+        }
+        /*
+        * Check equals to
+        */ 
+        if (input.dataset.equalsto){ 
+            var tmpInp = document.getElementsByName(input.dataset.match)[0];
+            result = FormOk.isEqualsTo(tmpInp, input) ? success(input) & success(tmpInp) : error(input, this.msgEquals) & error(tmpInp, this.msgCheck);
+            if(result){
+                generalValidations(tmpInp);
+            }
+        }
+        /*
+        * Check money
+        */ 
+        if (input.dataset.money){
+          result = FormOk.isMoney(input) ? success(input) : error(input, this.msgMoney);  
+        } 
+        /*
+        * Check max length
+        */        
+        if (input.dataset.maxlength){
+            var length = input.dataset.maxlength;
+            result = FormOk.maxLength(input, length) ? success(input) : error(input,this.msgMaxLength.replace('{#}', length));            
+        }
+        /*
+        * Check min length
+        */ 
+        if (input.dataset.minlength){
+           var length = input.dataset.minlength;
+           result = FormOk.minLength(input, length) ? success(input) : error(input,this.msgMinLength.replace('{#}',length));  
+        } 
+        /*
+        * Check range length
+        */
         if (input.dataset.rangelength) {
             var data = input.dataset.rangelength.split("-");
-            result = FormOk.rangeLength(input, data[0], data[1]);
+            var min = data[0];
+            var max = data[1];
+            result = FormOk.rangeLength(input, min, max) ? success(input) : error(input,this.msgRangeLength.replace('{#min}', min).replace('{#max}', max));            
         }
         if (input.dataset.max) result = FormOk.max(input, input.dataset.max);
         if (input.dataset.min) result = FormOk.min(input, input.dataset.min);
@@ -1269,47 +1311,90 @@ UI.FormOk = function (HtmlElement) {
 
     }
 
-    this.isFullName = function (input) {
-        if (input.value.match(/^[a-zA-Z][a-zA-Z ]+$/)) return success(input);
-        return error(input, this.msgFullName);
+    /*
+    * Check typeof arg.
+    * @param arg
+    * @returns 0 if typeof input or 1 if typeof string, esle -1;
+    */
+    function checkArg(arg){        
+           if(arg.tagName && arg.tagName === 'INPUT') return 0;
+           if(typeof arg === 'string') return 1;
+           return -1;
     }
-
-    this.isEmail = function (input) {
-        if (input.value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) return success(input);
-        return error(input, this.msgEmail);
+    /*
+    * arg is full name
+    * @param arg as String or input
+    * @returns true if is fullname
+    */
+    this.isFullName = function (arg) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return value.match(/^[a-zA-Z][a-zA-Z ]+$/);
+    }
+    /*
+    * arg is email
+    * @param arg as String or input
+    * @returns true if is email
+    */
+    this.isEmail = function (arg) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/); 
     }
 
     this.isNotEmpty = function (input) {
         if (input.value.match(/^\S+$|[^\s]+$/)) return success(input);
         return error(input, this.msgRequired);
     }
-
-    this.isEquals = function (input, input1) {
-        if (input.value === input1.value) return success(input) & success(input1);
-        return error(input, this.msgEquals) & error(input1, this.msgCheck);
+    /*
+    * arg is equals to arg1
+    * @param arg as String or input
+    * @param arg1 as String or input
+    * @returns true if both are equals
+    */
+    this.isEqualsTo = function (arg, arg1) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        var value1 = checkArg(arg1) === 0 ? arg1.value : arg1;
+        return value === value1;
     }
-
-    this.isMoney = function (input) {
-        if (input.value.match(/^\d+(,\d{3})*(\.\d*)?$/)) return success(input);
-        return error(input, this.msgMoney);
+    /*
+    * arg is money
+    * @param arg as String or input
+    * @returns true if is money
+    */
+    this.isMoney = function (arg) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return value.match(/^\d+(,\d{3})*(\.\d*)?$/);        
     }
-
-    this.maxLength = function (input, length) {
-        if (!isNaN(length) && input.value.length <= length) return success(input);
-        var msg = this.msgMaxLength.replace('{#}', length);
-        return error(input, msg);
+    /*
+    * arg with length characters like maximum 
+    * @param arg as String or input
+    * @param length, number of characters 
+    * @returns true if the arg has length characters or lesss 
+    */
+    this.maxLength = function (arg, length) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return !isNaN(length) && value.length <= length;
     }
-
-    this.minLength = function (input, length) {
-        if (!isNaN(length) && input.value.length >= length) return success(input);
-        var msg = this.msgMinLength.replace('{#}', length);
-        return error(input, msg);
+    /*
+    * arg with length characters like minimum 
+    * @param arg as String or input
+    * @param length, number of characters 
+    * @returns true if the arg has length characters or more 
+    */
+    this.minLength = function (arg, length) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return !isNaN(length) && value.length >= length;
     }
-
-    this.rangeLength = function (input, min, max) {
-        if ((!isNaN(min) && input.value.length >= min) && (!isNaN(max) && input.value.length <= max)) return success(input);
-        var msg = this.msgRangeLength.replace('{#min}', min).replace('{#max}', max);
-        return error(input, msg);
+    /*
+    * arg with a range characters between minimum and maximum
+    * @param arg as String or input
+    * @param min, number minimum of characters 
+    * @param max, number maximum of characters 
+    * @returns true if the arg is between min and max
+    */
+    this.rangeLength = function (arg, min, max) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        var length = value.length;
+        return ((!isNaN(min) && length >= min) && (!isNaN(max) && length <= max)); 
     }
 
     this.max = function (input, max) {
@@ -1391,25 +1476,13 @@ UI.FormOk = function (HtmlElement) {
 */
 UI.Calendar = function (HtmlElement,options) {
 
-    var days = ['Su',
-                'Mo',
-                'Tu',
-                'We',
-                'Th',
-                'Fr',
-                'Sa'];
-    var months = ['January',
-                  'February',
-                  'March',
-                  'April',
-                  'May',
-                  'June',
-                  'July',
-                  'August',
-                  'September',
-                  'October',
-                  'November',
-                  'December'];
+    var days = ['Sun',
+                'Mon',
+                'Tue',
+                'Wen',
+                'Thu',
+                'Fri',
+                'Sat'];
     var abbmMonths = ['Jan',                                                  //abbreviated months
                       'Feb',
                       'Mar',
@@ -1429,11 +1502,14 @@ UI.Calendar = function (HtmlElement,options) {
     var Calendar = this;
     var table;
     var selectedCell;
+
     function init() {
 
-       setOptionsInit();      
-       currentMonth();
-       createCalendarByDays();
+        setOptionsInit();      
+        displayDate = today.clone();
+        displayDate.setDate(1)
+        fillDataByDays();
+        createCalendarByDays();
     }
     /*
     * Fill data object for working with the calendar by days
@@ -1442,10 +1518,10 @@ UI.Calendar = function (HtmlElement,options) {
         var dayweek = displayDate.getDay();
         var month = displayDate.getMonth();
         var year = displayDate.getFullYear();
-        var totalDays = totalDaysOf(month, year);
+        var totalDays = displayDate.getMonthDayCount();
         data.month = {
             value: month,
-            text: months[month]
+            text: displayDate.getMonthName()
         };
         data.year = year;
         data.currentDay = month === today.getMonth() && year === today.getFullYear() ? today.getDate() : 1;
@@ -1461,21 +1537,12 @@ UI.Calendar = function (HtmlElement,options) {
          * necessary known how many days has the previous month.
          */
         if (dayweek > 0) {
-            var previousMonth = month - 1;
-            var previousYear = year;
-            /*
-             * If the previous month is less than zero,
-             * the previous  month equals to eleven
-             * and decrease year.
-             */
-            if (previousMonth < 0) {
-                previousMonth = 11;
-                previousYear -= 1;
-            }
-            previousTotalDays = totalDaysOf(previousMonth, previousYear); 
+            var previousDate = displayDate.clone();
+            previousDate.previousMonth();
+            previousTotalDays = previousDate.getMonthDayCount();
             /*
              * calculate the first day for display on the calendar
-             */console.log('day ' + day); console.log('dayweek ' + dayweek);
+             */
             day = previousTotalDays - dayweek; 
             if (day > 30) day--;
             isPreviousDay = true;
@@ -1518,47 +1585,7 @@ UI.Calendar = function (HtmlElement,options) {
             data.items.push(item); 
         }
         
-    }
-    /*
-    * Fill data object with the next month.
-    */
-    function nextMonth() {
-        var month = displayDate.getMonth() + 1;
-        var year = displayDate.getFullYear();
-        if (month > 11) {
-            month = 0;
-            year++;
-        }
-        displayDate = new Date(year, month, 01);
-        fillDataByDays();
-    }
-    /*
-    * Fill data object with the real current month.
-    */
-    function currentMonth() {
-        displayDate = new Date(today.getFullYear(), today.getMonth(), 01);
-        fillDataByDays();
-    }
-    /*
-    * Fill data with the current display year ????
-    */
-    function currentDisplayMonth() {
-        displayDate = new Date(displayDate.getFullYear(), displayDate.getMonth(), 01);
-        fillDataByMonths();
-    }
-    /*
-    * Fill data object with the previous month.
-    */
-    function previousMonth() {
-        var month = displayDate.getMonth() - 1;
-        var year = displayDate.getFullYear();
-        if (month < 0 && year > yearGregorian) {
-            month = 11;
-            year--;
-        }
-        displayDate = new Date(year, month, 01);
-        fillDataByDays();
-    }
+    }  
     /*
     * Fill data object for working with the calendar by months
     */
@@ -1566,38 +1593,6 @@ UI.Calendar = function (HtmlElement,options) {
         var year = displayDate.getFullYear();
         data.year = year;
         data.currentMonth = year === today.getFullYear() ? today.getMonth() : 0;
-    }
-    /*
-    * Fill data with the next year
-    */
-    function nextYear() {
-        var year = displayDate.getFullYear() + 1;
-        displayDate = new Date(year, 0, 01);
-        fillDataByMonths();
-    }
-    /*
-    * Fill data with the current display year
-    */
-    function currentDisplayYear() {
-        displayDate = new Date(displayDate.getFullYear(), displayDate.getMonth(), 01);
-        fillDataByMonths();
-    }
-    /*
-    * Fill data with the real current year
-    */
-    function currentYear() {
-        displayDate = new Date(today.getFullYear(), today.getMonth(), 01);
-        fillDataByMonths();
-    }
-    /*
-    * Fill data with the previous year
-    */
-    function previousYear() {
-        var year = displayDate.getFullYear() - 1;
-        if (year > yearGregorian) {
-            displayDate = new Date(year, 0, 01);
-        }
-        fillDataByMonths();
     }
     /*
     *Fill data object for working with the calendar by years
@@ -1608,62 +1603,6 @@ UI.Calendar = function (HtmlElement,options) {
         data.year = year;
         data.currentYear = year <= today.getFullYear() && limitYear >= today.getFullYear() ? today.getFullYear() : year;
         data.range = year + ' - ' + limitYear;
-    }
-    /*
-    *Fill data with the next year range
-    */
-    function nextRangeYear() {
-        var year = displayDate.getFullYear() + 12;
-        displayDate = new Date(year, 0, 01);
-        fillDataByYears();
-    }
-    /*
-    *Fill data with the current year range
-    */
-    function currentRangeYear() {
-        displayDate = new Date(today.getFullYear(), today.getMonth(), 01);
-        fillDataByYears();
-    }
-     /*
-     * Fill data with the previous year range
-     */
-    function previousRangeYear() {
-        var year = displayDate.getFullYear() - 12;
-        if (year <= yearGregorian) {
-            year = yearGregorian;
-        }
-        displayDate = new Date(year, 0, 01);
-        fillDataByYears();
-    }
-
-    /*
-     * get Total days of any month
-     * @param month
-     * @param year
-     * returns total days of month
-     */
-    function totalDaysOf(month, year) {
-        var totalDays = 31;
-        switch (month) {
-            case 1:
-                totalDays = isLeapYear(year) ? 29 : 28;
-                break;
-            case 3:
-            case 5:
-            case 8:
-            case 10:
-                totalDays = 30;
-                break;
-        }
-        return totalDays;
-    }
-    /*
-     * calculate if a year is leap.
-     * @param year.
-     * returns true if is leap.
-     */
-    function isLeapYear(year) {
-        return (year % 4 === 0 || (year % 100 !== 0 && year % 400 === 0));
     }
     /*
     * Create calendar HTML for show by days.    
@@ -1677,7 +1616,7 @@ UI.Calendar = function (HtmlElement,options) {
 
         row.className = 'row';
         col.className = 'col-sm-12 col-md-12';
-        panelDefault.className = 'ui-calendar panel panel-default';
+        panelDefault.className = 'ui-calendar panel panel-default panel-main';
         panelBody.className = 'panel-body';
 
         panelBody.appendChild(createCalendarHeader());
@@ -1710,7 +1649,8 @@ UI.Calendar = function (HtmlElement,options) {
             */
             title.onclick = function (e) {
                 e.preventDefault();
-                currentDisplayYear();
+                displayDate.setDate(1);
+                fillDataByMonths();
                 HtmlElement.removeChildren();
                 createCalendarByMonths();
             }
@@ -1736,8 +1676,10 @@ UI.Calendar = function (HtmlElement,options) {
                 switch (j) {
                     case 0:
                         i.className = 'fa fa-chevron-circle-left';
-                        button.onclick = function () {
-                            previousMonth();
+                        button.onclick = function () {     
+                            displayDate.setDate(01);
+                            displayDate.previousMonth();                        
+                            fillDataByDays();
                             HtmlElement.removeChildren();
                             createCalendarByDays();
                         };
@@ -1749,8 +1691,12 @@ UI.Calendar = function (HtmlElement,options) {
                             * If not is the current month,
                             * go to current month.
                             */
-                            if (displayDate.getMonth() !== today.getMonth()) {
-                                currentMonth();
+                            var dMonth = displayDate.getMonth();
+                            var month = today.getMonth();
+                            if (!(dMonth === month  && today.getFullYear() === displayDate.getFullYear())) {
+                                displayDate = today.clone();
+                                displayDate.setDate(1);                                
+                                fillDataByDays();                                
                                 HtmlElement.removeChildren();
                                 createCalendarByDays();
                             }
@@ -1758,8 +1704,10 @@ UI.Calendar = function (HtmlElement,options) {
                         break;
                     case 2:
                         i.className = 'fa fa-chevron-circle-right';
-                        button.onclick = function () {
-                            nextMonth();
+                        button.onclick = function () {                            
+                            displayDate.setDate(01);
+                            displayDate.nextMonth();
+                            fillDataByDays();
                             HtmlElement.removeChildren();
                             createCalendarByDays();
                         };
@@ -1811,7 +1759,7 @@ UI.Calendar = function (HtmlElement,options) {
             * Create the days of previous month, current month and next month,
             * with a total of 42 days
             */
-            var currentDay = data.currentDay; console.log(data);
+            var currentDay = data.currentDay; 
             for (var j = 0; j < 42; j++) {
                 var item = data.items[j];
                 var day = item.day;
@@ -1837,8 +1785,15 @@ UI.Calendar = function (HtmlElement,options) {
                 */
                 td.onclick = function(){                                    
                     if(options && options.isInput){                        
+                       if(this.classList.contains('text-muted')){     //no is current month
+                           if(this.textContent > 20){                 //is previous month 
+                               displayDate.previousMonth();
+                           }else{                                     //is next month
+                               displayDate.nextMonth();
+                            }
+                       }
                         displayDate.setDate(this.textContent);   
-                        options.input.value = displayDate.format(options.input.dataset.date);
+                        options.input.value = displayDate.format(options.input.dataset.date);                        
                         Calendar.close();
                     }
                 }
@@ -1865,7 +1820,7 @@ UI.Calendar = function (HtmlElement,options) {
         }
     }
     /*
-    *Create calendat HTML for show by months
+    * Create calendat HTML for show by months
     */
     function createCalendarByMonths() {
 
@@ -1876,7 +1831,7 @@ UI.Calendar = function (HtmlElement,options) {
 
         row.className = 'row';
         col.className = 'col-sm-12 col-md-12';
-        panelDefault.className = 'ui-calendar panel panel-default';
+        panelDefault.className = 'ui-calendar panel panel-default panel-main';
         panelBody.className = 'panel-body';
 
         panelBody.appendChild(createCalendarHeader());
@@ -1890,7 +1845,7 @@ UI.Calendar = function (HtmlElement,options) {
         HtmlElement.appendChild(row);
         /*
         * Create calendar header HTML for show by months.        
-        *@returns HTMLElement
+        * @returns HTMLElement
         */
         function createCalendarHeader() {
             var row = document.createElement('div');
@@ -1935,10 +1890,14 @@ UI.Calendar = function (HtmlElement,options) {
                 switch (j) {
                     case 0:
                         i.className = 'fa fa-chevron-circle-left';
-                        button.onclick = function () {
-                            previousYear();
-                            HtmlElement.removeChildren();
-                            createCalendarByMonths();
+                        button.onclick = function () {                          
+                            var year = displayDate.getFullYear() - 1;
+                            if (year > yearGregorian) {
+                                displayDate = new Date(year, 0, 01);
+                                fillDataByMonths();
+                                HtmlElement.removeChildren();
+                                createCalendarByMonths();
+                            }
                         };
                         break;
                     case 1:
@@ -1948,8 +1907,9 @@ UI.Calendar = function (HtmlElement,options) {
                             * If not is the current year,
                             * go to current year.
                             */
-                            if (displayDate.getFullYear() !== today.getFullYear()) {
-                                currentYear();
+                            if (displayDate.getFullYear() !== today.getFullYear()) {                                
+                                displayDate = today.clone();
+                                fillDataByMonths();
                                 HtmlElement.removeChildren();
                                 createCalendarByMonths();
                             }
@@ -1957,8 +1917,9 @@ UI.Calendar = function (HtmlElement,options) {
                         break;
                     case 2:
                         i.className = 'fa fa-chevron-circle-right';
-                        button.onclick = function () {
-                            nextYear();
+                        button.onclick = function () {                                                     
+                            displayDate = new Date(displayDate.getFullYear()+1, 0, 01);
+                            fillDataByMonths();
                             HtmlElement.removeChildren();
                             createCalendarByMonths();
                         };
@@ -2015,8 +1976,8 @@ UI.Calendar = function (HtmlElement,options) {
                 * add event to go to month selected.
                 */
                 td.onclick = function () {
-                    var year = displayDate.getFullYear();
-                    displayDate = new Date(year, abbmMonths.indexOf(this.textContent), 01);
+                    displayDate.setMonth(abbmMonths.indexOf(this.textContent));
+                    displayDate.setDate(1);
                     fillDataByDays();
                     HtmlElement.removeChildren();
                     createCalendarByDays();
@@ -2051,7 +2012,7 @@ UI.Calendar = function (HtmlElement,options) {
 
         row.className = 'row';
         col.className = 'col-sm-12 col-md-12';
-        panelDefault.className = 'ui-calendar panel panel-default';
+        panelDefault.className = 'ui-calendar panel panel-default panel-main';
         panelBody.className = 'panel-body';
 
         panelBody.appendChild(createCalendarHeader());
@@ -2105,7 +2066,12 @@ UI.Calendar = function (HtmlElement,options) {
                     case 0:
                         i.className = 'fa fa-chevron-circle-left';
                         button.onclick = function () {
-                            previousRangeYear();
+                            var year = displayDate.getFullYear() - 12;
+                            if (year <= yearGregorian) {
+                                year = yearGregorian;
+                            }
+                            displayDate = new Date(year, 0, 01);
+                            fillDataByYears();                           
                             HtmlElement.removeChildren();
                             createCalendarByYears();
                         };
@@ -2118,7 +2084,8 @@ UI.Calendar = function (HtmlElement,options) {
                             * go to current range year.
                             */
                             if (displayDate.getFullYear() !== today.getFullYear()) {
-                                currentRangeYear();
+                                displayDate = today.clone();
+                                fillDataByYears();
                                 HtmlElement.removeChildren();
                                 createCalendarByYears();
                             }
@@ -2126,8 +2093,9 @@ UI.Calendar = function (HtmlElement,options) {
                         break;
                     case 2:
                         i.className = 'fa fa-chevron-circle-right';
-                        button.onclick = function () {
-                            nextRangeYear();
+                        button.onclick = function () {                           
+                            displayDate = new Date(displayDate.getFullYear() + 12, 0, 01);
+                            fillDataByYears();                            
                             HtmlElement.removeChildren();
                             createCalendarByYears();
                         };
@@ -2184,9 +2152,8 @@ UI.Calendar = function (HtmlElement,options) {
                 /*
                 * add event to go to year selected.
                 */
-                td.onclick = function () {
-                    var year = this.textContent;
-                    displayDate = new Date(year, 01, 01);
+                td.onclick = function () {                    
+                    displayDate.setFullYear(this.textContent);
                     fillDataByMonths();
                     HtmlElement.removeChildren();
                     createCalendarByMonths();
@@ -2224,15 +2191,11 @@ UI.Calendar = function (HtmlElement,options) {
                 displayDate.setDate(01);
                 fillDataByDays();
                 HtmlElement.removeChildren();
-                createCalendarByDays();                
-
-
+                createCalendarByDays(); 
                 var cell = table.rows[row].cells[col];
                 selectedCell.classList.remove('bg-primary');
                 cell.classList.add('bg-primary');
                 selectedCell = cell;
- 
-
             }
         }
      }
@@ -2296,6 +2259,8 @@ UI.Sleep = function (milliseconds) {
     var startTime = new Date().getTime();
     while (new Date().getTime() < startTime + milliseconds);
 }
+
+
 
 Element.prototype.remove = function () {
     this.parentElement.removeChild(this);
@@ -2472,6 +2437,47 @@ Date.prototype.getMonthDayCount = function() {
                             ];
 
     return month_day_counts[this.getMonth()];
+}
+/*
+* back month 
+*/
+Date.prototype.previousMonth = function(){
+    var month = this.getMonth() - 1;
+    var year = this.getFullYear();
+    if (month < 0 && year > 1582) {
+        month = 11;
+        year--;
+    }
+    var tDays = this.getMonthDayCount();
+    if(this.getDate() > tDays){
+        this.setDate(tDays);
+    }
+    this.setMonth(month);
+    this.setFullYear(year);
+}
+/*
+* next month 
+*/
+Date.prototype.nextMonth = function(){
+    var month = this.getMonth() + 1;
+    var year = this.getFullYear();
+    if (month > 11) {
+        month = 0;
+        year++;
+    }
+    var tDays = this.getMonthDayCount();
+    if(this.getDate() > tDays){
+        this.setDate(tDays);
+    }
+    this.setMonth(month);
+    this.setFullYear(year);
+}
+/*
+* clone
+* @returns clone date
+*/
+Date.prototype.clone = function(){
+    return new Date(this.getFullYear(),this.getMonth(),this.getDate());
 }
 /*
 * format provided date into this.format format

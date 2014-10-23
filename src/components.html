@@ -1270,8 +1270,15 @@ document.getElementById('btnSuccess').onclick = function () {
 
         var activeThemeLi = document.getElementById('defaultTheme');  //Current li active of theme list.
 
+        if(localStorage.getItem('theme')){
+            changeTheme(localStorage.getItem('theme'),localStorage.getItem('theme-name'),activeThemeLi);
+        }
+
         function changeTheme(theme, name, li) {
             ddp.setText(name);
+            localStorage.setItem('theme', theme);
+            localStorage.setItem('theme-name', name);
+            localStorage.setItem('theme-li',li);
             activeThemeLi.classList.remove('active');
             li.classList.add('active');
             activeThemeLi = li;
