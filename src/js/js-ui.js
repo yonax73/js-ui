@@ -1004,27 +1004,27 @@ UI.FormOk = function (HtmlElement) {
             if (!input.dataset.option) {
                 var small = document.createElement('small');
                 var type = input.type;
-                small.className = 'hidden';                
+                small.className = 'hidden';
                 if (type !== 'checkbox' && type !== 'radio') {
                     var span = document.createElement('span');
                     input.parentNode.parentNode.classList.add('has-feedback');
                     if (input.dataset.date) {                                         //Input dataset.date
                         var ico = document.createElement('i');
-                        var calendar = document.createElement('div');                
+                        var calendar = document.createElement('div');
                         ico.className = 'fa fa-calendar fa-fw';
                         span.className = 'form-control-feedback';
                         span.style.cursor = 'default';
                         span.appendChild(ico);
                         input.parentNode.appendChild(calendar);
-                        var uiCalendar =  new UI.Calendar(calendar,{isInput:true,input:input});
+                        var uiCalendar = new UI.Calendar(calendar, { isInput: true, input: input });
                         span.onclick = function () {                                 //Event for show Calendar.                            
-                            if(uiCalendar.isOpen()) uiCalendar.close();    
-                            else uiCalendar.open();                                                    
+                            if (uiCalendar.isOpen()) uiCalendar.close();
+                            else uiCalendar.open();
                         }
                     } else {
                         span.className = 'hidden';
                     }
-                    input.parentNode.appendChild(span);   
+                    input.parentNode.appendChild(span);
 
                 }
                 input.parentNode.appendChild(small);
@@ -1054,7 +1054,7 @@ UI.FormOk = function (HtmlElement) {
         while (i < n) {
             validate(inputs[i]);
             multiples.push(result ? 1 : 0);
-            i++;        
+            i++;
         }
         i = 0;
         while (i < n) {
@@ -1176,8 +1176,11 @@ UI.FormOk = function (HtmlElement) {
             case 'color':
             case 'textarea':
             case 'password':
-                if (input.dataset.required === 'true') {
-                    result = FormOk.isNotEmpty(input);
+                /*
+                * Check required
+                */
+                if (input.dataset.required) {
+                    result = FormOk.isEmpty(input) ? error(input, FormOk.msgRequired) : success(input);
                     if (result) {
                         generalValidations(input);
                     }
@@ -1188,7 +1191,17 @@ UI.FormOk = function (HtmlElement) {
             case 'radio':
                 break;
             case 'checkbox':
-                if (input.dataset.required === 'true') result = FormOk.isChecked(input);
+                /*
+                * Check input checked
+                */
+                if (input.dataset.required) {
+                    result = FormOk.isChecked(input);
+                    if (result) {
+                        hiddeMessage(input);
+                    } else {
+                        error(input, FormOk.msgAccept);
+                    }
+                }
                 break;
             default:
                 break;
@@ -1217,7 +1230,7 @@ UI.FormOk = function (HtmlElement) {
         }
         if (input.dataset.option) {
             input.parentNode.parentNode.getElementsByTagName('small')[0].className = 'hidden';
-        } else  {                                                                   
+        } else {
             input.parentNode.getElementsByTagName('small')[0].className = 'hidden';
         }
 
@@ -1244,50 +1257,50 @@ UI.FormOk = function (HtmlElement) {
         showMessage(input, message);
         return false;
     }
-    
+
     function generalValidations(input) {
         /*
         * Check full name
         */
-        if(input.dataset.fullname){                             
-             result = FormOk.isFullName(input) ? success(input) : error(input, this.msgFullName);
+        if (input.dataset.fullname) {
+            result = FormOk.isFullName(input) ? success(input) : error(input, FormOk.msgFullName);
         }
         /*
         * Check email
-        */ 
-        if(input.dataset.email){                             
-             result = FormOk.isEmail(input) ? success(input) : error(input, this.msgEmail);
+        */
+        if (input.dataset.email) {
+            result = FormOk.isEmail(input) ? success(input) : error(input, FormOk.msgEmail);
         }
         /*
         * Check equals to
-        */ 
-        if (input.dataset.equalsto){ 
-            var tmpInp = document.getElementsByName(input.dataset.match)[0];
-            result = FormOk.isEqualsTo(tmpInp, input) ? success(input) & success(tmpInp) : error(input, this.msgEquals) & error(tmpInp, this.msgCheck);
-            if(result){
+        */
+        if (input.dataset.equalsto) {
+            var tmpInp = document.getElementsByName(input.dataset.equalsto)[0];
+            result = FormOk.isEqualsTo(tmpInp, input) ? success(input) & success(tmpInp) : error(input, FormOk.msgCheck) & error(tmpInp, FormOk.msgEquals);
+            if (result) {
                 generalValidations(tmpInp);
             }
         }
         /*
         * Check money
-        */ 
-        if (input.dataset.money){
-          result = FormOk.isMoney(input) ? success(input) : error(input, this.msgMoney);  
-        } 
+        */
+        if (input.dataset.money) {
+            result = FormOk.isMoney(input) ? success(input) : error(input, FormOk.msgMoney);
+        }
         /*
         * Check max length
-        */        
-        if (input.dataset.maxlength){
+        */
+        if (input.dataset.maxlength) {
             var length = input.dataset.maxlength;
-            result = FormOk.maxLength(input, length) ? success(input) : error(input,this.msgMaxLength.replace('{#}', length));            
+            result = FormOk.maxLength(input, length) ? success(input) : error(input, FormOk.msgMaxLength.replace('{#}', length));
         }
         /*
         * Check min length
-        */ 
-        if (input.dataset.minlength){
-           var length = input.dataset.minlength;
-           result = FormOk.minLength(input, length) ? success(input) : error(input,this.msgMinLength.replace('{#}',length));  
-        } 
+        */
+        if (input.dataset.minlength) {
+            var length = input.dataset.minlength;
+            result = FormOk.minLength(input, length) ? success(input) : error(input, FormOk.msgMinLength.replace('{#}', length));
+        }
         /*
         * Check range length
         */
@@ -1295,19 +1308,61 @@ UI.FormOk = function (HtmlElement) {
             var data = input.dataset.rangelength.split("-");
             var min = data[0];
             var max = data[1];
-            result = FormOk.rangeLength(input, min, max) ? success(input) : error(input,this.msgRangeLength.replace('{#min}', min).replace('{#max}', max));            
+            result = FormOk.rangeLength(input, min, max) ? success(input) : error(input, FormOk.msgRangeLength.replace('{#min}', min).replace('{#max}', max));
         }
-        if (input.dataset.max) result = FormOk.max(input, input.dataset.max);
-        if (input.dataset.min) result = FormOk.min(input, input.dataset.min);
+        /*
+        * Check max number
+        */
+        if (input.dataset.max) {
+            var max = input.dataset.max;
+            result = FormOk.max(input, max) ? success(input) : error(input, FormOk.msgMax.replace('{#}', max));
+        }
+        /*
+        * Check min number
+        */
+        if (input.dataset.min) {
+            var min = input.dataset.min;
+            result = FormOk.min(input, min) ? success(input) : error(input, FormOk.msgMin.replace('{#}', min));
+        }
+        /*
+        * Check range number
+        */
         if (input.dataset.range) {
             var data = input.dataset.range.split("-");
-            result = FormOk.range(input, data[0], data[1]);
+            var min = data[0];
+            var max = data[1];
+            result = FormOk.range(input, min, max) ? success(input) : error(input, FormOk.msgRange.replace('{#min}', min).replace('{#max}'.max));
         }
-        if (input.dataset.url === 'true') result = FormOk.isURL(input);
-        if (input.dataset.date) result = FormOk.isDate(input);
-        if (input.dataset.number === 'true') result = FormOk.isNumber(input);
-        if (input.dataset.creditcard === 'true') result = FormOk.isCreditCard(input);
-        if (input.dataset.option) result = FormOk.isValidOption(input, input.dataset.option);
+        /*
+        * Check URL
+        */
+        if (input.dataset.url) {
+            result = FormOk.isURL(input) ? success(input) : error(input, FormOk.msgURL);
+        }
+        /*
+        * Check date
+        */
+        if (input.dataset.date) {
+            result = FormOk.isDate(input) ? success(input) : error(input, FormOk.msgDate);
+        }
+        /*
+        * Check number
+        */
+        if (input.dataset.number) {
+            result = FormOk.isNumber(input) ? success(input) : error(input, FormOk.msgNumber);
+        }
+        /*
+        * Check credit card
+        */
+        if (input.dataset.creditcard) {
+            result = FormOk.isCreditCard(input) ? success(input) : error(input, FormOk.msgCreditCard);
+        }
+        /*
+        * Check UI-Select Option
+        */
+        if (input.dataset.option) {
+            result = FormOk.isValidOption(input, input.dataset.option) ? success(input) : error(input, FormOk.msgValidOption);
+        }
 
     }
 
@@ -1316,10 +1371,10 @@ UI.FormOk = function (HtmlElement) {
     * @param arg
     * @returns 0 if typeof input or 1 if typeof string, esle -1;
     */
-    function checkArg(arg){        
-           if(arg.tagName && arg.tagName === 'INPUT') return 0;
-           if(typeof arg === 'string') return 1;
-           return -1;
+    function checkArg(arg) {
+        if (arg.tagName && arg.tagName === 'INPUT') return 0;
+        if (typeof arg === 'string') return 1;
+        return -1;
     }
     /*
     * arg is full name
@@ -1337,12 +1392,16 @@ UI.FormOk = function (HtmlElement) {
     */
     this.isEmail = function (arg) {
         var value = checkArg(arg) === 0 ? arg.value : arg;
-        return value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/); 
+        return value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     }
-
-    this.isNotEmpty = function (input) {
-        if (input.value.match(/^\S+$|[^\s]+$/)) return success(input);
-        return error(input, this.msgRequired);
+    /*
+    * arg is empty
+    * @param arg as String or input
+    * @returns true if is empty
+    */
+    this.isEmpty = function (arg) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return !value.match(/^\S+$|[^\s]+$/);
     }
     /*
     * arg is equals to arg1
@@ -1362,13 +1421,13 @@ UI.FormOk = function (HtmlElement) {
     */
     this.isMoney = function (arg) {
         var value = checkArg(arg) === 0 ? arg.value : arg;
-        return value.match(/^\d+(,\d{3})*(\.\d*)?$/);        
+        return value.match(/^\d+(,\d{3})*(\.\d*)?$/);
     }
     /*
     * arg with length characters like maximum 
     * @param arg as String or input
     * @param length, number of characters 
-    * @returns true if the arg has length characters or lesss 
+    * @returns true if the arg has length characters or less 
     */
     this.maxLength = function (arg, length) {
         var value = checkArg(arg) === 0 ? arg.value : arg;
@@ -1394,63 +1453,96 @@ UI.FormOk = function (HtmlElement) {
     this.rangeLength = function (arg, min, max) {
         var value = checkArg(arg) === 0 ? arg.value : arg;
         var length = value.length;
-        return ((!isNaN(min) && length >= min) && (!isNaN(max) && length <= max)); 
+        return ((!isNaN(min) && length >= min) && (!isNaN(max) && length <= max));
     }
-
-    this.max = function (input, max) {
-        if (!isNaN(max) && input.value <= max) return success(input);
-        var msg = this.msgMax.replace('{#}', max);
-        return error(input, msg);
+    /*
+    * arg with the number max like maximum 
+    * @param arg as String or input
+    * @param max, number maximun
+    * @returns true if the arg is the number max  or less
+    */
+    this.max = function (arg, max) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return (!isNaN(max) && value <= max);
     }
-
-    this.min = function (input, min) {
-        if (!isNaN(min) && input.value >= min) return success(input);
-        var msg = this.msgMin.replace('{#}', min);
-        return error(input, msg);
+    /*
+    * arg with the number max like minimum 
+    * @param arg as String or input
+    * @param min, number minimun
+    * @returns true if the arg is the number min  or greater
+    */
+    this.min = function (arg, min) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return (!isNaN(min) && value >= min);
     }
-
-    this.range = function (input, min, max) {
-        if ((!isNaN(min) && input.value >= min) && (!isNaN(max) && input.value <= max)) return success(input);
-        var msg = this.msgRange.replace('{#min}', min).replace('{#max}', max);
-        return error(input, msg);
+    /*
+    * arg with the number range between minimum and maximum
+    * @param arg as String or input
+    * @param min, number minimum  
+    * @param max, number maximum
+    * @returns true if the arg is between min and max number
+    */
+    this.range = function (arg, min, max) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return ((!isNaN(min) && value >= min) && (!isNaN(max) && value <= max));
     }
-
-    this.isURL = function (input) {
-        if (input.value.match(/https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/)) return success(input);
-        return error(input, this.msgURL);
+    /*
+    * arg is URL
+    * @param arg as String or input
+    * @returns true if is URL
+    */
+    this.isURL = function (arg) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return value.match(/https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/);
     }
-
-    this.isDate = function (input) {
-        var parms = input.value.split(/[\.\-\/]/);
+    /*
+    * arg is Date
+    * @param arg as String or input
+    * @returns true if is Date
+    */
+    this.isDate = function (arg) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        var parms = value.split(/[\.\-\/]/);
         var yyyy = parseInt(parms[2], 10);
         var mm = parseInt(parms[1], 10);
         var dd = parseInt(parms[0], 10);
-        var date = new Date(yyyy, mm - 1, dd, 12, 0, 0, 0);
-        if (mm === (date.getMonth() + 1) && dd === date.getDate() && yyyy === date.getFullYear()) return success(input);
-        return error(input, this.msgDate);
+        var date = new Date(yyyy, mm - 1, dd);
+        return (mm === (date.getMonth() + 1) && dd === date.getDate() && yyyy === date.getFullYear());
     }
-
-    this.isNumber = function (input) {
-        if (!isNaN(input.value)) return success(input);
-        return error(input, this.msgNumber);
+    /*
+    * arg is Number
+    * @param arg as String or input
+    * @returns true if is Number
+    */
+    this.isNumber = function (arg) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return !isNaN(value);
     }
-
-    this.isCreditCard = function (input) {
-        if (input.value.match(/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/)) return success(input);
-        return error(input, this.msgCreditCard);
+    /*
+    * arg is Credit Card
+    * @param arg as String or input
+    * @returns true if is Number
+    */
+    this.isCreditCard = function (arg) {
+        var value = checkArg(arg) === 0 ? arg.value : arg;
+        return value.match(/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/);
     }
-
+    /*
+   * Is checked input
+   * @param input
+   * @returns true if input is Check
+   */
     this.isChecked = function (input) {
-        if (input.checked) {
-            hiddeMessage(input);
-            return true
-        }
-        return error(input, this.msgAccept);
+        return input.checked;
     }
-
+    /*
+    * Is option valid if option is greater than zero
+    * @param input
+    * @param option
+    * @returns true if option is greater than zero
+    */
     this.isValidOption = function (input, option) {
-        if (!isNaN(option) && option > 0) return success(input);
-        return error(input, this.msgValidOption);
+        return (!isNaN(option) && option > 0);
     }
 
     this.onsubmit = function (callback) {
@@ -1474,7 +1566,7 @@ UI.FormOk = function (HtmlElement) {
 * @param HtmlElement
 * @param options
 */
-UI.Calendar = function (HtmlElement,options) {
+UI.Calendar = function (HtmlElement, options) {
 
     var days = ['Sun',
                 'Mon',
@@ -1505,7 +1597,7 @@ UI.Calendar = function (HtmlElement,options) {
 
     function init() {
 
-        setOptionsInit();      
+        setOptionsInit();
         displayDate = today.clone();
         displayDate.setDate(1)
         fillDataByDays();
@@ -1525,7 +1617,7 @@ UI.Calendar = function (HtmlElement,options) {
         };
         data.year = year;
         data.currentDay = month === today.getMonth() && year === today.getFullYear() ? today.getDate() : 1;
-        data.items = new Array(); 
+        data.items = new Array();
         var previousTotalDays = 0;
         var day = 0;                                                  //The day to display on the calendar.
         var isPreviousDay = false;
@@ -1543,7 +1635,7 @@ UI.Calendar = function (HtmlElement,options) {
             /*
              * calculate the first day for display on the calendar
              */
-            day = previousTotalDays - dayweek; 
+            day = previousTotalDays - dayweek;
             if (day > 30) day--;
             isPreviousDay = true;
             isCurrentDay = false;
@@ -1551,7 +1643,7 @@ UI.Calendar = function (HtmlElement,options) {
         /*
          * Fill data.items
          */
-        for (var i = 0; i < 42; i++) {           
+        for (var i = 0; i < 42; i++) {
             var item = {};
             day++;
             item.day = day;
@@ -1582,10 +1674,10 @@ UI.Calendar = function (HtmlElement,options) {
             } else {
                 item.nextDay = true;
             }
-            data.items.push(item); 
+            data.items.push(item);
         }
-        
-    }  
+
+    }
     /*
     * Fill data object for working with the calendar by months
     */
@@ -1676,9 +1768,9 @@ UI.Calendar = function (HtmlElement,options) {
                 switch (j) {
                     case 0:
                         i.className = 'fa fa-chevron-circle-left';
-                        button.onclick = function () {     
+                        button.onclick = function () {
                             displayDate.setDate(01);
-                            displayDate.previousMonth();                        
+                            displayDate.previousMonth();
                             fillDataByDays();
                             HtmlElement.removeChildren();
                             createCalendarByDays();
@@ -1693,10 +1785,10 @@ UI.Calendar = function (HtmlElement,options) {
                             */
                             var dMonth = displayDate.getMonth();
                             var month = today.getMonth();
-                            if (!(dMonth === month  && today.getFullYear() === displayDate.getFullYear())) {
+                            if (!(dMonth === month && today.getFullYear() === displayDate.getFullYear())) {
                                 displayDate = today.clone();
-                                displayDate.setDate(1);                                
-                                fillDataByDays();                                
+                                displayDate.setDate(1);
+                                fillDataByDays();
                                 HtmlElement.removeChildren();
                                 createCalendarByDays();
                             }
@@ -1704,7 +1796,7 @@ UI.Calendar = function (HtmlElement,options) {
                         break;
                     case 2:
                         i.className = 'fa fa-chevron-circle-right';
-                        button.onclick = function () {                            
+                        button.onclick = function () {
                             displayDate.setDate(01);
                             displayDate.nextMonth();
                             fillDataByDays();
@@ -1759,7 +1851,7 @@ UI.Calendar = function (HtmlElement,options) {
             * Create the days of previous month, current month and next month,
             * with a total of 42 days
             */
-            var currentDay = data.currentDay; 
+            var currentDay = data.currentDay;
             for (var j = 0; j < 42; j++) {
                 var item = data.items[j];
                 var day = item.day;
@@ -1783,17 +1875,17 @@ UI.Calendar = function (HtmlElement,options) {
                 * Add event, if  is input option 
                 * then change this value for the selected date.                
                 */
-                td.onclick = function(){                                    
-                    if(options && options.isInput){                        
-                       if(this.classList.contains('text-muted')){     //no is current month
-                           if(this.textContent > 20){                 //is previous month 
-                               displayDate.previousMonth();
-                           }else{                                     //is next month
-                               displayDate.nextMonth();
+                td.onclick = function () {
+                    if (options && options.isInput) {
+                        if (this.classList.contains('text-muted')) {     //no is current month
+                            if (this.textContent > 20) {                 //is previous month 
+                                displayDate.previousMonth();
+                            } else {                                     //is next month
+                                displayDate.nextMonth();
                             }
-                       }
-                        displayDate.setDate(this.textContent);   
-                        options.input.value = displayDate.format(options.input.dataset.date);                        
+                        }
+                        displayDate.setDate(this.textContent);
+                        options.input.value = displayDate.format(options.input.dataset.date);
                         Calendar.close();
                     }
                 }
@@ -1890,7 +1982,7 @@ UI.Calendar = function (HtmlElement,options) {
                 switch (j) {
                     case 0:
                         i.className = 'fa fa-chevron-circle-left';
-                        button.onclick = function () {                          
+                        button.onclick = function () {
                             var year = displayDate.getFullYear() - 1;
                             if (year > yearGregorian) {
                                 displayDate = new Date(year, 0, 01);
@@ -1907,7 +1999,7 @@ UI.Calendar = function (HtmlElement,options) {
                             * If not is the current year,
                             * go to current year.
                             */
-                            if (displayDate.getFullYear() !== today.getFullYear()) {                                
+                            if (displayDate.getFullYear() !== today.getFullYear()) {
                                 displayDate = today.clone();
                                 fillDataByMonths();
                                 HtmlElement.removeChildren();
@@ -1917,8 +2009,8 @@ UI.Calendar = function (HtmlElement,options) {
                         break;
                     case 2:
                         i.className = 'fa fa-chevron-circle-right';
-                        button.onclick = function () {                                                     
-                            displayDate = new Date(displayDate.getFullYear()+1, 0, 01);
+                        button.onclick = function () {
+                            displayDate = new Date(displayDate.getFullYear() + 1, 0, 01);
                             fillDataByMonths();
                             HtmlElement.removeChildren();
                             createCalendarByMonths();
@@ -2071,7 +2163,7 @@ UI.Calendar = function (HtmlElement,options) {
                                 year = yearGregorian;
                             }
                             displayDate = new Date(year, 0, 01);
-                            fillDataByYears();                           
+                            fillDataByYears();
                             HtmlElement.removeChildren();
                             createCalendarByYears();
                         };
@@ -2093,9 +2185,9 @@ UI.Calendar = function (HtmlElement,options) {
                         break;
                     case 2:
                         i.className = 'fa fa-chevron-circle-right';
-                        button.onclick = function () {                           
+                        button.onclick = function () {
                             displayDate = new Date(displayDate.getFullYear() + 12, 0, 01);
-                            fillDataByYears();                            
+                            fillDataByYears();
                             HtmlElement.removeChildren();
                             createCalendarByYears();
                         };
@@ -2152,7 +2244,7 @@ UI.Calendar = function (HtmlElement,options) {
                 /*
                 * add event to go to year selected.
                 */
-                td.onclick = function () {                    
+                td.onclick = function () {
                     displayDate.setFullYear(this.textContent);
                     fillDataByMonths();
                     HtmlElement.removeChildren();
@@ -2180,61 +2272,61 @@ UI.Calendar = function (HtmlElement,options) {
     /*
     * display date from value
     */
-     function displayDateFromValue(){
-        if(options && options.isInput){          
+    function displayDateFromValue() {
+        if (options && options.isInput) {
             var input = options.input;
             var value = input.value;
-            if(!value.isEmpty()){
+            if (!value.isEmpty()) {
                 displayDate = new Date().parse(value, input.dataset.date);
                 var col = displayDate.getDay();
                 var row = displayDate.getWeekOfMonth();
                 displayDate.setDate(01);
                 fillDataByDays();
                 HtmlElement.removeChildren();
-                createCalendarByDays(); 
+                createCalendarByDays();
                 var cell = table.rows[row].cells[col];
                 selectedCell.classList.remove('bg-primary');
                 cell.classList.add('bg-primary');
                 selectedCell = cell;
             }
         }
-     }
+    }
     /*
     * config options init
-    */ 
-    function setOptionsInit(){
-        if(options){
-            if(options.isInput){                                                      
-             HtmlElement.className ='hidden ui-calendar-input';             
-          }
+    */
+    function setOptionsInit() {
+        if (options) {
+            if (options.isInput) {
+                HtmlElement.className = 'hidden ui-calendar-input';
+            }
         }
-    } 
-    
+    }
+
     /*
     * Event open
     *@param function callback
-    */ 
+    */
 
-    this.open = function(callback){
-        HtmlElement.classList.remove('hidden');    
-        displayDateFromValue();        
-        if(callback) callback();
+    this.open = function (callback) {
+        HtmlElement.classList.remove('hidden');
+        displayDateFromValue();
+        if (callback) callback();
     }
 
     /*
     * Event close
     *@param function callback
     */
-    this.close = function(callback){
+    this.close = function (callback) {
         HtmlElement.classList.add('hidden');
-        if(callback) callback();
+        if (callback) callback();
     }
 
     /*
     * the calendar is open or visible.
     *returns true if the calendar is open or visible.
     */
-    this.isOpen = function(){
+    this.isOpen = function () {
         return !HtmlElement.classList.contains('hidden');
     }
 
@@ -2275,7 +2367,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
 }
 
 Element.prototype.removeChildren = function () {
-    while (this.childNodes.length > 0) {        
+    while (this.childNodes.length > 0) {
         this.removeChild(this.childNodes[0]);
     }
 }
@@ -2303,10 +2395,10 @@ String.prototype.isEmpty = function () {
  * ========================================================================
  */
 
- /*
- * Provide month names
- */
- Date.prototype.getMonthName = function(){
+/*
+* Provide month names
+*/
+Date.prototype.getMonthName = function () {
     var month_names = [
                         'January',
                         'February',
@@ -2320,13 +2412,13 @@ String.prototype.isEmpty = function () {
                         'October',
                         'November',
                         'December'
-                    ];
+    ];
     return month_names[this.getMonth()];
 }
 /*
 * Provide month abbreviation
 */
-Date.prototype.getMonthAbbr = function(){
+Date.prototype.getMonthAbbr = function () {
     var month_abbrs = [
                         'Jan',
                         'Feb',
@@ -2340,14 +2432,14 @@ Date.prototype.getMonthAbbr = function(){
                         'Oct',
                         'Nov',
                         'Dec'
-                    ];
+    ];
 
     return month_abbrs[this.getMonth()];
 }
 /*
 * Provide full day of week name
 */
-Date.prototype.getDayFull = function(){
+Date.prototype.getDayFull = function () {
     var days_full = [
                         'Sunday',
                         'Monday',
@@ -2356,14 +2448,14 @@ Date.prototype.getDayFull = function(){
                         'Thursday',
                         'Friday',
                         'Saturday'
-                    ];
+    ];
     return days_full[this.getDay()];
 };
 
 /*
 *  Provide full day of week name
 */
-Date.prototype.getDayAbbr = function(){
+Date.prototype.getDayAbbr = function () {
     var days_abbr = [
                         'Sun',
                         'Mon',
@@ -2372,55 +2464,55 @@ Date.prototype.getDayAbbr = function(){
                         'Thur',
                         'Fri',
                         'Sat'
-                    ];
+    ];
     return days_abbr[this.getDay()];
 };
 /*
 * Provide the day of year 1-365
 */
-Date.prototype.getDayOfYear = function() {
-    var onejan = new Date(this.getFullYear(),0,1);
+Date.prototype.getDayOfYear = function () {
+    var onejan = new Date(this.getFullYear(), 0, 1);
     return Math.ceil((this - onejan) / 86400000);
 };
 /*
 * Provide the day suffix (st,nd,rd,th)
 */
-Date.prototype.getDaySuffix = function() {
+Date.prototype.getDaySuffix = function () {
     var d = this.getDate();
-    var sfx = ["th","st","nd","rd"];
-    var val = d%100;
-    return (sfx[(val-20)%10] || sfx[val] || sfx[0]);
+    var sfx = ["th", "st", "nd", "rd"];
+    var val = d % 100;
+    return (sfx[(val - 20) % 10] || sfx[val] || sfx[0]);
 };
 /*
 * Provide Week of Year
 */
-Date.prototype.getWeekOfYear = function() {
-    var onejan = new Date(this.getFullYear(),0,1);
-    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
+Date.prototype.getWeekOfYear = function () {
+    var onejan = new Date(this.getFullYear(), 0, 1);
+    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
 }
 /*
 * @return week of month
-*/ 
-Date.prototype.getWeekOfMonth = function(){        
+*/
+Date.prototype.getWeekOfMonth = function () {
     /*
     * var firstDayOfMonth = new Date(this.getFullYear(),this.getMonth(),01).getDay();        
     * var position = this.getDate() + (firstDayOfMonth); // Position real on the calendar.   
     * week = Math.ceil(week /7);                         // get the week
     */
-    var firstDayOfMonth = new Date(this.getFullYear(),this.getMonth(),01).getDay();   
-    return Math.ceil((this.getDate() + firstDayOfMonth)/7);  
+    var firstDayOfMonth = new Date(this.getFullYear(), this.getMonth(), 01).getDay();
+    return Math.ceil((this.getDate() + firstDayOfMonth) / 7);
 }
 
 /*
 * Provide if it is a leap year or not
 */
-Date.prototype.isLeapYear = function(){
- return (this.getFullYear() % 4 === 0 || (this.getFullYear() % 100 !== 0 && this.getFullYear() % 400 === 0));        
+Date.prototype.isLeapYear = function () {
+    return (this.getFullYear() % 4 === 0 || (this.getFullYear() % 100 !== 0 && this.getFullYear() % 400 === 0));
 }
 /*
 * Provide Number of Days in a given month
 */
-Date.prototype.getMonthDayCount = function() {
+Date.prototype.getMonthDayCount = function () {
     var month_day_counts = [
                                 31,
                                 this.isLeapYear() ? 29 : 28,
@@ -2434,14 +2526,14 @@ Date.prototype.getMonthDayCount = function() {
                                 31,
                                 30,
                                 31
-                            ];
+    ];
 
     return month_day_counts[this.getMonth()];
 }
 /*
 * back month 
 */
-Date.prototype.previousMonth = function(){
+Date.prototype.previousMonth = function () {
     var month = this.getMonth() - 1;
     var year = this.getFullYear();
     if (month < 0 && year > 1582) {
@@ -2449,7 +2541,7 @@ Date.prototype.previousMonth = function(){
         year--;
     }
     var tDays = this.getMonthDayCount();
-    if(this.getDate() > tDays){
+    if (this.getDate() > tDays) {
         this.setDate(tDays);
     }
     this.setMonth(month);
@@ -2458,7 +2550,7 @@ Date.prototype.previousMonth = function(){
 /*
 * next month 
 */
-Date.prototype.nextMonth = function(){
+Date.prototype.nextMonth = function () {
     var month = this.getMonth() + 1;
     var year = this.getFullYear();
     if (month > 11) {
@@ -2466,7 +2558,7 @@ Date.prototype.nextMonth = function(){
         year++;
     }
     var tDays = this.getMonthDayCount();
-    if(this.getDate() > tDays){
+    if (this.getDate() > tDays) {
         this.setDate(tDays);
     }
     this.setMonth(month);
@@ -2476,13 +2568,13 @@ Date.prototype.nextMonth = function(){
 * clone
 * @returns clone date
 */
-Date.prototype.clone = function(){
-    return new Date(this.getFullYear(),this.getMonth(),this.getDate());
+Date.prototype.clone = function () {
+    return new Date(this.getFullYear(), this.getMonth(), this.getDate());
 }
 /*
 * format provided date into this.format format
 */
-Date.prototype.format = function(dateFormat){
+Date.prototype.format = function (dateFormat) {
     /*
     * break apart format string into array of characters
     */
@@ -2497,7 +2589,7 @@ Date.prototype.format = function(dateFormat){
     * ( based on PHP date object functionality )
     */
     var date_props = {
-        d: date < 10 ? '0'+date : date,
+        d: date < 10 ? '0' + date : date,
         D: this.getDayAbbr(),
         j: this.getDate(),
         l: this.getDayFull(),
@@ -2506,13 +2598,13 @@ Date.prototype.format = function(dateFormat){
         z: this.getDayOfYear(),
         W: this.getWeekOfYear(),
         F: this.getMonthName(),
-        m: month < 9 ? '0'+(month+1) : month+1,
+        m: month < 9 ? '0' + (month + 1) : month + 1,
         M: this.getMonthAbbr(),
-        n: month+1,
+        n: month + 1,
         t: this.getMonthDayCount(),
         L: this.isLeapYear() ? '1' : '0',
         Y: this.getFullYear(),
-        y: this.getFullYear()+''.substring(2,4),
+        y: this.getFullYear() + ''.substring(2, 4),
         a: hours > 12 ? 'pm' : 'am',
         A: hours > 12 ? 'PM' : 'AM',
         g: hours % 12 > 0 ? hours % 12 : 12,
@@ -2520,7 +2612,7 @@ Date.prototype.format = function(dateFormat){
         h: hours % 12 > 0 ? hours % 12 : 12,
         H: hours,
         i: minutes < 10 ? '0' + minutes : minutes,
-        s: seconds < 10 ? '0' + seconds : seconds           
+        s: seconds < 10 ? '0' + seconds : seconds
     };
     /*
     * loop through format array of characters and add matching data 
@@ -2528,9 +2620,9 @@ Date.prototype.format = function(dateFormat){
     */
     var date_string = "";
     var n = dateFormat.length;
-    for(var i=0;i<n;i++){
+    for (var i = 0; i < n; i++) {
         var f = dateFormat[i];
-        if(f.match(/[a-zA-Z]/g)){
+        if (f.match(/[a-zA-Z]/g)) {
             date_string += date_props[f] ? date_props[f] : '';
         } else {
             date_string += f;
@@ -2538,31 +2630,31 @@ Date.prototype.format = function(dateFormat){
     }
 
     return date_string;
-}; 
+};
 /*
 * parse string date to object Date
 * @param string date
 * @param string pattern formmat
 * @returns object Date
 */
-Date.prototype.parse = function(dateString,pattern){
+Date.prototype.parse = function (dateString, pattern) {
     /*
     * break apart format string into array paralel of characters
-    */   
+    */
     dateString = dateString.split(/\W/);
-    var pattern = pattern.split(/\W/);    
+    var pattern = pattern.split(/\W/);
     var n = pattern.length;
     var date = new Date();
-    for(var i = 0; i < n; i++){
-        var str = pattern[i];         
-        switch(str){                
+    for (var i = 0; i < n; i++) {
+        var str = pattern[i];
+        switch (str) {
             case 'd':
-            case 'j':    
-                date.setDate(dateString[i]);            
+            case 'j':
+                date.setDate(dateString[i]);
                 break;
             case 'm':
             case 'n':
-                date.setMonth(dateString[i]-1);
+                date.setMonth(dateString[i] - 1);
                 break;
             case 'F':
                 var monthNames = [
@@ -2578,33 +2670,33 @@ Date.prototype.parse = function(dateString,pattern){
                         'October',
                         'November',
                         'December'
-                    ];
+                ];
                 date.setMonth(monthNames.indexOf(dateString[i]));
                 break;
             case 'M':
-               var monthAbbrs = [
-                            'Jan',
-                            'Feb',
-                            'Mar',
-                            'Apr',
-                            'May',
-                            'Jun',
-                            'Jul',
-                            'Aug',
-                            'Sep',
-                            'Oct',
-                            'Nov',
-                            'Dec'
-                        ];
+                var monthAbbrs = [
+                             'Jan',
+                             'Feb',
+                             'Mar',
+                             'Apr',
+                             'May',
+                             'Jun',
+                             'Jul',
+                             'Aug',
+                             'Sep',
+                             'Oct',
+                             'Nov',
+                             'Dec'
+                ];
                 date.setMonth(monthAbbrs.indexOf(dateString[i]));
                 break;
-            case 'Y': 
+            case 'Y':
                 date.setFullYear(dateString[i]);
                 break;
-        }      
+        }
     }
-  return date;
-}; 
+    return date;
+};
 /*
 *
 * END - Date object extension
