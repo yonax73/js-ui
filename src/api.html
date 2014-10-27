@@ -37,12 +37,12 @@
                                             <pre>
                                                
                                             <code class="js">
-var notify = new UI.Notify(HtmlElement);
+var notify = new UI.Notify(element:HTMLElement);
                                                   </code>
                                     </pre>
                                             <h5>Parameters:</h5>
                                             <p>
-                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for display the notification.
+                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HTMLElement</a> element
                                             </p>
                                             <h5>Returns:</h5>
                                             <p>
@@ -59,13 +59,13 @@ var notify = new UI.Notify(HtmlElement);
                                             <div>
                                                 <pre>
                                                 <code class="js">
-notify.success('Success Notify');
+notify.success('message');
                                                   </code>
                                         </pre>
-                                                <p>Display the notification the type Success.</p>
+                                                <p>Show type success notification.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message.
                                                 </p>
                                             </div>
                                         </blockquote>
@@ -74,13 +74,13 @@ notify.success('Success Notify');
                                             <div>
                                                 <pre>
                                                 <code class="js">
-notify.info('Info Notify');
+notify.info('message');
                                                   </code>
                                         </pre>
-                                                <p>Display the notification the type Info.</p>
+                                                <p>Show type Info notification.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message.
                                                 </p>
                                             </div>
                                         </blockquote>
@@ -89,13 +89,13 @@ notify.info('Info Notify');
                                             <div>
                                                 <pre>
                                                 <code class="js">
-notify.warning('Warning Notify');
+notify.warning('message');
                                                   </code>
                                         </pre>
-                                                <p>Display the notification the type Warning.</p>
+                                                <p>Show type Warning notification.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message.
                                                 </p>
                                             </div>
                                         </blockquote>
@@ -104,13 +104,13 @@ notify.warning('Warning Notify');
                                             <div>
                                                 <pre>
                                                 <code class="js">
-notify.danger('Danger Notify');
+notify.danger('message');
                                                   </code>
                                         </pre>
-                                                <p>Display the notification the type Danger.</p>
+                                                <p>Show type Danger notification.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message.
                                                 </p>
                                             </div>
                                         </blockquote>
@@ -119,13 +119,13 @@ notify.danger('Danger Notify');
                                             <div>
                                                 <pre>
                                                 <code class="js">
-notify.wait('Wait Notify');
+notify.wait('message');
                                                   </code>
                                         </pre>
-                                                <p>Display the notification the type Wait.</p>
+                                                <p>Show type Wait notification.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message.
                                                 </p>
                                             </div>
                                         </blockquote>
@@ -137,7 +137,7 @@ notify.wait('Wait Notify');
 notify.close();
                                                   </code>
                                         </pre>
-                                                <p>Close the notification.</p>
+                                                <p>Close notification.</p>
                                             </div>
                                         </blockquote>
                                     </div>
@@ -153,7 +153,7 @@ notify.close();
                             <div class="col-md-12">
                                 <h2>DropdownList Object</h2>
                                 <p>
-                                    The DropdownList Object is used for show option list
+                                    The DropdownList Object is used for show options drop-down list
                                 </p>
                             </div>
                         </section>
@@ -166,24 +166,28 @@ notify.close();
                                             <pre>
                                                
                                             <code class="js">
-var dropdownlist = new UI.DropDownList(HtmlElement, Items[]);
+var dropdownlist = new UI.DropDownList(element:HTMLElement, Items:[]);
                                              </code>
                                             </pre>
                                             <h5>Parameters:</h5>
                                             <p>
-                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for display the dropdown list. <br />
-                                                <a href="http://www.w3schools.com/js/js_json.asp" target="_blank">Items[]</a> is Json array as this:
+                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HTMLElement</a> element. <br />
+                                                <a href="http://www.w3schools.com/js/js_json.asp" target="_blank">[]</a>  Json array items like this:
                                                 <div>
                                                     <pre>
                                                     <code class="js">
 var items = [
     {option:1,value:'Value a'},
     {option:2,value:'Value b',selected:true},
-    {option:'n',value:'Value n'}
+    {option:100,value:'Value n'}
 ];
                                                        </code>
                                                       </pre>
                                                 </div>
+                                            </p>
+                                            <p>
+                                                The <b>option</b> attribute can be a Number or String. To validations add  <b>option:-1</b>, 
+                                                and the attribute <b>data-name</b>. <a class="text-simple" href="components.html#ui-dropdownlist-valid">You can see an example here</a>.
                                             </p>
                                             <h5>Returns:</h5>
                                             <p>
@@ -203,10 +207,10 @@ var items = [
 dropdownlist.selectItem(option);
                                                   </code>
                                                 </pre>
-                                                <p>Set the list with the option selected.</p>
+                                                <p>Set the drop-down list with the option.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <span class="link">Option</span> of the item to select.
+                                                    <span class="link">Any</span> option.
                                                 </p>
                                             </div>
                                         </blockquote>
@@ -398,7 +402,7 @@ var form = new UI.FormOk(document.getElementById('form'));
                                             </pre>
                                             <h5>Parameters:</h5>
                                             <p>
-                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for create the form object.<br />
+                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HTMLElement</a> for create the form object.<br />
                                             </p>
                                             <h5>Returns:</h5>
                                             <p>
@@ -438,7 +442,7 @@ form.isValid()
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if all fields are correct.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if all fields are correct.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
@@ -457,7 +461,7 @@ form.isValid()
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-empty-input">isEmpty(HtmlElement)</a>
+                                                                <a href="#ui-formok-is-empty">isEmpty(value)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check field like required.
@@ -468,7 +472,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-full-name-input">isFullName(HtmlElement)</a>
+                                                                <a href="#ui-formok-is-full-name">isFullName(value)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check field like a valid name.
@@ -479,7 +483,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-email-input">isEmail(HtmlElement)</a>
+                                                                <a href="#ui-formok-is-email">isEmail(value)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check field like a valid e-mail.
@@ -490,7 +494,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-equals-to-input">isEqualsTo(HtmlElement,HtmlElement1)</a>
+                                                                <a href="#ui-formok-is-equals-to">isEqualsTo(value,value1)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to compare two fields with the same value.
@@ -501,7 +505,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-money-input">isMoney(HtmlElement)</a>
+                                                                <a href="#ui-formok-is-money">isMoney(value)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check field like money.
@@ -512,7 +516,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-max-length-input">maxLength(HtmlElement,length)</a>
+                                                                <a href="#ui-formok-max-length">maxLength(value,length)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check the maximum field length.
@@ -523,7 +527,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-min-length-input">minLength(HtmlElement,length)</a>
+                                                                <a href="#ui-formok-min-length">minLength(value,length)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check the minimun field length.
@@ -534,7 +538,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-range-length-input">rangeLength(HtmlElement,min,max)</a>
+                                                                <a href="#ui-formok-range-length">rangeLength(value,min,max)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check the range length of the field.
@@ -545,7 +549,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-max-input">max(HtmlElement,max)</a>
+                                                                <a href="#ui-formok-max">max(value,max)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check the maximum number of the field.
@@ -556,7 +560,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-min-input">min(HtmlElement,min)</a>
+                                                                <a href="#ui-formok-min">min(value,min)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check the minimun number of the field.
@@ -567,7 +571,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-range-input">range(HtmlElement,min,max)</a>
+                                                                <a href="#ui-formok-range">range(value,min,max)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check the range number of the field.
@@ -578,7 +582,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-URL-input">isURL(HtmlElement)</a>
+                                                                <a href="#ui-formok-is-URL">isURL(value)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check field like a valid URL.
@@ -589,7 +593,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-date-input">isDate(HtmlElement)</a>
+                                                                <a href="#ui-formok-is-date">isDate(value)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check field like a valid date.
@@ -600,7 +604,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-number-input">isNumber(HtmlElement)</a>
+                                                                <a href="#ui-formok-is-number">isNumber(value)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check field like a valid number.
@@ -611,7 +615,7 @@ form.isValid()
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="#ui-formok-is-credit-card-input">isCreditCard(HtmlElement)</a>
+                                                                <a href="#ui-formok-is-credit-card">isCreditCard(value)</a>
                                                             </td>
                                                             <td>
                                                                 It is used to check field like a valid credit card.
@@ -624,354 +628,193 @@ form.isValid()
                                                 </table>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-empty-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-empty-string">isEmpty(String):Boolean</a>
+                                        <blockquote id="ui-formok-is-empty" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-empty">isEmpty(value):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isEmpty(String)
+form.isEmpty(value)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the String is empty.
+                                                    Checked if the value is empty.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>                                                    
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is empty.<br>                                                    
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if value is empty.<br>                                                    
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-empty-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-empty-input">isEmpty(HtmlElement):Boolean</a>
+                                        
+                                        <blockquote id="ui-formok-is-full-name" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-full-name">isFullName(value):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isEmpty(HtmlElement)
+form.isFullName(value)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the HtmlElement is empty.
+                                                    Checked if the value is a name valid.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is empty.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if value is a name valid.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-full-name-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-full-name-string">isFullName(String):Boolean</a>
+                                        
+                                        <blockquote id="ui-formok-is-email" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-email">isEmail(value):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isFullName(String)
+form.isEmail(value)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the String is a name valid.
+                                                    Checked if the value is an email valid.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a name valid.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if value is an email valid.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-full-name-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-full-name-input">isFullName(HtmlElement):Boolean</a>
+                                        
+                                        <blockquote id="ui-formok-is-equals-to" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-equals-to">isEqualsTo(value,value1):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isFullName(HtmlElement)
+form.isEqualsTo(value,value1)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the HtmlElement is a name valid.
+                                                    Checked if the value is equals to value1.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value<br/>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value1
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a name valid.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if both values are equals.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-email-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-email-string">isEmail(String):Boolean</a>
+                                        
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-money" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-money">isMoney(value):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isEmail(String)
+form.isMoney(value)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the String is a email valid.
+                                                    Checked if the value is a format money valid.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value<br/>                                                    
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a email valid.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if the format money is valid.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-email-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-email-input">isEmail(HtmlElement):Boolean</a>
+                                        
+                                        </blockquote>
+                                        <blockquote id="ui-formok-max-length" class="api">
+                                            <a class="method" href="components.html#ui-formok-max-length">maxLength(value,length):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isEmail(HtmlElement)
+form.maxLength(value,length)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the HtmlElement is a email valid.
+                                                    Checked if the value has like maximum length characters.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value<br/>                                
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_number.asp" target="_blank">Number</a> length, the maximum value allowed.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a email valid.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if has length characters or less.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-equals-to-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-equals-to-string">isEqualsTo(String,String1):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.isEqualsTo(String,String1)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the String is equals to String1.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for match with String1.<br/>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String1</a> for match with String.
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if both Strings are equals.<br>
-                                                </p>
-                                            </div>
+                                        
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-equals-to-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-equals-to-input">isEqualsTo(HtmlElement,HtmlElement1):Boolean</a>
+                                        <blockquote id="ui-formok-min-length" class="api">
+                                            <a class="method" href="components.html#ui-formok-min-length">minLength(value,length):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isEqualsTo(HtmlElement,HtmlElement1)
+form.minLength(value,length)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the HtmlElement is equals to HtmlElement1.
+                                                    Checked if the value has like minimum length characters.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for match with HtmlElement1.<br />
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement1</a> of tag name <b>INPUT</b> for match with HtmlElement.
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if both HtmlElements are equals<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-is-money-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-money-string">isMoney(String):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.isMoney(String)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the String is a format money valid.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked<br/>                                                    
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the format money is valid.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-is-money-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-money-input">isMoney(HtmlElement):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.isMoney(HtmlElement)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement is a format money valid.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />                                                    
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the format money is valid.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-max-length-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-max-length-string">maxLength(String,length):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.maxLength(String,length)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the String has like maximum length characters.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked<br/>                                                    
-                                                    <span class="link">Length</span> is the maximum value allowed.
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if has length characters or less.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-max-length-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-max-length-input">maxLength(HtmlElement,length):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.maxLength(HtmlElement,length)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement has like maximum length characters.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
-                                                    <span class="link">Length</span> is the maximum value allowed.                                                    
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if has length characters or less.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-min-length-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-min-length-string">minLength(String,length):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.minLength(String,length)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the String has like minimum length characters.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked<br/>                                                    
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value<br/>                                                    
                                                     <span class="link">Length</span> is the minimum value allowed.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if has length characters or more.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if has length characters or more.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-min-length-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-min-length-input">minLength(HtmlElement,length):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.minLength(HtmlElement,length)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement has like minimum length characters.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
-                                                    <span class="link">Length</span> is the minimum value allowed.                                                    
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if has length characters or more.<br>
-                                                </p>
-                                            </div>
+                                        
                                         </blockquote>
-                                        <blockquote id="ui-formok-range-length-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-range-length-string">rangeLength(String,min,max):Boolean</a>
+                                        <blockquote id="ui-formok-range-length" class="api">
+                                            <a class="method" href="components.html#ui-formok-range-length">rangeLength(value,min,max):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.rangeLength(String,min,max)
+form.rangeLength(value,min,max)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the String has a range characters between minimum and maximum.
+                                                    Checked if the value has a range characters between minimum and maximum.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked<br/>                                                    
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value<br/>                                                    
                                                     <span class="link">max</span> is the maximum value allowed.<br>
                                                     <span class="link">min</span> is the minimum value allowed.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if String is between min and max values.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if String is between min and max values.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-range-length-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-range-length-input">rangeLength(HtmlElement,min,max):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.rangeLength(HtmlElement,min,max)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement has a range characters between minimum and maximum.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
-                                                    <span class="link">max</span> is the maximum value allowed.<br>
-                                                    <span class="link">min</span> is the minimum value allowed.                                                    
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if HtmlElement is between min and max values.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-max-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-max-string">max(Number,max):Boolean</a>
+
+                                        <blockquote id="ui-formok-max" class="api">
+                                            <a class="method" href="components.html#ui-formok-max">max(Number,max):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
@@ -983,39 +826,19 @@ form.max(Number,max)
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_number.asp" target="_blank">number</a> for checked<br/>                                                    
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">number</a> for checked<br/>                                                    
                                                     <span class="link">max</span> is the maximum number allowed.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the number is greater or less that maximum.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if the number is greater or less that maximum.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-max-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-max-input">max(HtmlElement,max):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.max(HtmlElement,max)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement is greater or less that maximum.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for checked<br/>                                                    
-                                                    <span class="link">max</span> is the maximum number allowed.
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is greater or less that maximum.<br>
-                                                </p>
-                                            </div>
+                                        
                                         </blockquote>
-                                        <blockquote id="ui-formok-min-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-min-string">min(number,min):Boolean</a>
+                                        <blockquote id="ui-formok-min" class="api">
+                                            <a class="method" href="components.html#ui-formok-min">min(number,min):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
@@ -1027,39 +850,19 @@ form.min(Number,min)
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_number.asp" target="_blank">Number</a> for checked<br />
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">Number</a> for checked<br />
                                                     <span class="link">min</span> is the minimum number allowed.                                                    
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the number is greater or equals that minimum.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if the number is greater or equals that minimum.<br>
                                                 </p>
                                             </div>
                                         </blockquote>  
-                                        <blockquote id="ui-formok-min-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-min-input">min(HtmlElement,min):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.min(HtmlElement,min)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement is greater that minimum.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
-                                                    <span class="link">min</span> is the minimum number allowed.                                                    
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the number is greater or equals that minimum.<br>
-                                                </p>
-                                            </div>
+                                        
                                         </blockquote>  
-                                        <blockquote id="ui-formok-range-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-range-string">range(Number,min,max):Boolean</a>
+                                        <blockquote id="ui-formok-range" class="api">
+                                            <a class="method" href="components.html#ui-formok-range">range(Number,min,max):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
@@ -1071,207 +874,105 @@ form.range(Number,min,max)
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_number.asp" target="_blank">Number</a> for checked<br/>                                                    
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">Number</a> for checked<br/>                                                    
                                                     <span class="link">max</span> is the maximum value allowed.<br>
                                                     <span class="link">min</span> is the minimum value allowed.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if Number is between min and max values.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if Number is between min and max values.<br>
                                                 </p>
                                             </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-range-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-range-input">range(HtmlElement,min,max):Boolean</a>
+                                        </blockquote>                                        
+
+                                        <blockquote id="ui-formok-is-URL" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-URL">isURL(value):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.range(HtmlElement,min,max)
+form.isURL(value)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the HtmlElement has a range between minimum and maximum values.
+                                                    Checked if the value is an URL valid.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
-                                                    <span class="link">max</span> is the maximum value allowed.<br>
-                                                    <span class="link">min</span> is the minimum value allowed.                                                    
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if HtmlElement is between min and max values.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if value is a URL valid.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-URL-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-URL-string">isURL(String):Boolean</a>
+                                        
+                                        <blockquote id="ui-formok-is-date" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-date">isDate(value):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isURL(String)
+form.isDate(value)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the String is an URL valid.
+                                                    Checked if the value is a date valid.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a URL valid.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if value is a date valid.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-URL-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-URL-input">isURL(HtmlElement):Boolean</a>
+                                        
+                                        <blockquote id="ui-formok-is-number" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-number">isNumber(value):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isURL(HtmlElement)
+form.isNumber(value)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the HtmlElement is an URL valid.
+                                                    Checked if the value is a number valid.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a URL valid.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if value is a number valid.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-date-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-date-string">isDate(String):Boolean</a>
+                                        
+                                        <blockquote id="ui-formok-is-credit-card" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-credit-card">isCreditCard(value):Boolean</a>
                                             <div>
                                                 <pre>
                                                 <code class="js">
-form.isDate(String)
+form.isCreditCard(value)
                                                   </code>
                                                 </pre>
                                                 <p>
-                                                    Checked if the String is a date valid.
+                                                    Checked if the value is a credit card valid.
                                                 </p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> value.
                                                 </p>
                                                 <h5>Returns:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a date valid.<br>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> true if value is a credit card valid.<br>
                                                 </p>
                                             </div>
                                         </blockquote>
-                                        <blockquote id="ui-formok-is-date-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-date-input">isDate(HtmlElement):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.isDate(HtmlElement)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement is a date valid.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a date valid.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-is-number-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-number-string">isNumber(String):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.isNumber(String)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the String is a number valid.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a number valid.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-is-number-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-number-input">isNumber(HtmlElement):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.isNumber(HtmlElement)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement is a number valid.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a number valid.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-is-credit-card-string" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-credit-card-string">isCreditCard(String):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.isCreditCard(String)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the String is a credit card valid.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a credit card valid.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
-                                        <blockquote id="ui-formok-is-credit-card-input" class="api">
-                                            <a class="method" href="components.html#ui-formok-is-credit-card-input">isCreditCard(HtmlElement):Boolean</a>
-                                            <div>
-                                                <pre>
-                                                <code class="js">
-form.isCreditCard(HtmlElement)
-                                                  </code>
-                                                </pre>
-                                                <p>
-                                                    Checked if the HtmlElement is a credit card valid.
-                                                </p>
-                                                <h5>Parameters:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
-                                                </p>
-                                                <h5>Returns:</h5>
-                                                <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a credit card valid.<br>
-                                                </p>
-                                            </div>
-                                        </blockquote>
+                                        
                                     </div>
                                 </section>
                             </div>
@@ -1334,21 +1035,21 @@ form.isCreditCard(HtmlElement)
             href: '#ui-formok', text: 'FormOk', target: 'ui-formok', children: [
                 { href: '#ui-formok-is-valid', text: 'isValid()', target: 'ui-formok-is-valid' },
                 { href: '#ui-formok-list-validations', text: 'List of built-in validation', target: 'ui-formok-list-validations' },
-                { href: '#ui-formok-is-empty-string', text: 'isEmpty()', target: 'ui-formok-is-empty-string' },
-                { href: '#ui-formok-is-full-name-string', text: 'isFullName()', target: 'ui-formok-is-full-name-string' },
-                { href: '#ui-formok-is-email-string', text: 'isEmail()', target: 'ui-formok-is-email-string' },
-                { href: '#ui-formok-is-equals-to-string', text: 'isEqualsTo()', target: 'ui-formok-is-equals-to-string' },
-                { href: '#ui-formok-is-money-string', text: 'isMoney()', target: 'ui-formok-is-money-string' },
-                { href: '#ui-formok-max-length-string', text: 'maxLength()', target: 'ui-formok-max-length-string' },
-                { href: '#ui-formok-min-length-string', text: 'minLength()', target: 'ui-formok-min-length-string' },
-                { href: '#ui-formok-range-length-string', text: 'rangeLength()', target: 'ui-formok-range-length-string' },
-                { href: '#ui-formok-max-string', text: 'max()', target: 'ui-formok-max-string' },
-                { href: '#ui-formok-min-string', text: 'min()', target: 'ui-formok-min-string' },
-                { href: '#ui-formok-range-string', text: 'range()', target: 'ui-formok-range-string' },
-                { href: '#ui-formok-is-URL-string', text: 'isURL()', target: 'ui-formok-is-URL-string' },
-                { href: '#ui-formok-is-date-string', text: 'isDate()', target: 'ui-formok-is-date-string' },
-                { href: '#ui-formok-is-number-string', text: 'isNumber()', target: 'ui-formok-is-number-string' },
-                { href: '#ui-formok-is-credit-card-string', text: 'isCreditCard()', target: 'ui-formok-is-credit-card-string' }
+                { href: '#ui-formok-is-empty', text: 'isEmpty()', target: 'ui-formok-is-empty' },
+                { href: '#ui-formok-is-full-name', text: 'isFullName()', target: 'ui-formok-is-full-name' },
+                { href: '#ui-formok-is-email', text: 'isEmail()', target: 'ui-formok-is-email' },
+                { href: '#ui-formok-is-equals-to', text: 'isEqualsTo()', target: 'ui-formok-is-equals-to' },
+                { href: '#ui-formok-is-money', text: 'isMoney()', target: 'ui-formok-is-money' },
+                { href: '#ui-formok-max-length', text: 'maxLength()', target: 'ui-formok-max-length' },
+                { href: '#ui-formok-min-length', text: 'minLength()', target: 'ui-formok-min-length' },
+                { href: '#ui-formok-range-length', text: 'rangeLength()', target: 'ui-formok-range-length' },
+                { href: '#ui-formok-max', text: 'max()', target: 'ui-formok-max' },
+                { href: '#ui-formok-min', text: 'min()', target: 'ui-formok-min' },
+                { href: '#ui-formok-range', text: 'range()', target: 'ui-formok-range' },
+                { href: '#ui-formok-is-URL', text: 'isURL()', target: 'ui-formok-is-URL' },
+                { href: '#ui-formok-is-date', text: 'isDate()', target: 'ui-formok-is-date' },
+                { href: '#ui-formok-is-number', text: 'isNumber()', target: 'ui-formok-is-number' },
+                { href: '#ui-formok-is-credit-card', text: 'isCreditCard()', target: 'ui-formok-is-credit-card' }
             ]
         };
         items.push(itemsFormOK);

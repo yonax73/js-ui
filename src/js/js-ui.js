@@ -1372,142 +1372,106 @@ UI.FormOk = function (HtmlElement) {
 
     }
 
-    /*
-    * Check typeof arg.
-    * @param arg
-    * @returns 0 if typeof input or 1 if typeof string, esle -1;
+
+    /*    
+    * @param String value
+    * @returns true if value is fullname
     */
-    function checkArg(arg) {
-        if (arg.tagName && arg.tagName === 'INPUT') return 0;
-        if (typeof arg === 'string') return 1;
-        return -1;
-    }
-    /*
-    * arg is full name
-    * @param arg as String or input
-    * @returns true if is fullname
-    */
-    this.isFullName = function (arg) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.isFullName = function (value) {        
         return value.match(/^[a-zA-Z][a-zA-Z ]+$/);
     }
     /*
-    * arg is email
-    * @param arg as String or input
-    * @returns true if is email
+    * @param String value 
+    * @returns true if value is email
     */
-    this.isEmail = function (arg) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.isEmail = function (value) {
         return value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     }
     /*
-    * arg is empty
-    * @param arg as String or input
-    * @returns true if is empty
+    * @param String value
+    * @returns true if value is empty
     */
-    this.isEmpty = function (arg) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.isEmpty = function (value) {        
         return !value.match(/^\S+$|[^\s]+$/);
     }
-    /*
-    * arg is equals to arg1
-    * @param arg as String or input
-    * @param arg1 as String or input
-    * @returns true if both are equals
+    /*    
+    * @param String value 
+    * @param String value1 
+    * @returns true if both values are equals
     */
-    this.isEqualsTo = function (arg, arg1) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
-        var value1 = checkArg(arg1) === 0 ? arg1.value : arg1;
+    this.isEqualsTo = function (value, value1) {        
         return value === value1;
     }
     /*
-    * arg is money
-    * @param arg as String or input
-    * @returns true if is money
+    * @param String value 
+    * @returns true if value is money format
     */
-    this.isMoney = function (arg) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.isMoney = function (value) {        
         return value.match(/^\d+(,\d{3})*(\.\d*)?$/);
     }
-    /*
-    * arg with length characters like maximum 
-    * @param arg as String or input
+    /*     
+    * @param String value	 
     * @param length, number of characters 
-    * @returns true if the arg has length characters or less 
+    * @returns true if  value  has length characters or less 
     */
-    this.maxLength = function (arg, length) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.maxLength = function (value, length) {
         return !isNaN(length) && value.length <= length;
     }
-    /*
-    * arg with length characters like minimum 
-    * @param arg as String or input
+    /* 
+    * @param String value
     * @param length, number of characters 
-    * @returns true if the arg has length characters or more 
+    * @returns true if  value has length characters or more 
     */
-    this.minLength = function (arg, length) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.minLength = function (value, length) {        
         return !isNaN(length) && value.length >= length;
     }
     /*
-    * arg with a range characters between minimum and maximum
-    * @param arg as String or input
+    * @param String value
     * @param min, number minimum of characters 
     * @param max, number maximum of characters 
-    * @returns true if the arg is between min and max
+    * @returns true if  value is between min and max
     */
-    this.rangeLength = function (arg, min, max) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.rangeLength = function (value, min, max) {        
         var length = value.length;
         return ((!isNaN(min) && length >= min) && (!isNaN(max) && length <= max));
     }
-    /*
-    * arg with the number max like maximum 
-    * @param arg as String or input
+    /*     
+    * @param String value 
     * @param max, number maximun
-    * @returns true if the arg is the number max  or less
+    * @returns true if  value is equals or less that max
     */
-    this.max = function (arg, max) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.max = function (value, max) {        
         return (!isNaN(max) && value <= max);
     }
-    /*
-    * arg with the number max like minimum 
-    * @param arg as String or input
+    /* 
+    * @param String value
     * @param min, number minimun
-    * @returns true if the arg is the number min  or greater
+    * @returns true if value is equals or greater that min
     */
-    this.min = function (arg, min) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.min = function (string, min) {        
         return (!isNaN(min) && value >= min);
     }
-    /*
-    * arg with the number range between minimum and maximum
-    * @param arg as String or input
+    /* 
+    * @param String value 
     * @param min, number minimum  
     * @param max, number maximum
-    * @returns true if the arg is between min and max number
+    * @returns true if value is between min and max number
     */
-    this.range = function (arg, min, max) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.range = function (value, min, max) {
         return ((!isNaN(min) && value >= min) && (!isNaN(max) && value <= max));
     }
     /*
-    * arg is URL
-    * @param arg as String or input
-    * @returns true if is URL
+    * @param String value
+    * @returns true if value is URL
     */
-    this.isURL = function (arg) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.isURL = function (value) {
         return value.match(/https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/);
     }
     /*
-    * arg is Date
-    * @param arg as String or input
-    * @returns true if is Date
+    * @param String value 
+    * @returns true if value is Date
     */
-    this.isDate = function (arg) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.isDate = function (value) {        
         var parms = value.split(/[\.\-\/]/);
         var yyyy = parseInt(parms[2], 10);
         var mm = parseInt(parms[1], 10);
@@ -1516,34 +1480,28 @@ UI.FormOk = function (HtmlElement) {
         return (mm === (date.getMonth() + 1) && dd === date.getDate() && yyyy === date.getFullYear());
     }
     /*
-    * arg is Number
-    * @param arg as String or input
-    * @returns true if is Number
+    * @param String value
+    * @returns true if value is Number
     */
-    this.isNumber = function (arg) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.isNumber = function (value) {        
         return !isNaN(value);
     }
     /*
-    * arg is Credit Card
-    * @param arg as String or input
-    * @returns true if is Number
+    * @param String value
+    * @returns true if value is credit card
     */
-    this.isCreditCard = function (arg) {
-        var value = checkArg(arg) === 0 ? arg.value : arg;
+    this.isCreditCard = function (value) {        
         return value.match(/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/);
     }
     /*
-   * Is checked input
-   * @param input
-   * @returns true if input is Check
+   * @param HtmlElement input
+   * @returns true if input is Checked
    */
     this.isChecked = function (input) {
         return input.checked;
     }
     /*
-    * Is option valid if option is greater than zero
-    * @param input
+    * @param HtmlElement input
     * @param option
     * @returns true if option is greater than zero
     */
