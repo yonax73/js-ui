@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>FormOk::isEmpty(HtmlElement):Boolean JS-UI</title>
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../css/js-ui.css" rel="stylesheet" />
+    <link href="../../css/theme/default.css" rel="stylesheet" id="style" />
+
+</head>
+<body>
+    <section class="container">
+        <div class="row">
+            <br>
+            <div class="col-sm-12" id="notify"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <input type="text" id="input" name="input" class="form-control" placeholder="required">
+                    </div>
+                    <button class="btn btn-info col-sm-3" onclick="validate()">Valid</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../js/js-ui.js"></script>
+    <script>
+        var notify = new UI.Notify(document.getElementById('notify'));
+        var form = new UI.FormOk();
+
+        function validate() {
+            if (form.isEmpty(document.getElementById('input'))) {
+                notify.danger('The input is empty!');
+            } else {
+                notify.info('Validate!');
+            }
+        }
+
+    </script>
+</body>
+</html>

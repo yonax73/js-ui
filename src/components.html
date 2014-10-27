@@ -18,19 +18,19 @@
                 <h4>Themes</h4>
                 <div class="col-md-3">
                     <ul class="palette">
-                        <li onclick="changeTheme('../css/theme/cerulean.css','Cerulean Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/cerulean.css','Cerulean Theme',this)">
                             <div class="cerulean-1"></div>
                             <div class="cerulean-2"></div>
                             <div class="cerulean-3"></div>
                             Cerulean
                         </li>
-                        <li onclick="changeTheme('../css/theme/cosmo.css','Cosmo Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/cosmo.css','Cosmo Theme',this)">
                             <div class="cosmo-1"></div>
                             <div class="cosmo-2"></div>
                             <div class="cosmo-3"></div>
                             Cosmo
                         </li>
-                        <li onclick="changeTheme('../css/theme/cupCofee.css','CupCofee Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/cupCofee.css','CupCofee Theme',this)">
                             <div class="cupCofee-1"></div>
                             <div class="cupCofee-2"></div>
                             <div class="cupCofee-3"></div>
@@ -40,19 +40,19 @@
                 </div>
                 <div class="col-md-3">
                     <ul class="palette">
-                        <li onclick="changeTheme('../css/theme/cyborg.css','Cyborg Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/cyborg.css','Cyborg Theme',this)">
                             <div class="cyborg-1"></div>
                             <div class="cyborg-2"></div>
                             <div class="cyborg-3"></div>
                             Cyborg
                         </li>
-                        <li onclick="changeTheme('../css/theme/darkly.css','Darkly Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/darkly.css','Darkly Theme',this)">
                             <div class="darkly-1"></div>
                             <div class="darkly-2"></div>
                             <div class="darkly-3"></div>
                             Darkly
                         </li>
-                        <li id="defaultTheme" class="active" onclick="changeTheme('../css/theme/default.css','Default Theme',this)">
+                        <li id="defaultTheme" class="active" onclick="changeTheme('../../css/theme/default.css','Default Theme',this)">
                             <div class="default-1"></div>
                             <div class="default-2"></div>
                             <div class="default-3"></div>
@@ -62,19 +62,19 @@
                 </div>
                 <div class="col-md-3">
                     <ul class="palette">
-                        <li onclick="changeTheme('../css/theme/simplex.css','Simplex Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/simplex.css','Simplex Theme',this)">
                             <div class="simplex-1"></div>
                             <div class="simplex-2"></div>
                             <div class="simplex-3"></div>
                             Simplex
                         </li>
-                        <li onclick="changeTheme('../css/theme/superhero.css','Superhero Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/superhero.css','Superhero Theme',this)">
                             <div class="superhero-1"></div>
                             <div class="superhero-2"></div>
                             <div class="superhero-3"></div>
                             Superhero
                         </li>
-                        <li onclick="changeTheme('../css/theme/united.css','United Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/united.css','United Theme',this)">
                             <div class="united-1"></div>
                             <div class="united-2"></div>
                             <div class="united-3"></div>
@@ -84,13 +84,13 @@
                 </div>
                 <div class="col-md-3">
                     <ul class="palette">
-                        <li onclick="changeTheme('../css/theme/yeti.css','Yeti Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/yeti.css','Yeti Theme',this)">
                             <div class="yeti-1"></div>
                             <div class="yeti-2"></div>
                             <div class="yeti-3"></div>
                             Yeti
                         </li>
-                        <li onclick="changeTheme('../css/theme/youshoopblue.css','Youshoop Blue Theme',this)">
+                        <li onclick="changeTheme('../../css/theme/youshoopblue.css','Youshoop Blue Theme',this)">
                             <div class="youshoopblue-1"></div>
                             <div class="youshoopblue-2"></div>
                             <div class="youshoopblue-3"></div>
@@ -116,8 +116,8 @@
                             </div>
                         </section>
                         <!--  Notify Success -->
-                        <div class="component-api">
-                            <section id="ui-notify-success" class="row">
+                        <blockquote class="component-api" id="ui-notify-success">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>success(message:String)</h3>
                                     <small class="pull-right">
@@ -151,24 +151,24 @@ document.getElementById('btnSuccess').onclick = function () {
                                         <div id="tab-notify-success-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/notify-success.html"></object>
+                                                    <object data="components/notify/notify-success.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-notify-success'), [
-                               { id: 'tab-notify-success-1', text: 'Html' },
+                               { id: 'tab-notify-success-1', text: 'HTML' },
                                { id: 'tab-notify-success-2', text: 'Javascript' },
                                { id: 'tab-notify-success-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  Notify Info -->
-                        <div class="component-api">
-                            <section id="ui-notify-info" class="row">
+                        <blockquote class="component-api" id="ui-notify-info">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>info(message:String)</h3>
                                     <small class="pull-right">
@@ -202,24 +202,24 @@ document.getElementById('btnInfo').onclick = function () {
                                         <div id="tab-notify-info-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/notify-info.html"></object>
+                                                    <object data="components/notify/notify-info.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-notify-info'), [
-                               { id: 'tab-notify-info-1', text: 'Html' },
+                               { id: 'tab-notify-info-1', text: 'HTML' },
                                { id: 'tab-notify-info-2', text: 'Javascript' },
                                { id: 'tab-notify-info-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  Notify Warning -->
-                        <div class="component-api">
-                            <section id="ui-notify-warning" class="row">
+                        <blockquote class="component-api" id="ui-notify-warning">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>warning(message:String)</h3>
                                     <small class="pull-right">
@@ -253,24 +253,24 @@ document.getElementById('btnWarning').onclick = function () {
                                         <div id="tab-notify-warning-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/notify-warning.html"></object>
+                                                    <object data="components/notify/notify-warning.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-notify-warning'), [
-                               { id: 'tab-notify-warning-1', text: 'Html' },
+                               { id: 'tab-notify-warning-1', text: 'HTML' },
                                { id: 'tab-notify-warning-2', text: 'Javascript' },
                                { id: 'tab-notify-warning-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  Notify Danger -->
-                        <div class="component-api">
-                            <section id="ui-notify-danger" class="row">
+                        <blockquote class="component-api" id="ui-notify-danger">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>danger(message:String)</h3>
                                     <small class="pull-right">
@@ -304,24 +304,24 @@ document.getElementById('btnDanger').onclick = function () {
                                         <div id="tab-notify-danger-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/notify-danger.html"></object>
+                                                    <object data="components/notify/notify-danger.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-notify-danger'), [
-                               { id: 'tab-notify-danger-1', text: 'Html' },
+                               { id: 'tab-notify-danger-1', text: 'HTML' },
                                { id: 'tab-notify-danger-2', text: 'Javascript' },
                                { id: 'tab-notify-danger-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  Notify wait -->
-                        <div class="component-api">
-                            <section id="ui-notify-wait" class="row">
+                        <blockquote class="component-api" id="ui-notify-wait">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>wait(message:String)</h3>
                                     <small class="pull-right">
@@ -355,24 +355,24 @@ document.getElementById('btnWait').onclick = function () {
                                         <div id="tab-notify-wait-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/notify-wait.html"></object>
+                                                    <object data="components/notify/notify-wait.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-notify-wait'), [
-                               { id: 'tab-notify-wait-1', text: 'Html' },
+                               { id: 'tab-notify-wait-1', text: 'HTML' },
                                { id: 'tab-notify-wait-2', text: 'Javascript' },
                                { id: 'tab-notify-wait-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  Notify close -->
-                        <div class="component-api">
-                            <section id="ui-notify-close" class="row">
+                        <blockquote class="component-api" id="ui-notify-close">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>close()</h3>
                                     <small class="pull-right">
@@ -410,17 +410,17 @@ document.getElementById('btnClose').onclick = function () {
                                         <div id="tab-notify-close-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/notify-close.html"></object>
+                                                    <object data="components/notify/notify-close.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-notify-close'), [
-                               { id: 'tab-notify-close-1', text: 'Html' },
+                               { id: 'tab-notify-close-1', text: 'HTML' },
                                { id: 'tab-notify-close-2', text: 'Javascript' },
                                { id: 'tab-notify-close-3', text: 'Result', active: true }
                             ]);
@@ -439,8 +439,8 @@ document.getElementById('btnClose').onclick = function () {
                             </div>
                         </section>
                         <!--  DropdownList select-item -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-select-item" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-select-item">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>selectItem(option:Any)</h3>
                                     <small class="pull-right">
@@ -474,24 +474,24 @@ document.getElementById('btnClose').onclick = function () {
                                         <div id="tab-dropdownlist-select-item-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-select-item.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-select-item.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-select-item'), [
-                               { id: 'tab-dropdownlist-select-item-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-select-item-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-select-item-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-select-item-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  DropdownList get-option -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-get-option" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-get-option">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>getOption():Any</h3>
                                     <small class="pull-right">
@@ -537,24 +537,24 @@ document.getElementById('btnClose').onclick = function () {
                                         <div id="tab-dropdownlist-get-option-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-get-option.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-get-option.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-get-option'), [
-                               { id: 'tab-dropdownlist-get-option-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-option-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-get-option-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-get-option-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  DropdownList get-value -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-get-value" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-get-value">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>getvalue():Any</h3>
                                     <small class="pull-right">
@@ -600,24 +600,24 @@ document.getElementById('btnClose').onclick = function () {
                                         <div id="tab-dropdownlist-get-value-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-get-value.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-get-value.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-get-value'), [
-                               { id: 'tab-dropdownlist-get-value-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-value-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-get-value-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-get-value-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  DropdownList get-item -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-get-item" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-get-item">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>getItem():Item{}</h3>
                                     <small class="pull-right">
@@ -663,24 +663,24 @@ document.getElementById('btnClose').onclick = function () {
                                         <div id="tab-dropdownlist-get-item-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-get-item.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-get-item.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-get-item'), [
-                               { id: 'tab-dropdownlist-get-item-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-item-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-get-item-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-get-item-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  DropdownList get-item-by-option -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-get-item-by-option" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-get-item-by-option">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>getItemByOption(option:Any):Item{}</h3>
                                     <small class="pull-right">
@@ -733,24 +733,24 @@ document.getElementById('btnClose').onclick = function () {
                                         <div id="tab-dropdownlist-get-item-by-option-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-get-item-by-option.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-get-item-by-option.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-get-item-by-option'), [
-                               { id: 'tab-dropdownlist-get-item-by-option-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-item-by-option-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-get-item-by-option-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-get-item-by-option-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  DropdownList get-item-by-value -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-get-item-by-value" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-get-item-by-value">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>getItemByValue(value:Any):Item{}</h3>
                                     <small class="pull-right">
@@ -803,24 +803,24 @@ document.getElementById('btn').onclick = function(){
                                         <div id="tab-dropdownlist-get-item-by-value-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-get-item-by-value.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-get-item-by-value.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-get-item-by-value'), [
-                               { id: 'tab-dropdownlist-get-item-by-value-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-get-item-by-value-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-get-item-by-value-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-get-item-by-value-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  DropdownList add-item -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-add-item" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-add-item">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>addItem(option:Any,value:Any)</h3>
                                     <small class="pull-right">
@@ -872,24 +872,24 @@ document.getElementById('btn').onclick = function(){
                                         <div id="tab-dropdownlist-add-item-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-add-item.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-add-item.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-add-item'), [
-                               { id: 'tab-dropdownlist-add-item-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-add-item-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-add-item-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-add-item-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  DropdownList disabled -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-disabled" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-disabled">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>setDisabled(disabled:boolean)</h3>
                                     <small class="pull-right">
@@ -937,24 +937,24 @@ document.getElementById('btn').onclick = function(){
                                         <div id="tab-dropdownlist-disabled-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-disabled.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-disabled.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-disabled'), [
-                               { id: 'tab-dropdownlist-disabled-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-disabled-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-disabled-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-disabled-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  DropdownList onchange -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-onchange" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-onchange">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>onchange(function(){})</h3>
                                     <small class="pull-right">
@@ -995,24 +995,99 @@ document.getElementById('btn').onclick = function(){
                                         <div id="tab-dropdownlist-onchange-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-onchange.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-onchange.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-onchange'), [
-                               { id: 'tab-dropdownlist-onchange-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-onchange-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-onchange-2', text: 'Javascript' },
                                { id: 'tab-dropdownlist-onchange-3', text: 'Result', active: true }
                             ]);
                         </script>
+                        <!--  DropdownList Valid -->
+                        <blockquote class="component-api" id="ui-dropdownlist-valid">
+                            <section  class="row">
+                                <div class="col-md-12">
+                                    <h3>Dropdownlist valid in form</h3>
+                                    <small class="pull-right">
+                                        <a href="http://jsfiddle.net/yonaxtics/1frd6xx7/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-dropdownlist-valid">
+                                        <div id="tab-dropdownlist-valid-1">
+                                            <pre>
+                                            <code class="html">
+&lt;form id=&quot;form&quot;&gt;
+    &lt;div class=&quot;col-sm-8&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;!--The data-name atributte is required for valid in form--&gt;
+        &lt;div class=&quot;col-sm-6&quot; id=&quot;dropdownlist&quot; data-name=&quot;products&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;col-sm-2&quot;&gt;
+            &lt;button class=&quot;btn btn-info&quot;&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+                                          </code>
+                                         </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-valid-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));      // Create the object for notifications
+UI.DropDownList(document.getElementById('dropdownlist'), [          // Create the object dropdownlist
+    { option: -1, value: '- SELECT PRODUCT -', selected: true },
+    { option: 1, value: 'Product A' },
+    { option: 2, value: 'Product B' },
+    { option: 3, value: 'Product C' }
+]);
+var form = new UI.FormOk(document.getElementById('form'));          // Create the object from
+form.onsubmit(function () {
+    /*
+    * The method isValid() check by default
+    * if the option is greater than zero for be valid.
+    */
+    if (form.isValid()) {
+        notify.success('Submit data');
+    } else {
+        notify.close();
+    }
+});    
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-dropdownlist-valid-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/dropdownlist/dropdownlist-valid.html" style="height:200px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-dropdownlist-valid'), [
+                               { id: 'tab-dropdownlist-valid-1', text: 'HTML' },
+                               { id: 'tab-dropdownlist-valid-2', text: 'Javascript' },
+                               { id: 'tab-dropdownlist-valid-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+
                         <!--  DropdownList custom -->
-                        <div class="component-api">
-                            <section id="ui-dropdownlist-custom" class="row">
+                        <blockquote class="component-api" id="ui-dropdownlist-custom">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>Dropdownlist Custom css</h3>
                                     <small class="pull-right">
@@ -1092,22 +1167,23 @@ document.getElementById('btn-enabled').onclick = function(){
                                         <div id="tab-dropdownlist-custom-4">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/dropdownlist-custom.html"></object>
+                                                    <object data="components/dropdownlist/dropdownlist-custom.html"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-dropdownlist-custom'), [
-                               { id: 'tab-dropdownlist-custom-1', text: 'Html' },
+                               { id: 'tab-dropdownlist-custom-1', text: 'HTML' },
                                { id: 'tab-dropdownlist-custom-2', text: 'CSS' },
                                { id: 'tab-dropdownlist-custom-3', text: 'Javascript' },
                                { id: 'tab-dropdownlist-custom-4', text: 'Result', active: true }
                             ]);
                         </script>
+
                     </div>
                 </section>
                 <!--UI-FORM-OK-->
@@ -1122,8 +1198,8 @@ document.getElementById('btn-enabled').onclick = function(){
                             </div>
                         </section>
                         <!--  Formok is-valid -->
-                        <div class="component-api">
-                            <section id="ui-formok-is-valid" class="row">
+                        <blockquote class="component-api" id="ui-formok-is-valid">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>isValid():Boolean</h3>
                                     <small class="pull-right">
@@ -1138,38 +1214,319 @@ document.getElementById('btn-enabled').onclick = function(){
                                         <div id="tab-formok-is-valid-1">
                                             <pre>
                                             <code class="html">
-&lt;!--Here to show the notification--&gt;
-&lt;div class=&quot;col-md-3&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
-&lt;button  class=&quot;btn btn-success&quot; id=&quot;btnSuccess&quot; &gt;Show Notification&lt;/button&gt;
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12&quot;&gt;
+            &lt;br /&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal&quot;&gt;
+                &lt;fieldset&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;div class=&quot;col-sm-6&quot;&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;text&quot; name=&quot;user&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                        data-minlength=&quot;3&quot; placeholder=&quot;User&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                        data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;password&quot; name=&quot;password&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                        data-rangelength=&quot;5-8&quot; placeholder=&quot;password&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;password&quot; name=&quot;confirmPassword&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                        data-equalsto=&quot;password&quot; placeholder=&quot;Confirm Password&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;text&quot; name=&quot;url&quot; class=&quot;form-control&quot;
+                                        data-url=&quot;true&quot; placeholder=&quot;Web Site&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot;
+                                        data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;col-sm-6&quot;&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;text&quot; name=&quot;fullName&quot; class=&quot;form-control&quot;
+                                        data-fullname=&quot;true&quot; placeholder=&quot;Full Name&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;text&quot; name=&quot;age&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                        data-max=&quot;45&quot; placeholder=&quot;Age&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;text&quot; name=&quot;price&quot; class=&quot;form-control&quot;
+                                        data-required=&quot;true&quot; data-money=&quot;true&quot; placeholder=&quot;Price USD&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot;&gt;
+                                    &lt;input type=&quot;text&quot; name=&quot;creditCard&quot; class=&quot;form-control&quot;
+                                        data-creditcard=&quot;true&quot; placeholder=&quot;Credit Card&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-sm-12&quot; id=&quot;salesRep&quot; data-name=&quot;sales-rep&quot;&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                                &lt;div class=&quot;col-md-12&quot;&gt;
+                                    &lt;label&gt;
+                                    &lt;input name=&quot;terms&quot; type=&quot;checkbox&quot; data-required=&quot;true&quot;&gt;
+                                    I agree with the &lt;a href=&quot;#&quot;&gt;Terms and Conditions&lt;/a&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/fieldset&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
                                          </code>
                                         </pre>
                                         </div>
                                         <div id="tab-formok-is-valid-2">
                                             <pre>
-                                            <code class="js">
+                                             <code class="js">
+var form = new UI.FormOk(document.getElementById('form'));
+form.onsubmit(function () {
+    if (form.isValid()) {
+        notify.success("submit data");
+    } else {
+        notify.close();
+    }
+});
 var notify = new UI.Notify(document.getElementById('notify'));
-document.getElementById('btnSuccess').onclick = function () {          
-    notify.success('Success Notify');
-}    
+UI.DropDownList(document.getElementById('salesRep'), [
+            { option: -1, value: '- SELECT SALES REP -', selected: true },
+            { option: 1, value: 'Manu Donnell' },
+            { option: 2, value: 'Oliver Amell', },
+            { option: 3, value: 'Roy Haynes' },
+            { option: 4, value: 'Willa Holland' },
+            { option: 5, value: 'Felicity Bett' }
+]);
                                      </code>
                                    </pre>
                                         </div>
                                         <div id="tab-formok-is-valid-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/formok-is-valid.html" style="height:450px"></object>
+                                                    <object data="components/formok/formok-is-valid.html" style="height:550px"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-formok-is-valid'), [
-                               { id: 'tab-formok-is-valid-1', text: 'Html' },
+                               { id: 'tab-formok-is-valid-1', text: 'HTML' },
                                { id: 'tab-formok-is-valid-2', text: 'Javascript' },
                                { id: 'tab-formok-is-valid-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  Formok is-empty-string -->
+                        <blockquote class="component-api" id="ui-formok-is-empty-string">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>isEmpty(String):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-formok-is-empty-string">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-formok-is-empty-string">
+                                        <div id="tab-formok-is-empty-string-1">
+                                            <pre>
+                                            <code class="html">
+&lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-formok-is-empty-string-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var str = 'Hello Word!'
+var form = new UI.FormOk();        
+if (form.isEmpty(str)) {
+    notify.danger('The String is empty');           
+}else{
+    notify.success('Success');
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-formok-is-empty-string-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/formok/formok-is-empty-string.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-formok-is-empty-string'), [
+                               { id: 'tab-formok-is-empty-string-1', text: 'HTML' },
+                               { id: 'tab-formok-is-empty-string-2', text: 'Javascript' },
+                               { id: 'tab-formok-is-empty-string-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  Formok is-empty-input -->
+                        <blockquote class="component-api" id="ui-formok-is-empty-input">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>isEmpty(HtmlElement):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-formok-is-empty-input">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-formok-is-empty-input">
+                                        <div id="tab-formok-is-empty-input-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;col-sm-5&quot;&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;input&quot; name=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;required&quot;&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;btn btn-info col-sm-3&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-formok-is-empty-input-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.FormOk();
+
+function validate() {
+    if (form.isEmpty(document.getElementById('input'))) {
+        notify.danger('The input is empty!');
+    } else {
+        notify.info('Validate!');
+    }
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-formok-is-empty-input-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/formok/formok-is-empty-input.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-formok-is-empty-input'), [
+                               { id: 'tab-formok-is-empty-input-1', text: 'HTML' },
+                               { id: 'tab-formok-is-empty-input-2', text: 'Javascript' },
+                               { id: 'tab-formok-is-empty-input-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  Formok is-full-name-string -->
+                        <blockquote class="component-api" id="ui-formok-is-full-name-string">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>isFullName(String):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-formok-is-full-name-string">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-formok-is-full-name-string">
+                                        <div id="tab-formok-is-full-name-string-1">
+                                            <pre>
+                                            <code class="html">
+&lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-formok-is-full-name-string-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var name = 'Jhon Doe'
+var form = new UI.FormOk();        
+if (form.isFullName(name)) {
+   notify.success('Name correct!');
+}else{
+    notify.danger('Name incorrect!');   
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-formok-is-full-name-string-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/formok/formok-is-full-name-string.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-formok-is-full-name-string'), [
+                               { id: 'tab-formok-is-full-name-string-1', text: 'HTML' },
+                               { id: 'tab-formok-is-full-name-string-2', text: 'Javascript' },
+                               { id: 'tab-formok-is-full-name-string-3', text: 'Result', active: true }
                             ]);
                         </script>
 
@@ -1186,13 +1543,13 @@ document.getElementById('btnSuccess').onclick = function () {
                                 </p>
                             </div>
                         </section>
-                        <!--  Formok is-valid -->
-                        <div class="component-api">
-                            <section id="ui-calendar-is-valid" class="row">
+                        <!--  calendar-->
+                        <blockquote class="component-api" id="ui-calendar-is-valid">
+                            <section  class="row">
                                 <div class="col-md-12">
                                     <h3>isValid():Boolean</h3>
                                     <small class="pull-right">
-                                        <a href="api.html#ui-formok-is-valid">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="api.html#ui-ca-is-valid">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
                                     </small>
                                 </div>
@@ -1221,18 +1578,18 @@ document.getElementById('btnSuccess').onclick = function () {
                                         </div>
                                         <div id="tab-calendar-is-valid-3">
                                             <div class="row component-example">
-                                                <div class="col-md-12">                                                    
-                                                    <object data="components/calendar.html" style="height:350px"></object>
+                                                <div class="col-md-12">
+                                                    <object data="components/calendar/calendar.html" style="height:350px"></object>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
+                        </blockquote>
                         <script>
                             UI.NavTab(document.getElementById('content-calendar-is-valid'), [
-                               { id: 'tab-calendar-is-valid-1', text: 'Html' },
+                               { id: 'tab-calendar-is-valid-1', text: 'HTML' },
                                { id: 'tab-calendar-is-valid-2', text: 'Javascript' },
                                { id: 'tab-calendar-is-valid-3', text: 'Result', active: true }
                             ]);
@@ -1270,15 +1627,15 @@ document.getElementById('btnSuccess').onclick = function () {
 
         var activeThemeLi = document.getElementById('defaultTheme');  //Current li active of theme list.
 
-        if(localStorage.getItem('theme')){
-            changeTheme(localStorage.getItem('theme'),localStorage.getItem('theme-name'),activeThemeLi);
+        if (localStorage.getItem('theme')) {
+            changeTheme(localStorage.getItem('theme'), localStorage.getItem('theme-name'), activeThemeLi);
         }
 
         function changeTheme(theme, name, li) {
             ddp.setText(name);
             localStorage.setItem('theme', theme);
             localStorage.setItem('theme-name', name);
-            localStorage.setItem('theme-li',li);
+            localStorage.setItem('theme-li', li);
             activeThemeLi.classList.remove('active');
             li.classList.add('active');
             activeThemeLi = li;
@@ -1289,35 +1646,46 @@ document.getElementById('btnSuccess').onclick = function () {
             }
         }
 
-        var items = [
-           {
-               href: '#ui-notify', text: 'Notify', target: 'ui-notify', children: [
-                   { href: '#ui-notify-success', text: 'success()', target: 'ui-notify-success' },
-                   { href: '#ui-notify-info', text: 'info()', target: 'ui-notify-info' },
-                   { href: '#ui-notify-warning', text: 'warning()', target: 'ui-notify-warning' },
-                   { href: '#ui-notify-danger', text: 'danger()', target: 'ui-notify-danger' },
-                   { href: '#ui-notify-wait', text: 'wait()', target: 'ui-notify-wait' },
-                   { href: '#ui-notify-close', text: 'close()', target: 'ui-notify-close' }
-               ]
-           },
-           {
-               href: '#ui-dropdownlist', text: 'Dropdownlist', target: 'ui-dropdownlist', children: [
-                   { href: '#ui-dropdownlist-select-item', text: 'selectItem()', target: 'ui-dropdownlist-select-item' },
-                   { href: '#ui-dropdownlist-get-option', text: 'getOption()', target: 'ui-dropdownlist-get-option' },
-                   { href: '#ui-dropdownlist-get-value', text: 'getValue()', target: 'ui-dropdownlist-get-value' },
-                   { href: '#ui-dropdownlist-get-item', text: 'getItem()', target: 'ui-dropdownlist-get-item' },
-                   { href: '#ui-dropdownlist-get-item-by-option', text: 'getItemByOption()', target: 'ui-dropdownlist-get-item-by-option' },
-                   { href: '#ui-dropdownlist-get-item-by-value', text: 'getItemByValue()', target: 'ui-dropdownlist-get-item-by-value' },
-                   { href: '#ui-dropdownlist-add-item', text: 'addItem()', target: 'ui-dropdownlist-add-item' },
-                   { href: '#ui-dropdownlist-disabled', text: 'setDisabled()', target: 'ui-dropdownlist-disabled' },
-                   { href: '#ui-dropdownlist-onchange', text: 'onchange()', target: 'ui-dropdownlist-onchange' },
-                   { href: '#ui-dropdownlist-custom', text: 'Custom css', target: 'ui-dropdownlist-custom' }
-               ]
-           }
-        ];
+        var items = new Array();
+
+        var itemsNotify = {
+            href: '#ui-notify', text: 'Notify', target: 'ui-notify', children: [
+                { href: '#ui-notify-success', text: 'success()', target: 'ui-notify-success' },
+                { href: '#ui-notify-info', text: 'info()', target: 'ui-notify-info' },
+                { href: '#ui-notify-warning', text: 'warning()', target: 'ui-notify-warning' },
+                { href: '#ui-notify-danger', text: 'danger()', target: 'ui-notify-danger' },
+                { href: '#ui-notify-wait', text: 'wait()', target: 'ui-notify-wait' },
+                { href: '#ui-notify-close', text: 'close()', target: 'ui-notify-close' }
+            ]
+        };
+        items.push(itemsNotify);
+
+        var itemsDropdownList = {
+            href: '#ui-dropdownlist', text: 'Dropdownlist', target: 'ui-dropdownlist', children: [
+                { href: '#ui-dropdownlist-select-item', text: 'selectItem()', target: 'ui-dropdownlist-select-item' },
+                { href: '#ui-dropdownlist-get-option', text: 'getOption()', target: 'ui-dropdownlist-get-option' },
+                { href: '#ui-dropdownlist-get-value', text: 'getValue()', target: 'ui-dropdownlist-get-value' },
+                { href: '#ui-dropdownlist-get-item', text: 'getItem()', target: 'ui-dropdownlist-get-item' },
+                { href: '#ui-dropdownlist-get-item-by-option', text: 'getItemByOption()', target: 'ui-dropdownlist-get-item-by-option' },
+                { href: '#ui-dropdownlist-get-item-by-value', text: 'getItemByValue()', target: 'ui-dropdownlist-get-item-by-value' },
+                { href: '#ui-dropdownlist-add-item', text: 'addItem()', target: 'ui-dropdownlist-add-item' },
+                { href: '#ui-dropdownlist-disabled', text: 'setDisabled()', target: 'ui-dropdownlist-disabled' },
+                { href: '#ui-dropdownlist-onchange', text: 'onchange()', target: 'ui-dropdownlist-onchange' },
+                { href: '#ui-dropdownlist-valid', text: 'Valid in form', target: 'ui-dropdownlist-valid' },
+                { href: '#ui-dropdownlist-custom', text: 'Custom css', target: 'ui-dropdownlist-custom' }
+            ]
+        };
+        items.push(itemsDropdownList);
+
+        var itemsFormOK = {
+            href: '#ui-formok', text: 'FormOk', target: 'ui-formok', children: [
+                { href: '#ui-formok-is-valid', text: 'isValid()', target: 'ui-formok-is-valid' }
+            ]
+        };        
+        items.push(itemsFormOK);
 
         UI.NavScrollV(document.getElementById('nav-components'), items, { top: 110 });
-      
+
     </script>
 </body>
 </html>

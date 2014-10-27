@@ -1,159 +1,30 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-   <head>
-      <meta charset="UTF-8">
-      <title>API JS-UI</title>
-      <link href="css/theme/simplex.css" rel="stylesheet" />
-      <link href="css/js-ui.css" rel="stylesheet" />
-      <link href="css/page.css" rel="stylesheet" />
-      <link href="../highlight/css/github.css" rel="stylesheet" />
-      <script src="../highlight/js/highlight.pack.js"></script>
-      <script src="js/js-ui.js"></script>
-   </head>
-   <body>
-      <header class="container-fixed">
-         <nav id="nav-main"></nav>
-      </header>
-      <section class="container">
-         <section id="section-components" class="row section-components">
+<head>
+    <meta charset="UTF-8">
+    <title>API JS-UI</title>
+    <link href="css/theme/simplex.css" rel="stylesheet" />
+    <link href="css/js-ui.css" rel="stylesheet" />
+    <link href="css/page.css" rel="stylesheet" />
+    <link href="../highlight/css/github.css" rel="stylesheet" />
+    <script src="../highlight/js/highlight.pack.js"></script>
+    <script src="js/js-ui.js"></script>
+</head>
+<body>
+    <header class="container-fixed">
+        <nav id="nav-main"></nav>
+    </header>
+    <section class="container">
+        <section id="section-components" class="row section-components">
             <div class="col-md-10">
-               <!--UI-NOTIFY-->
-               <section id="ui-notify" class="row component">
-                  <div class="col-md-12">
-                     <section class="row component-header">
-                        <div class="col-md-12">
-                           <h2>Notify Object</h2>
-                           <p>
-                              The Notify Object is used for show messages
-                           </p>
-                        </div>
-                     </section>
-                     <section class="row component-body">
-                        <div class="col-md-12">
-                           <section class="row">
-                              <div class="col-md-12 ">
-                                 <h3>Constructor</h3>
-                                 <div class="api">
-                                    <pre>
-                                               
-                                                  <code class="js">
-var notify = new UI.Notify(HtmlElement);
-                                                  </code>
-                                    </pre>
-                                    <h5>Parameters:</h5>
-                                    <p>
-                                       <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for display the notification.
-                                    </p>
-                                    <h5>Returns:</h5>
-                                    <p>
-                                       The function that created the Notify object's.
-                                    </p>
-                                 </div>
-                              </div>
-                           </section>
-                           <section class="row">
-                              <div class="col-md-12 ">
-                                 <h3>Methods</h3>
-                                 <div id="ui-notify-success" class="api">
-                                    <a class="method"href="components.html#ui-notify-success">success(message:String)</a>
-                                    <div>
-                                       <pre>
-                                                  <code class="js">
-notify.success('Success Notify');
-                                                  </code>
-                                        </pre>
-                                       <p>Display the notification the type Success.</p>
-                                       <h5>Parameters:</h5>
-                                       <p>
-                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
-                                       </p>
-                                    </div>
-                                 </div>
-                                 <div id="ui-notify-info" class="api">
-                                    <a class="method"href="components.html#ui-notify-info">info(message:String)</a>
-                                    <div>
-                                       <pre>
-                                                  <code class="js">
-notify.info('Info Notify');
-                                                  </code>
-                                        </pre>
-                                       <p>Display the notification the type Info.</p>
-                                       <h5>Parameters:</h5>
-                                       <p>
-                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
-                                       </p>
-                                    </div>
-                                 </div>
-                                 <div id="ui-notify-warning" class="api">
-                                    <a class="method"href="components.html#ui-notify-warning">warning(message:String)</a>
-                                    <div>
-                                       <pre>
-                                                  <code class="js">
-notify.warning('Warning Notify');
-                                                  </code>
-                                        </pre>
-                                       <p>Display the notification the type Warning.</p>
-                                       <h5>Parameters:</h5>
-                                       <p>
-                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
-                                       </p>
-                                    </div>
-                                 </div>
-                                 <div id="ui-notify-danger" class="api">
-                                    <a class="method"href="components.html#ui-notify-danger">danger(message:String)</a>
-                                    <div>
-                                       <pre>
-                                                  <code class="js">
-notify.danger('Danger Notify');
-                                                  </code>
-                                        </pre>
-                                       <p>Display the notification the type Danger.</p>
-                                       <h5>Parameters:</h5>
-                                       <p>
-                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
-                                       </p>
-                                    </div>
-                                 </div>
-                                 <div id="ui-notify-wait" class="api">
-                                    <a class="method"href="components.html#ui-notify-wait">wait(message:String)</a>
-                                    <div >
-                                       <pre>
-                                                  <code class="js">
-notify.wait('Wait Notify');
-                                                  </code>
-                                        </pre>
-                                       <p>Display the notification the type Wait.</p>
-                                       <h5>Parameters:</h5>
-                                       <p>
-                                          <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
-                                       </p>
-                                    </div>
-                                 </div>
-                                 <div id="ui-notify-close" class="api">
-                                    <a class="method"href="components.html#ui-notify-close">close()</a>
-                                    <div >
-                                       <pre>
-                                                  <code class="js">
-notify.close();
-                                                  </code>
-                                        </pre>
-                                       <p>Close the notification.</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </section>
-                        </div>
-                     </section>
-                  </div>
-               </section>
-                <!--UI-DROPDOWNLIST-->
-                <section id="ui-dropdownlist" class="row component">
+                <!--UI-NOTIFY-->
+                <section id="ui-notify" class="row component">
                     <div class="col-md-12">
                         <section class="row component-header">
                             <div class="col-md-12">
-                                <h2>DropdownList Object</h2>
+                                <h2>Notify Object</h2>
                                 <p>
-                                    The dropdownList Object is used for show option list
+                                    The Notify Object is used for show messages
                                 </p>
                             </div>
                         </section>
@@ -162,10 +33,139 @@ notify.close();
                                 <section class="row">
                                     <div class="col-md-12 ">
                                         <h3>Constructor</h3>
-                                        <div class="api">
+                                        <blockquote class="api">
                                             <pre>
                                                
-                                             <code class="js">
+                                            <code class="js">
+var notify = new UI.Notify(HtmlElement);
+                                                  </code>
+                                    </pre>
+                                            <h5>Parameters:</h5>
+                                            <p>
+                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for display the notification.
+                                            </p>
+                                            <h5>Returns:</h5>
+                                            <p>
+                                                The function that created the Notify object.
+                                            </p>
+                                        </blockquote>
+                                    </div>
+                                </section>
+                                <section class="row">
+                                    <div class="col-md-12 ">
+                                        <h3>Methods</h3>
+                                        <blockquote id="ui-notify-success" class="api">
+                                            <a class="method" href="components.html#ui-notify-success">success(message:String)</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.success('Success Notify');
+                                                  </code>
+                                        </pre>
+                                                <p>Display the notification the type Success.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-notify-info" class="api">
+                                            <a class="method" href="components.html#ui-notify-info">info(message:String)</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.info('Info Notify');
+                                                  </code>
+                                        </pre>
+                                                <p>Display the notification the type Info.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-notify-warning" class="api">
+                                            <a class="method" href="components.html#ui-notify-warning">warning(message:String)</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.warning('Warning Notify');
+                                                  </code>
+                                        </pre>
+                                                <p>Display the notification the type Warning.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-notify-danger" class="api">
+                                            <a class="method" href="components.html#ui-notify-danger">danger(message:String)</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.danger('Danger Notify');
+                                                  </code>
+                                        </pre>
+                                                <p>Display the notification the type Danger.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-notify-wait" class="api">
+                                            <a class="method" href="components.html#ui-notify-wait">wait(message:String)</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.wait('Wait Notify');
+                                                  </code>
+                                        </pre>
+                                                <p>Display the notification the type Wait.</p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> message for display in the notification.
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-notify-close" class="api">
+                                            <a class="method" href="components.html#ui-notify-close">close()</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+notify.close();
+                                                  </code>
+                                        </pre>
+                                                <p>Close the notification.</p>
+                                            </div>
+                                        </blockquote>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+                <!--UI-DROPDOWNLIST-->
+                <section id="ui-dropdownlist" class="row component">
+                    <div class="col-md-12">
+                        <section class="row component-header">
+                            <div class="col-md-12">
+                                <h2>DropdownList Object</h2>
+                                <p>
+                                    The DropdownList Object is used for show option list
+                                </p>
+                            </div>
+                        </section>
+                        <section class="row component-body">
+                            <div class="col-md-12">
+                                <section class="row">
+                                    <div class="col-md-12 ">
+                                        <h3>Constructor</h3>
+                                        <blockquote class="api">
+                                            <pre>
+                                               
+                                            <code class="js">
 var dropdownlist = new UI.DropDownList(HtmlElement, Items[]);
                                              </code>
                                             </pre>
@@ -175,7 +175,7 @@ var dropdownlist = new UI.DropDownList(HtmlElement, Items[]);
                                                 <a href="http://www.w3schools.com/js/js_json.asp" target="_blank">Items[]</a> is Json array as this:
                                                 <div>
                                                     <pre>
-                                                       <code class="js">
+                                                    <code class="js">
 var items = [
     {option:1,value:'Value a'},
     {option:2,value:'Value b',selected:true},
@@ -187,19 +187,19 @@ var items = [
                                             </p>
                                             <h5>Returns:</h5>
                                             <p>
-                                                The function that created the Dropdownlist object's.
+                                                The function that created the Dropdownlist object.
                                             </p>
-                                        </div>
+                                        </blockquote>
                                     </div>
                                 </section>
                                 <section class="row">
                                     <div class="col-md-12 ">
                                         <h3>Methods</h3>
-                                        <div id="ui-dropdownlist-select-item" class="api">
+                                        <blockquote id="ui-dropdownlist-select-item" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-select-item">selectItem(option:Any)</a>
                                             <div>
                                                 <pre>
-                                                  <code class="js">
+                                                <code class="js">
 dropdownlist.selectItem(option);
                                                   </code>
                                                 </pre>
@@ -209,8 +209,8 @@ dropdownlist.selectItem(option);
                                                     <span class="link">Option</span> of the item to select.
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div id="ui-dropdownlist-get-option" class="api">
+                                        </blockquote>
+                                        <blockquote id="ui-dropdownlist-get-option" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-get-option">getOption():Any</a>
                                             <div>
                                                 <pre>
@@ -224,8 +224,8 @@ dropdownlist.getOption();
                                                     <span class="link">Option</span> of the item selected.
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div id="ui-dropdownlist-get-value" class="api">
+                                        </blockquote>
+                                        <blockquote id="ui-dropdownlist-get-value" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-get-value">getValue():Any</a>
                                             <div>
                                                 <pre>
@@ -239,12 +239,12 @@ dropdownlist.getValue();
                                                     <span class="link">Value</span> of the item selected.
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div id="ui-dropdownlist-get-item" class="api">
+                                        </blockquote>
+                                        <blockquote id="ui-dropdownlist-get-item" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-get-item">getItem():Item{}</a>
                                             <div>
                                                 <pre>
-                                                 <code class="js">
+                                                <code class="js">
 dropdownlist.getItem();
                                                   </code>
                                                 </pre>
@@ -254,12 +254,12 @@ dropdownlist.getItem();
                                                     <span class="link">Item</span> selected.
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div id="ui-dropdownlist-get-item-by-option" class="api">
+                                        </blockquote>
+                                        <blockquote id="ui-dropdownlist-get-item-by-option" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-get-item-by-option">getItemByOption(option:any):Item{}</a>
                                             <div>
                                                 <pre>
-                                                 <code class="js">
+                                                <code class="js">
 dropdownlist.getItemByOption(option);
                                                   </code>
                                                 </pre>
@@ -273,12 +273,12 @@ dropdownlist.getItemByOption(option);
                                                     <span class="link">Item</span> selected by the option.
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div id="ui-dropdownlist-get-item-by-value" class="api">
+                                        </blockquote>
+                                        <blockquote id="ui-dropdownlist-get-item-by-value" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-get-item-by-value">getItemByValue(value:any):Item{}</a>
                                             <div>
                                                 <pre>
-                                                 <code class="js">
+                                                <code class="js">
 dropdownlist.getItemByValue(value);
                                                   </code>
                                                 </pre>
@@ -292,12 +292,12 @@ dropdownlist.getItemByValue(value);
                                                     <span class="link">Item</span> selected by the value.
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div id="ui-dropdownlist-add-item" class="api">
+                                        </blockquote>
+                                        <blockquote id="ui-dropdownlist-add-item" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-add-item">addItem(option:Any,value:Any)</a>
                                             <div>
                                                 <pre>
-                                                 <code class="js">
+                                                <code class="js">
 dropdownlist.addItem(option,value);
                                                   </code>
                                                 </pre>
@@ -308,88 +308,1055 @@ dropdownlist.addItem(option,value);
                                                     <span class="link">Value</span> of the new item.
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div id="ui-dropdownlist-disabled" class="api">
+                                        </blockquote>
+                                        <blockquote id="ui-dropdownlist-disabled" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-disabled">setDisabled(disabled:boolean)</a>
                                             <div>
                                                 <pre>
-                                                 <code class="js">
+                                                <code class="js">
 dropdownlist.setDisabled(true);
                                                   </code>
                                                 </pre>
                                                 <p>Disabled the dropdownlist.</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> for disabled<br>                                                    
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> for disabled<br>
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div id="ui-dropdownlist-onchange" class="api">
+                                        </blockquote>
+                                        <blockquote id="ui-dropdownlist-onchange" class="api">
                                             <a class="method" href="components.html#ui-dropdownlist-onchange">onchange(function(){})</a>
                                             <div>
                                                 <pre>
-                                                 <code class="js">
+                                                <code class="js">
 dropdownlist.onchange(function(){});
                                                   </code>
                                                 </pre>
                                                 <p>When a user selects a dropdown value</p>
                                                 <h5>Parameters:</h5>
                                                 <p>
-                                                    <a href="http://www.w3schools.com/js/js_functions.asp" target="_blank">function(){}</a> execute when a user selects a dropdown value<br>                                                    
+                                                    <a href="http://www.w3schools.com/js/js_functions.asp" target="_blank">function(){}</a> execute when a user selects a dropdown value<br>
                                                 </p>
                                             </div>
-                                        </div>
+                                        </blockquote>
+                                    </div>
                                 </section>
                             </div>
                         </section>
                     </div>
                 </section>
-            </div>
-            <nav class="col-md-2">
-                <div class="row">
+                <!--UI-FORM OK-->
+                <section id="ui-formok" class="row component">
                     <div class="col-md-12">
-                        <nav id="nav-components"></nav>
+                        <section class="row component-header">
+                            <div class="col-md-12">
+                                <h2>FormOk Object</h2>
+                                <p>
+                                    The FormOk Object is used for :
+                                    <ul>
+                                        <li>
+                                            <a href="#ui-formok-is-valid" class="text-muted">Validate inputs of the form.</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ui-formok-has-changed" class="text-muted">Detect whether there were changes in the form.</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ui-formok-to-json" class="text-muted">Get form data as JSON.</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ui-formok-serialize" class="text-muted">Get form data as serialized.</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ui-formok-send-json-by-ajax" class="text-muted">Send form data as JSON by Ajax.</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ui-formok-send-json-by-ws" class="text-muted">Send form data as JSON by Web Sockets.</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ui-formok-send-serialize-by-ajax" class="text-muted">Send form data as serialized by Ajax</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ui-formok-send-serialize-by-ws" class="text-muted">Send form data as serialized by Web Sockets</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ui-formok-upload-files" class="text-muted">Upload files on sever.</a>
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </section>
+                        <section class="row component-body">
+                            <div class="col-md-12">
+                                <section class="row">
+                                    <div class="col-md-12 ">
+                                        <h3>Constructor</h3>
+                                        <blockquote class="api">
+                                            <pre>                                               
+                                            <code class="js">
+var form = new UI.FormOk(document.getElementById('form'));
+                                             </code>
+                                            </pre>
+                                            <h5>Parameters:</h5>
+                                            <p>
+                                                <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for create the form object.<br />
+                                            </p>
+                                            <h5>Returns:</h5>
+                                            <p>
+                                                The function that created the Form object.
+                                            </p>
+                                        </blockquote>
+                                    </div>
+                                </section>
+                                <section class="row">
+                                    <div class="col-md-12 ">
+                                        <h3>Methods</h3>
+                                        <blockquote id="ui-formok-is-valid" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-valid">isValid():Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isValid()
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Check the fields of form depending on the validations of each  field, if all fields are correct this returns true.<br />
+                                                    Any input that needs to be validated is required to have the following structure:
+
+                                                </p>
+                                                <pre>
+                                                <code class="html">
+&lt;div class=&quot;form-group&quot;&gt;
+ &lt;div class=&quot;col-sm-12&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;user&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Note that the <b>data </b>attribute is for define the field validation, you can have all validations that you need.
+                                                    <a class="text-simple" href="#ui-formok-list-validations">List of built-in Validation methods here</a>
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if all fields are correct.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-list-validations" class="api">
+                                            <a href="#ui-formok-list-validation" class="method">List of built-in Validation methods</a>
+                                            <div>
+                                                <br />
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Method</th>
+                                                            <th>Description</th>
+                                                            <th>HTML</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-empty-input">isEmpty(HtmlElement)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like required.
+                                                            </td>
+                                                            <td>
+                                                                data-required="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-full-name-input">isFullName(HtmlElement)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid name.
+                                                            </td>
+                                                            <td>
+                                                                data-fullname="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-email-input">isEmail(HtmlElement)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid e-mail.
+                                                            </td>
+                                                            <td>
+                                                                data-email="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-equals-to-input">isEqualsTo(HtmlElement,HtmlElement1)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to compare two fields with the same value.
+                                                            </td>
+                                                            <td>
+                                                                data-equalsto="name-input-to-compare"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-money-input">isMoney(HtmlElement)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like money.
+                                                            </td>
+                                                            <td>
+                                                                data-money="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-max-length-input">maxLength(HtmlElement,length)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the maximum field length.
+                                                            </td>
+                                                            <td>
+                                                                data-maxlength="length"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-min-length-input">minLength(HtmlElement,length)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the minimun field length.
+                                                            </td>
+                                                            <td>
+                                                                data-minlength="length"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-range-length-input">rangeLength(HtmlElement,min,max)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the range length of the field.
+                                                            </td>
+                                                            <td>
+                                                                data-rangelength="min-max"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-max-input">max(HtmlElement,max)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the maximum number of the field.
+                                                            </td>
+                                                            <td>
+                                                                data-max="max"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-min-input">min(HtmlElement,min)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the minimun number of the field.
+                                                            </td>
+                                                            <td>
+                                                                data-min="min"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-range-input">range(HtmlElement,min,max)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the range number of the field.
+                                                            </td>
+                                                            <td>
+                                                                data-range="min-max"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-URL-input">isURL(HtmlElement)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid URL.
+                                                            </td>
+                                                            <td>
+                                                                data-url="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-date-input">isDate(HtmlElement)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid date.
+                                                            </td>
+                                                            <td>
+                                                                data-date="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-number-input">isNumber(HtmlElement)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid number.
+                                                            </td>
+                                                            <td>
+                                                                data-number="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-formok-is-credit-card-input">isCreditCard(HtmlElement)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid credit card.
+                                                            </td>
+                                                            <td>
+                                                                data-creditcard="true"
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-empty-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-empty-string">isEmpty(String):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isEmpty(String)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is empty.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>                                                    
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is empty.<br>                                                    
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-empty-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-empty-input">isEmpty(HtmlElement):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isEmpty(HtmlElement)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is empty.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is empty.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-full-name-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-full-name-string">isFullName(String):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isFullName(String)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is a name valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a name valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-full-name-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-full-name-input">isFullName(HtmlElement):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isFullName(HtmlElement)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is a name valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a name valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-email-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-email-string">isEmail(String):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isEmail(String)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is a email valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a email valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-email-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-email-input">isEmail(HtmlElement):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isEmail(HtmlElement)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is a email valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a email valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-equals-to-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-equals-to-string">isEqualsTo(String,String1):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isEqualsTo(String,String1)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is equals to String1.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for match with String1.<br/>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String1</a> for match with String.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if both Strings are equals.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-equals-to-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-equals-to-input">isEqualsTo(HtmlElement,HtmlElement1):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isEqualsTo(HtmlElement,HtmlElement1)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is equals to HtmlElement1.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for match with HtmlElement1.<br />
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement1</a> of tag name <b>INPUT</b> for match with HtmlElement.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if both HtmlElements are equals<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-money-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-money-string">isMoney(String):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isMoney(String)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is a format money valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked<br/>                                                    
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the format money is valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-money-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-money-input">isMoney(HtmlElement):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isMoney(HtmlElement)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is a format money valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />                                                    
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the format money is valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-max-length-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-max-length-string">maxLength(String,length):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.maxLength(String,length)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String has like maximum length characters.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked<br/>                                                    
+                                                    <span class="link">Length</span> is the maximum value allowed.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if has length characters or less.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-max-length-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-max-length-input">maxLength(HtmlElement,length):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.maxLength(HtmlElement,length)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement has like maximum length characters.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
+                                                    <span class="link">Length</span> is the maximum value allowed.                                                    
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if has length characters or less.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-min-length-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-min-length-string">minLength(String,length):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.minLength(String,length)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String has like minimum length characters.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked<br/>                                                    
+                                                    <span class="link">Length</span> is the minimum value allowed.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if has length characters or more.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-min-length-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-min-length-input">minLength(HtmlElement,length):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.minLength(HtmlElement,length)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement has like minimum length characters.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
+                                                    <span class="link">Length</span> is the minimum value allowed.                                                    
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if has length characters or more.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-range-length-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-range-length-string">rangeLength(String,min,max):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.rangeLength(String,min,max)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String has a range characters between minimum and maximum.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked<br/>                                                    
+                                                    <span class="link">max</span> is the maximum value allowed.<br>
+                                                    <span class="link">min</span> is the minimum value allowed.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if String is between min and max values.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-range-length-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-range-length-input">rangeLength(HtmlElement,min,max):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.rangeLength(HtmlElement,min,max)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement has a range characters between minimum and maximum.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
+                                                    <span class="link">max</span> is the maximum value allowed.<br>
+                                                    <span class="link">min</span> is the minimum value allowed.                                                    
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if HtmlElement is between min and max values.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-max-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-max-string">max(Number,max):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.max(Number,max)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the number is greater or less that maximum.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_number.asp" target="_blank">number</a> for checked<br/>                                                    
+                                                    <span class="link">max</span> is the maximum number allowed.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the number is greater or less that maximum.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-max-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-max-input">max(HtmlElement,max):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.max(HtmlElement,max)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is greater or less that maximum.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> for checked<br/>                                                    
+                                                    <span class="link">max</span> is the maximum number allowed.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is greater or less that maximum.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-min-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-min-string">min(number,min):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.min(Number,min)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the number is greater that minimum.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_number.asp" target="_blank">Number</a> for checked<br />
+                                                    <span class="link">min</span> is the minimum number allowed.                                                    
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the number is greater or equals that minimum.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>  
+                                        <blockquote id="ui-formok-min-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-min-input">min(HtmlElement,min):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.min(HtmlElement,min)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is greater that minimum.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
+                                                    <span class="link">min</span> is the minimum number allowed.                                                    
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the number is greater or equals that minimum.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>  
+                                        <blockquote id="ui-formok-range-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-range-string">range(Number,min,max):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.range(Number,min,max)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the Number has a range between minimum and maximum values.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_number.asp" target="_blank">Number</a> for checked<br/>                                                    
+                                                    <span class="link">max</span> is the maximum value allowed.<br>
+                                                    <span class="link">min</span> is the minimum value allowed.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if Number is between min and max values.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-range-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-range-input">range(HtmlElement,min,max):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.range(HtmlElement,min,max)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement has a range between minimum and maximum values.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked<br />
+                                                    <span class="link">max</span> is the maximum value allowed.<br>
+                                                    <span class="link">min</span> is the minimum value allowed.                                                    
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if HtmlElement is between min and max values.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-URL-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-URL-string">isURL(String):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isURL(String)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is an URL valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a URL valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-URL-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-URL-input">isURL(HtmlElement):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isURL(HtmlElement)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is an URL valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a URL valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-date-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-date-string">isDate(String):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isDate(String)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is a date valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a date valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-date-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-date-input">isDate(HtmlElement):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isDate(HtmlElement)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is a date valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a date valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-number-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-number-string">isNumber(String):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isNumber(String)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is a number valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a number valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-number-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-number-input">isNumber(HtmlElement):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isNumber(HtmlElement)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is a number valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a number valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-credit-card-string" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-credit-card-string">isCreditCard(String):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isCreditCard(String)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the String is a credit card valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">String</a> for checked.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the String is a credit card valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        <blockquote id="ui-formok-is-credit-card-input" class="api">
+                                            <a class="method" href="components.html#ui-formok-is-credit-card-input">isCreditCard(HtmlElement):Boolean</a>
+                                            <div>
+                                                <pre>
+                                                <code class="js">
+form.isCreditCard(HtmlElement)
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Checked if the HtmlElement is a credit card valid.
+                                                </p>
+                                                <h5>Parameters:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_htmldom_elements.asp" target="_blank">HtmlElement</a> of tag name <b>INPUT</b> for checked.<br />
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp" target="_blank">Boolean</a> as true if the HtmlElement is a credit card valid.<br>
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
                     </div>
-                </div>
-            </nav>
-         </section>
-      </section>
+                    <nav class="col-md-2">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav id="nav-components"></nav>
+                            </div>
+                        </div>
+                    </nav>
+                </section>
+            </div>
+        </section>
+    </section>
 
-      <script src="js/js-ui.js"></script>
-      <script>
-         hljs.initHighlightingOnLoad();
-         UI.NavBar(document.getElementById('nav-main'), { href: 'js-ui.html', text: 'JS-UI' }, [
-                { href: 'getting-started', text: 'Getting started' },
-                { href: 'components.html', text: 'Components'},
-                { href: 'api.html', text: 'API', active: true },
-                { href: 'aplicactions.html', text: 'Aplications' },
-                { href: 'about.html', text: 'About' }
-         ], { type: 'fixed', align: 'right' });         
-      
-    var items = [
-       {href:'#ui-notify',text:'Notify',target:'ui-notify',children:[
-            {href:'#ui-notify-success',text:'success()',target:'ui-notify-success'},
-            {href:'#ui-notify-info',text:'info()',target:'ui-notify-info'},
-            {href:'#ui-notify-warning',text:'warning()',target:'ui-notify-warning'},
-            {href:'#ui-notify-danger',text:'danger()',target:'ui-notify-danger'},
-            {href:'#ui-notify-wait',text:'wait()',target:'ui-notify-wait'},
-            {href:'#ui-notify-close',text:'close()',target:'ui-notify-close'}
-        ]},
-       {href:'#ui-dropdownlist',text:'Dropdownlist',target:'ui-dropdownlist',children:[
-            {href:'#ui-dropdownlist-select-item',text:'selectItem()',target:'ui-dropdownlist-select-item'},
-            {href:'#ui-dropdownlist-get-option',text:'getOption()',target:'ui-dropdownlist-get-option'},
-            {href:'#ui-dropdownlist-get-value',text:'getValue()',target:'ui-dropdownlist-get-value'},
-            {href:'#ui-dropdownlist-get-item',text:'getItem()',target:'ui-dropdownlist-get-item'},
-            {href:'#ui-dropdownlist-get-item-by-option',text:'getItemByOption()',target:'ui-dropdownlist-get-item-by-option'},
-            {href:'#ui-dropdownlist-get-item-by-value',text:'getItemByValue()',target:'ui-dropdownlist-get-item-by-value'},
-            {href:'#ui-dropdownlist-add-item',text:'addItem()',target:'ui-dropdownlist-add-item'},
-            {href:'#ui-dropdownlist-disabled',text:'setDisabled()',target:'ui-dropdownlist-disabled'},
-            {href:'#ui-dropdownlist-onchange',text:'onchange()',target:'ui-dropdownlist-onchange'}           
-        ]}
-    ];
 
-    UI.NavScrollV(document.getElementById('nav-components'),items,{top:110});
-         
-      </script>
-   </body>
+    <script src="js/js-ui.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+        UI.NavBar(document.getElementById('nav-main'), { href: 'js-ui.html', text: 'JS-UI' }, [
+               { href: 'getting-started', text: 'Getting started' },
+               { href: 'components.html', text: 'Components' },
+               { href: 'api.html', text: 'API', active: true },
+               { href: 'aplicactions.html', text: 'Aplications' },
+               { href: 'about.html', text: 'About' }
+        ], { type: 'fixed', align: 'right' });
+
+        var items = new Array();
+
+        var itemsNotify = {
+            href: '#ui-notify', text: 'Notify', target: 'ui-notify', children: [
+                { href: '#ui-notify-success', text: 'success()', target: 'ui-notify-success' },
+                { href: '#ui-notify-info', text: 'info()', target: 'ui-notify-info' },
+                { href: '#ui-notify-warning', text: 'warning()', target: 'ui-notify-warning' },
+                { href: '#ui-notify-danger', text: 'danger()', target: 'ui-notify-danger' },
+                { href: '#ui-notify-wait', text: 'wait()', target: 'ui-notify-wait' },
+                { href: '#ui-notify-close', text: 'close()', target: 'ui-notify-close' }
+            ]
+        };
+        items.push(itemsNotify);
+
+        var itemsDropdownList = {
+            href: '#ui-dropdownlist', text: 'Dropdownlist', target: 'ui-dropdownlist', children: [
+                { href: '#ui-dropdownlist-select-item', text: 'selectItem()', target: 'ui-dropdownlist-select-item' },
+                { href: '#ui-dropdownlist-get-option', text: 'getOption()', target: 'ui-dropdownlist-get-option' },
+                { href: '#ui-dropdownlist-get-value', text: 'getValue()', target: 'ui-dropdownlist-get-value' },
+                { href: '#ui-dropdownlist-get-item', text: 'getItem()', target: 'ui-dropdownlist-get-item' },
+                { href: '#ui-dropdownlist-get-item-by-option', text: 'getItemByOption()', target: 'ui-dropdownlist-get-item-by-option' },
+                { href: '#ui-dropdownlist-get-item-by-value', text: 'getItemByValue()', target: 'ui-dropdownlist-get-item-by-value' },
+                { href: '#ui-dropdownlist-add-item', text: 'addItem()', target: 'ui-dropdownlist-add-item' },
+                { href: '#ui-dropdownlist-disabled', text: 'setDisabled()', target: 'ui-dropdownlist-disabled' },
+                { href: '#ui-dropdownlist-onchange', text: 'onchange()', target: 'ui-dropdownlist-onchange' }
+            ]
+        };
+        items.push(itemsDropdownList);
+
+        var itemsFormOK = {
+            href: '#ui-formok', text: 'FormOk', target: 'ui-formok', children: [
+                { href: '#ui-formok-is-valid', text: 'isValid()', target: 'ui-formok-is-valid' },
+                { href: '#ui-formok-list-validations', text: 'List of built-in validation', target: 'ui-formok-list-validations' },
+                { href: '#ui-formok-is-empty-string', text: 'isEmpty()', target: 'ui-formok-is-empty-string' },
+                { href: '#ui-formok-is-full-name-string', text: 'isFullName()', target: 'ui-formok-is-full-name-string' },
+                { href: '#ui-formok-is-email-string', text: 'isEmail()', target: 'ui-formok-is-email-string' },
+                { href: '#ui-formok-is-equals-to-string', text: 'isEqualsTo()', target: 'ui-formok-is-equals-to-string' },
+                { href: '#ui-formok-is-money-string', text: 'isMoney()', target: 'ui-formok-is-money-string' },
+                { href: '#ui-formok-max-length-string', text: 'maxLength()', target: 'ui-formok-max-length-string' },
+                { href: '#ui-formok-min-length-string', text: 'minLength()', target: 'ui-formok-min-length-string' },
+                { href: '#ui-formok-range-length-string', text: 'rangeLength()', target: 'ui-formok-range-length-string' },
+                { href: '#ui-formok-max-string', text: 'max()', target: 'ui-formok-max-string' },
+                { href: '#ui-formok-min-string', text: 'min()', target: 'ui-formok-min-string' },
+                { href: '#ui-formok-range-string', text: 'range()', target: 'ui-formok-range-string' },
+                { href: '#ui-formok-is-URL-string', text: 'isURL()', target: 'ui-formok-is-URL-string' },
+                { href: '#ui-formok-is-date-string', text: 'isDate()', target: 'ui-formok-is-date-string' },
+                { href: '#ui-formok-is-number-string', text: 'isNumber()', target: 'ui-formok-is-number-string' },
+                { href: '#ui-formok-is-credit-card-string', text: 'isCreditCard()', target: 'ui-formok-is-credit-card-string' }
+            ]
+        };
+        items.push(itemsFormOK);
+
+        UI.NavScrollV(document.getElementById('nav-components'), items, { top: 110 });
+
+
+
+    </script>
+</body>
 </html>

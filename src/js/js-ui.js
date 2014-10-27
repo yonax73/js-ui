@@ -997,50 +997,52 @@ UI.FormOk = function (HtmlElement) {
 
 
     function init() {
-        inputs = HtmlElement.getElementsByTagName('input');
-        var n = inputs.length;
-        for (var i = 0; i < n; i++) {
-            var input = inputs[i];
-            if (!input.dataset.option) {
-                var small = document.createElement('small');
-                var type = input.type;
-                small.className = 'hidden';
-                if (type !== 'checkbox' && type !== 'radio') {
-                    var span = document.createElement('span');
-                    input.parentNode.parentNode.classList.add('has-feedback');
-                    if (input.dataset.date) {                                         //Input dataset.date
-                        var ico = document.createElement('i');
-                        var calendar = document.createElement('div');
-                        ico.className = 'fa fa-calendar fa-fw';
-                        span.className = 'form-control-feedback';
-                        span.style.cursor = 'default';
-                        span.appendChild(ico);
-                        input.parentNode.appendChild(calendar);
-                        var uiCalendar = new UI.Calendar(calendar, { isInput: true, input: input });
-                        span.onclick = function () {                                 //Event for show Calendar.                            
-                            if (uiCalendar.isOpen()) uiCalendar.close();
-                            else uiCalendar.open();
+        if (HtmlElement) {
+            inputs = HtmlElement.getElementsByTagName('input');
+            var n = inputs.length;
+            for (var i = 0; i < n; i++) {
+                var input = inputs[i];
+                if (!input.dataset.option) {
+                    var small = document.createElement('small');
+                    var type = input.type;
+                    small.className = 'hidden';
+                    if (type !== 'checkbox' && type !== 'radio') {
+                        var span = document.createElement('span');
+                        input.parentNode.parentNode.classList.add('has-feedback');
+                        if (input.dataset.date) {                                         //Input dataset.date
+                            var ico = document.createElement('i');
+                            var calendar = document.createElement('div');
+                            ico.className = 'fa fa-calendar fa-fw';
+                            span.className = 'form-control-feedback';
+                            span.style.cursor = 'default';
+                            span.appendChild(ico);
+                            input.parentNode.appendChild(calendar);
+                            var uiCalendar = new UI.Calendar(calendar, { isInput: true, input: input });
+                            span.onclick = function () {                                 //Event for show Calendar.                            
+                                if (uiCalendar.isOpen()) uiCalendar.close();
+                                else uiCalendar.open();
+                            }
+                        } else {
+                            span.className = 'hidden';
                         }
-                    } else {
-                        span.className = 'hidden';
+                        input.parentNode.appendChild(span);
+
                     }
-                    input.parentNode.appendChild(span);
+                    input.parentNode.appendChild(small);
+                    if (input.dataset.money) {
+                        input.style.textAlign = 'right';
+                    }
 
                 }
-                input.parentNode.appendChild(small);
-                if (input.dataset.money) {
-                    input.style.textAlign = 'right';
+                if (input.dataset.blur === 'true') {
+                    input.onblur = function () {
+                        return validate(this);
+                    }
                 }
-
-            }
-            if (input.dataset.blur === 'true') {
-                input.onblur = function () {
-                    return validate(this);
-                }
-            }
-            if (input.dataset.keyup === 'true') {
-                input.onkeyup = function () {
-                    return validate(this);
+                if (input.dataset.keyup === 'true') {
+                    input.onkeyup = function () {
+                        return validate(this);
+                    }
                 }
             }
         }
@@ -1109,8 +1111,8 @@ UI.FormOk = function (HtmlElement) {
                     case 'select':
                     case 'hidden':
                         serialized.push(name + '=' + value);
-                        break;
-                    default:
+                        break;       
+                    default:                        
                         break;
                 }
             }
@@ -1203,7 +1205,11 @@ UI.FormOk = function (HtmlElement) {
                     }
                 }
                 break;
+            /*
+            * An input without validations is valid.
+            */
             default:
+                result = true;
                 break;
         }
     }

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdownlist valid JS-UI</title>
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../css/js-ui.css" rel="stylesheet" />
+    <link href="../../css/theme/default.css" rel="stylesheet" id="style" />
+</head>
+<body>
+    <section class="container">
+        <div class="row">
+            <br />            
+            <form id="form">
+                <div class="col-sm-8" id="notify"></div>
+                <div class="form-group">
+                    <!--The data-name atributte is required for valid in form-->
+                    <div class="col-sm-6" id="dropdownlist" data-name="products"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <button class="btn btn-info">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="../../js/js-ui.js"></script>   
+    <script>
+        var notify = new UI.Notify(document.getElementById('notify'));      // Create the object for notifications
+        UI.DropDownList(document.getElementById('dropdownlist'), [          // Create the object dropdownlist
+            { option: -1, value: '- SELECT PRODUCT -', selected: true },
+            { option: 1, value: 'Product A' },
+            { option: 2, value: 'Product B' },
+            { option: 3, value: 'Product C' }
+        ]);
+        var form = new UI.FormOk(document.getElementById('form'));          // Create the object from
+        form.onsubmit(function () {
+            /*
+            * The method isValid() check by default
+            * if the option is greater than zero for be valid.
+            */
+            if (form.isValid()) {
+                notify.success('Submit data');
+            } else {
+                notify.close();
+            }
+        });
+    </script>
+</body>
+</html>
