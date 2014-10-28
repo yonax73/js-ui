@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Form::isMoney(value:String):Boolean JS-UI</title>
+<link href="../../css/font-awesome.min.css" rel="stylesheet" />
+<link href="../../css/js-ui.css" rel="stylesheet" />
+<link href="../../css/theme/default.css" rel="stylesheet" id="style" />
+
+</head>
+<body>
+	<section class="container">
+		<br>	
+		<div id="notify"></div>
+		<div class="row form-group">
+			<div class="col-sm-4">
+				<input type="text" id="input"  class="form-control" placeholder="price">
+			</div>			
+			<button class="col-sm-2 btn btn-success" onclick="validate()">Valid</button>			
+		</div>
+	</section>
+
+	<script src="../../js/js-ui.js"></script>
+	<script>
+		var notify = new UI.Notify(document.getElementById('notify'));
+		var form = new UI.Form();
+		function validate() {
+			if (form.isMoney(document.getElementById('input').value)) {
+				notify.info('Validate');
+			} else {
+				notify.danger('Money format incorrect!');				
+			}
+		}
+	</script>
+</body>
+</html>

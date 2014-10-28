@@ -619,7 +619,7 @@ document.getElementById('btnClose').onclick = function () {
                         <blockquote class="component-api" id="ui-dropdownlist-get-item">
                             <section  class="row">
                                 <div class="col-md-12">
-                                    <h3>getItem():Item{}</h3>
+                                    <h3>getItem():JSON</h3>
                                     <small class="pull-right">
                                         <a href="api.html#ui-dropdownlist-get-item">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/f6yu7tjL/" target="_blank">Try it yourself.</a>
@@ -682,7 +682,7 @@ document.getElementById('btnClose').onclick = function () {
                         <blockquote class="component-api" id="ui-dropdownlist-get-item-by-option">
                             <section  class="row">
                                 <div class="col-md-12">
-                                    <h3>getItemByOption(option:Any):Item{}</h3>
+                                    <h3>getItemByOption(option:Any):JSON</h3>
                                     <small class="pull-right">
                                         <a href="api.html#ui-dropdownlist-get-item-by-option">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/zmqguw79/" target="_blank">Try it yourself.</a>
@@ -752,7 +752,7 @@ document.getElementById('btnClose').onclick = function () {
                         <blockquote class="component-api" id="ui-dropdownlist-get-item-by-value">
                             <section  class="row">
                                 <div class="col-md-12">
-                                    <h3>getItemByValue(value:Any):Item{}</h3>
+                                    <h3>getItemByValue(value:Any):JSON</h3>
                                     <small class="pull-right">
                                         <a href="api.html#ui-dropdownlist-get-item-by-value">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/37n8jz2k/" target="_blank">Try it yourself.</a>
@@ -891,7 +891,7 @@ document.getElementById('btn').onclick = function(){
                         <blockquote class="component-api" id="ui-dropdownlist-disabled">
                             <section  class="row">
                                 <div class="col-md-12">
-                                    <h3>setDisabled(disabled:boolean)</h3>
+                                    <h3>setDisabled(disabled:Boolean)</h3>
                                     <small class="pull-right">
                                         <a href="api.html#ui-dropdownlist-disabled">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/pdb24ano/" target="_blank">Try it yourself.</a>
@@ -1051,7 +1051,7 @@ UI.DropDownList(document.getElementById('dropdownlist'), [          // Create th
     { option: 2, value: 'Product B' },
     { option: 3, value: 'Product C' }
 ]);
-var form = new UI.FormOk(document.getElementById('form'));          // Create the object from
+var form = new UI.form(document.getElementById('form'));          // Create the object from
 form.onsubmit(function () {
     /*
     * The method isValid() check by default
@@ -1186,32 +1186,32 @@ document.getElementById('btn-enabled').onclick = function(){
 
                     </div>
                 </section>
-                <!--UI-FORM-OK-->
-                <section id="ui-formok" class="row component">
+                <!--UI-FORM-->
+                <section id="ui-form" class="row component">
                     <div class="col-md-12">
                         <section class="row component-header">
                             <div class="col-md-12">
-                                <h2>FormOk Object</h2>
+                                <h2>Form Object</h2>
                                 <p>
-                                    The FormOk is a simple form validation.
+                                    The form is a simple form validation.
                                 </p>
                             </div>
                         </section>
-                        <!--  Formok is-valid -->
-                        <blockquote class="component-api" id="ui-formok-is-valid">
+                        <!--  form is-valid -->
+                        <blockquote class="component-api" id="ui-form-is-valid">
                             <section  class="row">
                                 <div class="col-md-12">
                                     <h3>isValid():Boolean</h3>
                                     <small class="pull-right">
-                                        <a href="api.html#ui-formok-is-valid">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="api.html#ui-form-is-valid">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
                                     </small>
                                 </div>
                             </section>
                             <section class="row">
                                 <div class="col-md-12">
-                                    <div id="content-formok-is-valid">
-                                        <div id="tab-formok-is-valid-1">
+                                    <div id="content-form-is-valid">
+                                        <div id="tab-form-is-valid-1">
                                             <pre>
                                             <code class="html">
 &lt;section class=&quot;container&quot;&gt;
@@ -1312,10 +1312,10 @@ document.getElementById('btn-enabled').onclick = function(){
                                          </code>
                                         </pre>
                                         </div>
-                                        <div id="tab-formok-is-valid-2">
+                                        <div id="tab-form-is-valid-2">
                                             <pre>
                                              <code class="js">
-var form = new UI.FormOk(document.getElementById('form'));
+var form = new UI.form(document.getElementById('form'));
 form.onsubmit(function () {
     if (form.isValid()) {
         notify.success("submit data");
@@ -1335,10 +1335,10 @@ UI.DropDownList(document.getElementById('salesRep'), [
                                      </code>
                                    </pre>
                                         </div>
-                                        <div id="tab-formok-is-valid-3">
+                                        <div id="tab-form-is-valid-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/formok/formok-is-valid.html" style="height:550px"></object>
+                                                    <object data="components/form/form-is-valid.html" style="height:550px"></object>
                                                 </div>
                                             </div>
                                         </div>
@@ -1347,121 +1347,60 @@ UI.DropDownList(document.getElementById('salesRep'), [
                             </section>
                         </blockquote>
                         <script>
-                            UI.NavTab(document.getElementById('content-formok-is-valid'), [
-                               { id: 'tab-formok-is-valid-1', text: 'HTML' },
-                               { id: 'tab-formok-is-valid-2', text: 'Javascript' },
-                               { id: 'tab-formok-is-valid-3', text: 'Result', active: true }
+                            UI.NavTab(document.getElementById('content-form-is-valid'), [
+                               { id: 'tab-form-is-valid-1', text: 'HTML' },
+                               { id: 'tab-form-is-valid-2', text: 'Javascript' },
+                               { id: 'tab-form-is-valid-3', text: 'Result', active: true }
                             ]);
                         </script>
-                        <!--  Formok is-empty-string -->
-                        <blockquote class="component-api" id="ui-formok-is-empty-string">
+                        <!--  form is-empty -->
+                        <blockquote class="component-api" id="ui-form-is-empty">
                             <section class="row">
                                 <div class="col-md-12">
-                                    <h3>isEmpty(String):Boolean</h3>
+                                    <h3>isEmpty(value:String):Boolean</h3>
                                     <small class="pull-right">
-                                        <a href="api.html#ui-formok-is-empty-string">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="api.html#ui-form-is-empty">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
                                     </small>
                                 </div>
                             </section>
                             <section class="row">
                                 <div class="col-md-12">
-                                    <div id="content-formok-is-empty-string">
-                                        <div id="tab-formok-is-empty-string-1">
+                                    <div id="content-form-is-empty">
+                                        <div id="tab-form-is-empty-1">
                                             <pre>
-                                            <code class="html">
-&lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
-                                            </code>
-                                        </pre>
-                                        </div>
-                                        <div id="tab-formok-is-empty-string-2">
-                                            <pre>
-                                            <code class="js">
-var notify = new UI.Notify(document.getElementById('notify'));
-var str = 'Hello Word!'
-var form = new UI.FormOk();        
-if (form.isEmpty(str)) {
-    notify.danger('The String is empty');           
-}else{
-    notify.success('Success');
-}
-                                     </code>
-                                   </pre>
-                                        </div>
-                                        <div id="tab-formok-is-empty-string-3">
-                                            <div class="row component-example">
-                                                <div class="col-md-12">
-                                                    <object data="components/formok/formok-is-empty-string.html"></object>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </blockquote>
-                        <script>
-                            UI.NavTab(document.getElementById('content-formok-is-empty-string'), [
-                               { id: 'tab-formok-is-empty-string-1', text: 'HTML' },
-                               { id: 'tab-formok-is-empty-string-2', text: 'Javascript' },
-                               { id: 'tab-formok-is-empty-string-3', text: 'Result', active: true }
-                            ]);
-                        </script>
-                        <!--  Formok is-empty-input -->
-                        <blockquote class="component-api" id="ui-formok-is-empty-input">
-                            <section class="row">
-                                <div class="col-md-12">
-                                    <h3>isEmpty(HtmlElement):Boolean</h3>
-                                    <small class="pull-right">
-                                        <a href="api.html#ui-formok-is-empty-input">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
-                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
-                                    </small>
-                                </div>
-                            </section>
-                            <section class="row">
-                                <div class="col-md-12">
-                                    <div id="content-formok-is-empty-input">
-                                        <div id="tab-formok-is-empty-input-1">
-                                            <pre>
-                                            <code class="html">
-&lt;section class=&quot;container&quot;&gt;
-    &lt;div class=&quot;row&quot;&gt;
-        &lt;br&gt;
-        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;col-sm-6&quot;&gt;
-            &lt;div class=&quot;form-group&quot;&gt;
-                &lt;div class=&quot;col-sm-5&quot;&gt;
-                    &lt;input type=&quot;text&quot; id=&quot;input&quot; name=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;required&quot;&gt;
-                &lt;/div&gt;
-                &lt;button class=&quot;btn btn-info col-sm-3&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+                                             <code class="html">
+&lt;section class=&quot;container&quot;&gt;	
+   &lt;div id=&quot;notify&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;row form-group&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;text&quot; id=&quot;input&quot;  class=&quot;form-control&quot; placeholder=&quot;required&quot;&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;col-sm-2 btn btn-success&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;			
+   &lt;/div&gt;
 &lt;/section&gt;
                                             </code>
                                         </pre>
                                         </div>
-                                        <div id="tab-formok-is-empty-input-2">
+                                        <div id="tab-form-is-empty-2">
                                             <pre>
                                             <code class="js">
 var notify = new UI.Notify(document.getElementById('notify'));
-var form = new UI.FormOk();
-
+var form = new UI.Form();
 function validate() {
-    if (form.isEmpty(document.getElementById('input'))) {
-        notify.danger('The input is empty!');
-    } else {
-        notify.info('Validate!');
-    }
+ if (form.isEmpty(document.getElementById('input').value)) {
+	notify.danger('Input empty');
+  } else {
+	notify.info('Validate');
+  }
 }
                                      </code>
                                    </pre>
                                         </div>
-                                        <div id="tab-formok-is-empty-input-3">
+                                        <div id="tab-form-is-empty-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/formok/formok-is-empty-input.html"></object>
+                                                    <object data="components/form/form-is-empty.html"></object>
                                                 </div>
                                             </div>
                                         </div>
@@ -1470,51 +1409,61 @@ function validate() {
                             </section>
                         </blockquote>
                         <script>
-                            UI.NavTab(document.getElementById('content-formok-is-empty-input'), [
-                               { id: 'tab-formok-is-empty-input-1', text: 'HTML' },
-                               { id: 'tab-formok-is-empty-input-2', text: 'Javascript' },
-                               { id: 'tab-formok-is-empty-input-3', text: 'Result', active: true }
+                            UI.NavTab(document.getElementById('content-form-is-empty'), [
+                               { id: 'tab-form-is-empty-1', text: 'HTML' },
+                               { id: 'tab-form-is-empty-2', text: 'Javascript' },
+                               { id: 'tab-form-is-empty-3', text: 'Result', active: true }
                             ]);
                         </script>
-                        <!--  Formok is-full-name-string -->
-                        <blockquote class="component-api" id="ui-formok-is-full-name-string">
+
+                        <!--  form is-full-name -->
+                        <blockquote class="component-api" id="ui-form-is-full-name">
                             <section class="row">
                                 <div class="col-md-12">
-                                    <h3>isFullName(String):Boolean</h3>
+                                    <h3>isFullName(value:String):Boolean</h3>
                                     <small class="pull-right">
-                                        <a href="api.html#ui-formok-is-full-name-string">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="api.html#ui-form-is-full-name">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
                                         <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
                                     </small>
                                 </div>
                             </section>
                             <section class="row">
                                 <div class="col-md-12">
-                                    <div id="content-formok-is-full-name-string">
-                                        <div id="tab-formok-is-full-name-string-1">
+                                    <div id="content-form-is-full-name">
+                                        <div id="tab-form-is-full-name-1">
                                             <pre>
                                             <code class="html">
-&lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+&lt;section class=&quot;container&quot;&gt;	
+   &lt;div id=&quot;notify&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;row form-group&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;text&quot; id=&quot;input&quot;  class=&quot;form-control&quot; placeholder=&quot;name&quot;&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;col-sm-2 btn btn-success&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;			
+   &lt;/div&gt;
+&lt;/section&gt;
                                             </code>
                                         </pre>
                                         </div>
-                                        <div id="tab-formok-is-full-name-string-2">
+                                        <div id="tab-form-is-full-name-2">
                                             <pre>
-                                            <code class="js">
+                                             <code class="js">
 var notify = new UI.Notify(document.getElementById('notify'));
-var name = 'Jhon Doe'
-var form = new UI.FormOk();        
-if (form.isFullName(name)) {
-   notify.success('Name correct!');
-}else{
-    notify.danger('Name incorrect!');   
+var form = new UI.Form();
+function validate() {
+ if (form.isFullName(document.getElementById('input').value)) {
+	notify.info('Validate');
+  } else {
+	notify.danger('Name incorrect!');				
+  }
 }
                                      </code>
                                    </pre>
                                         </div>
-                                        <div id="tab-formok-is-full-name-string-3">
+                                        <div id="tab-form-is-full-name-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/formok/formok-is-full-name-string.html"></object>
+                                                    <object data="components/form/form-is-full-name.html"></object>
                                                 </div>
                                             </div>
                                         </div>
@@ -1523,13 +1472,393 @@ if (form.isFullName(name)) {
                             </section>
                         </blockquote>
                         <script>
-                            UI.NavTab(document.getElementById('content-formok-is-full-name-string'), [
-                               { id: 'tab-formok-is-full-name-string-1', text: 'HTML' },
-                               { id: 'tab-formok-is-full-name-string-2', text: 'Javascript' },
-                               { id: 'tab-formok-is-full-name-string-3', text: 'Result', active: true }
+                            UI.NavTab(document.getElementById('content-form-is-full-name'), [
+                               { id: 'tab-form-is-full-name-1', text: 'HTML' },
+                               { id: 'tab-form-is-full-name-2', text: 'Javascript' },
+                               { id: 'tab-form-is-full-name-3', text: 'Result', active: true }
                             ]);
                         </script>
-
+                        
+                        <!--  form is-email -->
+                        <blockquote class="component-api" id="ui-form-is-email">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>isEmail(value:String):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-is-email">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-is-email">
+                                        <div id="tab-form-is-email-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;	
+   &lt;div id=&quot;notify&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;row form-group&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;text&quot; id=&quot;input&quot;  class=&quot;form-control&quot; placeholder=&quot;email&quot;&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;col-sm-2 btn btn-success&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;			
+   &lt;/div&gt;
+&lt;/section&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-is-email-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form();
+function validate() {
+ if (form.isEmail(document.getElementById('input').value)) {
+	notify.info('Validate');
+  } else {
+	notify.danger('Email incorrect!');				
+  }
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-is-email-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-is-email.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-is-email'), [
+                               { id: 'tab-form-is-email-1', text: 'HTML' },
+                               { id: 'tab-form-is-email-2', text: 'Javascript' },
+                               { id: 'tab-form-is-email-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form is-equals-to -->
+                        <blockquote class="component-api" id="ui-form-is-equals-to">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>isEqualsTo(value:String,value1:String):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-is-equals-to">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-is-equals-to">
+                                        <div id="tab-form-is-equals-to-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+   &lt;div id=&quot;notify&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;row form-group&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;password&quot; id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;password&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;password&quot; id=&quot;input1&quot; class=&quot;form-control&quot; placeholder=&quot;Confirm password&quot;&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;col-sm-2 btn btn-success&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;			
+   &lt;/div&gt;
+&lt;/section&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-is-equals-to-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form();
+function validate() {
+ if (form.isEqualsTo(document.getElementById('input').value,document.getElementById('input1').value)) {
+		notify.info('Validate');
+ } else {
+		notify.danger('The inputs are not same!');				
+ }
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-is-equals-to-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-is-equals-to.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-is-equals-to'), [
+                               { id: 'tab-form-is-equals-to-1', text: 'HTML' },
+                               { id: 'tab-form-is-equals-to-2', text: 'Javascript' },
+                               { id: 'tab-form-is-equals-to-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form is-money -->
+                        <blockquote class="component-api" id="ui-form-is-money">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>isMoney(value:String):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-is-money">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-is-money">
+                                        <div id="tab-form-is-money-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+   &lt;br&gt;	
+   &lt;div id=&quot;notify&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;row form-group&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;text&quot; id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;price&quot;&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;col-sm-2 btn btn-success&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;			
+   &lt;/div&gt;
+&lt;/section&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-is-money-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form();
+function validate() {
+ if (form.isMoney(document.getElementById('input').value)) {
+	notify.info('Validate');
+ } else {
+	notify.danger('Money format incorrect!');				
+ }
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-is-money-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-is-money.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-is-money'), [
+                               { id: 'tab-form-is-money-1', text: 'HTML' },
+                               { id: 'tab-form-is-money-2', text: 'Javascript' },
+                               { id: 'tab-form-is-money-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form max-length-->
+                        <blockquote class="component-api" id="ui-form-max-length">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>maxLength(value:String,lenght:Number):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-max-length">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-max-length">
+                                        <div id="tab-form-max-length-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;	
+   &lt;div id=&quot;notify&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;row form-group&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;text&quot; id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;nickname&quot;&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;col-sm-2 btn btn-success&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;			
+   &lt;/div&gt;
+&lt;/section&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-max-length-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form();
+var length = 5;
+function validate() {
+ if (form.maxLength(document.getElementById('input').value,length)) {
+  notify.info('Validate');
+ } else {
+  notify.danger('the maximum characters are '+length);				
+ }
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-max-length-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-max-length.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-max-length'), [
+                               { id: 'tab-form-max-length-1', text: 'HTML' },
+                               { id: 'tab-form-max-length-2', text: 'Javascript' },
+                               { id: 'tab-form-max-length-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form min-length-->
+                        <blockquote class="component-api" id="ui-form-min-length">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>minLength(value:String,lenght:Number):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-min-length">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-min-length">
+                                        <div id="tab-form-min-length-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;	
+   &lt;div id=&quot;notify&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;row form-group&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;text&quot; id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;user name&quot;&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;col-sm-2 btn btn-success&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;			
+   &lt;/div&gt;
+&lt;/section&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-min-length-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form();
+var length = 5;
+function validate() {
+ if (form.minLength(document.getElementById('input').value,length)) {
+   notify.info('Validate');
+ } else {
+   notify.danger('the minimum characters are '+length);				
+ }
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-min-length-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-min-length.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-min-length'), [
+                               { id: 'tab-form-min-length-1', text: 'HTML' },
+                               { id: 'tab-form-min-length-2', text: 'Javascript' },
+                               { id: 'tab-form-min-length-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form range-length-->
+                        <blockquote class="component-api" id="ui-form-range-length">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>rangeLength(value:String,min:Number,max:Number):Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-range-length">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-range-length">
+                                        <div id="tab-form-range-length-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;	
+   &lt;div id=&quot;notify&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;row form-group&quot;&gt;
+      &lt;div class=&quot;col-sm-4&quot;&gt;
+         &lt;input type=&quot;text&quot; id=&quot;input&quot; class=&quot;form-control&quot; placeholder=&quot;user name&quot;&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;col-sm-2 btn btn-success&quot; onclick=&quot;validate()&quot;&gt;Valid&lt;/button&gt;			
+   &lt;/div&gt;
+&lt;/section&gt;
+                                            </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-range-length-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form();
+var min = 3;
+var max = 8;
+function validate() {
+ if (form.rangeLength(document.getElementById('input').value,min,max)) {
+   notify.info('Validate');
+ } else {
+   notify.danger('The value must be between '+min+' and '+max +' characters');				
+ }
+}
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-range-length-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-range-length.html"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-range-length'), [
+                               { id: 'tab-form-range-length-1', text: 'HTML' },
+                               { id: 'tab-form-range-length-2', text: 'Javascript' },
+                               { id: 'tab-form-range-length-3', text: 'Result', active: true }
+                            ]);
+                        </script>
                     </div>
                 </section>
                 <!--UI-CALENDAR-->
@@ -1539,7 +1868,7 @@ if (form.isFullName(name)) {
                             <div class="col-md-12">
                                 <h2>Calendar Object</h2>
                                 <p>
-                                    The FormOk is a simple form validation.
+                                    The form is a simple form validation.
                                 </p>
                             </div>
                         </section>
@@ -1677,12 +2006,12 @@ document.getElementById('btnSuccess').onclick = function () {
         };
         items.push(itemsDropdownList);
 
-        var itemsFormOK = {
-            href: '#ui-formok', text: 'FormOk', target: 'ui-formok', children: [
-                { href: '#ui-formok-is-valid', text: 'isValid()', target: 'ui-formok-is-valid' }
+        var itemsForm = {
+            href: '#ui-form', text: 'form', target: 'ui-form', children: [
+                { href: '#ui-form-is-valid', text: 'isValid()', target: 'ui-form-is-valid' }
             ]
         };        
-        items.push(itemsFormOK);
+        items.push(itemsForm);
 
         UI.NavScrollV(document.getElementById('nav-components'), items, { top: 110 });
 

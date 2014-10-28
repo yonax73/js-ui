@@ -968,12 +968,12 @@ UI.NavScrollV = function (HtmlElement, items, options) {
  * @param HtmlElement
  */
 
-UI.FormOk = function (HtmlElement) {
+UI.Form = function (HtmlElement) {
 
     var inputs = null;
     var result = false;
     var changed = false;
-    var FormOk = this;
+    var Form = this;
     var hasSuccess = 'has-success';
     var hasError = 'has-error';
     this.msgRequired = 'This field is required and can\'t be empty!';
@@ -1182,7 +1182,7 @@ UI.FormOk = function (HtmlElement) {
                 * Check required
                 */
                 if (input.dataset.required) {
-                    result = FormOk.isEmpty(input) ? error(input, FormOk.msgRequired) : success(input);
+                    result = Form.isEmpty(input.value) ? error(input, Form.msgRequired) : success(input);
                     if (result) {
                         generalValidations(input);
                     }
@@ -1197,11 +1197,11 @@ UI.FormOk = function (HtmlElement) {
                 * Check input checked
                 */
                 if (input.dataset.required) {
-                    result = FormOk.isChecked(input);
+                    result = Form.isChecked(input);
                     if (result) {
                         hiddeMessage(input);
                     } else {
-                        error(input, FormOk.msgAccept);
+                        error(input, Form.msgAccept);
                     }
                 }
                 break;
@@ -1214,7 +1214,7 @@ UI.FormOk = function (HtmlElement) {
         }
     }
 
-    function showMessage(input, message) {
+   function showMessage(input, message) {
         var small = null;
         var type = input.type;
         if (type !== 'checkbox' && type !== 'radio' && !input.dataset.option && !input.dataset.date) {
@@ -1269,20 +1269,20 @@ UI.FormOk = function (HtmlElement) {
         * Check full name
         */
         if (input.dataset.fullname) {
-            result = FormOk.isFullName(input) ? success(input) : error(input, FormOk.msgFullName);
+            result = Form.isFullName(input.value) ? success(input) : error(input, Form.msgFullName);
         }
         /*
         * Check email
         */
         if (input.dataset.email) {
-            result = FormOk.isEmail(input) ? success(input) : error(input, FormOk.msgEmail);
+            result = Form.isEmail(input.value) ? success(input) : error(input, Form.msgEmail);
         }
         /*
         * Check equals to
         */
         if (input.dataset.equalsto) {
             var tmpInp = document.getElementsByName(input.dataset.equalsto)[0];
-            result = FormOk.isEqualsTo(tmpInp, input) ? success(input) & success(tmpInp) : error(input, FormOk.msgCheck) & error(tmpInp, FormOk.msgEquals);
+            result = Form.isEqualsTo(tmpInp.value, input.value) ? success(input) & success(tmpInp) : error(input, Form.msgCheck) & error(tmpInp, Form.msgEquals);
             if (result) {
                 generalValidations(tmpInp);
             }
@@ -1291,21 +1291,21 @@ UI.FormOk = function (HtmlElement) {
         * Check money
         */
         if (input.dataset.money) {
-            result = FormOk.isMoney(input) ? success(input) : error(input, FormOk.msgMoney);
+            result = Form.isMoney(input.value) ? success(input) : error(input, Form.msgMoney);
         }
         /*
         * Check max length
         */
         if (input.dataset.maxlength) {
             var length = input.dataset.maxlength;
-            result = FormOk.maxLength(input, length) ? success(input) : error(input, FormOk.msgMaxLength.replace('{#}', length));
+            result = Form.maxLength(input.value, length) ? success(input) : error(input, Form.msgMaxLength.replace('{#}', length));
         }
         /*
         * Check min length
         */
         if (input.dataset.minlength) {
             var length = input.dataset.minlength;
-            result = FormOk.minLength(input, length) ? success(input) : error(input, FormOk.msgMinLength.replace('{#}', length));
+            result = Form.minLength(input.value, length) ? success(input) : error(input, Form.msgMinLength.replace('{#}', length));
         }
         /*
         * Check range length
@@ -1314,21 +1314,21 @@ UI.FormOk = function (HtmlElement) {
             var data = input.dataset.rangelength.split("-");
             var min = data[0];
             var max = data[1];
-            result = FormOk.rangeLength(input, min, max) ? success(input) : error(input, FormOk.msgRangeLength.replace('{#min}', min).replace('{#max}', max));
+            result = Form.rangeLength(input.value, min, max) ? success(input) : error(input, Form.msgRangeLength.replace('{#min}', min).replace('{#max}', max));
         }
         /*
         * Check max number
         */
         if (input.dataset.max) {
             var max = input.dataset.max;
-            result = FormOk.max(input, max) ? success(input) : error(input, FormOk.msgMax.replace('{#}', max));
+            result = Form.max(input.value, max) ? success(input) : error(input, Form.msgMax.replace('{#}', max));
         }
         /*
         * Check min number
         */
         if (input.dataset.min) {
             var min = input.dataset.min;
-            result = FormOk.min(input, min) ? success(input) : error(input, FormOk.msgMin.replace('{#}', min));
+            result = Form.min(input.value, min) ? success(input) : error(input, Form.msgMin.replace('{#}', min));
         }
         /*
         * Check range number
@@ -1337,37 +1337,37 @@ UI.FormOk = function (HtmlElement) {
             var data = input.dataset.range.split("-");
             var min = data[0];
             var max = data[1];
-            result = FormOk.range(input, min, max) ? success(input) : error(input, FormOk.msgRange.replace('{#min}', min).replace('{#max}'.max));
+            result = Form.range(input.value, min, max) ? success(input) : error(input, Form.msgRange.replace('{#min}', min).replace('{#max}'.max));
         }
         /*
         * Check URL
         */
         if (input.dataset.url) {
-            result = FormOk.isURL(input) ? success(input) : error(input, FormOk.msgURL);
+            result = Form.isURL(input.value) ? success(input) : error(input, Form.msgURL);
         }
         /*
         * Check date
         */
         if (input.dataset.date) {
-            result = FormOk.isDate(input) ? success(input) : error(input, FormOk.msgDate);
+            result = Form.isDate(input.value) ? success(input) : error(input, Form.msgDate);
         }
         /*
         * Check number
         */
         if (input.dataset.number) {
-            result = FormOk.isNumber(input) ? success(input) : error(input, FormOk.msgNumber);
+            result = Form.isNumber(input.value) ? success(input) : error(input, Form.msgNumber);
         }
         /*
         * Check credit card
         */
         if (input.dataset.creditcard) {
-            result = FormOk.isCreditCard(input) ? success(input) : error(input, FormOk.msgCreditCard);
+            result = Form.isCreditCard(input.value) ? success(input) : error(input, Form.msgCreditCard);
         }
         /*
         * Check UI-Select Option
         */
         if (input.dataset.option) {
-            result = FormOk.isValidOption(input, input.dataset.option) ? success(input) : error(input, FormOk.msgValidOption);
+            result = Form.isValidOption(input, input.dataset.option) ? success(input) : error(input, Form.msgValidOption);
         }
 
     }
@@ -1391,7 +1391,7 @@ UI.FormOk = function (HtmlElement) {
     * @param String value
     * @returns true if value is empty
     */
-    this.isEmpty = function (value) {        
+    this.isEmpty = function (value) { 
         return !value.match(/^\S+$|[^\s]+$/);
     }
     /*    
