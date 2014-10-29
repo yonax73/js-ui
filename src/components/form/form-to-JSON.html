@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Form::isValid():Boolean JS-UI</title>
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../css/js-ui.css" rel="stylesheet" />
+    <link href="../../css/theme/default.css" rel="stylesheet" id="style" />
+
+</head>
+<body>
+    <section class="container">
+        <div class="row">
+            <br>
+            <div class="col-sm-12" id="notify"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <br />
+                <form id="form" class="form-horizontal row">  
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" name="email" class="form-control" data-required="true" data-email="true" placeholder="E-mail">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" name="birthday" class="form-control" data-date="d-m-Y" placeholder="Birthday (dd-mm-yyyy)">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12" id="salesRep" data-name="sales-rep"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                 <textarea class="form-control" rows="5"  placeholder="notes" name="notes" data-required="true"></textarea>
+                                </div>                                
+                            </div>                           
+	                        <div class="row">	                        
+	                            <button class="btn btn-success col-sm-3 pull-right">Submit</button>
+	                        </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../js/js-ui.js"></script>   
+    <script>
+    var notify = new UI.Notify(document.getElementById('notify'));
+    UI.DropDownList(document.getElementById('salesRep'), [
+       { option: -1, value: '- SELECT SALES REP -', selected: true },
+       { option: 1, value: 'Manu Donnell' },
+       { option: 2, value: 'Oliver Amell', },
+       { option: 3, value: 'Roy Haynes' },
+       { option: 4, value: 'Willa Holland' },
+       { option: 5, value: 'Felicity Bett' }
+     ]);
+    var form = new UI.Form(document.getElementById('form'));
+
+    form.onsubmit(function() {        
+       if (form.isValid()) {
+    	   var serialize = form.serialize(); 
+           notify.info(serialize);
+           console.log(serialize);
+       }else {
+          notify.close();
+       }        
+    });
+    </script>
+</body>
+</html>

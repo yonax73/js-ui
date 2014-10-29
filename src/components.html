@@ -1222,89 +1222,59 @@ document.getElementById('btn-enabled').onclick = function(){
     &lt;div class=&quot;row&quot;&gt;
         &lt;div class=&quot;col-sm-12&quot;&gt;
             &lt;br /&gt;
-            &lt;form id=&quot;form&quot; class=&quot;form-horizontal&quot;&gt;
-                &lt;fieldset&gt;
-                    &lt;div class=&quot;row&quot;&gt;
-                        &lt;div class=&quot;col-sm-6&quot;&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;user&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
-                                        data-minlength=&quot;3&quot; placeholder=&quot;User&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
-                                        data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;password&quot; name=&quot;password&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
-                                        data-rangelength=&quot;5-8&quot; placeholder=&quot;password&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;password&quot; name=&quot;confirmPassword&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
-                                        data-equalsto=&quot;password&quot; placeholder=&quot;Confirm Password&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;url&quot; class=&quot;form-control&quot;
-                                        data-url=&quot;true&quot; placeholder=&quot;Web Site&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot;
-                                        data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;div class=&quot;col-sm-6&quot;&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;fullName&quot; class=&quot;form-control&quot;
-                                        data-fullname=&quot;true&quot; placeholder=&quot;Full Name&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;age&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
-                                        data-max=&quot;45&quot; placeholder=&quot;Age&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;price&quot; class=&quot;form-control&quot;
-                                        data-required=&quot;true&quot; data-money=&quot;true&quot; placeholder=&quot;Price USD&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot;&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;creditCard&quot; class=&quot;form-control&quot;
-                                        data-creditcard=&quot;true&quot; placeholder=&quot;Credit Card&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-sm-12&quot; id=&quot;salesRep&quot; data-name=&quot;sales-rep&quot;&gt;&lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;form-group&quot;&gt;
-                                &lt;div class=&quot;col-md-12&quot;&gt;
-                                    &lt;label&gt;
-                                    &lt;input name=&quot;terms&quot; type=&quot;checkbox&quot; data-required=&quot;true&quot;&gt;
-                                    I agree with the &lt;a href=&quot;#&quot;&gt;Terms and Conditions&lt;/a&gt;
-                                    &lt;/label&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
-                    &lt;div class=&quot;row&quot;&gt;
-                        &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;password&quot; name=&quot;password&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                data-rangelength=&quot;5-8&quot; placeholder=&quot;password&quot;&gt;
+                        &lt;/div&gt;
                     &lt;/div&gt;
-                &lt;/fieldset&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;password&quot; name=&quot;confirmPassword&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                data-equalsto=&quot;password&quot; placeholder=&quot;Confirm Password&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot;
+                                data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;fullName&quot; class=&quot;form-control&quot;
+                                data-fullname=&quot;true&quot; placeholder=&quot;Full Name&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;price&quot; class=&quot;form-control&quot;
+                                data-required=&quot;true&quot; data-money=&quot;true&quot; placeholder=&quot;Price USD&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot; id=&quot;salesRep&quot; data-name=&quot;sales-rep&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-md-12&quot;&gt;                                        
+                            &lt;input name=&quot;terms&quot; type=&quot;checkbox&quot; data-required=&quot;true&quot;&gt;
+                            &lt;label&gt; I agree with the &lt;a href=&quot;#&quot;&gt;Terms and Conditions&lt;/a&gt;&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
             &lt;/form&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -1338,7 +1308,7 @@ UI.DropDownList(document.getElementById('salesRep'), [
                                         <div id="tab-form-is-valid-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/form/form-is-valid.html" style="height:550px"></object>
+                                                    <object data="components/form/form-is-valid.html" style="height:350px"></object>
                                                 </div>
                                             </div>
                                         </div>
@@ -1351,6 +1321,301 @@ UI.DropDownList(document.getElementById('salesRep'), [
                                { id: 'tab-form-is-valid-1', text: 'HTML' },
                                { id: 'tab-form-is-valid-2', text: 'Javascript' },
                                { id: 'tab-form-is-valid-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form has-changed -->
+                        <blockquote class="component-api" id="ui-form-has-changed">
+                            <section  class="row">
+                                <div class="col-md-12">
+                                    <h3>hasChanged():Boolean</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-has-changed">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-has-changed">
+                                        <div id="tab-form-has-changed-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12&quot;&gt;
+            &lt;br /&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-required=&quot;true&quot;
+                                data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot;
+                                data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;first-name&quot; class=&quot;form-control&quot;
+                                data-fullname=&quot;true&quot; placeholder=&quot;First Name&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;last-name&quot; class=&quot;form-control&quot;
+                                data-fullname=&quot;true&quot; placeholder=Last Name&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-has-changed-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form(document.getElementById('form'));
+form.onsubmit(function() {
+    if (form.hasChanged()) {
+        if (form.isValid()) {
+            notify.success("submit data");
+        } else {
+            notify.close();
+        }
+    } else {
+        notify.warning('No changes to save');
+    }
+});
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-has-changed-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-has-changed.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-has-changed'), [
+                               { id: 'tab-form-has-changed-1', text: 'HTML' },
+                               { id: 'tab-form-has-changed-2', text: 'Javascript' },
+                               { id: 'tab-form-has-changed-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form serialize -->
+                        <blockquote class="component-api" id="ui-form-serialize">
+                            <section  class="row">
+                                <div class="col-md-12">
+                                    <h3>serialize():String</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-serialize">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-serialize">
+                                        <div id="tab-form-serialize-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12&quot;&gt;
+            &lt;br /&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-required=&quot;true&quot; 
+                             data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; 
+                             data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;first-name&quot; class=&quot;form-control&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;last-name&quot; class=&quot;form-control&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-serialize-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form(document.getElementById('form'));
+form.onsubmit(function() {
+    if (form.isValid()) {
+        var serialize = form.serialize();
+        notify.info(serialize);
+        console.log(serialize);
+    } else {
+        notify.close();
+    }
+});
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-serialize-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-serialize.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-serialize'), [
+                               { id: 'tab-form-serialize-1', text: 'HTML' },
+                               { id: 'tab-form-serialize-2', text: 'Javascript' },
+                               { id: 'tab-form-serialize-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form to-JSON -->
+                        <blockquote class="component-api" id="ui-form-to-JSON">
+                            <section  class="row">
+                                <div class="col-md-12">
+                                    <h3>toJSON():String</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-to-JSON">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-to-JSON">
+                                        <div id="tab-form-to-JSON-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12&quot;&gt;
+            &lt;br /&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-required=&quot;true&quot; 
+                             data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; 
+                             data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;first-name&quot; class=&quot;form-control&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;last-name&quot; class=&quot;form-control&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-to-JSON-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form(document.getElementById('form'));
+form.onsubmit(function() {
+    if (form.isValid()) {
+        var to-JSON = form.to-JSON();
+        notify.info(to-JSON);
+        console.log(to-JSON);
+    } else {
+        notify.close();
+    }
+});
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-to-JSON-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-to-JSON.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-to-JSON'), [
+                               { id: 'tab-form-to-JSON-1', text: 'HTML' },
+                               { id: 'tab-form-to-JSON-2', text: 'Javascript' },
+                               { id: 'tab-form-to-JSON-3', text: 'Result', active: true }
                             ]);
                         </script>
                         <!--  form is-empty -->

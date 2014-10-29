@@ -971,6 +971,7 @@ UI.NavScrollV = function (HtmlElement, items, options) {
 UI.Form = function (HtmlElement) {
 
     var inputs = null;
+    var textAreas = null;
     var result = false;
     var changed = false;
     var Form = this;
@@ -997,8 +998,8 @@ UI.Form = function (HtmlElement) {
 
 
     function init() {
-        if (HtmlElement) {
-            inputs = HtmlElement.getElementsByTagName('input');
+        if (HtmlElement) { 
+            inputs = HtmlElement.querySelectorAll('input,textarea');
             var n = inputs.length;
             for (var i = 0; i < n; i++) {
                 var input = inputs[i];
@@ -1034,17 +1035,23 @@ UI.Form = function (HtmlElement) {
                     }
 
                 }
-                if (input.dataset.blur === 'true') {
+                if (input.dataset.blur) {
                     input.onblur = function () {
                         return validate(this);
                     }
                 }
-                if (input.dataset.keyup === 'true') {
+                if (input.dataset.keyup) {
                     input.onkeyup = function () {
                         return validate(this);
                     }
                 }
-            }
+                /*
+                 * Add event onchange
+                 */
+                input.onchange = function () {
+                    changed = true; 
+                }   
+            }           
         }
     }
 
@@ -1066,13 +1073,6 @@ UI.Form = function (HtmlElement) {
     }
 
     this.hasChanged = function () {
-        var n = inputs.length;
-        var i = 0;
-        while (i < n && !changed) {
-            inputs[i++].onchange = function () {
-                changed = true;
-            }
-        }
         var changedAux = changed;
         changed = false;
         return changedAux;
@@ -1206,7 +1206,7 @@ UI.Form = function (HtmlElement) {
                 }
                 break;
             /*
-            * An input without validations is valid.
+            * The other inputs by default are valid
             */
             default:
                 result = true;
@@ -1270,13 +1270,13 @@ UI.Form = function (HtmlElement) {
         */
         if (input.dataset.fullname) {
             result = Form.isFullName(input.value) ? success(input) : error(input, Form.msgFullName);
-        }
+        }else
         /*
         * Check email
         */
         if (input.dataset.email) {
             result = Form.isEmail(input.value) ? success(input) : error(input, Form.msgEmail);
-        }
+        }else
         /*
         * Check equals to
         */
@@ -1286,27 +1286,27 @@ UI.Form = function (HtmlElement) {
             if (result) {
                 generalValidations(tmpInp);
             }
-        }
+        }else
         /*
         * Check money
         */
         if (input.dataset.money) {
             result = Form.isMoney(input.value) ? success(input) : error(input, Form.msgMoney);
-        }
+        }else
         /*
         * Check max length
         */
         if (input.dataset.maxlength) {
             var length = input.dataset.maxlength;
             result = Form.maxLength(input.value, length) ? success(input) : error(input, Form.msgMaxLength.replace('{#}', length));
-        }
+        }else
         /*
         * Check min length
         */
         if (input.dataset.minlength) {
             var length = input.dataset.minlength;
             result = Form.minLength(input.value, length) ? success(input) : error(input, Form.msgMinLength.replace('{#}', length));
-        }
+        }else
         /*
         * Check range length
         */
@@ -1315,21 +1315,21 @@ UI.Form = function (HtmlElement) {
             var min = data[0];
             var max = data[1];
             result = Form.rangeLength(input.value, min, max) ? success(input) : error(input, Form.msgRangeLength.replace('{#min}', min).replace('{#max}', max));
-        }
+        }else
         /*
         * Check max number
         */
         if (input.dataset.max) {
             var max = input.dataset.max;
             result = Form.max(input.value, max) ? success(input) : error(input, Form.msgMax.replace('{#}', max));
-        }
+        }else
         /*
         * Check min number
         */
         if (input.dataset.min) {
             var min = input.dataset.min;
             result = Form.min(input.value, min) ? success(input) : error(input, Form.msgMin.replace('{#}', min));
-        }
+        }else
         /*
         * Check range number
         */
@@ -1338,36 +1338,38 @@ UI.Form = function (HtmlElement) {
             var min = data[0];
             var max = data[1];
             result = Form.range(input.value, min, max) ? success(input) : error(input, Form.msgRange.replace('{#min}', min).replace('{#max}'.max));
-        }
+        }else
         /*
         * Check URL
         */
         if (input.dataset.url) {
             result = Form.isURL(input.value) ? success(input) : error(input, Form.msgURL);
-        }
+        }else
         /*
         * Check date
         */
         if (input.dataset.date) {
             result = Form.isDate(input.value) ? success(input) : error(input, Form.msgDate);
-        }
+        }else
         /*
         * Check number
         */
         if (input.dataset.number) {
             result = Form.isNumber(input.value) ? success(input) : error(input, Form.msgNumber);
-        }
+        }else
         /*
         * Check credit card
         */
         if (input.dataset.creditcard) {
             result = Form.isCreditCard(input.value) ? success(input) : error(input, Form.msgCreditCard);
-        }
+        }else
         /*
         * Check UI-Select Option
         */
         if (input.dataset.option) {
             result = Form.isValidOption(input, input.dataset.option) ? success(input) : error(input, Form.msgValidOption);
+        }else{
+        	success(input);
         }
 
     }
@@ -1849,7 +1851,9 @@ UI.Calendar = function (HtmlElement, options) {
                             }
                         }
                         displayDate.setDate(this.textContent);
-                        options.input.value = displayDate.format(options.input.dataset.date);
+                        var tmpInput = options.input;                        
+                        tmpInput.value = displayDate.format(tmpInput.dataset.date);                        
+                        tmpInput.onchange();       
                         Calendar.close();
                     }
                 }
@@ -2241,17 +2245,21 @@ UI.Calendar = function (HtmlElement, options) {
             var input = options.input;
             var value = input.value;
             if (!value.isEmpty()) {
-                displayDate = new Date().parse(value, input.dataset.date);
-                var col = displayDate.getDay();
-                var row = displayDate.getWeekOfMonth();
-                displayDate.setDate(01);
-                fillDataByDays();
-                HtmlElement.removeChildren();
-                createCalendarByDays();
-                var cell = table.rows[row].cells[col];
-                selectedCell.classList.remove('bg-primary');
-                cell.classList.add('bg-primary');
-                selectedCell = cell;
+                displayDate = new Date().parse(value, input.dataset.date);console.log(displayDate)
+                if(displayDate.isValid()){
+                    var col = displayDate.getDay();
+                    var row = displayDate.getWeekOfMonth();
+                    displayDate.setDate(01);
+                    fillDataByDays();
+                    HtmlElement.removeChildren();
+                    createCalendarByDays();
+                    var cell = table.rows[row].cells[col];
+                    selectedCell.classList.remove('bg-primary');
+                    cell.classList.add('bg-primary');
+                    selectedCell = cell;
+                }
+                
+
             }
         }
     }
@@ -2534,6 +2542,13 @@ Date.prototype.nextMonth = function () {
 */
 Date.prototype.clone = function () {
     return new Date(this.getFullYear(), this.getMonth(), this.getDate());
+}
+/*
+ * check valid date
+ * @returns true if the date is valid
+ */
+Date.prototype.isValid = function(){
+	return !isNaN(this.getTime());
 }
 /*
 * format provided date into this.format format
