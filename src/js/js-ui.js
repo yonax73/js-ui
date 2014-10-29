@@ -1448,7 +1448,7 @@ UI.Form = function (HtmlElement) {
     * @param min, number minimun
     * @returns true if value is equals or greater that min
     */
-    this.min = function (string, min) {        
+    this.min = function (value, min) {        
         return (!isNaN(min) && value >= min);
     }
     /* 
