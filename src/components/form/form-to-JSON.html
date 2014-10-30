@@ -35,8 +35,16 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                 <textarea class="form-control" rows="5"  placeholder="notes" name="notes" data-required="true"></textarea>
-                                </div>                                
+                                   <textarea class="form-control" rows="3"  placeholder="notes" name="notes" data-required="true"></textarea>
+                                </div>  
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                          <label>                                        
+                                            <input name="terms" type="checkbox" data-required="true">
+                                             I agree with the <a href="#">Terms and Conditions</a>
+                                          </label>
+                                    </div>
+                                </div>                              
                             </div>                           
 	                        <div class="row">	                        
 	                            <button class="btn btn-success col-sm-3 pull-right">Submit</button>
@@ -49,24 +57,36 @@
     <script src="../../js/js-ui.js"></script>   
     <script>
     var notify = new UI.Notify(document.getElementById('notify'));
-    UI.DropDownList(document.getElementById('salesRep'), [
-       { option: -1, value: '- SELECT SALES REP -', selected: true },
-       { option: 1, value: 'Manu Donnell' },
-       { option: 2, value: 'Oliver Amell', },
-       { option: 3, value: 'Roy Haynes' },
-       { option: 4, value: 'Willa Holland' },
-       { option: 5, value: 'Felicity Bett' }
-     ]);
+    UI.DropDownList(document.getElementById('salesRep'), [{
+        option: -1,
+        value: '- SELECT SALES REP -',
+        selected: true
+    }, {
+        option: 1,
+        value: 'Manu Donnell'
+    }, {
+        option: 2,
+        value: 'Oliver Amell',
+    }, {
+        option: 3,
+        value: 'Roy Haynes'
+    }, {
+        option: 4,
+        value: 'Willa Holland'
+    }, {
+        option: 5,
+        value: 'Felicity Bett'
+    }]);
     var form = new UI.Form(document.getElementById('form'));
 
-    form.onsubmit(function() {        
-       if (form.isValid()) {
-    	   var serialize = form.serialize(); 
-           notify.info(serialize);
-           console.log(serialize);
-       }else {
-          notify.close();
-       }        
+    form.onsubmit(function() {
+        if (form.isValid()) {
+            var data = form.toJSON();
+            notify.info(JSON.stringify(data));
+            console.log(data);
+        } else {
+            notify.close();
+        }
     });
     </script>
 </body>

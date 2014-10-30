@@ -489,188 +489,32 @@ form.serialize()
                                             </div>
                                         </blockquote>
                                         
-                                        <blockquote id="ui-form-list-validations" class="api">
-                                            <a href="#ui-form-list-validation" class="method">List of built-in Validation methods</a>
+                                        <blockquote id="ui-form-to-JSON" class="api">
+                                            <a class="method" href="components.html#ui-form-to-JSON">toJSON():JSON</a>
                                             <div>
-                                                <br />
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Method</th>
-                                                            <th>Description</th>
-                                                            <th>HTML</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-empty">isEmpty(value)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check field like required.
-                                                            </td>
-                                                            <td>
-                                                                data-required="true"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-full-name">isFullName(value)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check field like a valid name.
-                                                            </td>
-                                                            <td>
-                                                                data-fullname="true"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-email">isEmail(value)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check field like a valid e-mail.
-                                                            </td>
-                                                            <td>
-                                                                data-email="true"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-equals-to">isEqualsTo(value,value1)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to compare two fields with the same value.
-                                                            </td>
-                                                            <td>
-                                                                data-equalsto="name-input-to-compare"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-money">isMoney(value)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check field like money.
-                                                            </td>
-                                                            <td>
-                                                                data-money="true"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-max-length">maxLength(value,length)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check the maximum field length.
-                                                            </td>
-                                                            <td>
-                                                                data-maxlength="length"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-min-length">minLength(value,length)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check the minimun field length.
-                                                            </td>
-                                                            <td>
-                                                                data-minlength="length"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-range-length">rangeLength(value,min,max)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check the range length of the field.
-                                                            </td>
-                                                            <td>
-                                                                data-rangelength="min-max"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-max">max(value,max)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check the maximum number of the field.
-                                                            </td>
-                                                            <td>
-                                                                data-max="max"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-min">min(value,min)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check the minimun number of the field.
-                                                            </td>
-                                                            <td>
-                                                                data-min="min"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-range">range(value,min,max)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check the range number of the field.
-                                                            </td>
-                                                            <td>
-                                                                data-range="min-max"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-URL">isURL(value)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check field like a valid URL.
-                                                            </td>
-                                                            <td>
-                                                                data-url="true"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-date">isDate(value)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check field like a valid date.
-                                                            </td>
-                                                            <td>
-                                                                data-date="true"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-number">isNumber(value)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check field like a valid number.
-                                                            </td>
-                                                            <td>
-                                                                data-number="true"
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <a href="#ui-form-is-credit-card">isCreditCard(value)</a>
-                                                            </td>
-                                                            <td>
-                                                                It is used to check field like a valid credit card.
-                                                            </td>
-                                                            <td>
-                                                                data-creditcard="true"
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <pre>
+                                                  <code class="js">
+form.toJSON()
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                   Create a  <a href="http://www.w3schools.com/js/js_json.asp" target="_blank" class="text-simple">JSON</a> with the elements form.<br/>
+                                                   Required 
+                                                    <a class="text-simple" href="http://www.w3schools.com/tags/att_input_name.asp" target="_blank">name</a> attribute in 
+                                                    <a class="text-simple" href="http://www.w3schools.com/tags/tag_input.asp" target="_blank">inputs</a> and
+                                                    <a class="text-simple" href="http://www.w3schools.com/tags/tag_textarea.asp" target="_blank">textarea</a>, for working with the 
+                                                    <a class="text-simple" href="api.html#ui-dropdownlist" target="_blank">dropdownlist</a> used the 
+                                                    <a class="text-simple" href="http://www.w3schools.com/tags/att_global_data.asp" target="_blank">data-name</a>  attribute.
+                                                </p>
+                                                <h5>Returns:</h5>
+                                                <p>
+                                                    <a href="http://www.w3schools.com/js/js_json.asp" target="_blank">JSON</a>
+                                                </p>
                                             </div>
                                         </blockquote>
+                                        
+
+                                       
                                         <blockquote id="ui-form-is-empty" class="api">
                                             <a class="method" href="components.html#ui-form-is-empty">isEmpty(value:String):Boolean</a>
                                             <div>
@@ -1016,6 +860,379 @@ form.isCreditCard(value)
                                             </div>
                                         </blockquote>
                                         
+                                        <blockquote id="ui-form-blur" class="api">
+                                            <a class="method" href="components.html#ui-form-blur">data-blur</a>
+                                            <div>
+                                                <pre>
+                                                <code>
+&lt;input data-blur=&quot;true&quot;&gt;
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Check the input form when this lost focus.
+                                                </p>
+                                            </div>
+                                        </blockquote>
+                                        
+                                        <blockquote id="ui-form-keyup" class="api">
+                                            <a class="method" href="components.html#ui-form-keyup">data-keyup</a>
+                                            <div>
+                                                <pre>
+                                                <code>
+&lt;input data-keyup=&quot;true&quot;&gt;
+                                                  </code>
+                                                </pre>
+                                                <p>
+                                                    Check the input form with the event onkeyup
+                                                </p>
+                                            </div>
+                                        </blockquote>
+
+                                        <blockquote id="ui-form-list-validations" class="api">
+                                            <a href="#ui-form-list-validation" class="method">List of built-in Validation methods</a>
+                                            <div>
+                                                <br />
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Method</th>
+                                                            <th>Description</th>
+                                                            <th>HTML</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-empty">isEmpty(value)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like required.
+                                                            </td>
+                                                            <td>
+                                                                data-required="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-full-name">isFullName(value)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid name.
+                                                            </td>
+                                                            <td>
+                                                                data-fullname="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-email">isEmail(value)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid e-mail.
+                                                            </td>
+                                                            <td>
+                                                                data-email="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-equals-to">isEqualsTo(value,value1)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to compare two fields with the same value.
+                                                            </td>
+                                                            <td>
+                                                                data-equalsto="name-input-to-compare"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-money">isMoney(value)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like money.
+                                                            </td>
+                                                            <td>
+                                                                data-money="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-max-length">maxLength(value,length)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the maximum field length.
+                                                            </td>
+                                                            <td>
+                                                                data-maxlength="length"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-min-length">minLength(value,length)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the minimun field length.
+                                                            </td>
+                                                            <td>
+                                                                data-minlength="length"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-range-length">rangeLength(value,min,max)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the range length of the field.
+                                                            </td>
+                                                            <td>
+                                                                data-rangelength="min-max"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-max">max(value,max)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the maximum number of the field.
+                                                            </td>
+                                                            <td>
+                                                                data-max="max"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-min">min(value,min)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the minimun number of the field.
+                                                            </td>
+                                                            <td>
+                                                                data-min="min"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-range">range(value,min,max)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check the range number of the field.
+                                                            </td>
+                                                            <td>
+                                                                data-range="min-max"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-URL">isURL(value)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid URL.
+                                                            </td>
+                                                            <td>
+                                                                data-url="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-date">isDate(value)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid date.
+                                                            </td>
+                                                            <td>
+                                                                data-date="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-number">isNumber(value)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid number.
+                                                            </td>
+                                                            <td>
+                                                                data-number="true"
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#ui-form-is-credit-card">isCreditCard(value)</a>
+                                                            </td>
+                                                            <td>
+                                                                It is used to check field like a valid credit card.
+                                                            </td>
+                                                            <td>
+                                                                data-creditcard="true"
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </blockquote>
+
+                                        <blockquote id="ui-form-custom-messages" class="api">
+                                            <a href="components.html#ui-form-custom-messages" class="method">List validation messages</a>
+                                            <div>
+                                                <p>You can customize these messages.</p>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Attribute</th>
+                                                            <th>Message</th>                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgRequired</a>
+                                                            </td>
+                                                            <td>
+                                                                This field is required and can\'t be empty!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgFullName</a>
+                                                            </td>
+                                                            <td>
+                                                                Please enter a valid name!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgEmail</a>
+                                                            </td>
+                                                            <td>
+                                                                Please enter a valid e-mail!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgEquals</a>
+                                                            </td>
+                                                            <td>
+                                                                This field and the field to confirm are not the same!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgCheck</a>
+                                                            </td>
+                                                            <td>
+                                                                Please check!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgAccept</a>
+                                                            </td>
+                                                            <td>
+                                                                Please accept!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgMoney</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a valid money format!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgMaxLength</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter no more than {#} characters!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgMinLength</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter at least {#} characters!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgRangeLength</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a value between {#min} and {#max} characters long!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgMax</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a value less than or equal to {#}!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgMin</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a value greater than or equal to {#}!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgRange</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a value between {#min} and {#max}!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgURL</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a valid URL!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgDate</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a valid date!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgNumber</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a valid number!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgCreditCard</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a valid credit card number!
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="components.html#ui-form-custom-messages">msgValidOption</a>
+                                                            </td>
+                                                            <td>
+                                                               Please enter a valid option!
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </blockquote>                                        
+
                                     </div>
                                 </section>
                             </div>

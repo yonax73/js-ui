@@ -958,7 +958,7 @@ UI.NavScrollV = function (HtmlElement, items, options) {
 }
 /*
  * ========================================================================
- * UI-FORM-OK
+ * UI-FORM
  * Author  : Yonatan Alexis Quintero Rodriguez
  * Version : 0.1
  * Date    : 17 Oct 2014
@@ -978,12 +978,12 @@ UI.Form = function (HtmlElement) {
     var hasSuccess = 'has-success';
     var hasError = 'has-error';
     this.msgRequired = 'This field is required and can\'t be empty!';
-    this.msgFullName = 'This field is not a valid name!';
-    this.msgEmail = 'This field is not a valid email address!';
+    this.msgFullName = 'Please enter a valid name!';
+    this.msgEmail = 'Please enter a valid e-mail!';
     this.msgEquals = 'This field and the field to confirm are not the same!';
-    this.msgCheck = 'Plase check!;'
+    this.msgCheck = 'Please check!'
     this.msgAccept = 'Please accept!'
-    this.msgMoney = 'This money format is incorrect,please check!';
+    this.msgMoney = 'Please enter a valid money format!';
     this.msgMaxLength = 'Please enter no more than {#} characters!';
     this.msgMinLength = 'Please enter at least {#} characters!';
     this.msgRangeLength = 'Please enter a value between {#min} and {#max} characters long!';
@@ -994,7 +994,7 @@ UI.Form = function (HtmlElement) {
     this.msgDate = 'Please enter a valid date!';
     this.msgNumber = 'Please enter a valid number!';
     this.msgCreditCard = 'Please enter a valid credit card number!';
-    this.msgValidOption = 'Please enter a valid option !';
+    this.msgValidOption = 'Please enter a valid option!';
 
 
     function init() {
@@ -1853,7 +1853,8 @@ UI.Calendar = function (HtmlElement, options) {
                         displayDate.setDate(this.textContent);
                         var tmpInput = options.input;                        
                         tmpInput.value = displayDate.format(tmpInput.dataset.date);                        
-                        tmpInput.onchange();       
+                        tmpInput.onchange(); 
+                        tmpInput.onblur();
                         Calendar.close();
                     }
                 }
@@ -2245,21 +2246,18 @@ UI.Calendar = function (HtmlElement, options) {
             var input = options.input;
             var value = input.value;
             if (!value.isEmpty()) {
-                displayDate = new Date().parse(value, input.dataset.date);console.log(displayDate)
-                if(displayDate.isValid()){
-                    var col = displayDate.getDay();
-                    var row = displayDate.getWeekOfMonth();
-                    displayDate.setDate(01);
-                    fillDataByDays();
-                    HtmlElement.removeChildren();
-                    createCalendarByDays();
-                    var cell = table.rows[row].cells[col];
-                    selectedCell.classList.remove('bg-primary');
-                    cell.classList.add('bg-primary');
-                    selectedCell = cell;
-                }
-                
-
+                displayDate = new Date().parse(value, input.dataset.date);
+                displayDate = displayDate.isValid() ? displayDate : new Date();                 
+                var col = displayDate.getDay();
+                var row = displayDate.getWeekOfMonth();
+                displayDate.setDate(01);
+                fillDataByDays();
+                HtmlElement.removeChildren();
+                createCalendarByDays();
+                var cell = table.rows[row].cells[col];
+                selectedCell.classList.remove('bg-primary');
+                cell.classList.add('bg-primary');
+                selectedCell = cell;
             }
         }
     }
@@ -2305,6 +2303,77 @@ UI.Calendar = function (HtmlElement, options) {
     init();
 
 }
+/*
+ * ========================================================================
+ * UI-CHECKBOX CUSTOM
+ * Author  : Yonatan Alexis Quintero Rodriguez
+ * Version : 0.1
+ * Date    : 30 Oct 2014
+ * ========================================================================
+ */
+UI.Checkbox = function(){
+	
+	function customize(className, classChecked, classUnchecked) {
+	    var checks = document.getElementsByClassName(className);
+	    var n =  checks.length;
+	    for (var i = 0; i < n; i++) {
+	        var check = checks[i];
+	        var input = check.getElementsByTagName('input')[0];
+	        if (input.checked) {
+	            check.classList.add('fa');
+	            check.classList.add(classChecked);
+	            check.classList.add('fa-fw');
+	        } else {
+	            check.classList.add('fa');
+	            check.classList.add(classUnchecked);
+	            check.classList.add('fa-fw');
+	        }
+	        check.onclick = function () {
+	            if (this.classList.contains(classUnchecked)) {
+	                this.classList.remove(classUnchecked);
+	                this.classList.add(classChecked);
+
+	            } else {
+	                this.classList.add(classUnchecked);
+	                this.classList.remove(classChecked);
+	            }
+	        }
+	    }
+	}
+	/*
+	 * ui-checbox
+	 */
+	customize('ui-checkbox', 'fa-check-square', 'fa-square');
+	/*
+	 * ui-checkbox-ui
+	 */
+	customize('ui-checkbox-o', 'fa-check-square-o', 'fa-square-o');
+	/*
+	 * ui-checkbox-plus
+	 */
+	customize('ui-checkbox-plus', 'fa-plus-square', 'fa-minus-square');
+	/*
+	 * ui-checkbox-plus-o
+	 */
+	customize('ui-checkbox-plus-o', 'fa-plus-square-o', 'fa-minus-square-o');
+	/*
+	 * ui-checkbox-toggle
+	 */
+	customize('ui-checkbox-toggle', 'fa-toggle-on', 'fa-toggle-off');
+	/*
+	 * ui-checkbox-start
+	 */
+	customize('ui-checkbox-start', 'fa-star', 'fa-star-o');
+	/*
+	 * ui-checkbox-heart
+	 */
+	customize('ui-checkbox-heart', 'fa-heart', 'fa-heart-o');
+	/*
+	 * ui-checkbox-simplex
+	 */
+	customize('ui-checkbox-simplex', 'fa-check', 'fa-times');
+}
+UI.Checkbox();
 
 /*
  * ========================================================================

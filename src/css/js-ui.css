@@ -113,6 +113,40 @@
 .dropdownlist-list  li {
 	cursor: default;
 }
+/*************************************************************************
+*                                                                        *
+*                               FORM                                     * 
+*                                                                        * 
+***************************************************************************/
+/*
+ * Custom checkbox
+ */
+.ui-checkbox > input[type="checkbox"], 
+.ui-checkbox-o > input[type="checkbox"],
+.ui-checkbox-plus > input[type="checkbox"],
+.ui-checkbox-plus-o > input[type="checkbox"],
+.ui-checkbox-toggle > input[type="checkbox"],
+.ui-checkbox-start > input[type="checkbox"],
+.ui-checkbox-heart > input[type="checkbox"],
+.ui-checkbox-simplex > input[type="checkbox"] {
+    display:none;
+}
+
+span.ui-checkbox,
+span.ui-checkbox-o,
+span.ui-checkbox-plus,
+span.ui-checkbox-plus-o,
+span.ui-checkbox-toggle,
+span.ui-checkbox-start,
+span.ui-checkbox-heart,
+span.ui-checkbox-simplex {
+    cursor:default;
+    display:inline;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;    
+}
+ 
+
 
 /*************************************************************************
 *                                                                        *

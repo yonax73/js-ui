@@ -59,7 +59,7 @@
     var notify = new UI.Notify(document.getElementById('notify'));
     UI.DropDownList(document.getElementById('salesRep'), [{
         option: -1,
-        value: '- SELECT SALES REP -',
+        value: '- REPRESENTANTES -',
         selected: true
     }, {
         option: 1,
@@ -78,12 +78,14 @@
         value: 'Felicity Bett'
     }]);
     var form = new UI.Form(document.getElementById('form'));
-
+    form.msgRequired = 'Esta campo es requerido y no puede estar vacio!';
+    form.msgEmail = 'Por favor ingrese un correo valido!';
+    form.msgDate = 'Por favor ingrese una fecha valida!';
+    form.msgAccept = 'Por favor acepte terminos y condiciones!';
+    form.msgValidOption = 'Por favor seleccione un representante!';
     form.onsubmit(function() {
         if (form.isValid()) {
-            var serialize = form.serialize();
-            notify.info(serialize);
-            console.log(serialize);
+            notify.success('validado');
         } else {
             notify.close();
         }

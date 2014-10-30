@@ -1373,7 +1373,7 @@ UI.DropDownList(document.getElementById('salesRep'), [
                     &lt;div class=&quot;form-group&quot;&gt;
                         &lt;div class=&quot;col-sm-12&quot;&gt;
                             &lt;input type=&quot;text&quot; name=&quot;last-name&quot; class=&quot;form-control&quot;
-                                data-fullname=&quot;true&quot; placeholder=Last Name&quot;&gt;
+                                data-fullname=&quot;true&quot; placeholder=&quot;Last Name&quot;&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
@@ -1453,30 +1453,34 @@ form.onsubmit(function() {
                 &lt;div class=&quot;col-sm-6&quot;&gt;
                     &lt;div class=&quot;form-group&quot;&gt;
                         &lt;div class=&quot;col-sm-12&quot;&gt;
-                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-required=&quot;true&quot; 
-                             data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; 
+                            data-required=&quot;true&quot; data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                     &lt;div class=&quot;form-group&quot;&gt;
                         &lt;div class=&quot;col-sm-12&quot;&gt;
                             &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; 
-                             data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                            data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
                         &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot; id=&quot;salesRep&quot; data-name=&quot;sales-rep&quot;&gt;&lt;/div&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
                 &lt;div class=&quot;col-sm-6&quot;&gt;
                     &lt;div class=&quot;form-group&quot;&gt;
-                        &lt;div class=&quot;col-sm-12&quot;&gt;
-                            &lt;input type=&quot;text&quot; name=&quot;first-name&quot; class=&quot;form-control&quot;&gt;
-                        &lt;/div&gt;
+                        &lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot;  placeholder=&quot;notes&quot; name=&quot;notes&quot; data-required=&quot;true&quot;&gt;&lt;/textarea&gt;
                     &lt;/div&gt;
                     &lt;div class=&quot;form-group&quot;&gt;
-                        &lt;div class=&quot;col-sm-12&quot;&gt;
-                            &lt;input type=&quot;text&quot; name=&quot;last-name&quot; class=&quot;form-control&quot;&gt;
+                        &lt;div class=&quot;col-md-12&quot;&gt;
+                            &lt;label&gt;                                        
+                            &lt;input name=&quot;terms&quot; type=&quot;checkbox&quot; data-required=&quot;true&quot;&gt;
+                            I agree with the &lt;a href=&quot;#&quot;&gt;Terms and Conditions&lt;/a&gt;
+                            &lt;/label&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
-                &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;	                        
                     &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
                 &lt;/div&gt;
             &lt;/form&gt;
@@ -1490,7 +1494,28 @@ form.onsubmit(function() {
                                             <pre>
                                              <code class="js">
 var notify = new UI.Notify(document.getElementById('notify'));
+UI.DropDownList(document.getElementById('salesRep'), [{
+    option: -1,
+    value: '- SELECT SALES REP -',
+    selected: true
+}, {
+    option: 1,
+    value: 'Manu Donnell'
+}, {
+    option: 2,
+    value: 'Oliver Amell',
+}, {
+    option: 3,
+    value: 'Roy Haynes'
+}, {
+    option: 4,
+    value: 'Willa Holland'
+}, {
+    option: 5,
+    value: 'Felicity Bett'
+}]);
 var form = new UI.Form(document.getElementById('form'));
+
 form.onsubmit(function() {
     if (form.isValid()) {
         var serialize = form.serialize();
@@ -1550,30 +1575,34 @@ form.onsubmit(function() {
                 &lt;div class=&quot;col-sm-6&quot;&gt;
                     &lt;div class=&quot;form-group&quot;&gt;
                         &lt;div class=&quot;col-sm-12&quot;&gt;
-                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-required=&quot;true&quot; 
-                             data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; 
+                            data-required=&quot;true&quot; data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                     &lt;div class=&quot;form-group&quot;&gt;
                         &lt;div class=&quot;col-sm-12&quot;&gt;
                             &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; 
-                             data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                            data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
                         &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot; id=&quot;salesRep&quot; data-name=&quot;sales-rep&quot;&gt;&lt;/div&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
                 &lt;div class=&quot;col-sm-6&quot;&gt;
                     &lt;div class=&quot;form-group&quot;&gt;
-                        &lt;div class=&quot;col-sm-12&quot;&gt;
-                            &lt;input type=&quot;text&quot; name=&quot;first-name&quot; class=&quot;form-control&quot;&gt;
-                        &lt;/div&gt;
+                        &lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot;  placeholder=&quot;notes&quot; name=&quot;notes&quot; data-required=&quot;true&quot;&gt;&lt;/textarea&gt;
                     &lt;/div&gt;
                     &lt;div class=&quot;form-group&quot;&gt;
-                        &lt;div class=&quot;col-sm-12&quot;&gt;
-                            &lt;input type=&quot;text&quot; name=&quot;last-name&quot; class=&quot;form-control&quot;&gt;
+                        &lt;div class=&quot;col-md-12&quot;&gt;
+                            &lt;label&gt;                                        
+                            &lt;input name=&quot;terms&quot; type=&quot;checkbox&quot; data-required=&quot;true&quot;&gt;
+                            I agree with the &lt;a href=&quot;#&quot;&gt;Terms and Conditions&lt;/a&gt;
+                            &lt;/label&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
-                &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;	                        
                     &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
                 &lt;/div&gt;
             &lt;/form&gt;
@@ -1587,12 +1616,33 @@ form.onsubmit(function() {
                                             <pre>
                                              <code class="js">
 var notify = new UI.Notify(document.getElementById('notify'));
+UI.DropDownList(document.getElementById('salesRep'), [{
+    option: -1,
+    value: '- SELECT SALES REP -',
+    selected: true
+}, {
+    option: 1,
+    value: 'Manu Donnell'
+}, {
+    option: 2,
+    value: 'Oliver Amell',
+}, {
+    option: 3,
+    value: 'Roy Haynes'
+}, {
+    option: 4,
+    value: 'Willa Holland'
+}, {
+    option: 5,
+    value: 'Felicity Bett'
+}]);
 var form = new UI.Form(document.getElementById('form'));
+
 form.onsubmit(function() {
     if (form.isValid()) {
-        var to-JSON = form.to-JSON();
-        notify.info(to-JSON);
-        console.log(to-JSON);
+        var data = form.toJSON();
+        notify.info(JSON.stringify(data));
+        console.log(data);
     } else {
         notify.close();
     }
@@ -1618,6 +1668,7 @@ form.onsubmit(function() {
                                { id: 'tab-form-to-JSON-3', text: 'Result', active: true }
                             ]);
                         </script>
+
                         <!--  form is-empty -->
                         <blockquote class="component-api" id="ui-form-is-empty">
                             <section class="row">
@@ -2122,6 +2173,366 @@ function validate() {
                                { id: 'tab-form-range-length-1', text: 'HTML' },
                                { id: 'tab-form-range-length-2', text: 'Javascript' },
                                { id: 'tab-form-range-length-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form blur -->
+                        <blockquote class="component-api" id="ui-form-blur">
+                            <section  class="row">
+                                <div class="col-md-12">
+                                    <h3>data-blur</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-blur">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-blur">
+                                        <div id="tab-form-blur-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12&quot;&gt;
+            &lt;br /&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-blur=&quot;true&quot; 
+                                data-required=&quot;true&quot; data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; data-blur=&quot;true&quot; 
+                                data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; data-blur=&quot;true&quot; 
+                                data-URL=&quot;true&quot; placeholder=&quot;Web site&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;textarea class=&quot;form-control&quot; rows=&quot;5&quot;  placeholder=&quot;notes&quot; data-blur=&quot;true&quot; 
+                            name=&quot;notes&quot; data-required=&quot;true&quot;&gt;&lt;/textarea&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;	                        
+                    &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-blur-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form(document.getElementById('form'));
+form.onsubmit(function() {
+    if (form.isValid()) {
+        notify.success('validate');
+    } else {
+        notify.close();
+    }
+});
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-blur-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-blur.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-blur'), [
+                               { id: 'tab-form-blur-1', text: 'HTML' },
+                               { id: 'tab-form-blur-2', text: 'Javascript' },
+                               { id: 'tab-form-blur-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form keyup -->
+                        <blockquote class="component-api" id="ui-form-keyup">
+                            <section  class="row">
+                                <div class="col-md-12">
+                                    <h3>data-keyup</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-keyup">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-keyup">
+                                        <div id="tab-form-keyup-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12&quot;&gt;
+            &lt;br /&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-keyup=&quot;true&quot; 
+                                data-required=&quot;true&quot; data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; data-keyup=&quot;true&quot; 
+                                data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; data-keyup=&quot;true&quot; 
+                                data-URL=&quot;true&quot; placeholder=&quot;Web site&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;textarea class=&quot;form-control&quot; rows=&quot;5&quot;  placeholder=&quot;notes&quot; data-keyup=&quot;true&quot; 
+                            name=&quot;notes&quot; data-required=&quot;true&quot;&gt;&lt;/textarea&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;	                        
+                    &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-keyup-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form(document.getElementById('form'));
+form.onsubmit(function() {
+    if (form.isValid()) {
+        notify.success('validate');
+    } else {
+        notify.close();
+    }
+});
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-keyup-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-keyup.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-keyup'), [
+                               { id: 'tab-form-keyup-1', text: 'HTML' },
+                               { id: 'tab-form-keyup-2', text: 'Javascript' },
+                               { id: 'tab-form-keyup-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form custom-checkbox -->
+                        <blockquote class="component-api" id="ui-form-custom-checkbox">
+                            <section  class="row">
+                                <div class="col-md-12">
+                                    <h3>Custom checkbox</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-custom-checkbox">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-custom-checkbox">
+                                        <div id="tab-form-custom-checkbox-1">
+                                            <pre>
+                                            <code class="html">
+
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-custom-checkbox-2">
+                                            <pre>
+                                             <code class="css">
+
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-custom-checkbox-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-custom-checkbox.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-custom-checkbox'), [
+                               { id: 'tab-form-custom-checkbox-1', text: 'HTML' },
+                               { id: 'tab-form-custom-checkbox-2', text: 'CSS' },
+                               { id: 'tab-form-custom-checkbox-3', text: 'Result', active: true }
+                            ]);
+                        </script>
+                        <!--  form custom-messages -->
+                        <blockquote class="component-api" id="ui-form-custom-messages">
+                            <section  class="row">
+                                <div class="col-md-12">
+                                    <h3>Custom messages</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-custom-messages">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-custom-messages">
+                                        <div id="tab-form-custom-messages-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12&quot;&gt;
+            &lt;br /&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; 
+                            data-required=&quot;true&quot; data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; 
+                            data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot; id=&quot;salesRep&quot; data-name=&quot;sales-rep&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot;  placeholder=&quot;notes&quot; name=&quot;notes&quot; data-required=&quot;true&quot;&gt;&lt;/textarea&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-md-12&quot;&gt;
+                            &lt;label&gt;                                        
+                            &lt;input name=&quot;terms&quot; type=&quot;checkbox&quot; data-required=&quot;true&quot;&gt;
+                            I agree with the &lt;a href=&quot;#&quot;&gt;Terms and Conditions&lt;/a&gt;
+                            &lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;	                        
+                    &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-custom-messages-2">
+                                            <pre>
+                                             <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+UI.DropDownList(document.getElementById('salesRep'), [{
+    option: -1,
+    value: '- REPRESENTANTES -',
+    selected: true
+}, {
+    option: 1,
+    value: 'Manu Donnell'
+}, {
+    option: 2,
+    value: 'Oliver Amell',
+}, {
+    option: 3,
+    value: 'Roy Haynes'
+}, {
+    option: 4,
+    value: 'Willa Holland'
+}, {
+    option: 5,
+    value: 'Felicity Bett'
+}]);
+var form = new UI.Form(document.getElementById('form'));
+form.msgRequired = 'Esta campo es requerido y no puede estar vacio!';
+form.msgEmail = 'Por favor ingrese un correo valido!';
+form.msgDate = 'Por favor ingrese una fecha valida!';
+form.msgAccept = 'Por favor acepte terminos y condiciones!';
+form.msgValidOption = 'Por favor seleccione un representante!';
+form.onsubmit(function() {
+    if (form.isValid()) {
+        notify.success('validado');
+    } else {
+        notify.close();
+    }
+});
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-custom-messages-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-custom-messages.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-custom-messages'), [
+                               { id: 'tab-form-custom-messages-1', text: 'HTML' },
+                               { id: 'tab-form-custom-messages-2', text: 'Javascript' },
+                               { id: 'tab-form-custom-messages-3', text: 'Result', active: true }
                             ]);
                         </script>
                     </div>
