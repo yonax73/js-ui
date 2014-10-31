@@ -4,10 +4,7 @@
  * Licensed under http://www.apache.org/licenses/LICENSE-2.0
  */
 
-
-
- 
- /* ========================================================================
+/* ========================================================================
  * js-ui.css
  * yonax73@gmail.com
  * ========================================================================
@@ -26,18 +23,13 @@
  * limitations under the License.
  * ======================================================================== */
 
-
-
- /*
+/*
  * ========================================================================
  * This project is dedicated at  all my loved ones, in special a my mother and my wife.
  * ========================================================================
- */  
+ */
 
-
-
-
- /*
+/*
  * ========================================================================
  * Author  : Yonatan Alexis Quintero Rodriguez
  * Version : 0.1
@@ -45,15 +37,12 @@
  * ========================================================================
  */
 
-
-
 /*************************************************************************
 *                                                                        *
 *                               HELPERS                                  * 
 *                                                                        * 
 ***************************************************************************/
-
-.tab-content.reset{
+.tab-content.reset {
 	padding: 0.3em 0.2em;
 }
 
@@ -62,43 +51,40 @@
 *                               DROPDOWNLIST                             * 
 *                                                                        * 
 ***************************************************************************/
-
 .dropdownlist span {
-    border: 1px solid;
-    display: flex;
-    margin: 0;
-    padding: 0;
+	border: 1px solid;
+	display: flex;
+	margin: 0;
+	padding: 0;
 }
 
-.dropdownlist input[type="text"],dropdownlist input[type="text"]:focus {   
-    border: medium none;  
-    cursor: default;
-    margin: 0;    
-    text-align: left;
-    width: 100%;    
-    box-shadow: none;
+.dropdownlist input[type="text"],dropdownlist input[type="text"]:focus {
+	border: medium none;
+	cursor: default;
+	margin: 0;
+	text-align: left;
+	width: 100%;
+	box-shadow: none;
 }
-
-
 
 .dropdownlist i {
-   cursor: default;
-    font-size: 1.5em;
-    margin: 8px 0 0;
-    padding: 0 5px 0 0;
+	cursor: default;
+	font-size: 1.5em;
+	margin: 8px 0 0;
+	padding: 0 5px 0 0;
 }
 
 .dropdownlist ul {
-    border-bottom: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
-    box-shadow: 0 1px 2px gray;
-    height: auto;
-    margin: 0;
-    max-height: 80px;
-    overflow: auto;
-    position: absolute;    
-    z-index: 9;
+	border-bottom: 1px solid;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	box-shadow: 0 1px 2px gray;
+	height: auto;
+	margin: 0;
+	max-height: 80px;
+	overflow: auto;
+	position: absolute;
+	z-index: 9;
 }
 
 .dropdownlist-list {
@@ -108,8 +94,9 @@
 }
 
 .dropdownlist-list  li:before {
-    content: "\00a0  ";
+	content: "\00a0  ";
 }
+
 .dropdownlist-list  li {
 	cursor: default;
 }
@@ -121,32 +108,62 @@
 /*
  * Custom checkbox
  */
-.ui-checkbox > input[type="checkbox"], 
-.ui-checkbox-o > input[type="checkbox"],
-.ui-checkbox-plus > input[type="checkbox"],
-.ui-checkbox-plus-o > input[type="checkbox"],
-.ui-checkbox-toggle > input[type="checkbox"],
-.ui-checkbox-start > input[type="checkbox"],
-.ui-checkbox-heart > input[type="checkbox"],
-.ui-checkbox-simplex > input[type="checkbox"] {
-    display:none;
+/* .ui-checkbox>input[type="checkbox"],.ui-checkbox-o>input[type="checkbox"],.ui-checkbox-plus>input[type="checkbox"],.ui-checkbox-plus-o>input[type="checkbox"],.ui-checkbox-toggle>input[type="checkbox"],.ui-checkbox-start>input[type="checkbox"],.ui-checkbox-heart>input[type="checkbox"],.ui-checkbox-simplex>input[type="checkbox"] */
+/* 	{ */
+/* 	display: none; */
+/* } */
+
+/* span.ui-checkbox,span.ui-checkbox-o,span.ui-checkbox-plus,span.ui-checkbox-plus-o,span.ui-checkbox-toggle,span.ui-checkbox-start,span.ui-checkbox-heart,span.ui-checkbox-simplex */
+/* 	{ */
+/* 	cursor: default; */
+/* 	display: inline; */
+
+/* } */
+
+
+
+.ui-checkbox input[type="checkbox"]+label::before {
+	font-family: FontAwesome;
+	font-size: 1.5em;
+	font-weight: normal;
+	padding-right: 3px;	
 }
 
-span.ui-checkbox,
-span.ui-checkbox-o,
-span.ui-checkbox-plus,
-span.ui-checkbox-plus-o,
-span.ui-checkbox-toggle,
-span.ui-checkbox-start,
-span.ui-checkbox-heart,
-span.ui-checkbox-simplex {
-    cursor:default;
-    display:inline;
-    margin:-1px 4px 0 0;
-    vertical-align:middle;    
+.ui-checkbox.ui-2x input[type="checkbox"]+ label::before {
+	font-size: 2em;
 }
- 
 
+.ui-checkbox.ui-3x input[type="checkbox"]+ label::before {
+	font-size: 3em;
+}
+
+.ui-checkbox.ui-4x input[type="checkbox"]+ label::before {
+	font-size: 4em;
+}
+
+.ui-checkbox.ui-5x input[type="checkbox"]+ label::before {
+	font-size: 5em;
+}
+
+.ui-checkbox input[type="checkbox"] {
+	display: none;
+}
+
+.ui-checkbox.ui-checkbox-f input[type="checkbox"]+label::before {
+	content: "\f0c8";
+}
+
+.ui-checkbox.ui-checkbox-f input[type="checkbox"]:checked+label::before{
+	content: "\f14a";
+}
+
+.ui-checkbox.ui-checkbox-o input[type="checkbox"]+label::before {
+	content: "\f096";
+}
+
+.ui-checkbox.ui-checkbox-o input[type="checkbox"]:checked+label::before{
+	content: "\f046";
+}
 
 /*************************************************************************
 *                                                                        *
@@ -154,92 +171,104 @@ span.ui-checkbox-simplex {
 *                                                                        * 
 ***************************************************************************/
 .nav-panel .navbar {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
- .nav-panel-body{
-		 background-color: #ffffff;/**/
-		    border-bottom: 1px solid #eeeeee;/**/
-		    margin: 0 0 5px;
-		    padding: 0px;
+.nav-panel-body {
+	background-color: #ffffff; /**/
+	border-bottom: 1px solid #eeeeee; /**/
+	margin: 0 0 5px;
+	padding: 0px;
 }
-.nav-panel li.active{
-  background-color: #eeeeee;/**/
-}   
-.nav-panel-body .nav > li{
-  display: none;
-  visibility: hidden;
+
+.nav-panel li.active {
+	background-color: #eeeeee; /**/
 }
-.nav-panel-body .nav  .active{
-  display: block;
-  visibility: visible;
+
+.nav-panel-body .nav>li {
+	display: none;
+	visibility: hidden;
+}
+
+.nav-panel-body .nav  .active {
+	display: block;
+	visibility: visible;
 }
 /*************************************************************************
 *                                                                        *
 *                               NAV SCROLL V                             * 
 *                                                                        * 
 ***************************************************************************/
-.nav-scroll-v{
-  margin: 0;
-  padding: 40px 20px 0;
-  list-style: none;
-}
-.nav-scroll-v ul{
-  list-style: none;
+.nav-scroll-v {
+	margin: 0;
+	padding: 40px 20px 0;
+	list-style: none;
 }
 
-.nav-scroll-v li{
-    padding: 2px 0;
-    text-align: right;
+.nav-scroll-v ul {
+	list-style: none;
 }
-.nav-scroll-v >.parent > a{
-  color: #000;/***/
-  font-weight: bold;/***/  
+
+.nav-scroll-v li {
+	padding: 2px 0;
+	text-align: right;
 }
-.nav-scroll-v > .parent ul.children a {
-    color: #777;/***/
-    font-weight: normal;
+
+.nav-scroll-v>.parent>a {
+	color: #000; /***/
+	font-weight: bold; /***/
 }
-.nav-scroll-v >.parent ul.children  a.active{
-   color: #d9230f;
-    font-weight: normal;
-}  
+
+.nav-scroll-v>.parent ul.children a {
+	color: #777; /***/
+	font-weight: normal;
+}
+
+.nav-scroll-v>.parent ul.children  a.active {
+	color: #d9230f;
+	font-weight: normal;
+}
 /*************************************************************************
 *                                                                        *
 *                               CALENDAR                                 * 
 *                                                                        * 
 ***************************************************************************/
-
-.ui-calendar>.btn-group.btn-group-justified{
-padding-bottom: 5px;
+.ui-calendar>.btn-group.btn-group-justified {
+	padding-bottom: 5px;
 }
 
-.ui-calendar.panel >.panel-body{
-    padding:5px;
+.ui-calendar.panel>.panel-body {
+	padding: 5px;
 }
-.ui-calendar table{
-    margin:0px;
+
+.ui-calendar table {
+	margin: 0px;
 }
+
 .ui-calendar table tbody tr td {
-    border: medium none;
-    cursor: default;
-}
-.ui-calendar table tbody td:hover {
-    opacity: 0.6;
-}
-.ui-calendar table thead th,.ui-calendar table tbody td {
-text-align: center;
-}
-.ui-calendar table tbody td.bg-primary {
-font-weight: bold;
-}
-.ui-calendar-input{
-  position: absolute;
-  margin-right: 15px;
-  z-index: 9;
-}
-.ui-calendar-input .panel-main {
-    box-shadow: 1px 2px 3px gray;
+	border: medium none;
+	cursor: default;
 }
 
+.ui-calendar table tbody td:hover {
+	opacity: 0.6;
+}
+
+.ui-calendar table thead th,.ui-calendar table tbody td {
+	text-align: center;
+}
+
+.ui-calendar table tbody td.bg-primary {
+	font-weight: bold;
+}
+
+.ui-calendar-input {
+	position: absolute;
+	margin-right: 15px;
+	z-index: 9;
+}
+
+.ui-calendar-input .panel-main {
+	box-shadow: 1px 2px 3px gray;
+}

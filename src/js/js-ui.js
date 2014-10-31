@@ -2311,69 +2311,77 @@ UI.Calendar = function (HtmlElement, options) {
  * Date    : 30 Oct 2014
  * ========================================================================
  */
-UI.Checkbox = function(){
-	
-	function customize(className, classChecked, classUnchecked) {
-	    var checks = document.getElementsByClassName(className);
-	    var n =  checks.length;
-	    for (var i = 0; i < n; i++) {
-	        var check = checks[i];
-	        var input = check.getElementsByTagName('input')[0];
-	        if (input.checked) {
-	            check.classList.add('fa');
-	            check.classList.add(classChecked);
-	            check.classList.add('fa-fw');
-	        } else {
-	            check.classList.add('fa');
-	            check.classList.add(classUnchecked);
-	            check.classList.add('fa-fw');
-	        }
-	        check.onclick = function () {
-	            if (this.classList.contains(classUnchecked)) {
-	                this.classList.remove(classUnchecked);
-	                this.classList.add(classChecked);
-
-	            } else {
-	                this.classList.add(classUnchecked);
-	                this.classList.remove(classChecked);
-	            }
-	        }
-	    }
-	}
-	/*
-	 * ui-checbox
-	 */
-	customize('ui-checkbox', 'fa-check-square', 'fa-square');
-	/*
-	 * ui-checkbox-ui
-	 */
-	customize('ui-checkbox-o', 'fa-check-square-o', 'fa-square-o');
-	/*
-	 * ui-checkbox-plus
-	 */
-	customize('ui-checkbox-plus', 'fa-plus-square', 'fa-minus-square');
-	/*
-	 * ui-checkbox-plus-o
-	 */
-	customize('ui-checkbox-plus-o', 'fa-plus-square-o', 'fa-minus-square-o');
-	/*
-	 * ui-checkbox-toggle
-	 */
-	customize('ui-checkbox-toggle', 'fa-toggle-on', 'fa-toggle-off');
-	/*
-	 * ui-checkbox-start
-	 */
-	customize('ui-checkbox-start', 'fa-star', 'fa-star-o');
-	/*
-	 * ui-checkbox-heart
-	 */
-	customize('ui-checkbox-heart', 'fa-heart', 'fa-heart-o');
-	/*
-	 * ui-checkbox-simplex
-	 */
-	customize('ui-checkbox-simplex', 'fa-check', 'fa-times');
-}
-UI.Checkbox();
+//UI.Checkbox = function(){
+//	
+//	function customize(className, classChecked, classUnchecked) {
+//	    var checks = document.getElementsByClassName(className);
+//	    var n =  checks.length;
+//	    for (var i = 0; i < n; i++) {
+//	        var check = checks[i];
+//	        var input = check.getElementsByTagName('input')[0];
+//	        if (input.checked) {
+//	            check.classList.add('fa');
+//	            check.classList.add(classChecked);
+//	            check.classList.add('fa-fw');
+//	        } else {
+//	            check.classList.add('fa');
+//	            check.classList.add(classUnchecked);
+//	            check.classList.add('fa-fw');
+//	        }
+//	        check.onclick = function () {
+//	            if (this.classList.contains(classUnchecked)) {
+//	                this.classList.remove(classUnchecked);
+//	                this.classList.add(classChecked);//console.log(this);
+//	                eval(this.dataset.fn)
+//	                var input = this.getElementsByTagName('input')[0];
+//	              //  input.onclick();
+//	                
+//	            } else {
+//	                this.classList.add(classUnchecked);
+//	                this.classList.remove(classChecked);
+//	                eval(this.dataset.fn)
+//	                var input = this.getElementsByTagName('input')[0];
+//	               // input.onclick();
+//
+//	            }
+//	        }
+//	    }
+//	}
+//	/*
+//	 * ui-checbox
+//	 */
+////	customize('ui-checkbox', 'fa-check-square', 'fa-square');
+//	/*
+//	 * ui-checkbox-ui
+//	 */
+//	customize('ui-checkbox-o', 'fa-check-square-o', 'fa-square-o');
+//	/*
+//	 * ui-checkbox-plus
+//	 */
+//	customize('ui-checkbox-plus', 'fa-plus-square', 'fa-minus-square');
+//	/*
+//	 * ui-checkbox-plus-o
+//	 */
+//	customize('ui-checkbox-plus-o', 'fa-plus-square-o', 'fa-minus-square-o');
+//	/*
+//	 * ui-checkbox-toggle
+//	 */
+//	customize('ui-checkbox-toggle', 'fa-toggle-on', 'fa-toggle-off');
+//	/*
+//	 * ui-checkbox-start
+//	 */
+//	customize('ui-checkbox-start', 'fa-star', 'fa-star-o');
+//	/*
+//	 * ui-checkbox-heart
+//	 */
+//	customize('ui-checkbox-heart', 'fa-heart', 'fa-heart-o');
+//	/*
+//	 * ui-checkbox-simplex
+//	 */
+//	customize('ui-checkbox-simplex', 'fa-check', 'fa-times');	
+//	
+//}
+//UI.Checkbox();
 
 /*
  * ========================================================================
