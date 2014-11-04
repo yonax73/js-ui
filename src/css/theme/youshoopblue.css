@@ -6275,3 +6275,16 @@ button.close {
 .ui-form-control.ui-form-control-line-through.ui-danger label {
     color: #b94a48;
 }
+.ui-form-control input[type="checkbox"][disabled]+ label::before,
+.ui-form-control input[type="radio"][disabled] + label::before{
+    color:#3661b1;
+}
+.ui-form-control.ui-form-control-tool-bar input[type="checkbox"][disabled]+ label,
+.ui-form-control.ui-form-control-tool-bar input[type="radio"][disabled] + label{
+    background-color:#3661b1; 
+     
+}
+.ui-form-control.ui-form-control-tool-bar input[type="checkbox"][disabled]+ label::before,
+.ui-form-control.ui-form-control-tool-bar input[type="radio"][disabled] + label::before{
+   color:inherit;  
+}

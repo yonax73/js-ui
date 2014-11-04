@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Form::groupCheckBox:Boolean JS-UI</title>
+<link href="../../css/font-awesome.min.css" rel="stylesheet" />
+<link href="../../css/js-ui.css" rel="stylesheet" />
+<link href="../../css/theme/default.css" rel="stylesheet" id="style" />
+</head>
+<body>
+	<br>
+	<section class="container">
+	    <div class="row">            
+            <div class="col-sm-12" id="notify"></div>
+        </div>
+		<form id="form" class="form-horizontal">
+			<div class="row">
+				<div class="col-sm-12">
+					
+					<div class="col-sm-6 form-group group-checkbox" data-checkmin="2">
+					    <label>Programming Languages:</label>
+					    <small class="ui-form-msg text-danger hidden"></small>
+						<div class=" ui-form-control ui-form-control-o">
+							<input id=".net" type="checkbox" name="languages" value="net" />
+							<label for=".net">.Net</label>
+						</div>
+						<div class=" ui-form-control ui-form-control-o">
+							<input id="java" type="checkbox" name="languages" value="java" />
+							<label for="java">Java</label>
+						</div>
+						<div class=" ui-form-control ui-form-control-o">
+							<input id="C/C++" type="checkbox" name="languages" value="C/C++" />
+							<label for="C/C++">C/C++</label>
+						</div>
+						<div class=" ui-form-control ui-form-control-o">
+							<input id="PHP" type="checkbox" name="languages" value="PHP" />
+							<label for="PHP">PHP</label>
+						</div>
+						<div class=" ui-form-control ui-form-control-o">
+							<input id="Javascript" type="checkbox" name="languages"
+								value="Javascript" /> <label for="Javascript">Javascript</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<button class="btn btn-success col-sm-3 pull-right">Submit</button>
+			</div>
+		</form>
+	</section>
+	<script src="../../js/js-ui.js"></script>
+	<script>
+              var notify = new UI.Notify(document.getElementById('notify'));
+              var form = new UI.Form(document.getElementById('form'));
+
+              form.onsubmit(function() {
+                  if (form.isValid()) {
+                     notify.success('submit form');
+                  } else {
+                      notify.close();
+                  }
+              });
+	</script>
+</body>
+</html>

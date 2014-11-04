@@ -32,20 +32,32 @@
                                 <div class="form-group">
                                     <div class="col-sm-12" id="salesRep" data-name="sales-rep"></div>
                                 </div>
+                               <div class="form-group ui-inline col-sm-12">
+			                        <span class="ui-form-control ui-form-control-tool-bar">
+			                            <input id="male" name="gender" value="male" type="radio">
+			                            <label for="male" title="ui-form-control-tool-bar">
+			                                Male
+			                            </label>
+			                        </span>
+			                        <span class="ui-form-control ui-form-control-tool-bar ">
+			                            <input id="female" name="gender" type="radio" value="female" checked>
+			                            <label for="female">
+			                               Female
+			                            </label>
+			                        </span>	
+			                    </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                   <textarea class="form-control" rows="3"  placeholder="notes" name="notes" data-required="true"></textarea>
-                                </div>  
+                                   <textarea class="form-control" rows="5"  placeholder="notes" name="notes" data-required="true"></textarea>
+                                </div>         
                                 <div class="form-group">
-                                    <div class="col-md-12">
-                                          <label>                                        
-                                            <input name="terms" type="checkbox" data-required="true">
-                                             I agree with the <a href="#">Terms and Conditions</a>
-                                          </label>
+ 		                             <div class="ui-form-control ui-form-control-o">                                                                               
+                                           <input id="terms" name="terms" type="checkbox" data-required="true">                                             
+                                          <label for="terms">I agree with the <a href="#">Terms and Conditions</a></label>   
                                     </div>
-                                </div>                              
-                            </div>                           
+                                </div>                                                            
+                            </div>                                                       
 	                        <div class="row">	                        
 	                            <button class="btn btn-success col-sm-3 pull-right">Submit</button>
 	                        </div>

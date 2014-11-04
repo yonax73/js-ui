@@ -1,262 +1,368 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Form::custom checkbox JS-UI</title>
-    <link href="../../css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../../css/js-ui.css" rel="stylesheet" />
-    <link href="../../css/theme/default.css" rel="stylesheet" id="style" />
+<meta charset="UTF-8">
+<title>Form::custom checkbox JS-UI</title>
+<link href="../../css/font-awesome.min.css" rel="stylesheet" />
+<link href="../../css/js-ui.css" rel="stylesheet" />
+<link href="../../css/theme/default.css" rel="stylesheet" id="style" />
 </head>
 <body>
-    <section class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <br />
+<section class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <br />
+      <section class="row">
+        <h4>
+          Checkbox
+        </h4>
+        <hr>
+        
+                  <!--                        ui-form-control-f             -->
+                  
+                  <span class="col-sm-4 ui-form-control ui-form-control-f ui-primary">
+                    <input id="ui-form-control-f" type="checkbox" 
+                        onclick="showResult(this,'ui-form-control-f-result')">
+                    <label for="ui-form-control-f">
+                      ui-form-control-f
+                    </label>
+                    <small id="ui-form-control-f-result" class="text-danger">
+                    </small>
+                  </span>
 
-                <section class="row">
-                    <h4>Checkbox</h4>
-                    <div class="form-group col-sm-4">
-                        <span class="ui-form-control ui-form-control-f ui-primary">
-                            <input id="ui-form-control-f" type="checkbox" onclick="showResult(this,'ui-form-control-f-result')">
-                            <label for="ui-form-control-f">
-                                ui-form-control-f
-                            </label>
-                            <small id="ui-form-control-f-result" class="text-danger"></small>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <span class="ui-form-control ui-form-control-o ui-success">
-                            <input id="ui-form-control-o" type="checkbox" onclick="showResult(this,'ui-form-control-o-result')">
-                            <label for="ui-form-control-o">
-                                ui-form-control-o
-                            </label>
-                            <small id="ui-form-control-o-result" class="text-danger"></small>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <span class="ui-form-control ui-form-control-toggle ui-info">
-                            <input id="ui-form-control-toggle" type="checkbox" onclick="showResult(this,'ui-form-control-toggle-result')">
-                            <label for="ui-form-control-toggle">
-                                ui-form-control-toggle
-                            </label>
-                            <small id="ui-form-control-toggle-result" class="text-danger"></small>
-                        </span>
-                    </div>
-                </section>
+                  <!--                         ui-form-control-o                     -->
+                  <span class="col-sm-4 ui-form-control ui-form-control-o ui-success">
+                    <input id="ui-form-control-o" type="checkbox" 
+                        onclick="showResult(this,'ui-form-control-o-result')">
+                    <label for="ui-form-control-o">
+                      ui-form-control-o
+                    </label>
+                    <small id="ui-form-control-o-result" class="text-danger">
+                    </small>
+                  </span>
 
-                <section class="row">
-                    <div class="form-group col-sm-4">
-                        <span class="ui-form-control ui-form-control-circle-o ui-warning">
-                            <input id="ui-form-control-circle-o" type="checkbox" onclick="showResult(this,'ui-form-control-circle-o-result')">
-                            <label for="ui-form-control-circle-o">
-                                ui-form-control-circle-o
-                            </label>
-                            <small id="ui-form-control-circle-o-result" class="text-danger"></small>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <span class="ui-form-control ui-form-control-circle-f ui-danger">
-                            <input id="ui-form-control-circle-f" type="checkbox" onclick="showResult(this,'ui-form-control-circle-f-result')">
-                            <label for="ui-form-control-circle-f">
-                                ui-form-control-circle-f
-                            </label>
-                            <small id="ui-form-control-circle-f-result" class="text-danger"></small>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <span class="ui-form-control ui-form-control-simple">
-                            <input id="ui-form-control-simple" type="checkbox" onclick="showResult(this,'ui-form-control-simple-result')">
-                            <label for="ui-form-control-simple">
-                                ui-form-control-simple
-                            </label>
-                            <small id="ui-form-control-simple-result" class="text-danger"></small>
-                        </span>
-                    </div>
-                </section>
-                <section class="row">
-                    <div class="form-group col-sm-4">
-                        <span class="ui-form-control ui-form-control-line-through ui-primary">
-                            <input id="ui-form-control-line-through" type="checkbox" onclick="showResult(this,'ui-form-control-line-through-result')">
-                            <label for="ui-form-control-line-through">
-                                ui-form-control-line-through
-                            </label>
-                            <small id="ui-form-control-line-through-result" class="text-danger"></small>
-                        </span>
-                    </div>
-                </section>
+                  <!--                         ui-form-control-toggle                     -->
+                  
+                  <span class="col-sm-4 ui-form-control ui-form-control-toggle ui-info">
+                    <input id="ui-form-control-toggle" type="checkbox" 
+                        onclick="showResult(this,'ui-form-control-toggle-result')">
+                    <label for="ui-form-control-toggle">
+                      ui-form-control-toggle
+                    </label>
+                    <small id="ui-form-control-toggle-result" class="text-danger">
+                    </small>
+                  </span>
+              </section>
+              
+              <section class="row">
 
-                <section class="row">
-                    <h4>Radio buttons</h4>
-                    <div class="form-group col-sm-5">
-                        <span class="ui-form-control ui-form-control-dat-circle-o ui-success">
-                            <input id="ui-form-control-dat-circle-o" name="ui-form-control-dat-circle-o" type="radio">
-                            <label for="ui-form-control-dat-circle-o">
-                                ui-form-control-dat-circle-o (1)
-                            </label>
-                        </span><br />
-                        <span class="ui-form-control ui-form-control-dat-circle-o ui-success">
-                            <input id="ui-form-control-dat-circle-o-1" name="ui-form-control-dat-circle-o" type="radio" checked>
-                            <label for="ui-form-control-dat-circle-o-1">
-                                ui-form-control-dat-circle-o (2)
-                            </label>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <span class="ui-form-control ui-form-control-dat-circle-f ui-info">
-                            <input id="ui-form-control-dat-circle-f" name="ui-form-control-dat-circle-f" type="radio">
-                            <label for="ui-form-control-dat-circle-f">
-                                ui-form-control-dat-circle-f (1)
-                            </label>
-                        </span><br />
-                        <span class="ui-form-control ui-form-control-dat-circle-f ui-info">
-                            <input id="ui-form-control-dat-circle-f-1" name="ui-form-control-dat-circle-f" type="radio" checked>
-                            <label for="ui-form-control-dat-circle-f-1">
-                                ui-form-control-dat-circle-f (2)
-                            </label>
-                        </span>
-                    </div>
-                </section>
+                <!--                         ui-form-control-circle-o                     -->
 
-                <section class="row">
-                    <div class="form-group col-sm-5">
-                        <span class="ui-form-control ui-form-control-thumbs-up ui-warning">
-                            <input id="ui-form-control-thumbs-up" name="ui-form-control-thumbs-up" type="radio">
-                            <label for="ui-form-control-thumbs-up" title="ui-form-control-thumbs-up">
-                                ui-form-control-thumbs-up
-                            </label>
-                        </span><br />
-                        <span class="ui-form-control ui-form-control-thumbs-down ui-warning">
-                            <input id="ui-form-control-thumbs-down" name="ui-form-control-thumbs-up" type="radio" checked>
-                            <label for="ui-form-control-thumbs-down">
-                                ui-form-control-thumbs-down
-                            </label>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-5">
-                        <span class="ui-form-control ui-form-control-square ">
-                            <input id="ui-form-control-square" name="ui-form-control-square" type="radio">
-                            <label for="ui-form-control-square" title="ui-form-control-square">
-                                ui-form-control-square (1)
-                            </label>
-                        </span><br />
-                        <span class="ui-form-control ui-form-control-square ">
-                            <input id="ui-form-control-square-1" name="ui-form-control-square" type="radio" checked>
-                            <label for="ui-form-control-square-1">
-                                ui-form-control-square (2)
-                            </label>
-                        </span>
-                    </div>
-                </section>
-                <section class="row">
-                    <div class="form-group ui-inline col-sm-12">
-                        <span class="ui-form-control ui-form-control-tool-bar">
-                            <input id="ui-form-control-tool-bar" name="ui-form-control-tool-bar" type="radio">
-                            <label for="ui-form-control-tool-bar" title="ui-form-control-tool-bar">
-                                ui-form-control-tool-bar (1)
-                            </label>
-                        </span>
-                        <span class="ui-form-control ui-form-control-tool-bar">
-                            <input id="ui-form-control-tool-bar-1" name="ui-form-control-tool-bar" type="radio" checked>
-                            <label for="ui-form-control-tool-bar-1">
-                                ui-form-control-tool-bar (2)
-                            </label>
-                        </span>
-                        <span class="ui-form-control ui-form-control-tool-bar">
-                            <input id="ui-form-control-tool-bar-2" name="ui-form-control-tool-bar" type="radio">
-                            <label for="ui-form-control-tool-bar-2">
-                                ui-form-control-tool-bar (3)
-                            </label>
-                        </span>
-                        <span class="ui-form-control ui-form-control-tool-bar">
-                            <input id="ui-form-control-tool-bar-3" name="ui-form-control-tool-bar" type="radio">
-                            <label for="ui-form-control-tool-bar-3">
-                                ui-form-control-tool-bar (4)
-                            </label>
-                        </span>
-                    </div>
-                    <div class="form-group ui-block col-sm-5">
-                        <span class="ui-form-control ui-form-control-tool-bar ui-primary">
-                            <input id="ui-form-control-tool-bar-block" name="ui-form-control-tool-bar-block" type="radio">
-                            <label for="ui-form-control-tool-bar-block" title="ui-form-control-tool-bar">
-                                ui-form-control-tool-bar (1)
-                            </label>
-                        </span>
-                        <span class="ui-form-control ui-form-control-tool-bar ui-primary">
-                            <input id="ui-form-control-tool-bar-1-block" name="ui-form-control-tool-bar-block" type="radio" checked>
-                            <label for="ui-form-control-tool-bar-1-block">
-                                ui-form-control-tool-bar (2)
-                            </label>
-                        </span>
-                        <span class="ui-form-control ui-form-control-tool-bar ui-primary">
-                            <input id="ui-form-control-tool-bar-2-block" name="ui-form-control-tool-bar-block" type="radio">
-                            <label for="ui-form-control-tool-bar-2-block">
-                                ui-form-control-tool-bar (3)
-                            </label>
-                        </span>
-                        <span class="ui-form-control ui-form-control-tool-bar ui-primary">
-                            <input id="ui-form-control-tool-bar-3-block" name="ui-form-control-tool-bar-block" type="radio">
-                            <label for="ui-form-control-tool-bar-3-block">
-                                ui-form-control-tool-bar (4)
-                            </label>
-                        </span>
-                    </div>
-                </section>
+                <span class="col-sm-4 ui-form-control ui-form-control-circle-o ui-warning">
+                  <input id="ui-form-control-circle-o" type="checkbox" 
+                      onclick="showResult(this,'ui-form-control-circle-o-result')">
+                  <label for="ui-form-control-circle-o">
+                    ui-form-control-circle-o
+                  </label>
+                  <small id="ui-form-control-circle-o-result" class="text-danger">
+                  </small>
+                </span>
+                
+                <!--                         ui-form-control-circle-f                    -->
 
-                <section class="row">
-                    <h4>Large Controls</h4>
-                    <div class="form-group col-sm-12">
-                        <span class="ui-form-control ui-form-control-f ui-primary ui-1x">
-                            <input id="ui-form-control-f-ui-1x" type="checkbox" checked>
-                            <label for="ui-form-control-f-ui-1x">
-                                ui-1x
-                            </label>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <span class="ui-form-control ui-form-control-f ui-primary ui-2x">
-                            <input id="ui-form-control-f-ui-2x" type="checkbox" checked>
-                            <label for="ui-form-control-f-ui-2x">
-                                ui-2x
-                            </label>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <span class="ui-form-control ui-form-control-f ui-primary ui-3x">
-                            <input id="ui-form-control-f-ui-3x" type="checkbox" checked>
-                            <label for="ui-form-control-f-ui-3x">
-                                ui-3x
-                            </label>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <span class="ui-form-control ui-form-control-f ui-primary ui-4x">
-                            <input id="ui-form-control-f-ui-4x" type="checkbox" checked>
-                            <label for="ui-form-control-f-ui-4x">
-                                ui-4x
-                            </label>
-                        </span>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <span class="ui-form-control ui-form-control-f ui-primary ui-5x">
-                            <input id="ui-form-control-f-ui-5x" type="checkbox" checked>
-                            <label for="ui-form-control-f-ui-5x">
-                                ui-5x
-                            </label>
-                        </span>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </section>
-    <script src="../../js/js-ui.js"></script>
-    <script>
-        function showResult(input, strId) {
-            if (input.checked) {
-                document.getElementById(strId).textContent = 'on';
-            } else {
-                document.getElementById(strId).textContent = 'off';
-            }
-        }
-    </script>
+                <span class="col-sm-4 ui-form-control ui-form-control-circle-f ui-danger">
+                  <input id="ui-form-control-circle-f" type="checkbox" 
+                      onclick="showResult(this,'ui-form-control-circle-f-result')">
+                  <label for="ui-form-control-circle-f">
+                    ui-form-control-circle-f
+                  </label>
+                  <small id="ui-form-control-circle-f-result" class="text-danger">
+                  </small>
+                </span>
+                
+                <!--                         ui-form-control-simple -->
+
+                <span class="col-sm-4 ui-form-control ui-form-control-simple">
+                  <input id="ui-form-control-simple" type="checkbox" 
+                      onclick="showResult(this,'ui-form-control-simple-result')">
+                  <label for="ui-form-control-simple">
+                    ui-form-control-simple
+                  </label>
+                  <small id="ui-form-control-simple-result" class="text-danger">
+                  </small>
+                </span>
+              </section>
+              <section class="row">
+
+                <!--                         ui-form-control-line-through                     -->
+
+                <span class="col-sm-4 ui-form-control ui-form-control-line-through ui-primary">
+                  <input id="ui-form-control-line-through" type="checkbox" 
+                      onclick="showResult(this,'ui-form-control-line-through-result')">
+                  <label for="ui-form-control-line-through">
+                    ui-form-control-line-through
+                  </label>
+                  <small id="ui-form-control-line-through-result" class="text-danger">
+                  </small>
+                </span>
+              </section>
+              
+              <section class="row">
+                <h4>
+                  Radio buttons
+                </h4>
+                <hr>
+
+                <!--                ui-form-control-dat-circle-o (1) -->
+
+                <div class="form-group col-sm-5">
+                  <span class="ui-form-control ui-form-control-dat-circle-o ui-success">
+                    <input id="ui-form-control-dat-circle-o" name="ui-form-control-dat-circle-o" 
+                      value="ui-form-control-dat-circle-o (1)" type="radio">
+                    <label for="ui-form-control-dat-circle-o">
+                      ui-form-control-dat-circle-o (1)
+                    </label>
+                  </span>
+                  <br />
+                  <span class="ui-form-control ui-form-control-dat-circle-o ui-success">
+                    <input id="ui-form-control-dat-circle-o-1" name="ui-form-control-dat-circle-o" 
+                      value="ui-form-control-dat-circle-o (2)" type="radio" checked>
+                    <label for="ui-form-control-dat-circle-o-1">
+                      ui-form-control-dat-circle-o (2)
+                    </label>
+                  </span>
+                </div>
+
+                <!--                 ui-form-control-dat-circle-f -->
+
+                <div class="form-group col-sm-5">
+                  <span class="ui-form-control ui-form-control-dat-circle-f ui-info">
+                    <input id="ui-form-control-dat-circle-f" name="ui-form-control-dat-circle-f" 
+                      value="ui-form-control-dat-circle-f (1)" type="radio">
+                    <label for="ui-form-control-dat-circle-f">
+                      ui-form-control-dat-circle-f (1)
+                    </label>
+                  </span>
+                  <br />
+                  <span class="ui-form-control ui-form-control-dat-circle-f ui-info">
+                    <input id="ui-form-control-dat-circle-f-1" name="ui-form-control-dat-circle-f" 
+                      value="ui-form-control-dat-circle-f (2)" type="radio" checked>
+                    <label for="ui-form-control-dat-circle-f-1">
+                      ui-form-control-dat-circle-f (2)
+                    </label>
+                  </span>
+                </div>
+              </section>
+              <section class="row">
+
+                <!--                     ui-form-control-thumbs -->
+
+                <div class="form-group col-sm-5">
+                  <span class="ui-form-control ui-form-control-thumbs-up ui-warning">
+                    <input id="ui-form-control-thumbs-up" name="ui-form-control-thumbs" 
+                      value="ui-form-control-thumbs-up" type="radio">
+                    <label for="ui-form-control-thumbs-up" title="ui-form-control-thumbs-up">
+                      ui-form-control-thumbs-up
+                    </label>
+                  </span>
+                  <br />
+                  <span class="ui-form-control ui-form-control-thumbs-down ui-warning">
+                    <input id="ui-form-control-thumbs-down" name="ui-form-control-thumbs" type="radio" 
+                      value="ui-form-control-thumbs-down" checked>
+                    <label for="ui-form-control-thumbs-down">
+                      ui-form-control-thumbs-down
+                    </label>
+                  </span>
+                </div>
+                <div class="form-group col-sm-5">
+
+                  <!--                     ui-form-control-square -->
+
+                  <span class="ui-form-control ui-form-control-square ">
+                    <input id="ui-form-control-square" name="ui-form-control-square" 
+                      value="ui-form-control-square (1)" type="radio">
+                    <label for="ui-form-control-square" title="ui-form-control-square">
+                      ui-form-control-square (1)
+                    </label>
+                  </span>
+                  <br />
+                  <span class="ui-form-control ui-form-control-square ">
+                    <input id="ui-form-control-square-1" name="ui-form-control-square" 
+                      value="ui-form-control-square (2)" type="radio" checked>
+                    <label for="ui-form-control-square-1">
+                      ui-form-control-square (2)
+                    </label>
+                  </span>
+                </div>
+              </section>
+              <section class="row">
+
+                <!--                   ui-form-control-tool-bar ui-inline -->
+
+                <div class="form-group ui-inline col-sm-12">
+                  <span class="ui-form-control ui-form-control-tool-bar">
+                    <input id="ui-form-control-tool-bar" name="ui-form-control-tool-bar" type="radio" 
+                      value="ui-form-control-tool-bar (1)">
+                    <label for="ui-form-control-tool-bar" title="ui-form-control-tool-bar">
+                      ui-form-control-tool-bar (1)
+                    </label>
+                  </span>
+                  <span class="ui-form-control ui-form-control-tool-bar">
+                    <input id="ui-form-control-tool-bar-1" name="ui-form-control-tool-bar" type="radio" 
+                      value="ui-form-control-tool-bar (2)" checked>
+                    <label for="ui-form-control-tool-bar-1">
+                      ui-form-control-tool-bar (2)
+                    </label>
+                  </span>
+                  <span class="ui-form-control ui-form-control-tool-bar">
+                    <input id="ui-form-control-tool-bar-2" name="ui-form-control-tool-bar" 
+                      value="ui-form-control-tool-bar (3)" type="radio">
+                    <label for="ui-form-control-tool-bar-2">
+                      ui-form-control-tool-bar (3)
+                    </label>
+                  </span>
+                  <span class="ui-form-control ui-form-control-tool-bar">
+                    <input id="ui-form-control-tool-bar-3" name="ui-form-control-tool-bar" 
+                      value="ui-form-control-tool-bar (4)" type="radio">
+                    <label for="ui-form-control-tool-bar-3">
+                      ui-form-control-tool-bar (4)
+                    </label>
+                  </span>
+                </div>
+
+                <!--                   ui-form-control-tool-bar ui-block -->
+
+                <div class="form-group ui-block col-sm-5">
+                  <span class="ui-form-control ui-form-control-tool-bar ui-primary">
+                    <input id="ui-form-control-tool-bar-block" name="ui-form-control-tool-bar-block" type="radio" 
+                      value="ui-form-control-tool-bar (1)">
+                    <label for="ui-form-control-tool-bar-block" title="ui-form-control-tool-bar">
+                      ui-form-control-tool-bar (1)
+                    </label>
+                  </span>
+                  <span class="ui-form-control ui-form-control-tool-bar ui-primary">
+                    <input id="ui-form-control-tool-bar-1-block" name="ui-form-control-tool-bar-block" type="radio" 
+                      value="ui-form-control-tool-bar (2)" checked>
+                    <label for="ui-form-control-tool-bar-1-block">
+                      ui-form-control-tool-bar (2)
+                    </label>
+                  </span>
+                  <span class="ui-form-control ui-form-control-tool-bar ui-primary">
+                    <input id="ui-form-control-tool-bar-2-block" name="ui-form-control-tool-bar-block"  type="radio" 
+                      value="ui-form-control-tool-bar (3)">
+                    <label for="ui-form-control-tool-bar-2-block">
+                      ui-form-control-tool-bar (3)
+                    </label>
+                  </span>
+                  <span class="ui-form-control ui-form-control-tool-bar ui-primary">
+                    <input id="ui-form-control-tool-bar-3-block" name="ui-form-control-tool-bar-block" type="radio" 
+                      value="ui-form-control-tool-bar (4)">
+                    <label for="ui-form-control-tool-bar-3-block">
+                      ui-form-control-tool-bar (4)
+                    </label>
+                  </span>
+                </div>
+              </section>
+              <section class="row">
+                <div class="col-sm-6">
+                  <h4>
+                    Large Controls
+                  </h4>
+                  
+                  <hr>
+                  
+                  <!-- 	                    ui-1x            -->
+
+                  <div class="ui-form-control ui-form-control-f ui-primary ui-1x">
+                    <input id="ui-form-control-f-ui-1x" type="checkbox" checked>
+                    <label for="ui-form-control-f-ui-1x">
+                      ui-1x
+                    </label>
+                  </div>
+
+                  <!-- 	                    ui-2x            -->
+
+                  <div class="ui-form-control ui-form-control-f ui-primary ui-2x">
+                    <input id="ui-form-control-f-ui-2x" type="checkbox" checked>
+                    <label for="ui-form-control-f-ui-2x">
+                      ui-2x
+                    </label>
+                  </div>
+
+                  <!-- 	                    ui-3x            -->
+                  
+                  <div class="ui-form-control ui-form-control-f ui-primary ui-3x">
+                    <input id="ui-form-control-f-ui-3x" type="checkbox" checked>
+                    <label for="ui-form-control-f-ui-3x">
+                      ui-3x
+                    </label>
+                  </div>
+
+                  <!-- 	                    ui-4x            -->
+                  
+                  <div class="ui-form-control ui-form-control-f ui-primary ui-4x">
+                    <input id="ui-form-control-f-ui-4x" type="checkbox" checked>
+                    <label for="ui-form-control-f-ui-4x">
+                      ui-4x
+                    </label>
+                  </div>
+
+                  <!-- 	                    ui-5x            -->
+                  
+                  <div class="ui-form-control ui-form-control-f ui-primary ui-5x">
+                    <input id="ui-form-control-f-ui-5x" type="checkbox" checked>
+                    <label for="ui-form-control-f-ui-5x">
+                      ui-5x
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="col-sm-6">
+                  <h4>
+                    Disabled
+                  </h4>                  
+                  <hr>
+
+                  <div class="col-sm-12 ui-form-control ui-form-control-o">
+                    <input id="ui-form-control-o-disabled" type="checkbox" disabled="disabled" checked>
+                    <label for="ui-form-control-o-disabled">
+                      disabled
+                    </label>                    
+                  </div>
+                  
+                  <div class="form-group ui-inline col-sm-12">                    
+                    <span class="ui-form-control ui-form-control-tool-bar">
+                      <input id="ui-form-control-tool-bar-disabled" name="ui-form-control-tool-bar" 
+                      type="radio" disabled="disabled">
+                      <label for="ui-form-control-tool-bar-disabled" title="ui-form-control-tool-bar-disabled">
+                        disabled (1)
+                      </label>
+                    </span>
+                    
+                    <span class="ui-form-control ui-form-control-tool-bar">
+                      <input id="ui-form-control-tool-bar-disabled-1" name="ui-form-control-tool-bar-disabled" 
+                      type="radio" checked disabled="disabled">
+                      <label for="ui-form-control-tool-bar-disabled-1">
+                        disabled (2)
+                      </label>
+                    </span>
+                  </div>
+                </div>
+                
+              </section>
+              
+          </div>
+      </div>
+</section>
+	<script src="../../js/js-ui.js"></script>
+	<script>
+		function showResult(input, strId) {
+			if (input.checked) {
+				document.getElementById(strId).textContent = 'on';
+			} else {
+				document.getElementById(strId).textContent = 'off';
+			}
+		}
+	</script>
 </body>
 </html>

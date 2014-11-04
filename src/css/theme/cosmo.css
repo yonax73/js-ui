@@ -6879,3 +6879,15 @@ table .success, .table .success, table .warning, .table .warning, table .danger,
 .ui-form-control.ui-form-control-line-through.ui-danger label {
     color: #ff0039;
 }
+.ui-form-control input[type="checkbox"][disabled]+ label::before,
+.ui-form-control input[type="radio"][disabled] + label::before{
+    color:#e6e6e6;
+}
+.ui-form-control.ui-form-control-tool-bar input[type="checkbox"][disabled]+ label,
+.ui-form-control.ui-form-control-tool-bar input[type="radio"][disabled] + label{
+    background-color:#e6e6e6;    
+}
+.ui-form-control.ui-form-control-tool-bar input[type="checkbox"][disabled]+ label::before,
+.ui-form-control.ui-form-control-tool-bar input[type="radio"][disabled] + label::before{
+    color:inherit;
+}

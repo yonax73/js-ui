@@ -893,15 +893,180 @@ form.isCreditCard(value)
                                             </div>
                                         </blockquote>
 
-                                        <blockquote id="ui-form-controls" class="api">
-                                            <a class="method" href="components.html#ui-form-controls">Form Controls</a>
+                                        <blockquote id="ui-form-custom-controls" class="api">
+                                            <a class="method" href="components.html#ui-form-custom-controls">Custom Controls</a>                                            
                                             <div>
                                                 <p>
-                                                    The form controls are CHECKBOX and RadioButton custom, you only need to add a CSS class 
-                                                    and the result is awesome, classes are flexbles and can be added to CHECKBOX like radiobuttons,
-                                                    is required utiliziar the following structure:
+                                                    <br/>
+                                                    The form controls are
+                                                    <a target="_blank" class="text-simple" href="http://www.w3schools.com/html/html_forms.asp">Checkboxes</a> and 
+                                                    <a target="_blank" class="text-simple" href="http://www.w3schools.com/html/html_forms.asp">Radio Buttons</a> custom, you only need to add a 
+                                                     class name and the result is awesome,the classes are flexbles and can be added to
+                                                    <a target="_blank" class="text-simple" href="http://www.w3schools.com/html/html_forms.asp">Checkboxes</a> like 
+                                                    <a target="_blank" class="text-simple" href="http://www.w3schools.com/html/html_forms.asp">Radio Buttons</a>.                                                    
+                                                    Is required use the following structure:
                                                 </p>
-                                            </div>
+                                                <pre>
+                                                 <code>
+ &lt;span class=&quot;ui-form-control ui-form-control-f&quot;&gt;
+  &lt;input id=&quot;ui-form-control-f&quot; type=&quot;checkbox&quot;&gt;
+  &lt;label for=&quot;ui-form-control-f&quot;&gt;
+	ui-form-control-f
+  &lt;/label&gt;
+ &lt;/span&gt;  
+                                                 </code>
+                                                </pre>
+                                            <h5>List styles classes</h5>                                                                               
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                       <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-f</a>
+                                                       </td>
+                                                       <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-o</a>
+                                                       </td>
+                                                       <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-toggle </a>
+                                                       </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                     <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-circle-o</a>
+                                                       </td>
+                                                       <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-circle-f</a>
+                                                       </td>
+                                                       <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-simple</a>
+                                                       </td>         
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-dat-circle-o</a>
+                                                       </td>
+                                                       <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-dat-circle-f</a>
+                                                       </td>
+                                                       <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-thumbs-up </a>
+                                                       </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-thumbs-down</a>
+                                                       </td>
+                                                        <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-line-through</a>
+                                                       </td>
+                                                       <td>
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-square</a>
+                                                       </td>
+                                                    </tr>
+                                                    <tr>
+                                                       <td colspan="3"">
+                                                           <a href="components.html#ui-form-custom-controls">ui-form-control-tool-bar</a> : for
+                                                           this class is required use the following structure:
+				                                            <div>
+				                                                <pre>
+				                                                <code>
+&lt;div class=&quot;form-group ui-inline&quot;&gt;                  
+   &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
+    &lt;input id=&quot;opt-1&quot; name=&quot;opt&quot; type=&quot;radio&quot;&gt;
+    &lt;label for=&quot;opt-1&quot; &gt;
+     Option 1
+    &lt;/label&gt;
+   &lt;/span&gt;                        
+   &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
+    &lt;input id=&quot;opt-2&quot; name=&quot;opt&quot; type=&quot;radio&quot;&gt;
+    &lt;label for=&quot;opt-2&quot; &gt;
+     Option 2
+    &lt;/label&gt;
+   &lt;/span&gt;     
+&lt;/div&gt;
+				                                                  </code>				                                                
+				                                                </pre>
+				                                                  * You can display group using <b>ui-inline</b> or <b>ui-block</b> classes.
+				                                            </div>
+                                                       </td>
+                                                    </tr>
+                                                </tbody>
+                                              </table> 
+                                                <h5>Large classes</h5>                                                                               
+	                                            <table class="table">
+	                                                <tbody>
+	                                                    <tr>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-1x</a>
+	                                                       </td>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-2x</a>
+	                                                       </td>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-3x</a>
+	                                                       </td>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-4x</a>
+	                                                       </td>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-5x</a>
+	                                                       </td>	
+	                                                    </tr>
+	                                                    <tr>
+	                                                     <td colspan="5">
+	                                                        Example:
+				                                            <pre>
+				                                              <code>
+ &lt;span class=&quot;ui-form-control ui-form-control-f ui-3x&quot;&gt;
+  &lt;input id=&quot;ui-form-control-f&quot; type=&quot;checkbox&quot;&gt;
+  &lt;label for=&quot;ui-form-control-f&quot;&gt;
+	ui-form-control-f
+  &lt;/label&gt;
+ &lt;/span&gt;  
+				                                              </code>
+				                                            </pre>
+	                                                     </td>
+	                                                    </tr>
+	                                                </tbody>
+	                                            </table>
+                                                <h5>Color classes</h5>                                                                               
+	                                            <table class="table">
+	                                                <tbody>
+	                                                    <tr>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-primary</a>
+	                                                       </td>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-success</a>
+	                                                       </td>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-info</a>
+	                                                       </td>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-warning</a>
+	                                                       </td>
+	                                                       <td>
+	                                                           <a href="components.html#ui-form-custom-controls">ui-danger</a>
+	                                                       </td>	
+	                                                    </tr>
+	                                                    <tr>
+	                                                     <td colspan="5">
+	                                                        Example:
+				                                            <pre>
+				                                              <code>
+ &lt;span class=&quot;ui-form-control ui-form-control-f ui-primary&quot;&gt;
+  &lt;input id=&quot;ui-form-control-f&quot; type=&quot;checkbox&quot;&gt;
+  &lt;label for=&quot;ui-form-control-f&quot;&gt;
+	ui-form-control-f
+  &lt;/label&gt;
+ &lt;/span&gt;  
+				                                              </code>
+				                                            </pre>
+	                                                     </td>
+	                                                    </tr>
+	                                                </tbody>
+	                                            </table>
                                         </blockquote>
 
                                         <blockquote id="ui-form-list-validations" class="api">

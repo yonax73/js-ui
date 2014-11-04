@@ -117,6 +117,11 @@
     padding-right: 3px;
 }
 
+.ui-form-control input[type="checkbox"][disabled]+ label,
+.ui-form-control input[type="radio"][disabled] + label{
+    cursor: not-allowed;
+}
+
 .ui-form-control.ui-1x input[type="checkbox"] + label::before,
 .ui-form-control.ui-1x input[type="radio"] + label::before {
     font-size: 1em;
@@ -312,6 +317,8 @@
     content: "\f00c";
     opacity: 1;
 }
+
+
 
 .form-group.ui-inline {
     display: flexbox;

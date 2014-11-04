@@ -2810,6 +2810,101 @@ form.onsubmit(function() {
                                { id: 'tab-form-keyup-3', text: 'Result', active: true }
                             ]);
                         </script>
+                       <!--  form group-checkbox -->
+                        <blockquote class="component-api" id="ui-form-group-checkbox">
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <h3>Group checkbox</h3>
+                                    <small class="pull-right">
+                                        <a href="api.html#ui-form-group-checkbox">View api.</a>  &nbsp;&nbsp;  | &nbsp;&nbsp;
+                                        <a href="http://jsfiddle.net/yonaxtics/o6dammy2/" target="_blank">Try it yourself.</a>
+                                    </small>
+                                </div>
+                            </section>
+                            <section class="row">
+                                <div class="col-md-12">
+                                    <div id="content-form-group-checkbox">
+                                        <div id="tab-form-group-checkbox-1">
+                                            <pre>
+                                            <code class="html">
+&lt;section class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;col-sm-12&quot; id=&quot;notify&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12&quot;&gt;
+            &lt;br /&gt;
+            &lt;form id=&quot;form&quot; class=&quot;form-horizontal row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;email&quot; class=&quot;form-control&quot; data-group-checkbox=&quot;true&quot; 
+                                data-required=&quot;true&quot; data-email=&quot;true&quot; placeholder=&quot;E-mail&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; data-group-checkbox=&quot;true&quot; 
+                                data-date=&quot;d-m-Y&quot; placeholder=&quot;Birthday (dd-mm-yyyy)&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-12&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;birthday&quot; class=&quot;form-control&quot; data-group-checkbox=&quot;true&quot; 
+                                data-URL=&quot;true&quot; placeholder=&quot;Web site&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;textarea class=&quot;form-control&quot; rows=&quot;5&quot;  placeholder=&quot;notes&quot; data-group-checkbox=&quot;true&quot; 
+                            name=&quot;notes&quot; data-required=&quot;true&quot;&gt;&lt;/textarea&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;	                        
+                    &lt;button class=&quot;btn btn-success col-sm-3 pull-right&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                                         </code>
+                                        </pre>
+                                        </div>
+                                        <div id="tab-form-group-checkbox-2">
+                                            <pre>
+                                            <code class="js">
+var notify = new UI.Notify(document.getElementById('notify'));
+var form = new UI.Form(document.getElementById('form'));
+form.onsubmit(function() {
+    if (form.isValid()) {
+        notify.success('validate');
+    } else {
+        notify.close();
+    }
+});
+                                     </code>
+                                   </pre>
+                                        </div>
+                                        <div id="tab-form-group-checkbox-3">
+                                            <div class="row component-example">
+                                                <div class="col-md-12">
+                                                    <object data="components/form/form-group-checkbox.html" style="height:350px"></object>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </blockquote>
+                        <script>
+                            UI.NavTab(document.getElementById('content-form-group-checkbox'), [
+                               { id: 'tab-form-group-checkbox-1', text: 'HTML' },
+                               { id: 'tab-form-group-checkbox-2', text: 'Javascript' },
+                               { id: 'tab-form-group-checkbox-3', text: 'Result', active: true }
+                            ]);
+                        </script>
                         <!--  form custom-controls -->
                         <blockquote class="component-api" id="ui-form-custom-controls">
                             <section class="row">
@@ -2828,239 +2923,350 @@ form.onsubmit(function() {
                                             <pre>
                                             <code class="html">
 &lt;section class=&quot;container&quot;&gt;
-    &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;col-sm-12&quot;&gt;
-            &lt;br /&gt;
-            &lt;section class=&quot;row&quot;&gt;
-                &lt;h4&gt;Checkbox&lt;/h4&gt;
-                &lt;div class=&quot;form-group col-sm-4&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-f ui-primary&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-f&quot; type=&quot;checkbox&quot; onclick=&quot;showResult(this,'ui-form-control-f-result')&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-12&quot;&gt;
+      &lt;br /&gt;
+      &lt;section class=&quot;row&quot;&gt;
+        &lt;h4&gt;
+          Checkbox
+        &lt;/h4&gt;
+        &lt;hr&gt;
+        
+                  &lt;!--                        ui-form-control-f             --&gt;
+                  
+                  &lt;span class=&quot;col-sm-4 ui-form-control ui-form-control-f ui-primary&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-f&quot; type=&quot;checkbox&quot; 
+                        onclick=&quot;showResult(this,'ui-form-control-f-result')&quot;&gt;
                     &lt;label for=&quot;ui-form-control-f&quot;&gt;
-                    ui-form-control-f
+                      ui-form-control-f
                     &lt;/label&gt;
-                    &lt;small id=&quot;ui-form-control-f-result&quot; class=&quot;text-danger&quot;&gt;&lt;/small&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-group col-sm-4&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-o ui-success&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-o&quot; type=&quot;checkbox&quot; onclick=&quot;showResult(this,'ui-form-control-o-result')&quot;&gt;
+                    &lt;small id=&quot;ui-form-control-f-result&quot; class=&quot;text-danger&quot;&gt;
+                    &lt;/small&gt;
+                  &lt;/span&gt;
+
+                  &lt;!--                         ui-form-control-o                     --&gt;
+                  &lt;span class=&quot;col-sm-4 ui-form-control ui-form-control-o ui-success&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-o&quot; type=&quot;checkbox&quot; 
+                        onclick=&quot;showResult(this,'ui-form-control-o-result')&quot;&gt;
                     &lt;label for=&quot;ui-form-control-o&quot;&gt;
-                    ui-form-control-o
+                      ui-form-control-o
                     &lt;/label&gt;
-                    &lt;small id=&quot;ui-form-control-o-result&quot; class=&quot;text-danger&quot;&gt;&lt;/small&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-group col-sm-4&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-toggle ui-info&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-toggle&quot; type=&quot;checkbox&quot; onclick=&quot;showResult(this,'ui-form-control-toggle-result')&quot;&gt;
+                    &lt;small id=&quot;ui-form-control-o-result&quot; class=&quot;text-danger&quot;&gt;
+                    &lt;/small&gt;
+                  &lt;/span&gt;
+
+                  &lt;!--                         ui-form-control-toggle                     --&gt;
+                  
+                  &lt;span class=&quot;col-sm-4 ui-form-control ui-form-control-toggle ui-info&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-toggle&quot; type=&quot;checkbox&quot; 
+                        onclick=&quot;showResult(this,'ui-form-control-toggle-result')&quot;&gt;
                     &lt;label for=&quot;ui-form-control-toggle&quot;&gt;
-                    ui-form-control-toggle
+                      ui-form-control-toggle
                     &lt;/label&gt;
-                    &lt;small id=&quot;ui-form-control-toggle-result&quot; class=&quot;text-danger&quot;&gt;&lt;/small&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/section&gt;
-            &lt;section class=&quot;row&quot;&gt;
-                &lt;div class=&quot;form-group col-sm-4&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-circle-o ui-warning&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-circle-o&quot; type=&quot;checkbox&quot; onclick=&quot;showResult(this,'ui-form-control-circle-o-result')&quot;&gt;
-                    &lt;label for=&quot;ui-form-control-circle-o&quot;&gt;
+                    &lt;small id=&quot;ui-form-control-toggle-result&quot; class=&quot;text-danger&quot;&gt;
+                    &lt;/small&gt;
+                  &lt;/span&gt;
+              &lt;/section&gt;
+              
+              &lt;section class=&quot;row&quot;&gt;
+
+                &lt;!--                         ui-form-control-circle-o                     --&gt;
+
+                &lt;span class=&quot;col-sm-4 ui-form-control ui-form-control-circle-o ui-warning&quot;&gt;
+                  &lt;input id=&quot;ui-form-control-circle-o&quot; type=&quot;checkbox&quot; 
+                      onclick=&quot;showResult(this,'ui-form-control-circle-o-result')&quot;&gt;
+                  &lt;label for=&quot;ui-form-control-circle-o&quot;&gt;
                     ui-form-control-circle-o
-                    &lt;/label&gt;
-                    &lt;small id=&quot;ui-form-control-circle-o-result&quot; class=&quot;text-danger&quot;&gt;&lt;/small&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-group col-sm-4&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-circle-f ui-danger&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-circle-f&quot; type=&quot;checkbox&quot; onclick=&quot;showResult(this,'ui-form-control-circle-f-result')&quot;&gt;
-                    &lt;label for=&quot;ui-form-control-circle-f&quot;&gt;
+                  &lt;/label&gt;
+                  &lt;small id=&quot;ui-form-control-circle-o-result&quot; class=&quot;text-danger&quot;&gt;
+                  &lt;/small&gt;
+                &lt;/span&gt;
+                
+                &lt;!--                         ui-form-control-circle-f                    --&gt;
+
+                &lt;span class=&quot;col-sm-4 ui-form-control ui-form-control-circle-f ui-danger&quot;&gt;
+                  &lt;input id=&quot;ui-form-control-circle-f&quot; type=&quot;checkbox&quot; 
+                      onclick=&quot;showResult(this,'ui-form-control-circle-f-result')&quot;&gt;
+                  &lt;label for=&quot;ui-form-control-circle-f&quot;&gt;
                     ui-form-control-circle-f
-                    &lt;/label&gt;
-                    &lt;small id=&quot;ui-form-control-circle-f-result&quot; class=&quot;text-danger&quot;&gt;&lt;/small&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-group col-sm-4&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-simple&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-simple&quot; type=&quot;checkbox&quot; onclick=&quot;showResult(this,'ui-form-control-simple-result')&quot;&gt;
-                    &lt;label for=&quot;ui-form-control-simple&quot;&gt;
+                  &lt;/label&gt;
+                  &lt;small id=&quot;ui-form-control-circle-f-result&quot; class=&quot;text-danger&quot;&gt;
+                  &lt;/small&gt;
+                &lt;/span&gt;
+                
+                &lt;!--                         ui-form-control-simple --&gt;
+
+                &lt;span class=&quot;col-sm-4 ui-form-control ui-form-control-simple&quot;&gt;
+                  &lt;input id=&quot;ui-form-control-simple&quot; type=&quot;checkbox&quot; 
+                      onclick=&quot;showResult(this,'ui-form-control-simple-result')&quot;&gt;
+                  &lt;label for=&quot;ui-form-control-simple&quot;&gt;
                     ui-form-control-simple
-                    &lt;/label&gt;
-                    &lt;small id=&quot;ui-form-control-simple-result&quot; class=&quot;text-danger&quot;&gt;&lt;/small&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/section&gt;
-            &lt;section class=&quot;row&quot;&gt;
-                &lt;div class=&quot;form-group col-sm-4&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-line-through ui-primary&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-line-through&quot; type=&quot;checkbox&quot; onclick=&quot;showResult(this,'ui-form-control-line-through-result')&quot;&gt;
-                    &lt;label for=&quot;ui-form-control-line-through&quot;&gt;
+                  &lt;/label&gt;
+                  &lt;small id=&quot;ui-form-control-simple-result&quot; class=&quot;text-danger&quot;&gt;
+                  &lt;/small&gt;
+                &lt;/span&gt;
+              &lt;/section&gt;
+              &lt;section class=&quot;row&quot;&gt;
+
+                &lt;!--                         ui-form-control-line-through                     --&gt;
+
+                &lt;span class=&quot;col-sm-4 ui-form-control ui-form-control-line-through ui-primary&quot;&gt;
+                  &lt;input id=&quot;ui-form-control-line-through&quot; type=&quot;checkbox&quot; 
+                      onclick=&quot;showResult(this,'ui-form-control-line-through-result')&quot;&gt;
+                  &lt;label for=&quot;ui-form-control-line-through&quot;&gt;
                     ui-form-control-line-through
-                    &lt;/label&gt;
-                    &lt;small id=&quot;ui-form-control-line-through-result&quot; class=&quot;text-danger&quot;&gt;&lt;/small&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/section&gt;
-            &lt;section class=&quot;row&quot;&gt;
-                &lt;h4&gt;Radio buttons&lt;/h4&gt;
+                  &lt;/label&gt;
+                  &lt;small id=&quot;ui-form-control-line-through-result&quot; class=&quot;text-danger&quot;&gt;
+                  &lt;/small&gt;
+                &lt;/span&gt;
+              &lt;/section&gt;
+              
+              &lt;section class=&quot;row&quot;&gt;
+                &lt;h4&gt;
+                  Radio buttons
+                &lt;/h4&gt;
+                &lt;hr&gt;
+
+                &lt;!--                ui-form-control-dat-circle-o (1) --&gt;
+
                 &lt;div class=&quot;form-group col-sm-5&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-dat-circle-o ui-success&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-dat-circle-o&quot; name=&quot;ui-form-control-dat-circle-o&quot; type=&quot;radio&quot;&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-dat-circle-o ui-success&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-dat-circle-o&quot; name=&quot;ui-form-control-dat-circle-o&quot; 
+                      value=&quot;ui-form-control-dat-circle-o (1)&quot; type=&quot;radio&quot;&gt;
                     &lt;label for=&quot;ui-form-control-dat-circle-o&quot;&gt;
-                    ui-form-control-dat-circle-o (1)
+                      ui-form-control-dat-circle-o (1)
                     &lt;/label&gt;
-                    &lt;/span&gt;&lt;br /&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-dat-circle-o ui-success&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-dat-circle-o-1&quot; name=&quot;ui-form-control-dat-circle-o&quot; type=&quot;radio&quot; checked&gt;
+                  &lt;/span&gt;
+                  &lt;br /&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-dat-circle-o ui-success&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-dat-circle-o-1&quot; name=&quot;ui-form-control-dat-circle-o&quot; 
+                      value=&quot;ui-form-control-dat-circle-o (2)&quot; type=&quot;radio&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-dat-circle-o-1&quot;&gt;
-                    ui-form-control-dat-circle-o (2)
+                      ui-form-control-dat-circle-o (2)
                     &lt;/label&gt;
-                    &lt;/span&gt;
+                  &lt;/span&gt;
                 &lt;/div&gt;
+
+                &lt;!--                 ui-form-control-dat-circle-f --&gt;
+
                 &lt;div class=&quot;form-group col-sm-5&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-dat-circle-f ui-info&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-dat-circle-f&quot; name=&quot;ui-form-control-dat-circle-f&quot; type=&quot;radio&quot;&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-dat-circle-f ui-info&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-dat-circle-f&quot; name=&quot;ui-form-control-dat-circle-f&quot; 
+                      value=&quot;ui-form-control-dat-circle-f (1)&quot; type=&quot;radio&quot;&gt;
                     &lt;label for=&quot;ui-form-control-dat-circle-f&quot;&gt;
-                    ui-form-control-dat-circle-f (1)
+                      ui-form-control-dat-circle-f (1)
                     &lt;/label&gt;
-                    &lt;/span&gt;&lt;br /&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-dat-circle-f ui-info&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-dat-circle-f-1&quot; name=&quot;ui-form-control-dat-circle-f&quot; type=&quot;radio&quot; checked&gt;
+                  &lt;/span&gt;
+                  &lt;br /&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-dat-circle-f ui-info&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-dat-circle-f-1&quot; name=&quot;ui-form-control-dat-circle-f&quot; 
+                      value=&quot;ui-form-control-dat-circle-f (2)&quot; type=&quot;radio&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-dat-circle-f-1&quot;&gt;
-                    ui-form-control-dat-circle-f (2)
+                      ui-form-control-dat-circle-f (2)
                     &lt;/label&gt;
-                    &lt;/span&gt;
+                  &lt;/span&gt;
                 &lt;/div&gt;
-            &lt;/section&gt;
-            &lt;section class=&quot;row&quot;&gt;
+              &lt;/section&gt;
+              &lt;section class=&quot;row&quot;&gt;
+
+                &lt;!--                     ui-form-control-thumbs --&gt;
+
                 &lt;div class=&quot;form-group col-sm-5&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-thumbs-up ui-warning&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-thumbs-up&quot; name=&quot;ui-form-control-thumbs-up&quot; type=&quot;radio&quot;&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-thumbs-up ui-warning&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-thumbs-up&quot; name=&quot;ui-form-control-thumbs&quot; 
+                      value=&quot;ui-form-control-thumbs-up&quot; type=&quot;radio&quot;&gt;
                     &lt;label for=&quot;ui-form-control-thumbs-up&quot; title=&quot;ui-form-control-thumbs-up&quot;&gt;
-                    ui-form-control-thumbs-up
+                      ui-form-control-thumbs-up
                     &lt;/label&gt;
-                    &lt;/span&gt;&lt;br /&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-thumbs-down ui-warning&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-thumbs-down&quot; name=&quot;ui-form-control-thumbs-up&quot; type=&quot;radio&quot; checked&gt;
+                  &lt;/span&gt;
+                  &lt;br /&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-thumbs-down ui-warning&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-thumbs-down&quot; name=&quot;ui-form-control-thumbs&quot; type=&quot;radio&quot; 
+                      value=&quot;ui-form-control-thumbs-down&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-thumbs-down&quot;&gt;
-                    ui-form-control-thumbs-down
+                      ui-form-control-thumbs-down
                     &lt;/label&gt;
-                    &lt;/span&gt;
+                  &lt;/span&gt;
                 &lt;/div&gt;
                 &lt;div class=&quot;form-group col-sm-5&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-square &quot;&gt;
-                    &lt;input id=&quot;ui-form-control-square&quot; name=&quot;ui-form-control-square&quot; type=&quot;radio&quot;&gt;
+
+                  &lt;!--                     ui-form-control-square --&gt;
+
+                  &lt;span class=&quot;ui-form-control ui-form-control-square &quot;&gt;
+                    &lt;input id=&quot;ui-form-control-square&quot; name=&quot;ui-form-control-square&quot; 
+                      value=&quot;ui-form-control-square (1)&quot; type=&quot;radio&quot;&gt;
                     &lt;label for=&quot;ui-form-control-square&quot; title=&quot;ui-form-control-square&quot;&gt;
-                    ui-form-control-square (1)
+                      ui-form-control-square (1)
                     &lt;/label&gt;
-                    &lt;/span&gt;&lt;br /&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-square &quot;&gt;
-                    &lt;input id=&quot;ui-form-control-square-1&quot; name=&quot;ui-form-control-square&quot; type=&quot;radio&quot; checked&gt;
+                  &lt;/span&gt;
+                  &lt;br /&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-square &quot;&gt;
+                    &lt;input id=&quot;ui-form-control-square-1&quot; name=&quot;ui-form-control-square&quot; 
+                      value=&quot;ui-form-control-square (2)&quot; type=&quot;radio&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-square-1&quot;&gt;
-                    ui-form-control-square (2)
+                      ui-form-control-square (2)
                     &lt;/label&gt;
-                    &lt;/span&gt;
+                  &lt;/span&gt;
                 &lt;/div&gt;
-            &lt;/section&gt;
-            &lt;section class=&quot;row&quot;&gt;
+              &lt;/section&gt;
+              &lt;section class=&quot;row&quot;&gt;
+
+                &lt;!--                   ui-form-control-tool-bar ui-inline --&gt;
+
                 &lt;div class=&quot;form-group ui-inline col-sm-12&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-tool-bar&quot; name=&quot;ui-form-control-tool-bar&quot; type=&quot;radio&quot;&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-tool-bar&quot; name=&quot;ui-form-control-tool-bar&quot; type=&quot;radio&quot; 
+                      value=&quot;ui-form-control-tool-bar (1)&quot;&gt;
                     &lt;label for=&quot;ui-form-control-tool-bar&quot; title=&quot;ui-form-control-tool-bar&quot;&gt;
-                    ui-form-control-tool-bar (1)
+                      ui-form-control-tool-bar (1)
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-tool-bar-1&quot; name=&quot;ui-form-control-tool-bar&quot; type=&quot;radio&quot; checked&gt;
+                  &lt;/span&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-tool-bar-1&quot; name=&quot;ui-form-control-tool-bar&quot; type=&quot;radio&quot; 
+                      value=&quot;ui-form-control-tool-bar (2)&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-tool-bar-1&quot;&gt;
-                    ui-form-control-tool-bar (2)
+                      ui-form-control-tool-bar (2)
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-tool-bar-2&quot; name=&quot;ui-form-control-tool-bar&quot; type=&quot;radio&quot;&gt;
+                  &lt;/span&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-tool-bar-2&quot; name=&quot;ui-form-control-tool-bar&quot; 
+                      value=&quot;ui-form-control-tool-bar (3)&quot; type=&quot;radio&quot;&gt;
                     &lt;label for=&quot;ui-form-control-tool-bar-2&quot;&gt;
-                    ui-form-control-tool-bar (3)
+                      ui-form-control-tool-bar (3)
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-tool-bar-3&quot; name=&quot;ui-form-control-tool-bar&quot; type=&quot;radio&quot;&gt;
+                  &lt;/span&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-tool-bar-3&quot; name=&quot;ui-form-control-tool-bar&quot; 
+                      value=&quot;ui-form-control-tool-bar (4)&quot; type=&quot;radio&quot;&gt;
                     &lt;label for=&quot;ui-form-control-tool-bar-3&quot;&gt;
-                    ui-form-control-tool-bar (4)
+                      ui-form-control-tool-bar (4)
                     &lt;/label&gt;
-                    &lt;/span&gt;
+                  &lt;/span&gt;
                 &lt;/div&gt;
+
+                &lt;!--                   ui-form-control-tool-bar ui-block --&gt;
+
                 &lt;div class=&quot;form-group ui-block col-sm-5&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar ui-primary&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-tool-bar-block&quot; name=&quot;ui-form-control-tool-bar-block&quot; type=&quot;radio&quot;&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-tool-bar ui-primary&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-tool-bar-block&quot; name=&quot;ui-form-control-tool-bar-block&quot; type=&quot;radio&quot; 
+                      value=&quot;ui-form-control-tool-bar (1)&quot;&gt;
                     &lt;label for=&quot;ui-form-control-tool-bar-block&quot; title=&quot;ui-form-control-tool-bar&quot;&gt;
-                    ui-form-control-tool-bar (1)
+                      ui-form-control-tool-bar (1)
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar ui-primary&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-tool-bar-1-block&quot; name=&quot;ui-form-control-tool-bar-block&quot; type=&quot;radio&quot; checked&gt;
+                  &lt;/span&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-tool-bar ui-primary&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-tool-bar-1-block&quot; name=&quot;ui-form-control-tool-bar-block&quot; type=&quot;radio&quot; 
+                      value=&quot;ui-form-control-tool-bar (2)&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-tool-bar-1-block&quot;&gt;
-                    ui-form-control-tool-bar (2)
+                      ui-form-control-tool-bar (2)
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar ui-primary&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-tool-bar-2-block&quot; name=&quot;ui-form-control-tool-bar-block&quot; type=&quot;radio&quot;&gt;
+                  &lt;/span&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-tool-bar ui-primary&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-tool-bar-2-block&quot; name=&quot;ui-form-control-tool-bar-block&quot;  type=&quot;radio&quot; 
+                      value=&quot;ui-form-control-tool-bar (3)&quot;&gt;
                     &lt;label for=&quot;ui-form-control-tool-bar-2-block&quot;&gt;
-                    ui-form-control-tool-bar (3)
+                      ui-form-control-tool-bar (3)
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar ui-primary&quot;&gt;
-                    &lt;input id=&quot;ui-form-control-tool-bar-3-block&quot; name=&quot;ui-form-control-tool-bar-block&quot; type=&quot;radio&quot;&gt;
+                  &lt;/span&gt;
+                  &lt;span class=&quot;ui-form-control ui-form-control-tool-bar ui-primary&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-tool-bar-3-block&quot; name=&quot;ui-form-control-tool-bar-block&quot; type=&quot;radio&quot; 
+                      value=&quot;ui-form-control-tool-bar (4)&quot;&gt;
                     &lt;label for=&quot;ui-form-control-tool-bar-3-block&quot;&gt;
-                    ui-form-control-tool-bar (4)
+                      ui-form-control-tool-bar (4)
                     &lt;/label&gt;
-                    &lt;/span&gt;
+                  &lt;/span&gt;
                 &lt;/div&gt;
-            &lt;/section&gt;
-            &lt;section class=&quot;row&quot;&gt;
-                &lt;h4&gt;Large Controls&lt;/h4&gt;
-                &lt;div class=&quot;form-group col-sm-12&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-f ui-primary ui-1x&quot;&gt;
+              &lt;/section&gt;
+              &lt;section class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                  &lt;h4&gt;
+                    Large Controls
+                  &lt;/h4&gt;
+                  
+                  &lt;hr&gt;
+                  
+                  &lt;!-- 	                    ui-1x            --&gt;
+
+                  &lt;div class=&quot;ui-form-control ui-form-control-f ui-primary ui-1x&quot;&gt;
                     &lt;input id=&quot;ui-form-control-f-ui-1x&quot; type=&quot;checkbox&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-f-ui-1x&quot;&gt;
-                    ui-1x
+                      ui-1x
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-group col-sm-12&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-f ui-primary ui-2x&quot;&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- 	                    ui-2x            --&gt;
+
+                  &lt;div class=&quot;ui-form-control ui-form-control-f ui-primary ui-2x&quot;&gt;
                     &lt;input id=&quot;ui-form-control-f-ui-2x&quot; type=&quot;checkbox&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-f-ui-2x&quot;&gt;
-                    ui-2x
+                      ui-2x
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-group col-sm-12&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-f ui-primary ui-3x&quot;&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- 	                    ui-3x            --&gt;
+                  
+                  &lt;div class=&quot;ui-form-control ui-form-control-f ui-primary ui-3x&quot;&gt;
                     &lt;input id=&quot;ui-form-control-f-ui-3x&quot; type=&quot;checkbox&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-f-ui-3x&quot;&gt;
-                    ui-3x
+                      ui-3x
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-group col-sm-12&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-f ui-primary ui-4x&quot;&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- 	                    ui-4x            --&gt;
+                  
+                  &lt;div class=&quot;ui-form-control ui-form-control-f ui-primary ui-4x&quot;&gt;
                     &lt;input id=&quot;ui-form-control-f-ui-4x&quot; type=&quot;checkbox&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-f-ui-4x&quot;&gt;
-                    ui-4x
+                      ui-4x
                     &lt;/label&gt;
-                    &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-group col-sm-12&quot;&gt;
-                    &lt;span class=&quot;ui-form-control ui-form-control-f ui-primary ui-5x&quot;&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- 	                    ui-5x            --&gt;
+                  
+                  &lt;div class=&quot;ui-form-control ui-form-control-f ui-primary ui-5x&quot;&gt;
                     &lt;input id=&quot;ui-form-control-f-ui-5x&quot; type=&quot;checkbox&quot; checked&gt;
                     &lt;label for=&quot;ui-form-control-f-ui-5x&quot;&gt;
-                    ui-5x
+                      ui-5x
                     &lt;/label&gt;
-                    &lt;/span&gt;
+                  &lt;/div&gt;
                 &lt;/div&gt;
-            &lt;/section&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+                
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                  &lt;h4&gt;
+                    Disabled
+                  &lt;/h4&gt;                  
+                  &lt;hr&gt;
+
+                  &lt;div class=&quot;col-sm-12 ui-form-control ui-form-control-o&quot;&gt;
+                    &lt;input id=&quot;ui-form-control-o-disabled&quot; type=&quot;checkbox&quot; disabled=&quot;disabled&quot; checked&gt;
+                    &lt;label for=&quot;ui-form-control-o-disabled&quot;&gt;
+                      disabled
+                    &lt;/label&gt;                    
+                  &lt;/div&gt;
+                  
+                  &lt;div class=&quot;form-group ui-inline col-sm-12&quot;&gt;                    
+                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
+                      &lt;input id=&quot;ui-form-control-tool-bar-disabled&quot; name=&quot;ui-form-control-tool-bar&quot; 
+                      type=&quot;radio&quot; disabled=&quot;disabled&quot;&gt;
+                      &lt;label for=&quot;ui-form-control-tool-bar-disabled&quot; title=&quot;ui-form-control-tool-bar-disabled&quot;&gt;
+                        disabled (1)
+                      &lt;/label&gt;
+                    &lt;/span&gt;
+                    
+                    &lt;span class=&quot;ui-form-control ui-form-control-tool-bar&quot;&gt;
+                      &lt;input id=&quot;ui-form-control-tool-bar-disabled-1&quot; name=&quot;ui-form-control-tool-bar-disabled&quot; 
+                      type=&quot;radio&quot; checked disabled=&quot;disabled&quot;&gt;
+                      &lt;label for=&quot;ui-form-control-tool-bar-disabled-1&quot;&gt;
+                        disabled (2)
+                      &lt;/label&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                
+              &lt;/section&gt;
+              
+          &lt;/div&gt;
+      &lt;/div&gt;
 &lt;/section&gt;
                                          </code>
                                         </pre>
@@ -3081,7 +3287,7 @@ function showResult(input, strId) {
                                         <div id="tab-form-custom-controls-3">
                                             <div class="row component-example">
                                                 <div class="col-md-12">
-                                                    <object data="components/form/form-custom-controls.html" style="height:1180px"></object>
+                                                    <object data="components/form/form-custom-controls.html" style="height:1200px"></object>
                                                 </div>
                                             </div>
                                         </div>

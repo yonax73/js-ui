@@ -972,7 +972,7 @@ UI.Form = function (HtmlElement) {
 
     var inputs = null;
     var textAreas = null;
-    var result = false;
+    var result = true;
     var changed = false;
     var Form = this;
     var hasSuccess = 'has-success';
@@ -1065,10 +1065,11 @@ UI.Form = function (HtmlElement) {
             multiples.push(result ? 1 : 0);
             i++;
         }
+        validateGroupCheckBox();
         i = 0;
         while (i < n) {
             totalMultiple *= multiples[i++];
-        }
+        }        
         return totalMultiple > 0;
     }
 
@@ -1091,7 +1092,6 @@ UI.Form = function (HtmlElement) {
             if (!name.isEmpty()) {
                 switch (type) {
                     case 'text':
-                    case 'radio':
                     case 'checkbox':
                     case 'search':
                     case 'email':
@@ -1111,6 +1111,9 @@ UI.Form = function (HtmlElement) {
                     case 'select':
                     case 'hidden':
                         serialized.push(name + '=' + value);
+                     	break;
+                    case 'radio':
+                    	if(element.checked)serialized.push(name + '=' + value);                   
                         break;       
                     default:                        
                         break;
@@ -1133,8 +1136,7 @@ UI.Form = function (HtmlElement) {
             if (!name.isEmpty()) {
                 switch (type) {
                     case 'text':
-                    case 'radio':
-                    case 'checkbox':
+                    case 'checkbox':                    
                     case 'search':
                     case 'email':
                     case 'url':
@@ -1154,6 +1156,9 @@ UI.Form = function (HtmlElement) {
                     case 'hidden':
                         json[name] = value;
                         break;
+                    case 'radio':
+                    	if(element.checked)json[name]= value;
+                    	break;
                 }
             }
         }
@@ -1214,6 +1219,49 @@ UI.Form = function (HtmlElement) {
         }
     }
 
+    function validateGroupCheckBox(){
+    	
+    	var groups = HtmlElement.getElementsByClassName('group-checkbox');
+    	var n = groups ? groups.length : 0;
+    	if(n > 0){    		
+    		for ( var g = 0; g < n; g++) {
+    			var group = groups[g];
+
+				if(group.dataset.checkmin){
+					var min = group.dataset.checkmin;                    
+	    		  if(countChecks() < min){	    			  
+	    			  var small = group.getElementsByClassName('ui-form-msg')[0];
+	    			  small.classList.remove('hidden');	    			  
+	    			  small.textContent = 'Error';
+	    			  }else{
+	    				  var small = group.getElementsByClassName('ui-form-msg')[0];
+	    				  small.classList.add('hidden');	    			  
+	    		    }	
+				}else if(group.dataset.checkmax){
+					
+				}else if(group.dataset.checkrange){
+					
+				}
+			}
+    	}    	
+    	
+    }
+    
+    function countChecks(group){
+		var checkboxes = group.querySelectorAll('input[type="checkbox"]'); 
+		var k = checkboxes.length;
+		var checks = 0;
+		for ( var c = 0; c < k; c++) {
+			var checkbox = checkboxes[c];
+			if(checkbox.checked) checks++;						
+		}
+		return checks;
+    }
+    
+    function validateCheckBox(condition,gruop,msg){
+    	
+    }
+    
    function showMessage(input, message) {
         var small = null;
         var type = input.type;

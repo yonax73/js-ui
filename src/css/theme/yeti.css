@@ -5197,3 +5197,16 @@ label, .control-label, .help-block, .checkbox, .radio {
 .ui-form-control.ui-form-control-line-through.ui-danger label {
     color: #f04124;
 }
+.ui-form-control input[type="checkbox"][disabled]+ label::before,
+.ui-form-control input[type="radio"][disabled] + label::before{
+    color:#eeeeee;
+}
+.ui-form-control.ui-form-control-tool-bar input[type="checkbox"][disabled]+ label,
+.ui-form-control.ui-form-control-tool-bar input[type="radio"][disabled] + label{
+    background-color:#eeeeee; 
+     
+}
+.ui-form-control.ui-form-control-tool-bar input[type="checkbox"][disabled]+ label::before,
+.ui-form-control.ui-form-control-tool-bar input[type="radio"][disabled] + label::before{
+   color:inherit;  
+}
