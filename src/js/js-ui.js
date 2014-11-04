@@ -958,7 +958,7 @@ UI.NavScrollV = function (HtmlElement, items, options) {
 }
 /*
  * ========================================================================
- * UI-FORM-OK
+ * UI-FORM
  * Author  : Yonatan Alexis Quintero Rodriguez
  * Version : 0.1
  * Date    : 17 Oct 2014
@@ -971,18 +971,19 @@ UI.NavScrollV = function (HtmlElement, items, options) {
 UI.Form = function (HtmlElement) {
 
     var inputs = null;
+    var textAreas = null;
     var result = false;
     var changed = false;
     var Form = this;
     var hasSuccess = 'has-success';
     var hasError = 'has-error';
     this.msgRequired = 'This field is required and can\'t be empty!';
-    this.msgFullName = 'This field is not a valid name!';
-    this.msgEmail = 'This field is not a valid email address!';
+    this.msgFullName = 'Please enter a valid name!';
+    this.msgEmail = 'Please enter a valid e-mail!';
     this.msgEquals = 'This field and the field to confirm are not the same!';
-    this.msgCheck = 'Plase check!;'
+    this.msgCheck = 'Please check!'
     this.msgAccept = 'Please accept!'
-    this.msgMoney = 'This money format is incorrect,please check!';
+    this.msgMoney = 'Please enter a valid money format!';
     this.msgMaxLength = 'Please enter no more than {#} characters!';
     this.msgMinLength = 'Please enter at least {#} characters!';
     this.msgRangeLength = 'Please enter a value between {#min} and {#max} characters long!';
@@ -993,12 +994,12 @@ UI.Form = function (HtmlElement) {
     this.msgDate = 'Please enter a valid date!';
     this.msgNumber = 'Please enter a valid number!';
     this.msgCreditCard = 'Please enter a valid credit card number!';
-    this.msgValidOption = 'Please enter a valid option !';
+    this.msgValidOption = 'Please enter a valid option!';
 
 
     function init() {
-        if (HtmlElement) {
-            inputs = HtmlElement.getElementsByTagName('input');
+        if (HtmlElement) { 
+            inputs = HtmlElement.querySelectorAll('input,textarea');
             var n = inputs.length;
             for (var i = 0; i < n; i++) {
                 var input = inputs[i];
@@ -1034,17 +1035,23 @@ UI.Form = function (HtmlElement) {
                     }
 
                 }
-                if (input.dataset.blur === 'true') {
+                if (input.dataset.blur) {
                     input.onblur = function () {
                         return validate(this);
                     }
                 }
-                if (input.dataset.keyup === 'true') {
+                if (input.dataset.keyup) {
                     input.onkeyup = function () {
                         return validate(this);
                     }
                 }
-            }
+                /*
+                 * Add event onchange
+                 */
+                input.onchange = function () {
+                    changed = true; 
+                }   
+            }           
         }
     }
 
@@ -1066,13 +1073,6 @@ UI.Form = function (HtmlElement) {
     }
 
     this.hasChanged = function () {
-        var n = inputs.length;
-        var i = 0;
-        while (i < n && !changed) {
-            inputs[i++].onchange = function () {
-                changed = true;
-            }
-        }
         var changedAux = changed;
         changed = false;
         return changedAux;
@@ -1206,7 +1206,7 @@ UI.Form = function (HtmlElement) {
                 }
                 break;
             /*
-            * An input without validations is valid.
+            * The other inputs by default are valid
             */
             default:
                 result = true;
@@ -1270,13 +1270,13 @@ UI.Form = function (HtmlElement) {
         */
         if (input.dataset.fullname) {
             result = Form.isFullName(input.value) ? success(input) : error(input, Form.msgFullName);
-        }
+        }else
         /*
         * Check email
         */
         if (input.dataset.email) {
             result = Form.isEmail(input.value) ? success(input) : error(input, Form.msgEmail);
-        }
+        }else
         /*
         * Check equals to
         */
@@ -1286,27 +1286,27 @@ UI.Form = function (HtmlElement) {
             if (result) {
                 generalValidations(tmpInp);
             }
-        }
+        }else
         /*
         * Check money
         */
         if (input.dataset.money) {
             result = Form.isMoney(input.value) ? success(input) : error(input, Form.msgMoney);
-        }
+        }else
         /*
         * Check max length
         */
         if (input.dataset.maxlength) {
             var length = input.dataset.maxlength;
             result = Form.maxLength(input.value, length) ? success(input) : error(input, Form.msgMaxLength.replace('{#}', length));
-        }
+        }else
         /*
         * Check min length
         */
         if (input.dataset.minlength) {
             var length = input.dataset.minlength;
             result = Form.minLength(input.value, length) ? success(input) : error(input, Form.msgMinLength.replace('{#}', length));
-        }
+        }else
         /*
         * Check range length
         */
@@ -1315,21 +1315,21 @@ UI.Form = function (HtmlElement) {
             var min = data[0];
             var max = data[1];
             result = Form.rangeLength(input.value, min, max) ? success(input) : error(input, Form.msgRangeLength.replace('{#min}', min).replace('{#max}', max));
-        }
+        }else
         /*
         * Check max number
         */
         if (input.dataset.max) {
             var max = input.dataset.max;
             result = Form.max(input.value, max) ? success(input) : error(input, Form.msgMax.replace('{#}', max));
-        }
+        }else
         /*
         * Check min number
         */
         if (input.dataset.min) {
             var min = input.dataset.min;
             result = Form.min(input.value, min) ? success(input) : error(input, Form.msgMin.replace('{#}', min));
-        }
+        }else
         /*
         * Check range number
         */
@@ -1338,36 +1338,38 @@ UI.Form = function (HtmlElement) {
             var min = data[0];
             var max = data[1];
             result = Form.range(input.value, min, max) ? success(input) : error(input, Form.msgRange.replace('{#min}', min).replace('{#max}'.max));
-        }
+        }else
         /*
         * Check URL
         */
         if (input.dataset.url) {
             result = Form.isURL(input.value) ? success(input) : error(input, Form.msgURL);
-        }
+        }else
         /*
         * Check date
         */
         if (input.dataset.date) {
             result = Form.isDate(input.value) ? success(input) : error(input, Form.msgDate);
-        }
+        }else
         /*
         * Check number
         */
         if (input.dataset.number) {
             result = Form.isNumber(input.value) ? success(input) : error(input, Form.msgNumber);
-        }
+        }else
         /*
         * Check credit card
         */
         if (input.dataset.creditcard) {
             result = Form.isCreditCard(input.value) ? success(input) : error(input, Form.msgCreditCard);
-        }
+        }else
         /*
         * Check UI-Select Option
         */
         if (input.dataset.option) {
             result = Form.isValidOption(input, input.dataset.option) ? success(input) : error(input, Form.msgValidOption);
+        }else{
+        	success(input);
         }
 
     }
@@ -1472,10 +1474,15 @@ UI.Form = function (HtmlElement) {
     * @returns true if value is Date
     */
     this.isDate = function (value) {        
-        var parms = value.split(/[\.\-\/]/);
-        var yyyy = parseInt(parms[2], 10);
+        var parms = value.split(/[\.\-\/]/);        
+        var yyyy = parseInt(parms[2],10);;        
         var mm = parseInt(parms[1], 10);
         var dd = parseInt(parms[0], 10);
+        if (yyyy < 1582) {
+            var tmp = yyyy;
+            yyyy = dd;
+            dd = tmp;
+        }        
         var date = new Date(yyyy, mm - 1, dd);
         return (mm === (date.getMonth() + 1) && dd === date.getDate() && yyyy === date.getFullYear());
     }
@@ -1849,7 +1856,10 @@ UI.Calendar = function (HtmlElement, options) {
                             }
                         }
                         displayDate.setDate(this.textContent);
-                        options.input.value = displayDate.format(options.input.dataset.date);
+                        var tmpInput = options.input;                        
+                        tmpInput.value = displayDate.format(tmpInput.dataset.date);                        
+                        tmpInput.onchange(); 
+                        tmpInput.onblur();
                         Calendar.close();
                     }
                 }
@@ -2242,6 +2252,7 @@ UI.Calendar = function (HtmlElement, options) {
             var value = input.value;
             if (!value.isEmpty()) {
                 displayDate = new Date().parse(value, input.dataset.date);
+                displayDate = displayDate.isValid() ? displayDate : new Date();                 
                 var col = displayDate.getDay();
                 var row = displayDate.getWeekOfMonth();
                 displayDate.setDate(01);
@@ -2297,6 +2308,85 @@ UI.Calendar = function (HtmlElement, options) {
     init();
 
 }
+/*
+ * ========================================================================
+ * UI-CHECKBOX CUSTOM
+ * Author  : Yonatan Alexis Quintero Rodriguez
+ * Version : 0.1
+ * Date    : 30 Oct 2014
+ * ========================================================================
+ */
+//UI.Checkbox = function(){
+//	
+//	function customize(className, classChecked, classUnchecked) {
+//	    var checks = document.getElementsByClassName(className);
+//	    var n =  checks.length;
+//	    for (var i = 0; i < n; i++) {
+//	        var check = checks[i];
+//	        var input = check.getElementsByTagName('input')[0];
+//	        if (input.checked) {
+//	            check.classList.add('fa');
+//	            check.classList.add(classChecked);
+//	            check.classList.add('fa-fw');
+//	        } else {
+//	            check.classList.add('fa');
+//	            check.classList.add(classUnchecked);
+//	            check.classList.add('fa-fw');
+//	        }
+//	        check.onclick = function () {
+//	            if (this.classList.contains(classUnchecked)) {
+//	                this.classList.remove(classUnchecked);
+//	                this.classList.add(classChecked);//console.log(this);
+//	                eval(this.dataset.fn)
+//	                var input = this.getElementsByTagName('input')[0];
+//	              //  input.onclick();
+//	                
+//	            } else {
+//	                this.classList.add(classUnchecked);
+//	                this.classList.remove(classChecked);
+//	                eval(this.dataset.fn)
+//	                var input = this.getElementsByTagName('input')[0];
+//	               // input.onclick();
+//
+//	            }
+//	        }
+//	    }
+//	}
+//	/*
+//	 * ui-checbox
+//	 */
+////	customize('ui-checkbox', 'fa-check-square', 'fa-square');
+//	/*
+//	 * ui-checkbox-ui
+//	 */
+//	customize('ui-checkbox-o', 'fa-check-square-o', 'fa-square-o');
+//	/*
+//	 * ui-checkbox-plus
+//	 */
+//	customize('ui-checkbox-plus', 'fa-plus-square', 'fa-minus-square');
+//	/*
+//	 * ui-checkbox-plus-o
+//	 */
+//	customize('ui-checkbox-plus-o', 'fa-plus-square-o', 'fa-minus-square-o');
+//	/*
+//	 * ui-checkbox-toggle
+//	 */
+//	customize('ui-checkbox-toggle', 'fa-toggle-on', 'fa-toggle-off');
+//	/*
+//	 * ui-checkbox-start
+//	 */
+//	customize('ui-checkbox-start', 'fa-star', 'fa-star-o');
+//	/*
+//	 * ui-checkbox-heart
+//	 */
+//	customize('ui-checkbox-heart', 'fa-heart', 'fa-heart-o');
+//	/*
+//	 * ui-checkbox-simplex
+//	 */
+//	customize('ui-checkbox-simplex', 'fa-check', 'fa-times');	
+//	
+//}
+//UI.Checkbox();
 
 /*
  * ========================================================================
@@ -2534,6 +2624,13 @@ Date.prototype.nextMonth = function () {
 */
 Date.prototype.clone = function () {
     return new Date(this.getFullYear(), this.getMonth(), this.getDate());
+}
+/*
+ * check valid date
+ * @returns true if the date is valid
+ */
+Date.prototype.isValid = function(){
+	return !isNaN(this.getTime());
 }
 /*
 * format provided date into this.format format

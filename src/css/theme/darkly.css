@@ -5001,3 +5001,67 @@ input, textarea {
 .dropdownlist.has-success >span{
     border-color: #ffffff;
 }
+/*************************************************************************
+*                                                                        *
+*                               UI-FORM-CONTROLS                         * 
+*                                                                        * 
+***************************************************************************/
+.ui-form-control.ui-primary label::before {
+    color: #375a7f;
+}
+
+.ui-form-control.ui-success label::before {
+    color: #00bc8c;
+}
+
+.ui-form-control.ui-info label::before {
+    color: #3498db;
+}
+
+.ui-form-control.ui-warning label::before {
+    color: #f39c12;
+}
+
+.ui-form-control.ui-danger label::before {
+    color: #e74c3c;
+}
+
+.ui-form-control.ui-form-control-tool-bar.ui-primary label {
+    background-color: #375a7f;
+}
+
+.ui-form-control.ui-form-control-tool-bar.ui-success label {
+    background-color: #00bc8c;
+}
+
+.ui-form-control.ui-form-control-tool-bar.ui-info label {
+    background-color: #3498db;
+}
+
+.ui-form-control.ui-form-control-tool-bar.ui-warning label {
+    background-color: #f39c12;
+}
+
+.ui-form-control.ui-form-control-tool-bar.ui-danger label {
+    background-color: #e74c3c;
+}
+
+.ui-form-control.ui-form-control-line-through.ui-primary label {
+    color: #375a7f;
+}
+
+.ui-form-control.ui-form-control-line-through.ui-success label {
+    color: #00bc8c;
+}
+
+.ui-form-control.ui-form-control-line-through.ui-info label {
+    color: #3498db;
+}
+
+.ui-form-control.ui-form-control-line-through.ui-warning label {
+    color: #f39c12;
+}
+
+.ui-form-control.ui-form-control-line-through.ui-danger label {
+    color: #e74c3c;
+}

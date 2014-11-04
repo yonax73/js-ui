@@ -114,9 +114,11 @@ blockquote {
 }
 
 a.text-simple{
-     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: normal;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 90%;
+    font-style: italic;
+    font-weight: bold;
+    padding: 0;
     
 }
 
